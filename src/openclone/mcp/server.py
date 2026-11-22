@@ -140,7 +140,26 @@ TOOLS = [
             "properties": {
                 "topic": {
                     "type": "string",
-                    "enum": ["anti_slop", "morphism_styles", "deployment", "requirements", "governance"],
+                    "enum": [
+                        "anti_slop",
+                        "morphism_styles",
+                        "deployment",
+                        "requirements",
+                        "governance",
+                        "saas_security",
+                        "ui_ux_catalogue",
+                        "ui_ux_quality",
+                        "motion_design",
+                        "backend_catalogue",
+                        "ai_catalogue",
+                        "external_repos",
+                        "skills",
+                        "engineering_lifecycle",
+                        "lifecycle_catalogue",
+                        "quality_gates",
+                        "verification_evidence",
+                        "ide_handoff",
+                    ],
                     "description": "Specific guidance topic to retrieve.",
                 },
             },
@@ -349,6 +368,11 @@ class OpenCloneMCPServer:
             "ai_catalogue": self.root / "docs" / "knowledge" / "ai-engineering-catalogue.md",
             "external_repos": self.root / "docs" / "integrations" / "27-repositories-audit.md",
             "skills": self.root / "registries" / "SKILL-REGISTRY.md",
+            "engineering_lifecycle": self.root / "docs" / "engineering-lifecycle" / "README.md",
+            "lifecycle_catalogue": self.root / "docs" / "engineering-lifecycle" / "MASTER_LIFECYCLE_CATALOGUE.md",
+            "quality_gates": self.root / "docs" / "engineering-lifecycle" / "STATUS_AND_QUALITY_GATES.md",
+            "verification_evidence": self.root / "docs" / "engineering-lifecycle" / "VERIFICATION_AND_EVIDENCE.md",
+            "ide_handoff": self.root / "docs" / "engineering-lifecycle" / "IDE_HANDOFF_CONTRACT.md",
         }
         target = topic_map.get(topic)
         if target and target.exists() and safe_relative_path(target, self.root):

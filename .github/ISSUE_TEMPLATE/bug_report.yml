@@ -1,0 +1,59 @@
+name: Bug Report
+description: Create a report to help us fix a defect or regression in OpenClone
+title: "[BUG]: "
+labels: ["bug", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for reporting an issue in OpenClone!
+        Please verify the bug exists in the latest version before submitting.
+  - type: input
+    id: version
+    attributes:
+      label: OpenClone Version
+      description: What version of OpenClone are you running? (Run `openclone --version` or check `pyproject.toml`)
+      placeholder: "1.0.0"
+    validations:
+      required: true
+  - type: dropdown
+    id: component
+    attributes:
+      label: Affected Component
+      description: Select the primary module where the issue occurs.
+      options:
+        - "MCP Server (src/openclone/mcp/server.py)"
+        - "CLI / Workforce Runtime"
+        - "Lifecycle & Verification Engine (src/openclone/lifecycle/)"
+        - "Skill Discovery Engine (src/openclone/skills/)"
+        - "Portable Template / Workflow (WF-015)"
+        - "Taste Skill Anti-Slop Governance"
+        - "Other"
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction Steps
+      description: How can maintainers reproduce the issue?
+      placeholder: |
+        1. Run command '...'
+        2. Inspect output
+        3. See error '...'
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected Behavior
+      description: A clear and concise description of what you expected to happen.
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment & Host Details
+      description: Operating system, Python version, IDE host (Antigravity, Claude Code, Cursor, Codex).
+      placeholder: "Windows 11, Python 3.10, Google Antigravity"
+    validations:
+      required: true

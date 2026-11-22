@@ -7,10 +7,24 @@ root = Path(__file__).resolve().parents[2]
 if str(root) not in sys.path:
     sys.path.insert(0, str(root))
 
-if __name__ == "__main__":
+
+def main():
+    """Main CLI entrypoint for openclone and aisdf commands."""
     if len(sys.argv) > 1 and sys.argv[1] == "mcp":
-        from src.openclone.mcp.server import main
-        main()
+        from src.openclone.mcp.server import main as mcp_main
+        mcp_main()
+    elif len(sys.argv) > 1 and sys.argv[1] == "lifecycle":
+        from tools.checklist_engine import main as lifecycle_main
+        sys.argv.pop(1)
+        lifecycle_main()
+    elif len(sys.argv) > 1 and sys.argv[1] == "skill":
+        from tools.skill_engine import main as skill_main
+        sys.argv.pop(1)
+        skill_main()
     else:
-        from runtime.aisdf_runtime.workforce import main
-        main()
+        from runtime.aisdf_runtime.workforce import main as workforce_main
+        workforce_main()
+
+
+if __name__ == "__main__":
+    main()

@@ -43,6 +43,20 @@
 - [AI Engineering Catalogue](knowledge-catalogues/AI_ENGINEERING_CATALOGUE.md) — 1,095 topics across 18 domains with token budgeting standards.
 - [Catalogue to Product Capability Map](knowledge-catalogues/CATALOGUE_TO_PRODUCT_CAPABILITY_MAP.md) — Product classification mapping.
 
+## Engineering Lifecycle & Independent Verification Suite
+- [Lifecycle Suite Index](engineering-lifecycle/README.md) — 22-phase lifecycle and dynamic verification architecture.
+- [Baseline Audit](engineering-lifecycle/BASELINE_AUDIT.md) — Pre-implementation audit and gap analysis.
+- [Master Lifecycle Catalogue](engineering-lifecycle/MASTER_LIFECYCLE_CATALOGUE.md) — Complete 22-phase taxonomy and catalogued tasks.
+- [Project-Type Packs](engineering-lifecycle/PROJECT_TYPE_PACKS.md) — 10 specialized project configurations.
+- [Checklist Item Schema](engineering-lifecycle/CHECKLIST_ITEM_SCHEMA.md) — Data contracts for lifecycle tasks.
+- [Status & Quality Gates](engineering-lifecycle/STATUS_AND_QUALITY_GATES.md) — Enforced state transitions and phase exit criteria.
+- [Verification & Evidence](engineering-lifecycle/VERIFICATION_AND_EVIDENCE.md) — 6 verification levels (V0–V5) and truth checks.
+- [IDE Handoff Contract](engineering-lifecycle/IDE_HANDOFF_CONTRACT.md) — Scoped context packaging and anti-hallucination guards.
+- [Traceability & Change Impact](engineering-lifecycle/TRACEABILITY_AND_CHANGE_IMPACT.md) — Bidirectional mapping and change invalidation.
+- [Security Model](engineering-lifecycle/SECURITY_MODEL.md) — Sandbox boundaries and secret redaction.
+- [Test Matrix](engineering-lifecycle/TEST_MATRIX.md) — Automated verification and test cases.
+- [Implementation Report](engineering-lifecycle/IMPLEMENTATION_REPORT.md) — Final delivery verification and acceptance record.
+
 ## Technical Architectures, Security & Integrations
 - [Workflow Runtime](WORKFLOW-RUNTIME.md) — State machine, dependency DAG, and cryptographic ledger.
 - [19-Point SaaS Security Baseline](security/saas-security-baseline.md) — Exhaustive pre-production SaaS security controls and verification checks.
