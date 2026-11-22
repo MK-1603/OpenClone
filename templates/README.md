@@ -14,6 +14,9 @@ Use these templates to bootstrap or normalize any software project. They are des
 | [`IMPLEMENTATION_PLAN.template.md`](IMPLEMENTATION_PLAN.template.md) | `IMPLEMENTATION_PLAN.md` | Phased milestone roadmap with dependency ordering. |
 | [`SECURITY_PLAN.template.md`](SECURITY_PLAN.template.md) | `SECURITY_PLAN.md` | Threat model, static analysis checkpoints, and dynamic test authorization. |
 | [`ACCEPTANCE_MATRIX.template.md`](ACCEPTANCE_MATRIX.template.md) | `ACCEPTANCE_MATRIX.md` | Traceable requirement-to-test mapping and verification ledger. |
+| [`ARCHITECTURE.template.md`](ARCHITECTURE.template.md) | `ARCHITECTURE.md` | System topology, component boundaries, and data flow specifications. |
+| [`DATA_LIFECYCLE.template.md`](DATA_LIFECYCLE.template.md) | `DATA_LIFECYCLE.md` | Data classification, retention, persistence, and migration policies. |
+| [`DECISIONS.template.md`](DECISIONS.template.md) | `DECISIONS.md` | Architectural Decision Records (ADRs) documenting rationale and trade-offs. |
 | [`PROGRESS.template.md`](PROGRESS.template.md) | `PROGRESS.md` | Real-time milestone tracker, active task log, and blocker register. |
 | [`HANDOFF.template.md`](HANDOFF.template.md) | `HANDOFF.md` | Durable context continuation protocol across LLM context window resets. |
 

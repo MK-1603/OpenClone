@@ -38,6 +38,7 @@ This directory contains the canonical foundational blueprints, architecture maps
 | [`OPENCLONE_FROM_PROJECT_MD_TO_COMPLETED_SOFTWARE_PROJECT_v1.0.0.md`](OPENCLONE_FROM_PROJECT_MD_TO_COMPLETED_SOFTWARE_PROJECT_v1.0.0.md) | v1.0.0 | End-to-end user workflow, product behavior, vertical slices, and coding-agent execution contract from idea/PROJECT.md to verified delivery |
 | [`OPENCLONE_STRIX_FEASIBILITY_INTEGRATION_AND_PROJECT_COMPLETION_UPGRADE_v1.0.0.md`](OPENCLONE_STRIX_FEASIBILITY_INTEGRATION_AND_PROJECT_COMPLETION_UPGRADE_v1.0.0.md) | v1.0.0 | Strix dynamic AI penetration testing feasibility assessment, target authorization boundaries, finding-to-fix lifecycle, and retesting |
 | [`OPENCLONE_PROJECT_MD_ONLY_PROJECT_INTELLIGENCE_AND_IDE_BUILD_WORKFLOW_v2.0.0.md`](OPENCLONE_PROJECT_MD_ONLY_PROJECT_INTELLIGENCE_AND_IDE_BUILD_WORKFLOW_v2.0.0.md) | v2.0.0 | Portable specification-to-build system enabling zero-install project builds from a single PROJECT.md across any AI coding IDE |
+| [`OPENCLONE_UNIFIED_PROJECT_INTELLIGENCE_UPGRADE_v2.1.0.md`](OPENCLONE_UNIFIED_PROJECT_INTELLIGENCE_UPGRADE_v2.1.0.md) | v2.1.0 | Unified Project Intelligence & Portable IDE Execution Upgrade: Traceability engine, 12-phase lifecycle, change-impact management |
 
 ---
 

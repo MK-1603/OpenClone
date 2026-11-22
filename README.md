@@ -30,7 +30,7 @@
   <a href="#the-instruction-first-engineering-lifecycle">Lifecycle</a> ·
   <a href="#anti-ai-slop-governance-taste-skill-v260">Anti-Slop UX</a> ·
   <a href="#security-and-quality-workflow">Security & QA</a> ·
-  <a href="blueprints/README.md">30 Blueprints</a> ·
+  <a href="blueprints/README.md">31 Blueprints</a> ·
   <a href="#develop-openclone-maintainers--contributors-only">Maintainer Setup</a>
 </p>
 
