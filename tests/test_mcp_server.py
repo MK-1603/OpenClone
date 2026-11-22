@@ -46,7 +46,7 @@ class MCPServerTests(unittest.TestCase):
         status = self.server.call_tool("openclone_get_status", {})
         self.assertEqual(status["product"], "OpenClone")
         self.assertEqual(status["standard"], "AISDF")
-        self.assertEqual(status["version"], "1.0.0")
+        self.assertEqual(status["version"], "2.0.0")
         self.assertEqual(status["metrics"]["domains"], 31)
         self.assertEqual(status["metrics"]["engines"], 56)
         self.assertEqual(status["metrics"]["workflows"], 15)

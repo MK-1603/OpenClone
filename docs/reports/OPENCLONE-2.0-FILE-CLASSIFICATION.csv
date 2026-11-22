@@ -1,0 +1,35 @@
+path,classification,reason,canonical_replacement,references_found,license_or_provenance,risk,proposed_action,verification,approval_required
+README.md,CORE_KEEP,Primary project landing page and global plugin documentation,None,High,MIT,High,Keep and maintain at root,validate_repository.py,No
+openclone.manifest.json,CORE_KEEP,Canonical OpenClone 2.0 runtime manifest,None,High,MIT,High,Keep and maintain (2.0.0),validate_repository.py,No
+aisdf.manifest.json,CORE_KEEP,AISDF Standard 1.0.0 framework manifest,None,High,MIT,High,Keep and maintain,validate_repository.py,No
+plugin.json,CORE_KEEP,Root Antigravity plugin manifest for zero-clone GitHub install,None,High,MIT,High,Keep at root (2.0.0),validate_repository.py,No
+VERSION,CORE_KEEP,Canonical software version single source of truth,None,High,MIT,High,Keep (2.0.0),validate_repository.py,No
+pyproject.toml,CORE_KEEP,Python package metadata and CLI script definitions,None,High,MIT,High,Keep (openclone 2.0.0),validate_repository.py,No
+AGENTS.md,CORE_KEEP,Operating contract governing AI coding agents,None,High,MIT,High,Keep at root,validate_repository.py,No
+PROJECT.md,CORE_KEEP,Product source of truth and active project specification,None,High,MIT,High,Keep at root,validate_repository.py,No
+src/openclone/cli.py,CORE_KEEP,Main CLI entrypoint routing MCP lifecycle and installer verbs,None,High,MIT,High,Keep in src/,test_installer.py,No
+src/openclone/mcp/server.py,CORE_KEEP,Shared Model Context Protocol JSON-RPC 2.0 service,None,High,MIT,High,Keep in src/,test_mcp_server.py,No
+src/openclone/integrations/capabilities.py,CORE_KEEP,15 canonical capabilities and risk classifications,None,High,MIT,High,Keep in src/,test_universal_integrations.py,No
+src/openclone/integrations/gateway.py,CORE_KEEP,Policy engine and cryptographic human approval validator,None,High,MIT,High,Keep in src/,test_universal_integrations.py,No
+src/openclone/installer/engine.py,CORE_KEEP,Transactional installation engine with backup and rollback,None,High,MIT,High,Keep in src/,test_installer.py,No
+src/openclone/installer/detector.py,CORE_KEEP,Cross-platform AI host detector,None,High,MIT,High,Keep in src/,test_installer.py,No
+src/openclone/installer/manifest.py,CORE_KEEP,Installation ownership ledger manager,None,High,MIT,High,Keep in src/,test_installer.py,No
+src/openclone/installer/cli.py,CORE_KEEP,Command-line interface for installer verbs,None,High,MIT,High,Keep in src/,test_installer.py,No
+modules/modules.manifest.json,CORE_KEEP,Modular capability packs manifest,None,High,MIT,High,Keep in modules/,validate_repository.py,No
+modules/README.md,CORE_KEEP,Progressive disclosure documentation,None,High,MIT,High,Keep in modules/,validate_repository.py,No
+adapters/antigravity/,ADAPTER_KEEP,Google Antigravity native plugin and workspace rules,None,High,MIT,Medium,Keep in adapters/,validate_repository.py,No
+adapters/claude-code/,ADAPTER_KEEP,Claude Code marketplace plugin and workspace skill,None,High,MIT,Medium,Keep in adapters/,test_installer.py,No
+adapters/codex/,ADAPTER_KEEP,OpenAI Codex marketplace descriptor and workspace skill,None,High,MIT,Medium,Keep in adapters/,test_installer.py,No
+adapters/cursor/,ADAPTER_KEEP,Cursor rules and mcp.json configuration,None,High,MIT,Medium,Keep in adapters/,test_installer.py,No
+adapters/chatgpt/,ADAPTER_KEEP,ChatGPT Custom GPT instructions and OpenAPI 3.1 specification,None,Medium,MIT,Medium,Keep in adapters/,test_universal_integrations.py,No
+domains/,CORE_KEEP,31 canonical engineering domains (00-30),None,High,MIT,High,Keep in domains/,validate_repository.py,No
+engines/,CORE_KEEP,56 capability engine execution contracts (E-001..E-056),None,High,MIT,High,Keep in engines/,validate_repository.py,No
+workflows/,CORE_KEEP,15 executable workflow markdown definitions (WF-001..WF-015),None,High,MIT,High,Keep in workflows/,validate_repository.py,No
+workforce/,OPTIONAL_MODULE,72 specialist worker role JSON manifests,modules/modules.manifest.json,High,MIT,Low,Decouple into on-demand module,test_workforce_registry.py,No
+docs/knowledge-catalogues/,OPTIONAL_MODULE,Full master knowledge encyclopedias,modules/modules.manifest.json,High,MIT,Low,Decouple into on-demand module,validate_repository.py,No
+docs/knowledge/,CANONICAL_DOC,Compact live MCP guidance for fast LLM context injection,None,High,MIT,Medium,Keep in docs/knowledge/,validate_repository.py,No
+skills/taste-skill/skills/taste-skill/assets/,OPTIONAL_MODULE,Heavy 3D renders and photo assets (~35MB),modules/modules.manifest.json,Medium,MIT,Low,Exclude from core plugin install,test-governance.mjs,No
+blueprints/,ARCHIVE,Historical AISDF master blueprints and upgrade specifications,docs/DOCUMENTATION-MAP.md,Medium,MIT,Low,Retain in archive path,validate_repository.py,No
+docs/demo/legacy-v4-captures/,REMOVE_DUPLICATE,Exact byte-for-byte duplicate screenshots of docs/demo/v4/,docs/demo/v4/,None,MIT,Low,Remove redundant duplicates,validate_repository.py,No
+examples/OPENCLONE_ANTIGRAVITY_MASTER_AUDIT_UPGRADE_PROMPT_v1.0.0.md,REMOVE_DUPLICATE,Exact duplicate of blueprints/ prompt,blueprints/,None,MIT,Low,Remove redundant duplicate,validate_repository.py,No
+__pycache__/,REMOVE_GENERATED,Python bytecode cache directories,None,None,Generated,Low,Keep strictly gitignored,git status,No

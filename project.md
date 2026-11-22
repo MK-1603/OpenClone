@@ -4,7 +4,7 @@
 - **Product Name:** OpenClone
 - **Framework Standard:** AI Software Development Framework (AISDF)
 - **Canonical Repository:** https://github.com/MK-1603/OpenClone
-- **Version: 1.0.0**
+- **Version: 2.0.0**
 - **Project Type:** `OPEN_SOURCE_FRAMEWORK_AND_LOCAL_CONTROL_PLANE`
 - **Maturity Status:** `GOVERNED_LOCAL_CONTROL_PLANE` (Interfaces and deterministic gates verified; production execution requires container isolation)
 - **License:** MIT License

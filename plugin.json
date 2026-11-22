@@ -2,7 +2,7 @@
   "$schema": "https://antigravity.google/schemas/v1/plugin.json",
   "name": "openclone",
   "displayName": "OpenClone Engineering",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Universal AI software engineering framework with specialist agents, 22-phase lifecycle checklists, anti-AI-slop governance, 19-point SaaS security baseline, and independent verification.",
   "repository": "https://github.com/MK-1603/OpenClone",
   "license": "MIT",

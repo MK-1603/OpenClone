@@ -1,5 +1,15 @@
 # OpenClone Documentation Index
 
+## OpenClone 2.0 Platform & Release Deliverables
+- [OpenClone 2.0 Comprehensive Platform Upgrade Report](reports/OPENCLONE-2.0-UPGRADE-REPORT.md) — Master delivery report, architecture transformation, and verification scorecard.
+- [OpenClone 2.0 Architecture Specification](architecture/OPENCLONE-2.0-ARCHITECTURE.md) — Target system architecture, component boundaries, ADRs, and module dependency model.
+- [OpenClone 2.0 Global Plugin Installation Guide](installation/GLOBAL-PLUGIN-INSTALLATION.md) — Zero-clone global installation, CLI reference, and host lifecycle management.
+- [OpenClone 2.0 Host Compatibility Matrix](compatibility/HOST-COMPATIBILITY.md) — Multi-host conformance matrix, extension formats, and truthful maturity ratings.
+- [OpenClone 2.0 Security Architecture & Threat Model](security/THREAT-MODEL.md) — STRIDE threat analysis, boundary containment, and cryptographic replay defense.
+- [OpenClone 2.0 Repository Cleanup Plan](reports/OPENCLONE-2.0-CLEANUP-PLAN.md) — Taxonomy, redundancy resolution, modularization roadmap, and approval gates.
+- [OpenClone 2.0 Baseline & Repository X-Ray Audit](reports/OPENCLONE-2.0-BASELINE-AUDIT.md) — Measured baseline footprint, directory analysis, and verified facts.
+- [OpenClone 2.0 File Classification Ledger](reports/OPENCLONE-2.0-FILE-CLASSIFICATION.csv) — Complete 10-category classification of every tracked repository file.
+
 ## Core Framework & Getting Started
 - [Canonical Documentation Map](DOCUMENTATION-MAP.md) — Single source of authority, subject matrices, and precedence rules.
 - [Repository & Distribution Architecture](architecture/REPOSITORY-AND-DISTRIBUTION-ARCHITECTURE.md) — Lean core, native adapters, and progressive disclosure model.

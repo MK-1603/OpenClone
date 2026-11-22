@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/MK-1603/OpenClone/releases" title="Version 1.0.0"><img src="https://img.shields.io/badge/version-1.0.0-38bdf8?style=flat&logo=github&logoColor=white" alt="Version 1.0.0" /></a>
+  <a href="https://github.com/MK-1603/OpenClone/releases" title="Version 2.0.0"><img src="https://img.shields.io/badge/version-2.0.0-38bdf8?style=flat&logo=github&logoColor=white" alt="Version 2.0.0" /></a>
   &nbsp;
   <a href="https://python.org"><img src="https://img.shields.io/badge/python-3.10%2B-10b981?style=flat&logo=python&logoColor=white" alt="Python 3.10+" /></a>
   &nbsp;
@@ -18,7 +18,7 @@
 
 <p align="center">
   <strong>Provider-Neutral · IDE-Independent · Deterministic Engineering Standard · Anti-AI-Slop Governance</strong><br />
-  <em>Build with Any AI. Governed by One Engineering Standard. (OpenClone Release 1.0.0 · AISDF Standard 1.0.0)</em>
+  <em>Build with Any AI. Governed by One Engineering Standard. (OpenClone Release 2.0.0 · AISDF Standard 1.0.0)</em>
 </p>
 
 <p align="center">
@@ -450,6 +450,19 @@ OpenClone is configured via environment variables and CLI parameters:
 - [x] **12 Pinned Security Scanners Registry:** Cryptographic lockfile for reproducible static analysis.
 - [ ] **Live Browser Extension Telemetry:** Real-time visual monitoring of IDE agent operations `{TODO: SPECIFIED}`.
 - [ ] **Dynamic Multi-Region Sandboxing:** Ephemeral isolated VM runners for untrusted code execution `{TODO: PROPOSED}`.
+
+---
+
+## Documentation & Architecture
+
+For comprehensive platform specifications, architectural designs, and governance guides:
+
+- **Architecture:** [OpenClone 2.0 System Architecture](docs/architecture/OPENCLONE-2.0-ARCHITECTURE.md) · [Modular Distribution Guide](docs/architecture/REPOSITORY-AND-DISTRIBUTION-ARCHITECTURE.md)
+- **Installation:** [Global Plugin Installation Guide](docs/installation/GLOBAL-PLUGIN-INSTALLATION.md) · [Capability Packs](docs/installation/INSTALLATION-AND-MODULES.md)
+- **Compatibility:** [Multi-Host Compatibility Matrix](docs/compatibility/HOST-COMPATIBILITY.md) · [Host Setup Guides](docs/integrations/HOST_SETUP_GUIDES.md)
+- **Security:** [Security Threat Model](docs/security/THREAT-MODEL.md) · [19-Point SaaS Security Baseline](docs/security/saas-security-baseline.md)
+- **Documentation Map:** [Canonical Authority & Precedence Map](docs/DOCUMENTATION-MAP.md) · [Documentation Index](docs/README.md)
+- **Audit & Upgrade Reports:** [OpenClone 2.0 Platform Upgrade Report](docs/reports/OPENCLONE-2.0-UPGRADE-REPORT.md) · [Baseline X-Ray](docs/reports/OPENCLONE-2.0-BASELINE-AUDIT.md) · [Cleanup Plan](docs/reports/OPENCLONE-2.0-CLEANUP-PLAN.md)
 
 ---
 

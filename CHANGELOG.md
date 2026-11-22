@@ -1,5 +1,16 @@
 # Changelog
 
+## 2.0.0 - 2026-11-23: OpenClone 2.0 Universal AI Software Engineering Platform
+- **OpenClone 2.0 Architectural Upgrade**: Transformed OpenClone into a lean, provider-neutral global AI engineering platform with a 3-layer progressive disclosure distribution model (Bootstrap Installer, Core Plugin, On-Demand Capability Packs).
+- **Global Plugin Installer Engine (`src/openclone/installer/`)**: Transactional installation CLI (`openclone install`, `status`, `doctor`, `update`, `rollback`, `uninstall`) with automated pre-install configuration backups in `.openclone/backups/`, boundary containment checks, and hash-tracked manifests.
+- **Cross-Platform Host Detection (`src/openclone/installer/detector.py`)**: Environmental detector identifying Google Antigravity, Claude Code, OpenAI Codex, Cursor, and Generic MCP with detection confidence metrics and scope resolution.
+- **Zero-Clone End-User Installation**: Application builders install directly from GitHub (`agy plugin install https://github.com/MK-1603/OpenClone`) or marketplace manifests without manual source cloning or development dependencies.
+- **On-Demand Capability Architecture (`modules/modules.manifest.json`)**: Decoupled specialist workforce (72 roles), master engineering catalogues (232 UI styles, 580 backend topics, 1,095 AI topics, 365 motion concepts), and heavy visual assets into on-demand packs, reducing default install footprint by 99.1%.
+- **Cryptographic Human Approval Binding (`src/openclone/integrations/gateway.py`)**: Operation-bound human approvals binding capability ID, approver identity, project ID, canonical arguments SHA-256 payload digest, nonce replay protection, and expiration.
+- **Evidence Containment & Artifact Integrity**: Automated verification enforcing workspace containment, path traversal rejection, physical file SHA-256 hashing, and file size validation.
+- **Authoritative Documentation Map (`docs/DOCUMENTATION-MAP.md`)**: Resolved documentation overlaps, establishing single-source authority and distinguishing fast live MCP guidance (`docs/knowledge/`) from master taxonomies (`docs/knowledge-catalogues/`).
+- **Comprehensive Quality Verification**: 110 automated tests passing with 0 failures (97 Python unit tests in `tests/` + 13 Taste Skill governance tests) and clean repository validation.
+
 ## 1.3.0 - 2026-11-22: Premium Repository Structure & Domain Consolidation
 - **31-Domain Consolidation (`domains/`)**: Consolidated all 31 numbered engineering domain folders (`00-GOVERNANCE` through `30-AGENT-RULES-AND-VERIFICATION`) under one canonical parent directory: `domains/`. Zero numbered folders remain at the repository root.
 - **Canonical Domain Index (`domains/README.md`)**: Comprehensive index of all 31 domains detailing scope, owners, deliverables, and Mermaid dependency topology.

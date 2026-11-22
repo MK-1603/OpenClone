@@ -20,7 +20,7 @@ class InstallerEngine:
 
     def __init__(self, repo_root: Optional[Path] = None):
         self.root = (repo_root or Path(__file__).resolve().parents[3]).resolve()
-        self.core_version = "1.0.0"
+        self.core_version = "2.0.0"
         self.adapters_dir = self.root / "adapters"
 
     def _resolve_target_dir(self, target_dir: Optional[Path], scope: str) -> Path:
