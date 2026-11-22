@@ -60,13 +60,17 @@
 | 50 | `docs/knowledge/motion-and-animation.md` | Knowledge | Frontend Engineers | Active / Canonical | Physics-based cubic-bezier curves & 60fps rules |
 | 51 | `docs/knowledge/backend-system-design-catalogue.md` | Knowledge | Backend Engineers | Active / Canonical | 580 backend topics across 23 domains |
 | 52 | `docs/knowledge/ai-engineering-catalogue.md` | Knowledge | AI Engineers | Active / Canonical | 1,095 topics across 18 domains with token budgeting |
+| 53 | `blueprints/OPENCLONE_UNIVERSAL_AI_TOOL_INTEGRATION_AND_GLOBAL_PLUGIN_ECOSYSTEM_UPGRADE_v1.0.0.md` | Integration | Systems Engineers & Architects | Active / Canonical | Universal integration core, canonical capability registry, gateway, MCP server upgrade, multi-host adapters |
+| 54 | `blueprints/OPENCLONE_IN_PLACE_UPGRADE_USING_ALL_MARKDOWN_FILES_v1.0.0.md` | Governance | Repository Architects | Active / Canonical | In-place reconciliation across all markdown documents |
+| 55 | `docs/engineering-lifecycle/` (12 documents) | Lifecycle | Quality Leads & Maintainers | Active / Canonical | 22-phase lifecycle checklist, 10 packs, 6 verification levels (V0–V5) |
+| 56 | `docs/integrations/` (13 documents) | Integrations | Platform Architects | Active / Canonical | Universal integration architecture, MCP specification, OpenAPI REST, authorization |
 
 ---
 
 ## 2. Inventory Metrics
 
-- **Total Documents Discovered & Catalogued:** 52
-- **Active / Canonical Specifications:** 49
+- **Total Documents Discovered & Catalogued:** 77
+- **Active / Canonical Specifications:** 74
 - **Historical Reference Documents:** 3 (`03_AISDF_...`, `AISDF_MASTER_REPOSITORY_...`, `AISDF_VERSION_1.0_...`)
 - **Missing / Dropped Documents:** 0
 - **Silently Discarded Documents:** 0

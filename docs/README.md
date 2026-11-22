@@ -57,6 +57,21 @@
 - [Test Matrix](engineering-lifecycle/TEST_MATRIX.md) — Automated verification and test cases.
 - [Implementation Report](engineering-lifecycle/IMPLEMENTATION_REPORT.md) — Final delivery verification and acceptance record.
 
+## Universal AI Tool Integrations & Global Plugin Ecosystem
+- [Universal Integrations Index](integrations/README.md) — Universal integration core, gateway, and multi-adapter architecture.
+- [Universal Architecture](integrations/UNIVERSAL_INTEGRATION_ARCHITECTURE.md) — Single canonical core, multi-adapter design, and security layers.
+- [Canonical Capability Registry](integrations/CAPABILITY_REGISTRY.md) — The 15 canonical capabilities, schemas, risk classes, and scopes.
+- [MCP Server Specification](integrations/MCP_SERVER.md) — Model Context Protocol implementation (Tools, Resources, Prompts).
+- [HTTP & OpenAPI Specification](integrations/HTTP_OPENAPI.md) — REST API endpoints, OpenAPI 3.1 schema, and webhook contracts.
+- [Authorization & Scopes](integrations/AUTHORIZATION_AND_SCOPES.md) — OAuth 2.1/OIDC token claims, scoped permissions, and tenant boundaries.
+- [Host Compatibility Matrix](integrations/HOST_COMPATIBILITY_MATRIX.md) — Verified compatibility across ChatGPT, Claude, Antigravity, Cursor, etc.
+- [Host Setup Guides](integrations/HOST_SETUP_GUIDES.md) — Copy-pasteable connection configs for all supported AI coding hosts.
+- [Skill Portability](integrations/SKILL_PORTABILITY.md) — Canonical skill package export, lifecycle states, and runtime loading.
+- [Security & Approvals](integrations/SECURITY_AND_APPROVALS.md) — Policy engine, risk classifications, and SHA-256 approval binding.
+- [Conformance Tests](integrations/CONFORMANCE_TESTS.md) — Automated test suite verifying schemas, isolation, and gateway rules.
+- [Migration Guide](integrations/MIGRATION_GUIDE.md) — Backward compatibility rules and migration paths for existing users.
+- [Implementation Report](integrations/IMPLEMENTATION_REPORT.md) — Final delivery audit, test evidence, and release acceptance.
+
 ## Technical Architectures, Security & Integrations
 - [Workflow Runtime](WORKFLOW-RUNTIME.md) — State machine, dependency DAG, and cryptographic ledger.
 - [19-Point SaaS Security Baseline](security/saas-security-baseline.md) — Exhaustive pre-production SaaS security controls and verification checks.

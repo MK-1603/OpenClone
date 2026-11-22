@@ -1,0 +1,814 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "OpenClone Universal AI Tool Integration API",
+    "version": "1.0.0",
+    "description": "Provider-neutral HTTP REST API exposing OpenClone canonical engineering capabilities to external AI hosts (ChatGPT Actions, webhooks, automation runtimes).",
+    "contact": {
+      "name": "OpenClone Architecture Team",
+      "url": "https://github.com/MK-1603/OpenClone"
+    },
+    "license": {
+      "name": "MIT",
+      "url": "https://opensource.org/licenses/MIT"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://api.openclone.org/v1",
+      "description": "OpenClone Integration Gateway"
+    }
+  ],
+  "paths": {
+    "/capabilities/openclone_approve_release_deployment": {
+      "post": {
+        "summary": "Approve Release Deployment",
+        "description": "Cryptographically authorize deployment rollout across target cloud platform (WF-014).",
+        "operationId": "openclone_approve_release_deployment",
+        "tags": [
+          "handoff_release"
+        ],
+        "security": [
+          {
+            "BearerAuth": [
+              "release:approve"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "deployed": {
+                      "type": "boolean"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized / Missing Token"
+          },
+          "403": {
+            "description": "Forbidden / Insufficient Scopes"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "target_environment": {
+                    "type": "string",
+                    "enum": [
+                      "staging",
+                      "production"
+                    ]
+                  },
+                  "approval_digest": {
+                    "type": "string",
+                    "description": "SHA-256 human approval digest"
+                  }
+                },
+                "required": [
+                  "target_environment",
+                  "approval_digest"
+                ],
+                "additionalProperties": false
+              }
+            }
+          }
+        }
+      }
+    },
+    "/capabilities/openclone_create_defect": {
+      "post": {
+        "summary": "Log Defect",
+        "description": "Create a tracked defect blocking phase gate until resolved.",
+        "operationId": "openclone_create_defect",
+        "tags": [
+          "defects_gates"
+        ],
+        "security": [
+          {
+            "BearerAuth": [
+              "defects:write"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "defect_id": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized / Missing Token"
+          },
+          "403": {
+            "description": "Forbidden / Insufficient Scopes"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "item_id": {
+                    "type": "string"
+                  },
+                  "title": {
+                    "type": "string"
+                  },
+                  "severity": {
+                    "type": "string",
+                    "enum": [
+                      "LOW",
+                      "MEDIUM",
+                      "HIGH",
+                      "CRITICAL"
+                    ]
+                  },
+                  "reproduction_steps": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "item_id",
+                  "title",
+                  "severity"
+                ],
+                "additionalProperties": false
+              }
+            }
+          }
+        }
+      }
+    },
+    "/capabilities/openclone_generate_ide_handoff": {
+      "get": {
+        "summary": "Generate Scoped IDE Handoff",
+        "description": "Package minimal task-scoped context and contracts for an IDE agent without chat amnesia.",
+        "operationId": "openclone_generate_ide_handoff",
+        "tags": [
+          "handoff_release"
+        ],
+        "security": [
+          {
+            "BearerAuth": [
+              "tasks:read"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "handoff_package": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized / Missing Token"
+          },
+          "403": {
+            "description": "Forbidden / Insufficient Scopes"
+          }
+        }
+      }
+    },
+    "/capabilities/openclone_get_checklist": {
+      "get": {
+        "summary": "Get Lifecycle Checklist",
+        "description": "Retrieve the 22-phase lifecycle checklist, tailored applicability, and phase completion status.",
+        "operationId": "openclone_get_checklist",
+        "tags": [
+          "lifecycle_tasks"
+        ],
+        "security": [
+          {
+            "BearerAuth": [
+              "checklists:read"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "tasks": {
+                      "type": "array"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized / Missing Token"
+          },
+          "403": {
+            "description": "Forbidden / Insufficient Scopes"
+          }
+        }
+      }
+    },
+    "/capabilities/openclone_get_guidance": {
+      "get": {
+        "summary": "Get Specialized Guidance",
+        "description": "Retrieve specialized engineering guidance (anti-ai-slop, morphism styles, security, lifecycle).",
+        "operationId": "openclone_get_guidance",
+        "tags": [
+          "knowledge_guidance"
+        ],
+        "security": [
+          {
+            "BearerAuth": [
+              "projects:read"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "topic": {
+                      "type": "string"
+                    },
+                    "content": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized / Missing Token"
+          },
+          "403": {
+            "description": "Forbidden / Insufficient Scopes"
+          }
+        }
+      }
+    },
+    "/capabilities/openclone_get_project_context": {
+      "get": {
+        "summary": "Get Project Context",
+        "description": "Retrieve approved project architecture, requirements summary, and active conventions.",
+        "operationId": "openclone_get_project_context",
+        "tags": [
+          "project_discovery"
+        ],
+        "security": [
+          {
+            "BearerAuth": [
+              "projects:read"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "context": {
+                      "type": "object"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized / Missing Token"
+          },
+          "403": {
+            "description": "Forbidden / Insufficient Scopes"
+          }
+        }
+      }
+    },
+    "/capabilities/openclone_get_quality_gate": {
+      "get": {
+        "summary": "Evaluate Quality Gate",
+        "description": "Evaluate exit criteria for a phase. Blocks if mandatory items are unverified or defects exist.",
+        "operationId": "openclone_get_quality_gate",
+        "tags": [
+          "defects_gates"
+        ],
+        "security": [
+          {
+            "BearerAuth": [
+              "checklists:read"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "gate_status": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized / Missing Token"
+          },
+          "403": {
+            "description": "Forbidden / Insufficient Scopes"
+          }
+        }
+      }
+    },
+    "/capabilities/openclone_get_release_readiness": {
+      "get": {
+        "summary": "Get Release Readiness Assessment",
+        "description": "Assess pre-production deployment readiness across all 22 phases, 19 security checks, and tests.",
+        "operationId": "openclone_get_release_readiness",
+        "tags": [
+          "handoff_release"
+        ],
+        "security": [
+          {
+            "BearerAuth": [
+              "release:read"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "ready": {
+                      "type": "boolean"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized / Missing Token"
+          },
+          "403": {
+            "description": "Forbidden / Insufficient Scopes"
+          }
+        }
+      }
+    },
+    "/capabilities/openclone_get_status": {
+      "get": {
+        "summary": "Get OpenClone Status",
+        "description": "Check repository integrity, current version, active domains, engines, and workflow status.",
+        "operationId": "openclone_get_status",
+        "tags": [
+          "knowledge_guidance"
+        ],
+        "security": [
+          {
+            "BearerAuth": [
+              "projects:read"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "version": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized / Missing Token"
+          },
+          "403": {
+            "description": "Forbidden / Insufficient Scopes"
+          }
+        }
+      }
+    },
+    "/capabilities/openclone_list_projects": {
+      "get": {
+        "summary": "List Projects",
+        "description": "List active and available software engineering projects in workspace.",
+        "operationId": "openclone_list_projects",
+        "tags": [
+          "project_discovery"
+        ],
+        "security": [
+          {
+            "BearerAuth": [
+              "projects:read"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "projects": {
+                      "type": "array"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized / Missing Token"
+          },
+          "403": {
+            "description": "Forbidden / Insufficient Scopes"
+          }
+        }
+      }
+    },
+    "/capabilities/openclone_request_verification": {
+      "get": {
+        "summary": "Request Independent Verification",
+        "description": "Run deterministic independent verification checks across task evidence against truth criteria.",
+        "operationId": "openclone_request_verification",
+        "tags": [
+          "evidence_verification"
+        ],
+        "security": [
+          {
+            "BearerAuth": [
+              "verification:request"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "outcome": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized / Missing Token"
+          },
+          "403": {
+            "description": "Forbidden / Insufficient Scopes"
+          }
+        }
+      }
+    },
+    "/capabilities/openclone_search_project_knowledge": {
+      "get": {
+        "summary": "Search Project Knowledge",
+        "description": "Query the 31 engineering domains, 56 capability engines, and knowledge catalogues.",
+        "operationId": "openclone_search_project_knowledge",
+        "tags": [
+          "knowledge_guidance"
+        ],
+        "security": [
+          {
+            "BearerAuth": [
+              "projects:read"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "results": {
+                      "type": "array"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized / Missing Token"
+          },
+          "403": {
+            "description": "Forbidden / Insufficient Scopes"
+          }
+        }
+      }
+    },
+    "/capabilities/openclone_submit_evidence": {
+      "post": {
+        "summary": "Submit Evidence Artifact",
+        "description": "Attach verifiable proof (code diff, test output, or screenshot) to a checklist item.",
+        "operationId": "openclone_submit_evidence",
+        "tags": [
+          "evidence_verification"
+        ],
+        "security": [
+          {
+            "BearerAuth": [
+              "evidence:write"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "evidence_id": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized / Missing Token"
+          },
+          "403": {
+            "description": "Forbidden / Insufficient Scopes"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "item_id": {
+                    "type": "string"
+                  },
+                  "evidence_type": {
+                    "type": "string",
+                    "enum": [
+                      "code_diff",
+                      "test_run",
+                      "screenshot",
+                      "static_scan",
+                      "benchmark"
+                    ]
+                  },
+                  "artifact_path": {
+                    "type": "string"
+                  },
+                  "summary": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "item_id",
+                  "evidence_type",
+                  "artifact_path",
+                  "summary"
+                ],
+                "additionalProperties": false
+              }
+            }
+          }
+        }
+      }
+    },
+    "/capabilities/openclone_submit_implementation_report": {
+      "post": {
+        "summary": "Submit Implementation Report",
+        "description": "Submit IDE completion report including modified files, commands executed, and test pass counts.",
+        "operationId": "openclone_submit_implementation_report",
+        "tags": [
+          "lifecycle_tasks"
+        ],
+        "security": [
+          {
+            "BearerAuth": [
+              "tasks:write"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "report_id": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized / Missing Token"
+          },
+          "403": {
+            "description": "Forbidden / Insufficient Scopes"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "task_id": {
+                    "type": "string"
+                  },
+                  "modified_files": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "commands_run": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "test_pass_count": {
+                    "type": "integer"
+                  },
+                  "test_fail_count": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "task_id",
+                  "modified_files",
+                  "commands_run"
+                ],
+                "additionalProperties": false
+              }
+            }
+          }
+        }
+      }
+    },
+    "/capabilities/openclone_update_task_status": {
+      "post": {
+        "summary": "Update Task Status",
+        "description": "Advance lifecycle task state. Transition to VERIFIED strictly requires verified EvidenceRecord.",
+        "operationId": "openclone_update_task_status",
+        "tags": [
+          "lifecycle_tasks"
+        ],
+        "security": [
+          {
+            "BearerAuth": [
+              "tasks:write"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized / Missing Token"
+          },
+          "403": {
+            "description": "Forbidden / Insufficient Scopes"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "item_id": {
+                    "type": "string",
+                    "description": "Checklist task ID"
+                  },
+                  "new_status": {
+                    "type": "string",
+                    "enum": [
+                      "NOT_STARTED",
+                      "IN_PROGRESS",
+                      "BLOCKED",
+                      "READY_FOR_VERIFICATION",
+                      "VERIFIED",
+                      "WAIVED_WITH_APPROVAL"
+                    ]
+                  },
+                  "evidence_path": {
+                    "type": "string",
+                    "description": "Required if advancing to VERIFIED"
+                  }
+                },
+                "required": [
+                  "item_id",
+                  "new_status"
+                ],
+                "additionalProperties": false
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "BearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "description": "OAuth 2.1 / OIDC Bearer Token with capability scopes."
+      }
+    }
+  }
+}

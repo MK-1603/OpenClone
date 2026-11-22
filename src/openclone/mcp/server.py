@@ -190,6 +190,27 @@ class OpenCloneMCPServer:
 
     def __init__(self, root: Path = ROOT):
         self.root = root
+        from src.openclone.integrations.capabilities import get_canonical_registry
+        from src.openclone.integrations.gateway import IntegrationGateway, AuthContext
+
+        self.canonical_registry = get_canonical_registry(self.root)
+        self.gateway = IntegrationGateway(self.canonical_registry, self.root)
+        self.default_auth = AuthContext(
+            user_id="mcp_session_user",
+            project_id="default",
+            scopes={
+                "projects:read",
+                "checklists:read",
+                "tasks:read",
+                "tasks:write",
+                "evidence:write",
+                "verification:request",
+                "defects:write",
+                "release:read",
+            },
+            is_human=False,
+            client_type="mcp_client",
+        )
 
     def get_status(self) -> Dict[str, Any]:
         """Return runtime status and metrics."""
@@ -423,6 +444,8 @@ class OpenCloneMCPServer:
             return self.get_guidance(arguments["topic"])
         elif name == "openclone_list_capabilities":
             return self.list_capabilities(arguments.get("filter", "all"))
+        elif self.canonical_registry.get(name):
+            return self.gateway.execute(self.default_auth, name, arguments)
         else:
             raise KeyError(f"Unknown tool: '{name}'")
 
@@ -441,6 +464,8 @@ class OpenCloneMCPServer:
                     "protocolVersion": "2024-11-05",
                     "capabilities": {
                         "tools": {"listChanged": False},
+                        "resources": {"subscribe": False, "listChanged": False},
+                        "prompts": {"listChanged": False},
                     },
                     "serverInfo": {
                         "name": SERVER_NAME,
@@ -451,11 +476,197 @@ class OpenCloneMCPServer:
 
         # MCP Tools list
         elif method == "tools/list":
+            if params.get("all") or params.get("include_canonical"):
+                merged_tools = list(TOOLS)
+                existing_names = {t["name"] for t in merged_tools}
+                for cap_tool in self.canonical_registry.get_mcp_tools():
+                    if cap_tool["name"] not in existing_names:
+                        merged_tools.append(cap_tool)
+                        existing_names.add(cap_tool["name"])
+                return {
+                    "jsonrpc": "2.0",
+                    "id": req_id,
+                    "result": {
+                        "tools": merged_tools,
+                    },
+                }
             return {
                 "jsonrpc": "2.0",
                 "id": req_id,
                 "result": {
                     "tools": TOOLS,
+                },
+            }
+
+        # MCP Resources list
+        elif method == "resources/list":
+            return {
+                "jsonrpc": "2.0",
+                "id": req_id,
+                "result": {
+                    "resources": [
+                        {
+                            "uri": "openclone://project/overview",
+                            "name": "Project Overview",
+                            "description": "High-level OpenClone project context, operating system, and frameworks.",
+                            "mimeType": "application/json",
+                        },
+                        {
+                            "uri": "openclone://project/checklist",
+                            "name": "22-Phase Lifecycle Checklist",
+                            "description": "Full lifecycle checklist item taxonomy and current verification states.",
+                            "mimeType": "application/json",
+                        },
+                        {
+                            "uri": "openclone://governance/rulebook",
+                            "name": "AISDF Governance Rulebook",
+                            "description": "Precedence rules, human approval boundaries, and anti-slop guidelines.",
+                            "mimeType": "text/markdown",
+                        },
+                        {
+                            "uri": "openclone://verification/policies",
+                            "name": "Evidence & Verification Policy",
+                            "description": "Verification levels (V0-V5), truth criteria, and gate exit rules.",
+                            "mimeType": "text/markdown",
+                        },
+                    ]
+                },
+            }
+
+        # MCP Resources read
+        elif method == "resources/read":
+            uri = params.get("uri")
+            content_text = ""
+            mime_type = "text/plain"
+            if uri == "openclone://project/overview":
+                content_text = json.dumps(self.get_status(), indent=2)
+                mime_type = "application/json"
+            elif uri == "openclone://project/checklist":
+                content_text = json.dumps(self.call_tool("openclone_get_checklist", {}), indent=2)
+                mime_type = "application/json"
+            elif uri == "openclone://governance/rulebook":
+                rule_file = self.root / "domains" / "00-GOVERNANCE" / "AISDF-RULEBOOK.md"
+                content_text = rule_file.read_text(encoding="utf-8", errors="replace") if rule_file.exists() else "# AISDF Rulebook"
+                mime_type = "text/markdown"
+            elif uri == "openclone://verification/policies":
+                policy_file = self.root / "docs" / "engineering-lifecycle" / "VERIFICATION_AND_EVIDENCE.md"
+                content_text = policy_file.read_text(encoding="utf-8", errors="replace") if policy_file.exists() else "# Verification Policies"
+                mime_type = "text/markdown"
+            else:
+                return {
+                    "jsonrpc": "2.0",
+                    "id": req_id,
+                    "error": {"code": -32602, "message": f"Resource not found: '{uri}'"},
+                }
+            return {
+                "jsonrpc": "2.0",
+                "id": req_id,
+                "result": {
+                    "contents": [
+                        {
+                            "uri": uri,
+                            "mimeType": mime_type,
+                            "text": content_text,
+                        }
+                    ]
+                },
+            }
+
+        # MCP Prompts list
+        elif method == "prompts/list":
+            return {
+                "jsonrpc": "2.0",
+                "id": req_id,
+                "result": {
+                    "prompts": [
+                        {
+                            "name": "openclone_plan_feature",
+                            "description": "Structured workflow prompt for planning a feature with acceptance criteria and anti-slop checks.",
+                            "arguments": [
+                                {"name": "feature_description", "description": "Description of the feature to plan", "required": True}
+                            ],
+                        },
+                        {
+                            "name": "openclone_implement_task",
+                            "description": "Instruction prompt for executing an approved checklist task with least-privilege scoping.",
+                            "arguments": [
+                                {"name": "task_id", "description": "Checklist task ID to implement", "required": True}
+                            ],
+                        },
+                        {
+                            "name": "openclone_verify_feature",
+                            "description": "Independent verification prompt inspecting observable test outputs and code diffs.",
+                            "arguments": [
+                                {"name": "task_id", "description": "Checklist task ID to verify", "required": True}
+                            ],
+                        },
+                        {
+                            "name": "openclone_security_review",
+                            "description": "Audit code changes against the 19-point SaaS security baseline.",
+                            "arguments": [
+                                {"name": "scope", "description": "Files or routes to audit", "required": False}
+                            ],
+                        },
+                    ]
+                },
+            }
+
+        # MCP Prompts get
+        elif method == "prompts/get":
+            prompt_name = params.get("name")
+            prompt_args = params.get("arguments", {})
+            if prompt_name == "openclone_plan_feature":
+                desc = prompt_args.get("feature_description", "User feature")
+                text = (
+                    f"You are the OpenClone Project Architect planning: '{desc}'.\n"
+                    "1. Define Given/When/Then acceptance criteria.\n"
+                    "2. Enforce Taste Skill v2.6.0 anti-slop design tokens (no purple gradients, no blur circles).\n"
+                    "3. Map tasks into the 22-phase lifecycle with risk classifications.\n"
+                )
+            elif prompt_name == "openclone_implement_task":
+                task_id = prompt_args.get("task_id", "PHASE_08_CORE_LOGIC")
+                text = (
+                    f"You are an OpenClone IDE Specialist implementing task: '{task_id}'.\n"
+                    "1. Inspect existing files before editing.\n"
+                    "2. Implement the smallest verifiable diff.\n"
+                    "3. Run automated unit tests and attach observable output logs.\n"
+                )
+            elif prompt_name == "openclone_verify_feature":
+                task_id = prompt_args.get("task_id", "PHASE_13_TESTING")
+                text = (
+                    f"You are the Independent Verification Lead reviewing: '{task_id}'.\n"
+                    "1. Verify that code files exist and tests passed with exit code 0.\n"
+                    "2. Reject self-attested passes without tangible evidence records.\n"
+                    "3. Ensure zero unmitigated high/critical defects exist.\n"
+                )
+            elif prompt_name == "openclone_security_review":
+                scope = prompt_args.get("scope", "All API routes and storage")
+                text = (
+                    f"You are the OpenClone Security Auditor reviewing: '{scope}'.\n"
+                    "Audit strictly against the 19-point SaaS security baseline:\n"
+                    "- Row-level security, authentication on every protected route.\n"
+                    "- Parameterized queries, secret redaction, and bounded tool privileges.\n"
+                )
+            else:
+                return {
+                    "jsonrpc": "2.0",
+                    "id": req_id,
+                    "error": {"code": -32602, "message": f"Prompt not found: '{prompt_name}'"},
+                }
+            return {
+                "jsonrpc": "2.0",
+                "id": req_id,
+                "result": {
+                    "description": f"OpenClone prompt workflow: {prompt_name}",
+                    "messages": [
+                        {
+                            "role": "user",
+                            "content": {
+                                "type": "text",
+                                "text": text,
+                            },
+                        }
+                    ],
                 },
             }
 
