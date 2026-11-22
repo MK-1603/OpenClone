@@ -22,7 +22,7 @@
     "specialized"
   ],
   "engines": 56,
-  "workflows": 13,
+  "workflows": 15,
   "maturity": "governed-local-control-plane",
   "provider_execution": "adapter-contract-only",
   "sandbox": "not-included-process-limits-only",

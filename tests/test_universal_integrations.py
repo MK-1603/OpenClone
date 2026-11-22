@@ -102,6 +102,71 @@ class UniversalIntegrationsTests(unittest.TestCase):
         )
         self.assertTrue(res["authorized"])
 
+    def test_gateway_cryptographic_approval_record_lifecycle(self):
+        """Verify structured cryptographic approval generation, verification, and replay rejection."""
+        auth = self.gateway.authenticate_token("test-valid-token")
+        args = {"target_environment": "production", "release_id": "v1.0.0"}
+        
+        # 1. Create cryptographic approval record
+        approval_rec = self.gateway.create_approval_record(auth, "openclone_approve_release_deployment", args)
+        self.assertIn("approval_id", approval_rec)
+        self.assertIn("nonce", approval_rec)
+        self.assertIn("signature", approval_rec)
+
+        # 2. Execute with valid approval record
+        exec_args = dict(args)
+        exec_args["approval_record"] = approval_rec
+        res = self.gateway.execute(auth, "openclone_approve_release_deployment", exec_args)
+        self.assertTrue(res["authorized"])
+
+        # 3. Replay attack rejection: using same approval record/nonce
+        with self.assertRaises(PermissionError) as cm:
+            self.gateway.execute(auth, "openclone_approve_release_deployment", exec_args)
+        self.assertIn("Replay detected", str(cm.exception))
+
+        # 4. Tampered payload rejection: modified argument
+        tampered_rec = self.gateway.create_approval_record(auth, "openclone_approve_release_deployment", args)
+        tampered_args = dict(args)
+        tampered_args["target_environment"] = "staging"  # modified after approval!
+        tampered_args["approval_record"] = tampered_rec
+        with self.assertRaises(PermissionError) as cm_tamper:
+            self.gateway.execute(auth, "openclone_approve_release_deployment", tampered_args)
+        self.assertIn("Payload digest mismatch", str(cm_tamper.exception))
+
+    def test_evidence_integrity_and_containment(self):
+        """Verify evidence attachment validates workspace containment and computes SHA-256."""
+        auth = self.gateway.authenticate_token("test-valid-token")
+
+        # 1. Path traversal escape rejection
+        with self.assertRaises(PermissionError) as cm:
+            self.gateway.execute(
+                auth,
+                "openclone_submit_evidence",
+                {
+                    "item_id": "TASK_01",
+                    "evidence_type": "code_diff",
+                    "artifact_path": "../../secret.txt",
+                    "summary": "Malicious traversal",
+                },
+            )
+        self.assertIn("escapes workspace boundary", str(cm.exception))
+
+        # 2. Valid file submission
+        res = self.gateway.execute(
+            auth,
+            "openclone_submit_evidence",
+            {
+                "item_id": "TASK_01",
+                "evidence_type": "code_diff",
+                "artifact_path": "VERSION",
+                "summary": "Verified version file",
+            },
+        )
+        self.assertEqual(res["status"], "ATTACHED")
+        self.assertTrue(res["verified"])
+        self.assertIsNotNone(res["sha256_hash"])
+        self.assertGreater(res["file_size"], 0)
+
     def test_gateway_secret_redaction(self):
         """Verify credentials and secret tokens are stripped from inputs/outputs."""
         dirty = {

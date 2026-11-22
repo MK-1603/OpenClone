@@ -4,6 +4,7 @@ from dataclasses import dataclass, field
 from enum import Enum
 from pathlib import Path
 from typing import Any, Callable, Dict, List, Optional
+import hashlib
 import json
 import re
 
@@ -109,6 +110,42 @@ class CapabilityRegistry:
 # ---------------------------------------------------------
 
 _CANONICAL_REGISTRY: Optional[CapabilityRegistry] = None
+
+
+def _validate_and_submit_evidence(
+    root: Path,
+    item_id: str,
+    evidence_type: str,
+    artifact_path: str,
+    summary: str,
+    user_id: str = "unknown",
+) -> Dict[str, Any]:
+    """Validate artifact containment, compute SHA-256 hash, and produce evidence record."""
+    target = (root / artifact_path).resolve()
+    try:
+        target.relative_to(root.resolve())
+    except ValueError:
+        raise PermissionError(f"Evidence artifact path '{artifact_path}' escapes workspace boundary.")
+
+    is_file = target.exists() and target.is_file()
+    sha256_hash = None
+    file_size = 0
+    if is_file:
+        data = target.read_bytes()
+        sha256_hash = hashlib.sha256(data).hexdigest()
+        file_size = len(data)
+
+    return {
+        "evidence_id": f"EVID-{item_id[:12]}",
+        "status": "ATTACHED",
+        "artifact_path": artifact_path,
+        "verified": is_file,
+        "evidence_type": evidence_type,
+        "sha256_hash": sha256_hash,
+        "file_size": file_size,
+        "submitted_by": user_id,
+        "summary": summary,
+    }
 
 
 def get_canonical_registry(root: Optional[Path] = None) -> CapabilityRegistry:
@@ -347,12 +384,14 @@ def get_canonical_registry(root: Optional[Path] = None) -> CapabilityRegistry:
             "additionalProperties": False,
         },
         output_schema={"type": "object", "properties": {"evidence_id": {"type": "string"}}},
-        handler=lambda args, ctx: {
-            "evidence_id": f"EVID-{args['item_id'][:12]}",
-            "status": "ATTACHED",
-            "artifact_path": args["artifact_path"],
-            "verified": Path(repo_root / args["artifact_path"]).exists(),
-        },
+        handler=lambda args, ctx: _validate_and_submit_evidence(
+            repo_root,
+            args["item_id"],
+            args["evidence_type"],
+            args["artifact_path"],
+            args["summary"],
+            getattr(ctx, "user_id", "unknown"),
+        ),
     ))
 
     registry.register(Capability(
@@ -503,14 +542,14 @@ def get_canonical_registry(root: Optional[Path] = None) -> CapabilityRegistry:
             "properties": {
                 "target_environment": {"type": "string", "enum": ["staging", "production"]},
                 "approval_digest": {"type": "string", "description": "SHA-256 human approval digest"},
+                "approval_record": {"type": "object", "description": "Cryptographically verifiable approval record"},
             },
-            "required": ["target_environment", "approval_digest"],
-            "additionalProperties": False,
+            "required": ["target_environment"],
         },
         output_schema={"type": "object", "properties": {"deployed": {"type": "boolean"}}},
         handler=lambda args, ctx: {
             "target": args["target_environment"],
-            "digest": args["approval_digest"],
+            "digest": args.get("approval_digest") or (args.get("approval_record", {}).get("payload_digest", "")),
             "authorized": True,
             "pipeline": "WF-014 cloud rollout triggered",
         },

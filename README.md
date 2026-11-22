@@ -9,7 +9,7 @@
   &nbsp;
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-6366f1?style=flat" alt="MIT License" /></a>
   &nbsp;
-  <a href="tests/"><img src="https://img.shields.io/badge/tests-87%20passed%20%7C%200%20failed-059669?style=flat" alt="87 Passing Tests" /></a>
+  <a href="tests/"><img src="https://img.shields.io/badge/tests-102%20passed%20%7C%200%20failed-059669?style=flat" alt="102 Passing Tests (89 Unit + 13 Governance)" /></a>
   &nbsp;
   <a href="security/scanners.lock.json"><img src="https://img.shields.io/badge/security-12%20scanners%20locked-ef4444?style=flat" alt="12 Scanners Locked" /></a>
   &nbsp;
@@ -18,7 +18,7 @@
 
 <p align="center">
   <strong>Provider-Neutral · IDE-Independent · Deterministic Engineering Standard · Anti-AI-Slop Governance</strong><br />
-  <em>Build with Any AI. Governed by One Engineering Standard. (OpenClone v3.1.0 · AISDF Standard 1.0.0)</em>
+  <em>Build with Any AI. Governed by One Engineering Standard. (OpenClone Release 1.0.0 · AISDF Standard 1.0.0)</em>
 </p>
 
 <p align="center">
@@ -154,11 +154,12 @@ pip install -e ".[dev]"
 # 3. Verify repository integrity (31 domains, 56 engines, 15 workflows)
 python tools/validate_repository.py
 
-# 4. Run automated test suite (87 tests passing)
+# 4. Run automated test suite (89 unit tests passing)
 python -m unittest discover -s tests -v
 
 # 5. Run anti-slop governance tests (13 tests passing)
 node skills/taste-skill/tests/test-governance.mjs
+# (Total: 102 automated tests passing with 0 failures)
 ```
 
 ### Responsibility & Operation Boundaries
@@ -169,7 +170,7 @@ node skills/taste-skill/tests/test-governance.mjs
 | **Manually `git clone` OpenClone** | **No** | Yes, if developing locally |
 | **Run `pip install -e ".[dev]"`** | **No** | Yes, for Python development |
 | **Repository integrity validator (`validate_repository.py`)** | **No** | Yes, CI/maintenance |
-| **Run full unit test suite (87 tests)** | **No** | Yes, CI/maintenance |
+| **Run full unit test suite (89 tests)** | **No** | Yes, CI/maintenance |
 | **Run Taste governance tests (13 tests)** | **No** | Yes, CI/maintenance |
 | **Verify with `agy plugin list`** | **Yes** | Yes |
 | **Run `agy plugin validate --strict`** | **No routine need** | Yes, before release |
@@ -255,7 +256,7 @@ flowchart TD
         IDE5["ChatGPT & Web UI"]
     end
     subgraph L2["Layer 2: Shared MCP Service"]
-        MCP["src/openclone/mcp/server.py<br/>7 Canonical Inspection & Guidance Tools"]
+        MCP["src/openclone/mcp/server.py<br/>7 Core Tools · 15 Canonical Capabilities"]
     end
     subgraph L3["Layer 3: Deterministic Local Control Plane"]
         CLI["openclone.py / aisdf.py"]
@@ -279,7 +280,7 @@ flowchart TD
 ```
 
 - **Layer 1: Multi-IDE & Chatbot Host Integrations:** Native plugins and configurations for Antigravity, Claude Code, Cursor, Codex, and ChatGPT.
-- **Layer 2: Shared MCP Service (`src/openclone/mcp/server.py`):** JSON-RPC 2.0 stdio/SSE server exposing 7 canonical inspection and guidance tools.
+- **Layer 2: Shared MCP Service (`src/openclone/mcp/server.py`):** JSON-RPC 2.0 stdio/SSE server exposing 7 core inspection tools and 15 canonical capabilities.
 - **Layer 3: Deterministic Local Control Plane (`openclone.py`):** Cycle-free task DAG, SHA-256 approval binding, and hash-chained SQLite ledger.
 - **Layer 4: Knowledge Repository & Specialist Workforce:** 31 engineering domains, 56 capability engines, 15 executable workflows, and 72 specialist roles.
 
@@ -371,7 +372,7 @@ OpenClone is configured via environment variables and CLI parameters:
 ## Roadmap
 
 - [x] **Universal Framework Standard (AISDF v1.0.0):** Unified specification across 31 engineering domains.
-- [x] **Shared Model Context Protocol (MCP) Server:** JSON-RPC 2.0 stdio/SSE engine with 7 tools.
+- [x] **Shared Model Context Protocol (MCP) Server:** JSON-RPC 2.0 stdio/SSE engine with 7 core tools and 15 canonical capabilities.
 - [x] **Taste Skill v2.6.0 Anti-Slop Engine:** 13 automated governance tests and UI design tokens.
 - [x] **Portable Specification Workflow (`WF-015`):** Zero-install `PROJECT.md` package generation.
 - [x] **22-Phase Lifecycle Checklist & Verification Engine:** 8 unit tests, 6 verification levels (V0–V5).

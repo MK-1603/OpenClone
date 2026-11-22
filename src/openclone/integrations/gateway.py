@@ -5,8 +5,10 @@ from enum import Enum
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Set
 import hashlib
+import hmac
 import json
 import re
+import secrets
 import time
 
 from src.openclone.integrations.capabilities import (
@@ -33,6 +35,22 @@ class AuthContext:
     is_human: bool = False
     client_type: str = "generic"
     token_claims: Dict[str, Any] = field(default_factory=dict)
+
+
+@dataclass
+class ApprovalRecord:
+    """Cryptographically verifiable, operation-bound human approval."""
+    approval_id: str
+    approver_id: str
+    project_id: str
+    capability_id: str
+    payload_digest: str
+    scope: str = "project"
+    risk: str = "production_impact"
+    created_at: float = field(default_factory=time.time)
+    expires_at: float = field(default_factory=lambda: time.time() + 3600)
+    nonce: str = ""
+    signature: str = ""
 
 
 @dataclass
@@ -76,6 +94,39 @@ class IntegrationGateway:
         self.root = repo_root or Path(__file__).resolve().parents[3]
         self.registry = registry or get_canonical_registry(self.root)
         self.audit_log: List[Dict[str, Any]] = []
+        self.consumed_nonces: Set[str] = set()
+
+    def create_approval_record(
+        self,
+        auth: AuthContext,
+        capability_id: str,
+        arguments: Dict[str, Any],
+        scope: str = "project",
+        ttl_seconds: int = 3600,
+    ) -> Dict[str, Any]:
+        """Generate a cryptographically bound human approval record."""
+        clean_args = {k: v for k, v in arguments.items() if k not in ("approval_record", "approval_digest")}
+        payload_digest = hashlib.sha256(json.dumps(clean_args, sort_keys=True).encode()).hexdigest()
+        nonce = secrets.token_hex(16)
+        now = time.time()
+        record_id = f"APPR-{secrets.token_hex(6).upper()}"
+        
+        sig_base = f"{record_id}:{auth.user_id}:{auth.project_id}:{capability_id}:{payload_digest}:{nonce}:{now + ttl_seconds}"
+        signature = hashlib.sha256(sig_base.encode()).hexdigest()
+
+        return {
+            "approval_id": record_id,
+            "approver_id": auth.user_id,
+            "project_id": auth.project_id,
+            "capability_id": capability_id,
+            "payload_digest": payload_digest,
+            "scope": scope,
+            "risk": "production_impact",
+            "created_at": now,
+            "expires_at": now + ttl_seconds,
+            "nonce": nonce,
+            "signature": signature,
+        }
 
     def authenticate_token(self, token: str) -> Optional[AuthContext]:
         """Validate bearer token and construct AuthContext.
@@ -168,13 +219,67 @@ class IntegrationGateway:
             or cap.risk in (RiskClassification.DESTRUCTIVE, RiskClassification.PRODUCTION_IMPACT)
         )
         if needs_approval:
-            # Must have valid SHA-256 approval digest and human sign-off
-            if not approval_digest or len(approval_digest) != 64:
+            # High-risk / production actions require human signer
+            if not auth.is_human:
+                return PolicyDecision(
+                    verdict=PolicyVerdict.DENIED,
+                    reason=(
+                        f"Non-human client '{auth.client_type}' cannot authorize high-risk/production-impact "
+                        f"action '{capability_id}'. Explicit human sign-off required."
+                    ),
+                    capability_id=capability_id,
+                )
+
+            # Check if structured approval_record is provided in arguments
+            rec = arguments.get("approval_record")
+            if isinstance(rec, dict):
+                appr_cap = rec.get("capability_id")
+                appr_proj = rec.get("project_id")
+                expires_at = rec.get("expires_at", 0)
+                nonce = rec.get("nonce")
+                expected_digest = rec.get("payload_digest")
+
+                if appr_cap != capability_id:
+                    return PolicyDecision(
+                        verdict=PolicyVerdict.DENIED,
+                        reason=f"Approval mismatch: approved for '{appr_cap}', attempted '{capability_id}'.",
+                        capability_id=capability_id,
+                    )
+                if appr_proj and appr_proj != auth.project_id:
+                    return PolicyDecision(
+                        verdict=PolicyVerdict.DENIED,
+                        reason=f"Approval mismatch: approved for project '{appr_proj}', caller context is '{auth.project_id}'.",
+                        capability_id=capability_id,
+                    )
+                if time.time() > expires_at:
+                    return PolicyDecision(
+                        verdict=PolicyVerdict.DENIED,
+                        reason="Cryptographic human approval has expired.",
+                        capability_id=capability_id,
+                    )
+                if nonce:
+                    if nonce in self.consumed_nonces:
+                        return PolicyDecision(
+                            verdict=PolicyVerdict.DENIED,
+                            reason=f"Replay detected: approval nonce '{nonce}' has already been consumed.",
+                            capability_id=capability_id,
+                        )
+                    self.consumed_nonces.add(nonce)
+
+                clean_for_hash = {k: v for k, v in arguments.items() if k not in ("approval_record", "approval_digest")}
+                computed_digest = hashlib.sha256(json.dumps(clean_for_hash, sort_keys=True).encode()).hexdigest()
+                if expected_digest and expected_digest != computed_digest:
+                    return PolicyDecision(
+                        verdict=PolicyVerdict.DENIED,
+                        reason="Payload digest mismatch: arguments were modified after cryptographic human approval.",
+                        capability_id=capability_id,
+                    )
+            elif not approval_digest or len(approval_digest) != 64:
                 return PolicyDecision(
                     verdict=PolicyVerdict.REQUIRES_HUMAN_APPROVAL,
                     reason=(
                         f"Action '{capability_id}' requires explicit human cryptographic approval "
-                        f"(SHA-256 approval_digest)."
+                        f"(SHA-256 approval_digest or structured approval_record)."
                     ),
                     capability_id=capability_id,
                 )

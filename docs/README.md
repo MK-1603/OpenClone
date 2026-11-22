@@ -16,6 +16,9 @@
 - [PROJECT.md and AGENTS.md Lifecycle Guide](project-lifecycle/PROJECT-AND-AGENT-FILES.md) — Structuring specification and agent files.
 
 ## Upgrade, Baseline Audit & Traceability
+- [93 → 100 Master Upgrade Report](reports/93-to-100-upgrade-report.md) — Comprehensive engineering maturity upgrade report and verification scorecard.
+- [93 → 100 Baseline Audit](audits/93-to-100-baseline-audit.md) — Pre-flight audit, lead resolution, and test evidence.
+- [README Claims Audit Matrix](audits/readme-claims-audit.md) — Exhaustive verification matrix of all public-facing README claims.
 - [Baseline Audit](upgrade/BASELINE_AUDIT.md) — Pre-flight audit, stack discovery, and test evidence.
 - [Markdown Document Inventory](upgrade/MARKDOWN_DOCUMENT_INVENTORY.md) — Complete status ledger of 52 discovered documents.
 - [Requirements Traceability Matrix](upgrade/REQUIREMENTS_TRACEABILITY_MATRIX.md) — Bidirectional mapping from requirements to code and tests.
