@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aisdf.dev/schemas/deployment-profile.schema.json",
+  "title": "Application Deployment Profile",
+  "type": "object",
+  "required": [
+    "app_id",
+    "name",
+    "runtime",
+    "build_command",
+    "output_dir",
+    "provider",
+    "deployment_mode"
+  ],
+  "properties": {
+    "app_id": {
+      "type": "string",
+      "pattern": "^[a-z0-9-]+$"
+    },
+    "name": {
+      "type": "string"
+    },
+    "runtime": {
+      "type": "string",
+      "enum": ["nodejs", "python", "go", "rust", "static", "docker", "other"]
+    },
+    "build_command": {
+      "type": "string"
+    },
+    "output_dir": {
+      "type": "string"
+    },
+    "provider": {
+      "type": "string",
+      "enum": ["cloudflare", "vercel", "render", "railway", "flyio", "aws", "gcp", "docker", "local_preview"]
+    },
+    "deployment_mode": {
+      "type": "string",
+      "enum": ["MANUAL", "PREVIEW_AUTO", "PRODUCTION_APPROVAL", "PRODUCTION_AUTO"]
+    },
+    "health_endpoint": {
+      "type": "string"
+    },
+    "required_env_vars": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "preview_url": {
+      "type": "string"
+    },
+    "production_url": {
+      "type": "string"
+    },
+    "rollback_enabled": {
+      "type": "boolean"
+    }
+  },
+  "additionalProperties": false
+}
