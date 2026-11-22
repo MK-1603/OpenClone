@@ -9,7 +9,7 @@
   &nbsp;
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-6366f1?style=flat" alt="MIT License" /></a>
   &nbsp;
-  <a href="tests/"><img src="https://img.shields.io/badge/tests-78%20passed%20%7C%200%20failed-059669?style=flat" alt="78 Passing Tests" /></a>
+  <a href="tests/"><img src="https://img.shields.io/badge/tests-87%20passed%20%7C%200%20failed-059669?style=flat" alt="87 Passing Tests" /></a>
   &nbsp;
   <a href="security/scanners.lock.json"><img src="https://img.shields.io/badge/security-12%20scanners%20locked-ef4444?style=flat" alt="12 Scanners Locked" /></a>
   &nbsp;
@@ -85,16 +85,63 @@ Includes 31 engineering domains, 56 capability engines, 15 executable workflows,
 
 ## Quickstart (Under 60 Seconds)
 
-### Option A: Application Developers (Zero Install, Portable Workflow)
-You **do not** need to clone OpenClone to build applications.
+### 1. Direct GitHub Plugin Installation (No Manual Clone Required)
 
-1. **Copy the specification template:** Copy [templates/PROJECT.template.md](templates/PROJECT.template.md) into your project root as `PROJECT.md` and outline your idea.
-2. **Run the Master Prompt:** Paste [prompts/PORTABLE-PROJECT-INTELLIGENCE-MASTER-PROMPT.md](prompts/PORTABLE-PROJECT-INTELLIGENCE-MASTER-PROMPT.md) into [ChatGPT](https://chatgpt.com) or [Claude](https://claude.ai) along with your `PROJECT.md`.
-3. **Execute in your IDE:** Place the generated markdown package (`BUILD_PROMPT.md`, `ACCEPTANCE_MATRIX.md`, `PROGRESS.md`, `HANDOFF.md`) into your application repository and direct your AI IDE (Antigravity, Claude Code, Cursor, Codex) to build and verify.
+OpenClone installs directly into your preferred AI coding environment without manual git cloning or local Python builds:
+
+#### A. Google Antigravity
+Install the plugin directly from GitHub:
+```bash
+agy plugin install https://github.com/MK-1603/OpenClone
+```
+Verify the installation:
+```bash
+agy plugin list
+```
+*(Antigravity automatically retrieves, stages, and registers the 16 native specialist agents, always-on governance rules, and MCP tools.)*
+
+#### B. Claude Code
+Add the marketplace source and install:
+```text
+/plugin marketplace add MK-1603/OpenClone
+/plugin install openclone@openclone-marketplace
+```
+
+#### C. OpenAI Codex
+Add the Git-backed marketplace source:
+```bash
+codex plugin marketplace add MK-1603/OpenClone
+```
+Then select **OpenClone Engineering** in your Codex Plugins Directory.
+
+#### D. Cursor Composer
+Add OpenClone to your `.cursor/mcp.json`:
+```json
+{
+  "mcpServers": {
+    "openclone": {
+      "command": "python",
+      "args": ["-m", "src.openclone.cli", "mcp"]
+    }
+  }
+}
+```
 
 ---
 
-### Option B: Framework Contributors & Local Control Plane
+### 2. Application Developers: Portable Specification Workflow (Zero-Install)
+
+If you are building your own application using ChatGPT or Claude, you **do not** need to clone or install OpenClone:
+
+1. **Copy specification template:** Copy [templates/PROJECT.template.md](templates/PROJECT.template.md) into your application repo as `PROJECT.md`.
+2. **Run the Master Prompt:** Paste [prompts/PORTABLE-PROJECT-INTELLIGENCE-MASTER-PROMPT.md](prompts/PORTABLE-PROJECT-INTELLIGENCE-MASTER-PROMPT.md) into [ChatGPT](https://chatgpt.com) or [Claude](https://claude.ai) along with your `PROJECT.md`.
+3. **Build & Verify in IDE:** Hand off the generated instruction package (`BUILD_PROMPT.md`, `ACCEPTANCE_MATRIX.md`, `PROGRESS.md`, `HANDOFF.md`) to your AI coding IDE (Antigravity, Claude Code, Cursor, Codex).
+
+---
+
+### 3. Maintainers & Framework Contributors (Local Development & CI Only)
+
+> 💡 **Notice:** This section is **ONLY** for maintainers contributing to OpenClone core or running CI pipelines.
 
 ```bash
 # 1. Clone repository
@@ -107,12 +154,25 @@ pip install -e ".[dev]"
 # 3. Verify repository integrity (31 domains, 56 engines, 15 workflows)
 python tools/validate_repository.py
 
-# 4. Run automated test suite (78 tests passing)
+# 4. Run automated test suite (87 tests passing)
 python -m unittest discover -s tests -v
 
 # 5. Run anti-slop governance tests (13 tests passing)
 node skills/taste-skill/tests/test-governance.mjs
 ```
+
+### Responsibility & Operation Boundaries
+
+| Operation | End user installing plugin | OpenClone maintainer |
+|---|:---:|:---:|
+| **Install via `agy plugin install <URL>`** | **Yes (Primary route)** | Optional |
+| **Manually `git clone` OpenClone** | **No** | Yes, if developing locally |
+| **Run `pip install -e ".[dev]"`** | **No** | Yes, for Python development |
+| **Repository integrity validator (`validate_repository.py`)** | **No** | Yes, CI/maintenance |
+| **Run full unit test suite (87 tests)** | **No** | Yes, CI/maintenance |
+| **Run Taste governance tests (13 tests)** | **No** | Yes, CI/maintenance |
+| **Verify with `agy plugin list`** | **Yes** | Yes |
+| **Run `agy plugin validate --strict`** | **No routine need** | Yes, before release |
 
 ---
 

@@ -1,0 +1,32 @@
+{
+  "$schema": "https://antigravity.google/schemas/v1/plugin.json",
+  "name": "openclone",
+  "displayName": "OpenClone Engineering",
+  "version": "1.0.0",
+  "description": "Universal AI software engineering framework with specialist agents, 22-phase lifecycle checklists, anti-AI-slop governance, 19-point SaaS security baseline, and independent verification.",
+  "repository": "https://github.com/MK-1603/OpenClone",
+  "license": "MIT",
+  "keywords": [
+    "software-engineering",
+    "multi-agent",
+    "anti-ai-slop",
+    "requirements",
+    "architecture",
+    "security",
+    "testing",
+    "verification",
+    "auto-remediation"
+  ],
+  "suggestedPrompts": [
+    "Inspect this project and create a requirement-driven engineering plan.",
+    "Audit this interface for visual AI slop and enforce Taste Skill design tokens.",
+    "Run the 22-phase engineering checklist and report evidence-backed status.",
+    "Coordinate specialist agents to implement, test, and independently verify this task."
+  ],
+  "mcpServers": {
+    "openclone": {
+      "command": "python",
+      "args": ["-m", "src.openclone.cli", "mcp"]
+    }
+  }
+}
