@@ -343,6 +343,19 @@ OpenClone establishes 72 specialist role contracts ([`workforce/teams/`](workfor
 
 ---
 
+## Integrations & Security Toolchain
+
+OpenClone provides an adapter-first integration architecture connecting the deterministic control plane with AI coding IDEs, external model routers, and security analysis toolchains:
+
+- **[Multi-Host Compatibility Matrix](docs/integrations/compatibility-matrix.md):** Verification status for Antigravity, Claude Code, Cursor, Codex, and ChatGPT.
+- **[External LLM Router Comparison](docs/integrations/llm-router-comparison.md):** Technical comparison of 8 external router candidates and the OpenClone normalized provider contract.
+- **[Security Toolchain Architecture](docs/integrations/security-toolchain.md):** 12-tool classification and execution boundaries for SAST, secrets, supply-chain, and dynamic testing.
+- **[LLM Gateway Threat Model](docs/security/llm-gateway-threat-model.md):** STRIDE boundary analysis for prompt injection, SSRF, credential isolation, and audit integrity.
+- **[Security Profiles](docs/security/security-profiles.md):** Tiered profiles from `quick-local` (offline pre-commit) to `release` (SBOM & provenance).
+- **[Third-Party Notices](THIRD_PARTY_NOTICES.md):** Attribution and licensing register for Taste Skill, MCP, and referenced open-source projects.
+
+---
+
 ## Verified Capability Maturity Matrix
 
 In strict adherence to OpenClone truthfulness standards, every subsystem's maturity is transparently disclosed:
@@ -353,6 +366,8 @@ In strict adherence to OpenClone truthfulness standards, every subsystem's matur
 | **56 Engine Execution Contracts** | `SPECIFIED` | Validated by `tools/validate_repository.py`. |
 | **14 Executable Workflows** | `SPECIFIED` | Documented in `workflows/` (WF-001–WF-014). |
 | **72 Role Manifests & Schemas** | `L1_DEFINED` | Verified against JSON schema in `test_workforce_registry.py`. |
+| **12 Pinned Security Scanners** | `PINNED & LOCKED` | Pinned with hashes in `security/scanners.lock.json` and documented in `docs/integrations/security-toolchain.md`. |
+| **External Router & Gateway Specs** | `SPECIFIED & ARCHITECTED` | Evaluated across 8 candidates in `docs/integrations/llm-router-comparison.md`. |
 | **Local Deterministic Runtime** | `IMPLEMENTED & TESTED` | 63 passing unittests in `tests/` across runtime hardening, DAG, registry, lifecycle, and MCP. |
 | **Shared OpenClone MCP Server** | `IMPLEMENTED & TESTED` | JSON-RPC 2.0 stdio/SSE server with 7 tools tested in `tests/test_mcp_server.py`. |
 | **Multi-IDE Host Adapters** | `INTEGRATED & VERIFIED` | Native packages for Antigravity, Claude Code, Codex, Cursor, and ChatGPT. |
