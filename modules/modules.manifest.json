@@ -1,0 +1,105 @@
+{
+  "schema_version": "1.0.0",
+  "product": "OpenClone",
+  "version": "1.0.0",
+  "description": "OpenClone Global Plugin Modular Capability Architecture Manifest",
+  "distribution_layers": {
+    "layer_a_installer": {
+      "name": "OpenClone Bootstrap Installer",
+      "entry_point": "src/openclone/cli.py",
+      "package": "src/openclone/installer/",
+      "scope": "thin-client-no-clone",
+      "required": true
+    },
+    "layer_b_core": {
+      "name": "OpenClone Core Plugin",
+      "entry_point": "src/openclone/mcp/server.py",
+      "packages": [
+        "src/openclone/",
+        "openclone.manifest.json",
+        "plugin.json"
+      ],
+      "scope": "canonical-runtime",
+      "required": true
+    },
+    "layer_c_optional_modules": {
+      "name": "On-Demand Capability Packs",
+      "scope": "progressive-disclosure",
+      "required": false
+    }
+  },
+  "modules": [
+    {
+      "id": "mod-specialist-workforce",
+      "name": "Specialist Workforce Role Catalogue",
+      "version": "1.0.0",
+      "category": "workforce",
+      "required": false,
+      "loading": "on_demand",
+      "path": "workforce/",
+      "size_estimate_kb": 225,
+      "description": "72 specialist engineering worker roles across 12 disciplines, loaded on demand per project brief.",
+      "dependencies": []
+    },
+    {
+      "id": "mod-knowledge-catalogues",
+      "name": "Master Engineering Catalogues",
+      "version": "1.0.0",
+      "category": "knowledge",
+      "required": false,
+      "loading": "lazy_loaded",
+      "path": "docs/knowledge-catalogues/",
+      "size_estimate_kb": 85,
+      "description": "Comprehensive engineering taxonomies: 232 UI styles, 580 backend topics, 1,095 AI topics, and 365 motion concepts.",
+      "dependencies": []
+    },
+    {
+      "id": "mod-ui-ux-design",
+      "name": "Taste Skill & Anti-Slop Design Tokens",
+      "version": "2.6.0",
+      "category": "ui_ux",
+      "required": false,
+      "loading": "on_demand",
+      "path": "domains/05-UX-UI-ENGINEERING/",
+      "size_estimate_kb": 120,
+      "description": "Anti-AI-slop governance rules, typography hierarchy, morphism design patterns, and WCAG contrast standards.",
+      "dependencies": []
+    },
+    {
+      "id": "mod-security-hardened",
+      "name": "SaaS Security Baseline & Scanner Toolchain",
+      "version": "1.0.0",
+      "category": "security",
+      "required": false,
+      "loading": "on_demand",
+      "path": "docs/security/",
+      "size_estimate_kb": 95,
+      "description": "19-point SaaS security baseline, 12 pinned static analysis scanners, and dynamic AI pentest integration contracts.",
+      "dependencies": []
+    },
+    {
+      "id": "mod-project-lifecycle",
+      "name": "22-Phase Lifecycle & Verification Engine",
+      "version": "1.0.0",
+      "category": "lifecycle",
+      "required": false,
+      "loading": "on_demand",
+      "path": "docs/engineering-lifecycle/",
+      "size_estimate_kb": 180,
+      "description": "Complete 22-phase engineering lifecycle taxonomy, 10 project packs, quality gates, and V0-V5 verification engine.",
+      "dependencies": []
+    },
+    {
+      "id": "mod-taste-skill-assets",
+      "name": "Taste Skill Heavy Design & Render Assets",
+      "version": "2.6.0",
+      "category": "assets",
+      "required": false,
+      "loading": "lazy_loaded",
+      "path": "skills/taste-skill/",
+      "size_estimate_kb": 36000,
+      "description": "Extended photo kits, 3D product renders, scene mockups, and UI effect components, excluded from default plugin install.",
+      "dependencies": []
+    }
+  ]
+}

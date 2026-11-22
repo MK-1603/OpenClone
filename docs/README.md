@@ -1,6 +1,9 @@
 # OpenClone Documentation Index
 
 ## Core Framework & Getting Started
+- [Canonical Documentation Map](DOCUMENTATION-MAP.md) — Single source of authority, subject matrices, and precedence rules.
+- [Repository & Distribution Architecture](architecture/REPOSITORY-AND-DISTRIBUTION-ARCHITECTURE.md) — Lean core, native adapters, and progressive disclosure model.
+- [Installation & Capability Modules Guide](installation/INSTALLATION-AND-MODULES.md) — Zero-clone host installation, updates, and on-demand capability packs.
 - [Quick Start Guide](../QUICK-START.md) — Portable project workflow and optional local control plane setup.
 - [Mission & Scope](../AISDF-MISSION-AND-SCOPE.md) — Vision, boundaries, and architectural principles.
 - [Core Principles](../AISDF-CORE-PRINCIPLES.md) — Instruction-first, deterministic governance, least privilege.
@@ -16,6 +19,8 @@
 - [PROJECT.md and AGENTS.md Lifecycle Guide](project-lifecycle/PROJECT-AND-AGENT-FILES.md) — Structuring specification and agent files.
 
 ## Upgrade, Baseline Audit & Traceability
+- [Repository Cleanup & Premium Restructure Report](reports/repository-cleanup-and-premium-upgrade-report.md) — Repository slimming, duplicate resolution, and modularization audit.
+- [Repository Size & Duplication Audit](reports/repository-size-and-duplication-audit.md) — Measured baseline footprint, top 30 largest files, and duplicate groups.
 - [Global Plugin Installation Upgrade Report](reports/global-plugin-installation-upgrade-report.md) — Comprehensive installer, host adapters, and transaction upgrade report.
 - [93 → 100 Master Upgrade Report](reports/93-to-100-upgrade-report.md) — Comprehensive engineering maturity upgrade report and verification scorecard.
 - [93 → 100 Baseline Audit](audits/93-to-100-baseline-audit.md) — Pre-flight audit, lead resolution, and test evidence.

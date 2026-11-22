@@ -1,0 +1,33 @@
+path,classification,reason,canonical_replacement,references_found,license_or_provenance,risk,proposed_action,verification,approval_required
+README.md,CORE_KEEP,Primary repository landing page and project entry point,None,High,MIT,High,Keep and maintain,validate_repository.py,No
+openclone.manifest.json,CORE_KEEP,Canonical framework runtime manifest,None,High,MIT,High,Keep and maintain,validate_repository.py,No
+aisdf.manifest.json,CORE_KEEP,AISDF standard framework manifest,None,High,MIT,High,Keep and maintain,validate_repository.py,No
+plugin.json,CORE_KEEP,Root Antigravity plugin manifest for direct GitHub install,None,High,MIT,High,Keep and maintain,validate_repository.py,No
+VERSION,CORE_KEEP,Canonical version single source of truth,None,High,MIT,High,Keep (1.0.0),validate_repository.py,No
+pyproject.toml,CORE_KEEP,Python package metadata and CLI configuration,None,High,MIT,High,Keep (openclone 1.0.0),validate_repository.py,No
+AGENTS.md,CORE_KEEP,Repository operating contract for AI coding agents,None,High,MIT,High,Keep at root,validate_repository.py,No
+PROJECT.md,CORE_KEEP,Active project specification and truth document,None,High,MIT,High,Keep at root,validate_repository.py,No
+src/openclone/cli.py,CORE_KEEP,Main CLI router for MCP lifecycle and installer,None,High,MIT,High,Keep,test_installer.py,No
+src/openclone/mcp/server.py,CORE_KEEP,Shared MCP JSON-RPC 2.0 service,None,High,MIT,High,Keep,test_mcp_server.py,No
+src/openclone/integrations/capabilities.py,CORE_KEEP,15 canonical capabilities registry,None,High,MIT,High,Keep,test_universal_integrations.py,No
+src/openclone/integrations/gateway.py,CORE_KEEP,Policy engine and cryptographic approval gate,None,High,MIT,High,Keep,test_universal_integrations.py,No
+src/openclone/installer/engine.py,CORE_KEEP,Transactional installation engine,None,High,MIT,High,Keep,test_installer.py,No
+src/openclone/installer/detector.py,CORE_KEEP,Cross-platform AI host detector,None,High,MIT,High,Keep,test_installer.py,No
+src/openclone/installer/manifest.py,CORE_KEEP,Installation ownership ledger manager,None,High,MIT,High,Keep,test_installer.py,No
+adapters/antigravity/plugin/plugin.json,ADAPTER_KEEP,Antigravity native plugin definition,None,High,MIT,Medium,Keep in adapter,validate_repository.py,No
+adapters/claude-code/.mcp.json,ADAPTER_KEEP,Claude Code MCP configuration template,None,High,MIT,Medium,Keep in adapter,test_installer.py,No
+adapters/codex/mcp.json,ADAPTER_KEEP,OpenAI Codex MCP configuration template,None,High,MIT,Medium,Keep in adapter,test_installer.py,No
+adapters/cursor/.cursor/mcp.json,ADAPTER_KEEP,Cursor MCP configuration template,None,High,MIT,Medium,Keep in adapter,test_installer.py,No
+adapters/chatgpt/openapi.json,ADAPTER_KEEP,ChatGPT Custom GPT OpenAPI 3.1 specification,None,Medium,MIT,Medium,Keep in adapter,test_universal_integrations.py,No
+workforce/registry/workers/,OPTIONAL_MODULE,72 specialist worker role JSON manifests,modules/modules.manifest.json,High,MIT,Low,Decouple into on-demand module,test_workforce_registry.py,No
+docs/knowledge-catalogues/,OPTIONAL_MODULE,Full master knowledge encyclopedias,modules/modules.manifest.json,High,MIT,Low,Decouple into on-demand module,validate_repository.py,No
+skills/taste-skill/skills/taste-skill/assets/,OPTIONAL_MODULE,Heavy 3D renders and photo assets (~35MB),modules/modules.manifest.json,Medium,MIT,Low,Exclude from core plugin install,test-governance.mjs,No
+domains/05-UX-UI-ENGINEERING/ANTI-AI-SLOP-STANDARDS.md,CANONICAL_DOC,Normative anti-slop rules and design tokens,None,High,MIT,High,Keep canonical,validate_repository.py,No
+domains/00-GOVERNANCE/AISDF-RULEBOOK.md,CANONICAL_DOC,Normative AISDF governance rulebook,None,High,MIT,High,Keep canonical,validate_repository.py,No
+docs/security/saas-security-baseline.md,CANONICAL_DOC,19-point SaaS security standard,None,High,MIT,High,Keep canonical,validate_repository.py,No
+docs/engineering-lifecycle/MASTER_LIFECYCLE_CATALOGUE.md,CANONICAL_DOC,22-phase lifecycle taxonomy,None,High,MIT,High,Keep canonical,validate_repository.py,No
+blueprints/01_AISDF_Universal_Framework_Master_Blueprint.md,ARCHIVE,Historical initial AISDF specification,docs/DOCUMENTATION-MAP.md,Low,MIT,Low,Mark as archive reference,validate_repository.py,No
+blueprints/OPENCLONE_COMPLETE_GLOBAL_ENGINEERING_SKILLS_SECURITY_UPGRADE_v3.1.0.md,ARCHIVE,Historical upgrade planning prompt,docs/DOCUMENTATION-MAP.md,Low,MIT,Low,Mark as archive reference,validate_repository.py,No
+docs/demo/legacy-v4-captures/,REMOVE_DUPLICATE,Byte-for-byte identical duplicates of docs/demo/v4/,docs/demo/v4/,None,MIT,Low,Remove redundant duplicate,validate_repository.py,No
+examples/OPENCLONE_ANTIGRAVITY_MASTER_AUDIT_UPGRADE_PROMPT_v1.0.0.md,REMOVE_DUPLICATE,Exact duplicate of blueprints/ prompt,blueprints/,None,MIT,Low,Remove redundant duplicate,validate_repository.py,No
+__pycache__/,REMOVE_GENERATED,Python bytecode cache directories,None,None,Generated,Low,Keep strictly gitignored,git status,No
