@@ -25,7 +25,9 @@ coverage/
 .aisdf/workforce.sqlite3-shm
 .aisdf/workforce.sqlite3-wal
 
-# Taste Skill runtime cache and reports
+# Maintainer Upstream Integration Checkouts
+.openclone-dev/
+
 .taste-skill/
 .taste-pro/
 __pycache__/
