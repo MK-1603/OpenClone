@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "openclone"
+version = "1.0.0"
+description = "OpenClone: Universal AI Software Engineering Framework (AISDF)"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "OpenClone Contributors" }]
+keywords = ["ai-agents", "software-engineering", "governance", "orchestration", "multi-agent", "aisdf"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Build Tools",
+    "Topic :: Software Development :: Quality Assurance",
+]
+dependencies = []
+
+[project.optional-dependencies]
+dev = [
+    "jsonschema>=4.20.0",
+    "pytest>=8.0.0",
+]
+
+[project.scripts]
+openclone = "src.openclone.cli:main"
+aisdf = "src.openclone.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["src*", "runtime*"]
