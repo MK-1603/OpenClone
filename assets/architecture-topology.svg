@@ -28,7 +28,7 @@
 
   <!-- Title Header -->
   <text x="480" y="38" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, sans-serif" font-size="18" font-weight="700" letter-spacing="1" fill="#f8fafc">
-    OPENCLONE ARCHITECTURAL TOPOLOGY & CONTROL PLANE
+    OPENCLONE ARCHITECTURAL TOPOLOGY &amp; CONTROL PLANE
   </text>
   <text x="480" y="58" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, sans-serif" font-size="12" fill="#64748b">
     Decoupled Deterministic Governance · Shared Model Context Protocol · 31 Engineering Domains
@@ -37,7 +37,7 @@
   <!-- LAYER 1: HOSTS -->
   <g transform="translate(40, 80)">
     <rect width="880" height="70" rx="10" fill="url(#cardGrad)" stroke="#334155" stroke-width="1"/>
-    <text x="20" y="24" font-family="-apple-system, sans-serif" font-size="11" font-weight="700" fill="#38bdf8" letter-spacing="1">LAYER 1 · MULTI-IDE & CHATBOT HOST INTEGRATIONS</text>
+    <text x="20" y="24" font-family="-apple-system, sans-serif" font-size="11" font-weight="700" fill="#38bdf8" letter-spacing="1">LAYER 1 · MULTI-IDE &amp; CHATBOT HOST INTEGRATIONS</text>
     
     <!-- Badges for 5 hosts -->
     <g transform="translate(20, 32)">
@@ -68,7 +68,7 @@
   <!-- LAYER 2: SHARED MCP SERVICE -->
   <g transform="translate(40, 175)">
     <rect width="880" height="75" rx="10" fill="url(#cardGrad)" stroke="#38bdf8" stroke-width="1.5"/>
-    <text x="20" y="24" font-family="-apple-system, sans-serif" font-size="11" font-weight="700" fill="#818cf8" letter-spacing="1">LAYER 2 · SHARED OPENCLONE MCP SERVICE (JSON-RPC 2.0 stdio & SSE)</text>
+    <text x="20" y="24" font-family="-apple-system, sans-serif" font-size="11" font-weight="700" fill="#818cf8" letter-spacing="1">LAYER 2 · SHARED OPENCLONE MCP SERVICE (JSON-RPC 2.0 stdio &amp; SSE)</text>
     
     <!-- 7 MCP Tools -->
     <g transform="translate(20, 34)">
@@ -133,7 +133,7 @@
   <!-- LAYER 4: KNOWLEDGE & WORKFORCE -->
   <g transform="translate(40, 375)">
     <rect width="880" height="75" rx="10" fill="url(#cardGrad)" stroke="#334155" stroke-width="1"/>
-    <text x="20" y="24" font-family="-apple-system, sans-serif" font-size="11" font-weight="700" fill="#c084fc" letter-spacing="1">LAYER 4 · KNOWLEDGE REPOSITORY & SPECIALIST WORKFORCE</text>
+    <text x="20" y="24" font-family="-apple-system, sans-serif" font-size="11" font-weight="700" fill="#c084fc" letter-spacing="1">LAYER 4 · KNOWLEDGE REPOSITORY &amp; SPECIALIST WORKFORCE</text>
     
     <g transform="translate(20, 34)">
       <rect width="155" height="28" rx="6" fill="#3b0764" stroke="#9333ea" stroke-width="1"/>
