@@ -15,8 +15,18 @@
 - [Templates Library](../templates/README.md) — Portable templates for `PROJECT.md`, `BUILD_PROMPT.md`, `PROGRESS.md`, `HANDOFF.md`.
 - [PROJECT.md and AGENTS.md Lifecycle Guide](project-lifecycle/PROJECT-AND-AGENT-FILES.md) — Structuring specification and agent files.
 
-## Technical Architectures & Integrations
+## Global Knowledge Catalogues & Design Standards
+- [Knowledge Catalogues Index](knowledge/README.md) — Comprehensive directory of engineering taxonomies and standards.
+- [UI/UX Design Catalogue](knowledge/ui-ux-design-catalogue.md) — 86 visual styles, 232 architecture taxonomy entries, and token structures.
+- [UI/UX Quality Audit Protocol](knowledge/ui-ux-quality-audit.md) — 11-dimension 100-point weighted quality audit and 6-stage premium design protocol.
+- [Motion & Animation Standards](knowledge/motion-and-animation.md) — Duration scales, physical easing curves, 60fps compositor rules, reduced-motion.
+- [Backend & System Design Catalogue](knowledge/backend-system-design-catalogue.md) — 580 topics across 23 core engineering domains.
+- [AI Engineering & Context Catalogue](knowledge/ai-engineering-catalogue.md) — 1,095 topics across 18 domains with token budgeting.
+
+## Technical Architectures, Security & Integrations
 - [Workflow Runtime](WORKFLOW-RUNTIME.md) — State machine, dependency DAG, and cryptographic ledger.
+- [19-Point SaaS Security Baseline](security/saas-security-baseline.md) — Exhaustive pre-production SaaS security controls and verification checks.
+- [27 External Repositories Intake Audit](integrations/27-repositories-audit.md) — Classification, license status, and integration models for 27 intake repos.
 - [Security Toolchain Architecture](integrations/security-toolchain.md) — 12-tool classification and execution boundaries.
 - [Strix Dynamic AI Pentest Integration](integrations/strix-dynamic-testing.md) — Target authorization and Docker sandboxing.
 - [External LLM Router Comparison](integrations/llm-router-comparison.md) — Evaluation of 8 external router candidates.

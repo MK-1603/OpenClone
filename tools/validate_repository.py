@@ -30,6 +30,13 @@ fixtures=list((ROOT/'tests/fixtures').glob('*.json'))
 for p in fixtures:
  try: json.loads(p.read_text(encoding='utf-8'))
  except Exception as e: errors.append(f'{p.relative_to(ROOT)}: invalid JSON: {e}')
+# Validate all SVG assets parse as valid XML
+import xml.etree.ElementTree as ET
+for svg_p in ROOT.rglob('*.svg'):
+ try:
+  rt=ET.parse(svg_p).getroot().tag
+  if not rt.endswith('svg'): errors.append(f'{svg_p.relative_to(ROOT)}: root tag is not svg')
+ except Exception as e: errors.append(f'{svg_p.relative_to(ROOT)}: invalid SVG XML: {e}')
 # Every major directory has README.md (root exceptions are explicit).
 for d in [p for p in ROOT.iterdir() if p.is_dir() and not p.name.startswith('.')]:
  if any(d.iterdir()) and not (d/'README.md').is_file(): warnings.append(f'Major directory has no README.md: {d.name}')

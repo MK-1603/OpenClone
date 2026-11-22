@@ -1,23 +1,49 @@
 # OpenClone Skill Registry
-
-This registry tracks the approved, verified skills integrated into OpenClone. Each skill must declare its identity, version, location, capabilities, and governance gates.
-
----
-
-| Skill ID | Name | Version | Location | Primary Capabilities | Pre-Build Gate | Finish Gate | Maturity Status |
-|---|---|---|---|---|---|---|---|
-| `taste-skill` | Taste Skill | `v2.6.0` | [`skills/taste-skill`](file:///skills/taste-skill) | Anti-AI-slop governance, instruction discovery, adaptive design intelligence across 16 domains, brownfield project auditing, removal-first design, layout deal, real photographs, quiet motion | `plan-check.mjs` (`GATE: READY`) | `gate.mjs` (`GATE: PASS`) | `INTEGRATED` |
+**Canonical Registry of Verified Engineering, Design & Security Skills**  
+*OpenClone Global Standards | Managed by `src/openclone/skills/engine.py`*
 
 ---
 
-## Skill Details
+## 1. Registered Skills Master Index
 
-### `taste-skill` (v2.6.0)
-- **Engine Directory**: `skills/taste-skill`
-- **Core Directive**: *Instruction First. Context First. Design First. Code Second.*
-- **Key Modules**:
-  - `scripts/instruction-audit.mjs`: Scans workspace for `AGENTS.md`, `CLAUDE.md`, `.cursorrules`, etc.
-  - `scripts/audit-slop.mjs`: Scans code & CSS for AI slop patterns (glassmorphism, blobs, purple gradients, glow).
-  - `scripts/plan-check.mjs`: Pre-build gate enforcing `.taste-skill/design-plan.md` before coding.
-  - `scripts/gate.mjs`: Browser finish gate with headless Chrome validation across viewports.
-- **Product Domains Supported**: SaaS, AI Apps, Developer Tools, Dashboards, Productivity, Finance, Ecommerce, Enterprise, Healthcare, Education, Portfolios, Marketing, Mobile, Admin Panels, Data-Heavy, Documentation.
+| Skill ID | Display Name | Version | Category | Precedence | Location | Pre-Build Gate | Finish Gate | Maturity Status |
+|---|---|---|---|:---:|---|---|---|:---:|
+| `saas-security-baseline` | **SaaS Security Baseline Skill** | `v1.0.0` | `security` | 5 | [`docs/security/saas-security-baseline.md`](file:///docs/security/saas-security-baseline.md) | Security scan / RLS check | 19-Point Checklist Pass | `VERIFIED_IMPLEMENTED` |
+| `taste-skill` | **Taste Skill** | `v2.6.0` | `design` | 10 | [`skills/taste-skill`](file:///skills/taste-skill) | `plan-check.mjs` (`GATE: READY`) | `gate.mjs` (`GATE: PASS`) | `VERIFIED_IMPLEMENTED` |
+| `strix-pentest-adapter` | **Strix Dynamic Pentest Adapter** | `v1.0.0` | `security` | 15 | [`docs/integrations/strix-dynamic-testing.md`](file:///docs/integrations/strix-dynamic-testing.md) | Written Target Authorization | Retest Finding Closure | `SPECIFIED & BOUNDED` |
+| `typography-standards` | **Typography Standards Skill** | `v1.0.0` | `design` | 20 | [`domains/05/HUMAN-CRAFTED-DESIGN-SYSTEM.md`](file:///domains/05-UX-UI-ENGINEERING/HUMAN-CRAFTED-DESIGN-SYSTEM.md) | Type Scale Validation | Optical Contrast / Line-length | `VERIFIED_IMPLEMENTED` |
+| `backend-architecture` | **Backend System Architecture Skill** | `v1.0.0` | `backend` | 20 | [`docs/knowledge/backend-system-design-catalogue.md`](file:///docs/knowledge/backend-system-design-catalogue.md) | Migration Rollback Check | Transaction / Contract Test | `VERIFIED_DOCUMENTED` |
+| `ai-context-engineering` | **AI & Context Engineering Skill** | `v1.0.0` | `ai` | 20 | [`docs/knowledge/ai-engineering-catalogue.md`](file:///docs/knowledge/ai-engineering-catalogue.md) | Schema Output Validation | Token Budget / Rate Limit | `VERIFIED_DOCUMENTED` |
+| `motion-design` | **Motion & Animation Skill** | `v1.0.0` | `design` | 25 | [`docs/knowledge/motion-and-animation.md`](file:///docs/knowledge/motion-and-animation.md) | Compositor Property Check | `prefers-reduced-motion` | `VERIFIED_IMPLEMENTED` |
+
+---
+
+## 2. Design-Skill Precedence Hierarchy
+
+To prevent conflicting visual directions when multiple design skills match:
+1. **Product Brief & Constraints (`PROJECT.md`)**: Human owner requirements are authoritative.
+2. **Design-System Extraction (`design-md-chrome`)**: Extract tokens from existing brand assets.
+3. **Art Direction & Anti-Slop (`taste-skill`)**: Establishes purpose, visual density, and eliminates clichés.
+4. **Component Primitives (`shadcn/ui`, `frontend-design`)**: Accessible UI component assemblies.
+5. **Typography Standards (`typography-standards`)**: Proportional scales, fluid clamp, line-length constraints.
+6. **Design Critique & QA (`impeccable`, `hallmark`)**: Pre-release inspection and defect scoring.
+7. **Accessibility Verification (`a11y`)**: WCAG 2.2 AA contrast, keyboard navigation, and reduced-motion checks.
+
+---
+
+## 3. Skill Diagnostics CLI
+
+Inspect discovered skills and test task selection:
+```bash
+# List all registered skills
+python tools/skill_engine.py list
+
+# Select skills for a task
+python tools/skill_engine.py select --task "Build accessible login form with auth" --task-id "AUTH-01"
+
+# Generate markdown selection report
+python tools/skill_engine.py select --task "Build SaaS analytics dashboard" --report
+
+# Verify all skill paths and manifests
+python tools/skill_engine.py verify
+```

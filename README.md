@@ -220,7 +220,7 @@ OpenClone is completely provider-neutral. It works seamlessly across leading AI 
 OpenClone halts low-quality AI code generation by enforcing a strict seven-phase deterministic lifecycle:
 
 <p align="center">
-  <img src="assets/lifecycle-diagram.svg" alt="OpenClone Engineering Lifecycle" width="100%" />
+  <img src="https://raw.githubusercontent.com/MK-1603/OpenClone/main/assets/lifecycle-diagram.svg" alt="OpenClone Engineering Lifecycle" width="100%" />
 </p>
 
 ```mermaid
@@ -257,6 +257,15 @@ OpenClone integrates **Taste Skill v2.6.0** ([`skills/taste-skill/`](skills/tast
 
 - **Static Slop Scanner (`audit-slop.mjs`):** Detects decorative glassmorphism, ambient background blur blobs, neon glows, purple/indigo gradients, and redundant card grids.
 - **Pre-Build Gate (`plan-check.mjs`):** Blocks code generation until `.taste-skill/design-plan.md` passes validation (`GATE: READY`), scaling from Level 1 micro-fixes to Level 5 full products.
+- **UI/UX Quality Audit Protocol (11 Dimensions, 100 Points):** Evaluates frontend implementation against the weighted scoring rubric in [`docs/knowledge/ui-ux-quality-audit.md`](docs/knowledge/ui-ux-quality-audit.md), requiring a passing score >= 85/100 to eliminate the "80–90% AI finish" trap.
+- **The 6-Stage Premium Design Protocol:**
+  1. *Understand:* Extract core utility and layout constraints from `PROJECT.md`.
+  2. *Art Direction:* Select 1 of 86 visual directions from [`docs/knowledge/ui-ux-design-catalogue.md`](docs/knowledge/ui-ux-design-catalogue.md).
+  3. *Tokens:* Define 7-token color, typography, radius, and elevation contracts.
+  4. *Vertical Slice:* Build 1 core interactive component supporting all 9 states (default, hover, focus-visible, active, disabled, loading skeleton, empty, error, selected).
+  5. *Multi-Viewport Critique:* Test at 360px mobile, 768px tablet, and 1440px desktop.
+  6. *Polish:* Add physical spring easing (cubic-bezier) and reduce-motion support ([Motion Standards](docs/knowledge/motion-and-animation.md)).
+- **Design-Skill Precedence Hierarchy:** Resolves conflicts deterministically: `PROJECT.md` -> Visual Extraction (`design-md-chrome`) -> Art Direction (`taste-skill`) -> Component Primitives (`shadcn/ui`) -> Typography (`typography-standards`) -> Usability Critique (`hallmark`/`impeccable`) -> Accessibility Verification (`a11y`).
 - **User-Choice Aesthetics Supported ([Design Patterns Guide](domains/05-UX-UI-ENGINEERING/USER-CHOICE-DESIGN-PATTERNS.md)):** When explicitly requested, provides complete design tokens and WCAG 2.2 AA backing scrims for:
   - **Glassmorphism:** Frosted translucent surfaces with high-contrast backing scrims (`rgba(15,23,42,0.85)`).
   - **UI Morphism / Neumorphism:** Dual-source soft bevel lighting with tactile inset active states.
@@ -265,18 +274,62 @@ OpenClone integrates **Taste Skill v2.6.0** ([`skills/taste-skill/`](skills/tast
 
 ---
 
+## Deterministic Skill Discovery & Execution Engine
+
+OpenClone features an active skill discovery, selection, loading, and application engine (`tools/skill_engine.py` & `src/openclone/skills/engine.py`) that solves why skills are routinely ignored by AI agents:
+
+```mermaid
+flowchart LR
+    S1["1. Register<br/><small>Metadata & Triggers</small>"] --> S2["2. Match<br/><small>Domain & Tech Stack</small>"]
+    S2 --> S3["3. Negative Filter<br/><small>Strip Inapplicable</small>"]
+    S3 --> S4["4. Precedence Sort<br/><small>Rank by Priority</small>"]
+    S4 --> S5["5. Context Injection<br/><small>Load Prompt Snippets</small>"]
+    S5 --> S6["6. Verification<br/><small>Audit Application Evidence</small>"]
+
+    style S1 fill:#0f172a,stroke:#38bdf8,stroke-width:1px,color:#f8fafc
+    style S2 fill:#0f172a,stroke:#818cf8,stroke-width:1px,color:#f8fafc
+    style S3 fill:#0f172a,stroke:#ef4444,stroke-width:1px,color:#f8fafc
+    style S4 fill:#0f172a,stroke:#f59e0b,stroke-width:1px,color:#f8fafc
+    style S5 fill:#0f172a,stroke:#10b981,stroke-width:1px,color:#f8fafc
+    style S6 fill:#0f172a,stroke:#a855f7,stroke-width:1px,color:#f8fafc
+```
+
+### CLI Skill Diagnostics
+- **List Registered Skills:** `python tools/skill_engine.py list`
+- **Context-Aware Skill Selection:** `python tools/skill_engine.py select --domain ui-design --tech react --features "dashboard, charts"`
+- **Generate Selection & Application Reports:** `python tools/skill_engine.py report --project-path .`
+- **Verify Registry Integrity:** `python tools/skill_engine.py verify`
+
+---
+
 ## Security & Quality Workflow
 
 OpenClone enforces risk-based defensive engineering across the entire software development lifecycle:
 
 1. **Threat Modeling & Data-Flow Review:** Categorizes risks using STRIDE before architectural sign-off.
-2. **Dependency & Secret Locks:** Fully pins 12 security scanners in `security/scanners.lock.json` and prevents secrets from leaking into logs or git commits.
-3. **Static Security Analysis (SAST):** Scans for SQL injection, XSS, SSRF, and privilege escalation.
-4. **Dynamic Penetration Testing (Strix Integration):**
+2. **19-Point SaaS Security Baseline ([Checklist](docs/security/saas-security-baseline.md)):** Strict pre-deployment security verification covering authentication (argon2id/bcrypt), RBAC/ABAC authorization, tenant row-level security, CSRF protection, cryptographic rate limiting, TLS 1.3, input sanitization, and tamper-evident audit logging.
+3. **27 External Repositories Intake Audit ([Audit Matrix](docs/integrations/27-repositories-audit.md)):** Complete forensic assessment and integration model for 11 UI/UX, 12 Security, and 4 Development external repositories with clear licensing and isolation boundaries.
+4. **Dependency & Secret Locks:** Fully pins 12 security scanners in `security/scanners.lock.json` and prevents secrets from leaking into logs or git commits.
+5. **Static Security Analysis (SAST):** Scans for SQL injection, XSS, SSRF, and privilege escalation.
+6. **Dynamic Penetration Testing (Strix Integration):**
    - *Optional & Strictly Bounded:* Used only when explicitly authorized in writing by the project owner.
    - Documented in [`docs/integrations/strix-dynamic-testing.md`](docs/integrations/strix-dynamic-testing.md) with strict target allowlists and Docker isolation.
    - Finding-to-remediation retest protocol: every confirmed vulnerability requires a test case proving its elimination before release.
-5. **Release Gate:** Evaluates all automated checks and blocks deployment if any high/critical finding remains unaddressed.
+7. **Release Gate:** Evaluates all automated checks and blocks deployment if any high/critical finding remains unaddressed.
+
+---
+
+## Global Knowledge Catalogues & Design Standards
+
+OpenClone indexes comprehensive engineering standards and taxonomies across 5 knowledge documents:
+
+| Catalogue | Scope | Taxonomy & Standards |
+|---|---|---|
+| **[UI/UX Design Catalogue](docs/knowledge/ui-ux-design-catalogue.md)** | Visual Styling & UI Taxonomy | 86 visual styles, 232 architecture taxonomy entries across 8 layers, component tokens, and CSS variables. |
+| **[UI/UX Quality Audit](docs/knowledge/ui-ux-quality-audit.md)** | Quality Evaluation & Protocol | 11-dimension 100-point weighted quality audit and 6-stage premium design protocol. |
+| **[Motion & Animation Standards](docs/knowledge/motion-and-animation.md)** | Animation & Micro-Interactions | Duration tokens (50ms–500ms), physics-based cubic-bezier easing curves, 60fps GPU compositor rules, and reduced motion. |
+| **[Backend & System Design Catalogue](docs/knowledge/backend-system-design-catalogue.md)** | Production Backend Architecture | 580 topics across 23 core engineering domains (API protocols, databases, queuing, caching, observability). |
+| **[AI Engineering & Context Catalogue](docs/knowledge/ai-engineering-catalogue.md)** | Model & Context Management | 1,095 topics across 18 domains (LLM routing, token optimization, prompt engineering, RAG, tool calling). |
 
 ---
 
@@ -298,8 +351,41 @@ AI coding agents suffer from catastrophic amnesia when context windows reset or 
 For environments utilizing the optional local control plane, OpenClone decouples governance into 4 distinct layers:
 
 <p align="center">
-  <img src="assets/architecture-topology.svg" alt="OpenClone Architecture Topology" width="100%" />
+  <img src="https://raw.githubusercontent.com/MK-1603/OpenClone/main/assets/architecture-topology.svg" alt="OpenClone Architecture Topology" width="100%" />
 </p>
+
+```mermaid
+flowchart TD
+    subgraph L1["Layer 1: Multi-IDE & Host Integrations"]
+        IDE1["Google Antigravity"]
+        IDE2["Claude Code"]
+        IDE3["Cursor & VS Code"]
+        IDE4["OpenAI Codex"]
+        IDE5["ChatGPT & Web UI"]
+    end
+    subgraph L2["Layer 2: Shared MCP Service"]
+        MCP["src/openclone/mcp/server.py<br/>7 Canonical Inspection & Guidance Tools"]
+    end
+    subgraph L3["Layer 3: Deterministic Local Control Plane"]
+        CLI["openclone.py / aisdf.py"]
+        DAG["Task Dependency DAG & Approval Gate"]
+        DB["SQLite Hash-Chained Audit Ledger"]
+    end
+    subgraph L4["Layer 4: Knowledge, Skills & Specialists"]
+        DOM["31 Domains (00-30)"]
+        ENG["56 Capability Engines"]
+        SKL["Taste Skill & Skill Engine"]
+        WRK["72 Specialist Agent Roles"]
+    end
+    L1 --> MCP
+    MCP --> L3
+    L3 --> L4
+
+    style L1 fill:#0f172a,stroke:#38bdf8,stroke-width:1px,color:#f8fafc
+    style L2 fill:#0f172a,stroke:#818cf8,stroke-width:1px,color:#f8fafc
+    style L3 fill:#0f172a,stroke:#10b981,stroke-width:1px,color:#f8fafc
+    style L4 fill:#0f172a,stroke:#c084fc,stroke-width:1px,color:#f8fafc
+```
 
 - **Layer 1: Multi-IDE & Chatbot Host Integrations:** Native plugins and configurations for Antigravity, Claude Code, Cursor, Codex, and ChatGPT.
 - **Layer 2: Shared MCP Service (`src/openclone/mcp/server.py`):** JSON-RPC 2.0 stdio/SSE server exposing 7 canonical inspection and guidance tools.

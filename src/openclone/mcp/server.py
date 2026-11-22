@@ -341,6 +341,14 @@ class OpenCloneMCPServer:
             "deployment": self.root / "domains" / "19-DEPLOYMENT-AND-OPERATIONS" / "APPLICATION-DEPLOYMENT-GUIDE.md",
             "requirements": self.root / "assessments" / "requirements" / "REQUIREMENTS-SYSTEM-AUDIT.md",
             "governance": self.root / "domains" / "00-GOVERNANCE" / "AISDF-RULEBOOK.md",
+            "saas_security": self.root / "docs" / "security" / "saas-security-baseline.md",
+            "ui_ux_catalogue": self.root / "docs" / "knowledge" / "ui-ux-design-catalogue.md",
+            "ui_ux_quality": self.root / "docs" / "knowledge" / "ui-ux-quality-audit.md",
+            "motion_design": self.root / "docs" / "knowledge" / "motion-and-animation.md",
+            "backend_catalogue": self.root / "docs" / "knowledge" / "backend-system-design-catalogue.md",
+            "ai_catalogue": self.root / "docs" / "knowledge" / "ai-engineering-catalogue.md",
+            "external_repos": self.root / "docs" / "integrations" / "27-repositories-audit.md",
+            "skills": self.root / "registries" / "SKILL-REGISTRY.md",
         }
         target = topic_map.get(topic)
         if target and target.exists() and safe_relative_path(target, self.root):
