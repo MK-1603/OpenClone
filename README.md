@@ -321,15 +321,58 @@ OpenClone enforces risk-based defensive engineering across the entire software d
 
 ## Global Knowledge Catalogues & Design Standards
 
-OpenClone indexes comprehensive engineering standards and taxonomies across 5 knowledge documents:
+OpenClone indexes comprehensive engineering standards and taxonomies across canonical knowledge catalogues:
 
 | Catalogue | Scope | Taxonomy & Standards |
 |---|---|---|
-| **[UI/UX Design Catalogue](docs/knowledge/ui-ux-design-catalogue.md)** | Visual Styling & UI Taxonomy | 86 visual styles, 232 architecture taxonomy entries across 8 layers, component tokens, and CSS variables. |
+| **[UI/UX Design Catalogue](docs/knowledge-catalogues/UI_DESIGN_CATALOGUE.md)** | Visual Styling & UI Taxonomy | 86 visual styles, 232 architecture taxonomy entries across 8 layers, component tokens, and CSS variables. |
 | **[UI/UX Quality Audit](docs/knowledge/ui-ux-quality-audit.md)** | Quality Evaluation & Protocol | 11-dimension 100-point weighted quality audit and 6-stage premium design protocol. |
-| **[Motion & Animation Standards](docs/knowledge/motion-and-animation.md)** | Animation & Micro-Interactions | Duration tokens (50ms–500ms), physics-based cubic-bezier easing curves, 60fps GPU compositor rules, and reduced motion. |
-| **[Backend & System Design Catalogue](docs/knowledge/backend-system-design-catalogue.md)** | Production Backend Architecture | 580 topics across 23 core engineering domains (API protocols, databases, queuing, caching, observability). |
-| **[AI Engineering & Context Catalogue](docs/knowledge/ai-engineering-catalogue.md)** | Model & Context Management | 1,095 topics across 18 domains (LLM routing, token optimization, prompt engineering, RAG, tool calling). |
+| **[Motion & Animation Standards](docs/knowledge-catalogues/ANIMATION_MOTION_CATALOGUE.md)** | Animation & Micro-Interactions | 365 motion concepts, duration tokens (50ms–500ms), physics-based cubic-bezier easing, and 60fps rules. |
+| **[Backend & System Design](docs/knowledge-catalogues/BACKEND_SYSTEM_DESIGN_CATALOGUE.md)** | Production Backend Architecture | 580 topics across 23 core engineering domains (API protocols, databases, queuing, caching, observability). |
+| **[AI Engineering Catalogue](docs/knowledge-catalogues/AI_ENGINEERING_CATALOGUE.md)** | Model & Context Management | 1,095 topics across 18 domains (LLM routing, token optimization, prompt engineering, RAG, tool calling). |
+| **[Product Capability Map](docs/knowledge-catalogues/CATALOGUE_TO_PRODUCT_CAPABILITY_MAP.md)** | Capability Mapping | Explicit mapping of all catalogue concepts into Core Product, Internal, Optional, or Reference roles. |
+
+---
+
+## Alternatives & Fallback Engineering Suite
+
+OpenClone enforces architectural resilience through deliberate alternatives and tested fallback paths documented in [`docs/alternatives/`](docs/alternatives/):
+
+- **[Master Alternatives Catalogue](docs/alternatives/ALTERNATIVES_CATALOGUE.md):** Defines primary choices, fallbacks, and specialist alternatives across AI models, routing, UI, security, and control planes.
+- **[Repository Alternatives Matrix](docs/alternatives/REPOSITORY_ALTERNATIVES_MATRIX.md):** Comprehensive evaluation of 27 external repositories with candidate alternatives.
+- **[Provider & Model Alternatives](docs/alternatives/PROVIDER_AND_MODEL_ALTERNATIVES.md):** Evaluation of frontier models, local models (Ollama), and 8 router candidates (recommending LiteLLM for production).
+- **[Security Tool Alternatives](docs/alternatives/SECURITY_TOOL_ALTERNATIVES.md):** Alternative enforcement and testing mechanisms for all 19 SaaS baseline security controls.
+- **[Decision & Fallback Policy](docs/alternatives/DECISION_AND_FALLBACK_POLICY.md):** Explicit operational triggers for automatic provider failover and safe migration boundaries.
+- **[Specification Traceability Suite](docs/upgrade/REQUIREMENTS_TRACEABILITY_MATRIX.md):** Bidirectional traceability from master blueprints to code and verification evidence.
+
+---
+
+## Complete Engineering Workbench: SDLC from Idea to Delivery
+
+OpenClone provides an end-to-end software development lifecycle (SDLC) workbench covering 16 continuous phases:
+
+```mermaid
+flowchart TD
+    P0["0. Intake & Discovery<br/><small>Validate problem, users & scope</small>"] --> P1["1. Requirements (PRD)<br/><small>Stable IDs & acceptance criteria</small>"]
+    P1 --> P2["2. Architecture & UX<br/><small>HLD/LLD, ADRs, 86 visual styles</small>"]
+    P2 --> P3["3. Security & Threat Model<br/><small>19-point SaaS security baseline</small>"]
+    P3 --> P4["4. Build Preparation<br/><small>Portable PROJECT.md package</small>"]
+    P4 --> P5["5. Governed Build<br/><small>Smallest diff, 9 component states</small>"]
+    P5 --> P6["6. Verification & Gates<br/><small>100-pt UI audit, tests & scans</small>"]
+    P6 --> P7["7. Release & Operations<br/><small>WF-014 cloud deploy, runbooks</small>"]
+
+    style P0 fill:#0f172a,stroke:#38bdf8,stroke-width:1px,color:#f8fafc
+    style P1 fill:#0f172a,stroke:#818cf8,stroke-width:1px,color:#f8fafc
+    style P2 fill:#0f172a,stroke:#c084fc,stroke-width:1px,color:#f8fafc
+    style P3 fill:#0f172a,stroke:#ef4444,stroke-width:1px,color:#f8fafc
+    style P4 fill:#0f172a,stroke:#f59e0b,stroke-width:1px,color:#f8fafc
+    style P5 fill:#0f172a,stroke:#10b981,stroke-width:1px,color:#f8fafc
+    style P6 fill:#0f172a,stroke:#06b6d4,stroke-width:1px,color:#f8fafc
+    style P7 fill:#0f172a,stroke:#a855f7,stroke-width:1px,color:#f8fafc
+```
+
+- **Portable Output Guarantee:** Projects built with OpenClone have **zero runtime dependency** on OpenClone.
+- **Multi-IDE Handoff:** Works seamlessly in Google Antigravity, Claude Code, Cursor, Codex, and ChatGPT.
 
 ---
 
