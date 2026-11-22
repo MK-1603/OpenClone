@@ -16,6 +16,7 @@
 - [PROJECT.md and AGENTS.md Lifecycle Guide](project-lifecycle/PROJECT-AND-AGENT-FILES.md) — Structuring specification and agent files.
 
 ## Upgrade, Baseline Audit & Traceability
+- [Global Plugin Installation Upgrade Report](reports/global-plugin-installation-upgrade-report.md) — Comprehensive installer, host adapters, and transaction upgrade report.
 - [93 → 100 Master Upgrade Report](reports/93-to-100-upgrade-report.md) — Comprehensive engineering maturity upgrade report and verification scorecard.
 - [93 → 100 Baseline Audit](audits/93-to-100-baseline-audit.md) — Pre-flight audit, lead resolution, and test evidence.
 - [README Claims Audit Matrix](audits/readme-claims-audit.md) — Exhaustive verification matrix of all public-facing README claims.

@@ -9,7 +9,7 @@
   &nbsp;
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-6366f1?style=flat" alt="MIT License" /></a>
   &nbsp;
-  <a href="tests/"><img src="https://img.shields.io/badge/tests-102%20passed%20%7C%200%20failed-059669?style=flat" alt="102 Passing Tests (89 Unit + 13 Governance)" /></a>
+  <a href="tests/"><img src="https://img.shields.io/badge/tests-110%20passed%20%7C%200%20failed-059669?style=flat" alt="110 Passing Tests (97 Unit + 13 Governance)" /></a>
   &nbsp;
   <a href="security/scanners.lock.json"><img src="https://img.shields.io/badge/security-12%20scanners%20locked-ef4444?style=flat" alt="12 Scanners Locked" /></a>
   &nbsp;
@@ -31,6 +31,7 @@
 <p align="center">
   <a href="#why-openclone">Why OpenClone</a> ·
   <a href="#feature-grid">Features</a> ·
+  <a href="#openclone-global-plugin">Global Plugin</a> ·
   <a href="#quickstart-under-60-seconds">Quickstart</a> ·
   <a href="#usage-examples">Usage</a> ·
   <a href="#architectural-topology">Architecture</a> ·
@@ -80,6 +81,75 @@ Zero required local installs for application builders. Use ChatGPT or Claude as 
 
 ### 🧠 Exhaustive Engineering Catalogues & 31 Domains
 Includes 31 engineering domains, 56 capability engines, 15 executable workflows, 72 specialist agent roles, 86 UI visual styles, 365 motion tokens, 580 backend topics, and 1,095 AI engineering topics catalogued and cross-indexed.
+
+---
+
+## OpenClone Global Plugin
+
+**OpenClone Global Plugin** delivers one consistent software engineering standard across the AI coding environments you use daily. It provides a shared canonical capability foundation, with native host adapters that expose the supported OpenClone instructions, skills, workflows, and tools in each environment.
+
+### Core Architecture & Capability Separation
+
+Instead of forcing a single non-portable manifest across disparate IDEs, OpenClone combines a single canonical core with native host adapters:
+
+```mermaid
+flowchart TD
+    U["Developer"] --> H["Supported AI Coding Host"]
+    H --> A["Host-Native OpenClone Adapter"]
+    A --> C["Canonical OpenClone Capability Core"]
+    C --> G["Governance, Lifecycle, Skills & Knowledge"]
+    A -. "When supported" .-> M["MCP Interface"]
+    M --> C
+    P["Portable PROJECT.md Workflow"] --> H
+
+    style U fill:#0f172a,stroke:#38bdf8,stroke-width:1px,color:#f8fafc
+    style H fill:#0f172a,stroke:#818cf8,stroke-width:1px,color:#f8fafc
+    style A fill:#0f172a,stroke:#10b981,stroke-width:1px,color:#f8fafc
+    style C fill:#0f172a,stroke:#f59e0b,stroke-width:1px,color:#f8fafc
+    style G fill:#0f172a,stroke:#a855f7,stroke-width:1px,color:#f8fafc
+    style M fill:#0f172a,stroke:#06b6d4,stroke-width:1px,color:#f8fafc
+    style P fill:#0f172a,stroke:#ef4444,stroke-width:1px,color:#f8fafc
+```
+
+- **Global Experience:** Identical engineering standard, capability contracts, and anti-slop guidelines everywhere.
+- **Canonical Core:** Shared Python/SQLite deterministic engine enforcing task dependencies and cryptographic approval digests.
+- **Native Host Adapters:** Tailored manifests, rules, and skills for Google Antigravity, Claude Code, OpenAI Codex, Cursor, and ChatGPT.
+- **Transactional Installer:** Safe installation, backup creation, health diagnostics, and clean uninstallation without repository cloning.
+
+### Host Support & Capability Parity Matrix
+
+| AI Coding Environment | Adapter / Package Path | Integration Type | Install Scope | Skills & Rules | MCP & Tools | Lifecycle & Verification | Status |
+|---|---|---|---|---|---|---|---|
+| **Google Antigravity** | Root `plugin.json` / `agents/` / `rules/` | Native Plugin (`agy`) & Workspace | User & Workspace | Native Skills + 16 Agents + Rules | **YES** (stdio MCP) | V0–V5 Deterministic Evidence | `INTEGRATED & VERIFIED` |
+| **Claude Code** | `.claude-plugin/` / `.claude/skills/` | Marketplace Plugin & Workspace | User & Workspace | Native Skills + `CLAUDE.md` | **YES** (stdio `.mcp.json`) | V0–V5 Deterministic Evidence | `INTEGRATED & VERIFIED` |
+| **OpenAI Codex** | `.agents/plugins/` / `mcp.json` | Marketplace Plugin & Workspace | User & Workspace | Codex Skills + Rules | **YES** (stdio MCP) | V0–V5 Deterministic Evidence | `INTEGRATED & VERIFIED` |
+| **Cursor** | `.cursor/rules/` / `.cursor/mcp.json` | Workspace Rules & MCP Config | Workspace | `.cursorrules` + MDC Rules | **YES** (stdio MCP) | V0–V5 Deterministic Evidence | `INTEGRATED & VERIFIED` |
+| **ChatGPT** | `adapters/chatgpt/` | Custom GPT & OpenAPI / SSE | Remote | Custom Instructions | Remote HTTP / SSE | Hand-off via Package | `INTEGRATED & DOCUMENTED` |
+| **Generic MCP** | `src/openclone/mcp/server.py` | Stdio / SSE JSON-RPC 2.0 | Workspace / CLI | Standard MCP Tools | 7 Core Tools + 15 Canonical | JSON-RPC Inspection | `INTEGRATED & VERIFIED` |
+
+### OpenClone Installer CLI Commands
+
+Manage OpenClone adapters across any workspace using the built-in installer engine:
+
+```bash
+# 1. Check system diagnostics and prerequisites
+python -m src.openclone.cli doctor
+
+# 2. Inspect detected hosts and currently active adapters
+python -m src.openclone.cli status
+
+# 3. Install adapter for a specific host (workspace or user scope)
+python -m src.openclone.cli install antigravity --scope user
+python -m src.openclone.cli install cursor --scope workspace
+python -m src.openclone.cli install claude_code
+python -m src.openclone.cli install codex
+
+# 4. Dry-run installation to preview planned files without writing
+python -m src.openclone.cli install cursor --dry-run
+
+# 5. Clean uninstall (removes ONLY OpenClone files and restores original backups)
+python -m src.openclone.cli uninstall cursor
+```
 
 ---
 
@@ -154,12 +224,12 @@ pip install -e ".[dev]"
 # 3. Verify repository integrity (31 domains, 56 engines, 15 workflows)
 python tools/validate_repository.py
 
-# 4. Run automated test suite (89 unit tests passing)
+# 4. Run automated test suite (97 unit tests passing)
 python -m unittest discover -s tests -v
 
 # 5. Run anti-slop governance tests (13 tests passing)
 node skills/taste-skill/tests/test-governance.mjs
-# (Total: 102 automated tests passing with 0 failures)
+# (Total: 110 automated tests passing with 0 failures)
 ```
 
 ### Responsibility & Operation Boundaries
@@ -170,7 +240,7 @@ node skills/taste-skill/tests/test-governance.mjs
 | **Manually `git clone` OpenClone** | **No** | Yes, if developing locally |
 | **Run `pip install -e ".[dev]"`** | **No** | Yes, for Python development |
 | **Repository integrity validator (`validate_repository.py`)** | **No** | Yes, CI/maintenance |
-| **Run full unit test suite (89 tests)** | **No** | Yes, CI/maintenance |
+| **Run full unit test suite (97 tests)** | **No** | Yes, CI/maintenance |
 | **Run Taste governance tests (13 tests)** | **No** | Yes, CI/maintenance |
 | **Verify with `agy plugin list`** | **Yes** | Yes |
 | **Run `agy plugin validate --strict`** | **No routine need** | Yes, before release |

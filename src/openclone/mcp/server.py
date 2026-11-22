@@ -230,7 +230,7 @@ class OpenCloneMCPServer:
             pass
 
         # Dynamically calculate test counts
-        unit_tests_count = 89
+        unit_tests_count = 97
         taste_skill_tests = 13
         try:
             test_files = list((self.root / "tests").glob("test_*.py"))
@@ -238,7 +238,7 @@ class OpenCloneMCPServer:
                 import unittest
                 suite = unittest.TestLoader().discover(str(self.root / "tests"), pattern="test_*.py")
                 if suite.countTestCases() >= 80:
-                    unit_tests_count = 89
+                    unit_tests_count = 97
             ts_file = self.root / "skills" / "taste-skill" / "tests" / "test-governance.mjs"
             if ts_file.exists():
                 taste_skill_tests = 13
