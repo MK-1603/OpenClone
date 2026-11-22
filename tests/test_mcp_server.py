@@ -49,7 +49,7 @@ class MCPServerTests(unittest.TestCase):
         self.assertEqual(status["version"], "1.0.0")
         self.assertEqual(status["metrics"]["domains"], 31)
         self.assertEqual(status["metrics"]["engines"], 56)
-        self.assertEqual(status["metrics"]["workflows"], 14)
+        self.assertEqual(status["metrics"]["workflows"], 15)
         self.assertEqual(status["metrics"]["workforce_roles"], 72)
 
     def test_search_knowledge_tool(self):
@@ -81,7 +81,7 @@ class MCPServerTests(unittest.TestCase):
         res = self.server.call_tool("openclone_list_capabilities", {"filter": "all"})
         self.assertEqual(len(res["domains"]), 31)
         self.assertEqual(len(res["engines"]), 56)
-        self.assertEqual(len(res["workflows"]), 14)
+        self.assertEqual(len(res["workflows"]), 15)
         self.assertEqual(len(res["workforce_roles"]), 72)
         self.assertIn("antigravity", res["adapters"])
 

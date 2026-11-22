@@ -35,6 +35,9 @@ This directory contains the canonical foundational blueprints, architecture maps
 | [`OPENCLONE_PREMIUM_REPOSITORY_STRUCTURE_UPGRADE_v1.3.0.md`](OPENCLONE_PREMIUM_REPOSITORY_STRUCTURE_UPGRADE_v1.3.0.md) | v1.3.0 | Premium repository structure specification: 31-domain consolidation under `domains/` and clean architectural hierarchy |
 | [`OPENCLONE_REPOSITORY_OPTIMIZATION_AND_README_UPGRADE_PROMPT_v1.0.0.md`](OPENCLONE_REPOSITORY_OPTIMIZATION_AND_README_UPGRADE_PROMPT_v1.0.0.md) | v1.0.0 | Repository optimization, clean hierarchy, ownership clarity, and public README upgrade specification |
 | [`OPENCLONE_SINGLE_MASTER_UPGRADE_AND_PROJECT_GENERATION_PROMPT_v2.0.0.md`](OPENCLONE_SINGLE_MASTER_UPGRADE_AND_PROJECT_GENERATION_PROMPT_v2.0.0.md) | v2.0.0 | Single Master Specification: Premium Architecture, Repository Intelligence, Complete Project Generation, AI Coding-Agent Execution, and Application Auto-Deployment |
+| [`OPENCLONE_FROM_PROJECT_MD_TO_COMPLETED_SOFTWARE_PROJECT_v1.0.0.md`](OPENCLONE_FROM_PROJECT_MD_TO_COMPLETED_SOFTWARE_PROJECT_v1.0.0.md) | v1.0.0 | End-to-end user workflow, product behavior, vertical slices, and coding-agent execution contract from idea/PROJECT.md to verified delivery |
+| [`OPENCLONE_STRIX_FEASIBILITY_INTEGRATION_AND_PROJECT_COMPLETION_UPGRADE_v1.0.0.md`](OPENCLONE_STRIX_FEASIBILITY_INTEGRATION_AND_PROJECT_COMPLETION_UPGRADE_v1.0.0.md) | v1.0.0 | Strix dynamic AI penetration testing feasibility assessment, target authorization boundaries, finding-to-fix lifecycle, and retesting |
+| [`OPENCLONE_PROJECT_MD_ONLY_PROJECT_INTELLIGENCE_AND_IDE_BUILD_WORKFLOW_v2.0.0.md`](OPENCLONE_PROJECT_MD_ONLY_PROJECT_INTELLIGENCE_AND_IDE_BUILD_WORKFLOW_v2.0.0.md) | v2.0.0 | Portable specification-to-build system enabling zero-install project builds from a single PROJECT.md across any AI coding IDE |
 
 ---
 

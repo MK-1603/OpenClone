@@ -324,7 +324,7 @@ OpenClone establishes 72 specialist role contracts ([`workforce/teams/`](workfor
 
 ---
 
-## 14 Executable Workflows
+## 15 Executable Workflows
 
 1. [`WF-001: New Project from Document`](workflows/WF-001-NEW-PROJECT-FROM-DOCUMENT.md) — Greenfield bootstrap from brief to verified architecture, tasks, and initial milestone.
 2. [`WF-002: Existing Project X-Ray`](workflows/WF-002-EXISTING-PROJECT-XRAY.md) — Comprehensive brownfield audit, mapping dependencies, tech debt, and security gaps.
@@ -340,6 +340,7 @@ OpenClone establishes 72 specialist role contracts ([`workforce/teams/`](workfor
 12. [`WF-012: Specification Drift Report`](workflows/WF-012-SPECIFICATION-DRIFT-REPORT.md) — Real-time comparison between working-tree git changes and approved specifications.
 13. [`WF-013: Project Definition & Assessment`](workflows/WF-013-PROJECT-DEFINITION-ASSESSMENT-AND-IMPLEMENTATION-PLANNING.md) — End-to-end orchestration uniting `PROJECT.md`, task planning, and evidence validation.
 14. [`WF-014: Application Build to Deployment`](workflows/WF-014-APPLICATION-BUILD-TO-DEPLOYMENT.md) — 7-phase build, isolated preview verification, human approval gating, and production deployment across 6 cloud platforms.
+15. [`WF-015: Portable Project Specification to Build`](workflows/WF-015-PORTABLE-PROJECT-SPECIFICATION-TO-BUILD.md) — Zero-install workflow executing end-to-end delivery from a single `PROJECT.md` in any AI IDE.
 
 ---
 
@@ -350,6 +351,7 @@ OpenClone provides an adapter-first integration architecture connecting the dete
 - **[Multi-Host Compatibility Matrix](docs/integrations/compatibility-matrix.md):** Verification status for Antigravity, Claude Code, Cursor, Codex, and ChatGPT.
 - **[External LLM Router Comparison](docs/integrations/llm-router-comparison.md):** Technical comparison of 8 external router candidates and the OpenClone normalized provider contract.
 - **[Security Toolchain Architecture](docs/integrations/security-toolchain.md):** 12-tool classification and execution boundaries for SAST, secrets, supply-chain, and dynamic testing.
+- **[Strix Dynamic AI Pentest Integration](docs/integrations/strix-dynamic-testing.md):** Feasibility, target authorization boundaries, and finding-to-remediation retest protocol.
 - **[LLM Gateway Threat Model](docs/security/llm-gateway-threat-model.md):** STRIDE boundary analysis for prompt injection, SSRF, credential isolation, and audit integrity.
 - **[Security Profiles](docs/security/security-profiles.md):** Tiered profiles from `quick-local` (offline pre-commit) to `release` (SBOM & provenance).
 - **[Third-Party Notices](THIRD_PARTY_NOTICES.md):** Attribution and licensing register for Taste Skill, MCP, and referenced open-source projects.
@@ -364,9 +366,11 @@ In strict adherence to OpenClone truthfulness standards, every subsystem's matur
 |---|---|---|
 | **31 Engineering Domain Specs** | `SPECIFIED` | Fully documented in directory `domains/` (`00-GOVERNANCE` through `30-AGENT-RULES-AND-VERIFICATION`). |
 | **56 Engine Execution Contracts** | `SPECIFIED` | Validated by `tools/validate_repository.py`. |
-| **14 Executable Workflows** | `SPECIFIED` | Documented in `workflows/` (WF-001–WF-014). |
+| **15 Executable Workflows** | `SPECIFIED` | Documented in `workflows/` (WF-001–WF-015). |
 | **72 Role Manifests & Schemas** | `L1_DEFINED` | Verified against JSON schema in `test_workforce_registry.py`. |
 | **12 Pinned Security Scanners** | `PINNED & LOCKED` | Pinned with hashes in `security/scanners.lock.json` and documented in `docs/integrations/security-toolchain.md`. |
+| **Strix Dynamic Pentest Adapter** | `SPECIFIED & BOUNDED` | Target allowlist, Docker pre-flight, and PoC lifecycle in `docs/integrations/strix-dynamic-testing.md`. |
+| **Portable Project Packages** | `TEMPLATED & SPECIFIED` | Portable `PROJECT.md`, `BUILD_PROMPT.md`, `SECURITY_PLAN.md`, `ACCEPTANCE_MATRIX.md` in `templates/`. |
 | **External Router & Gateway Specs** | `SPECIFIED & ARCHITECTED` | Evaluated across 8 candidates in `docs/integrations/llm-router-comparison.md`. |
 | **Local Deterministic Runtime** | `IMPLEMENTED & TESTED` | 63 passing unittests in `tests/` across runtime hardening, DAG, registry, lifecycle, and MCP. |
 | **Shared OpenClone MCP Server** | `IMPLEMENTED & TESTED` | JSON-RPC 2.0 stdio/SSE server with 7 tools tested in `tests/test_mcp_server.py`. |
