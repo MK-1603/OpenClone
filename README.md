@@ -108,55 +108,51 @@ OpenClone is governed by eight foundational engineering principles:
 
 ## 04. How OpenClone Works
 
-OpenClone acts as a deterministic control plane between the human developer, the AI coding agent, and the underlying codebase:
+OpenClone operates as a deterministic, model-independent control plane between the human developer, autonomous coding agents, and the repository codebase. Work executes across an 8-stage left-to-right engineering lifecycle:
+
+<p align="center">
+  <img src="assets/how-openclone-works.svg" alt="OpenClone Governed Engineering Lifecycle — Full Width Architecture Diagram" width="100%" />
+</p>
 
 ```mermaid
-flowchart TD
-    DEV["Human Developer<br/><small>Defines Intent · Retains Final Approval Authority</small>"]
+flowchart LR
+    S1["<b>01 · Intake</b><br/><small>Project Understanding</small>"]
+    S2["<b>02 · Intelligence</b><br/><small>Project Intelligence</small>"]
+    S3["<b>03 · Planning</b><br/><small>Engineering Planning</small>"]
+    S4["<b>04 · Workforce</b><br/><small>Specialist Workforce</small>"]
+    S5["<b>05 · Routing</b><br/><small>Tool & Model Selection</small>"]
+    S6["<b>06 · Governance</b><br/><small>Governed Execution</small>"]
+    S7["<b>07 · Assurance</b><br/><small>Verification & QA</small>"]
+    S8["<b>08 · Delivery</b><br/><small>Final Delivery</small>"]
 
-    subgraph OC["OpenClone Governance Control Plane"]
-        SPEC["PROJECT.md<br/><small>Project Source of Truth</small>"]
-        INTEL["Project Intelligence Engine<br/><small>Requirements & Risk Decomposition</small>"]
-        DAG["Task Graph & State Machine<br/><small>Acyclic Dependency DAG</small>"]
-        GOV["Governance & Digest Binding<br/><small>SHA-256 Approval Invalidation</small>"]
-    end
+    S1 --> S2 --> S3 --> S4 --> S5 ==> S6 ==> S7 ==> S8
 
-    subgraph AGENT["AI Coding Agent"]
-        HOST["AI Coding Environment<br/><small>Antigravity · Cursor · Claude Code · Codex</small>"]
-        IMPL["Smallest Valid Implementation<br/><small>Targeted Code Diffs within Allowlists</small>"]
-    end
-
-    subgraph VERIFY["Verification & Release"]
-        EVID["Observable Evidence on Disk<br/><small>Test Logs · Coverage · Diffs · Scans</small>"]
-        INDEP["Independent Assurance (EGM)<br/><small>'Goldfish' Clean-Context Review</small>"]
-        REL["Verified Production Release<br/><small>Sealed Audit Ledger & Pinned Artifacts</small>"]
-    end
-
-    DEV --> SPEC
-    SPEC --> INTEL
-    INTEL --> DAG
-    DAG --> GOV
-    GOV --> HOST
-    HOST --> IMPL
-    IMPL --> EVID
-    EVID --> INDEP
-    INDEP --> REL
-
-    style DEV fill:#0f172a,stroke:#38bdf8,stroke-width:2px,color:#f8fafc
-    style SPEC fill:#0f172a,stroke:#818cf8,stroke-width:1px,color:#f8fafc
-    style INTEL fill:#0f172a,stroke:#c084fc,stroke-width:1px,color:#f8fafc
-    style DAG fill:#0f172a,stroke:#10b981,stroke-width:1px,color:#f8fafc
-    style GOV fill:#0f172a,stroke:#ef4444,stroke-width:2px,color:#f8fafc
-    style HOST fill:#0f172a,stroke:#06b6d4,stroke-width:1px,color:#f8fafc
-    style IMPL fill:#0f172a,stroke:#38bdf8,stroke-width:1px,color:#f8fafc
-    style EVID fill:#0f172a,stroke:#10b981,stroke-width:1px,color:#f8fafc
-    style INDEP fill:#0f172a,stroke:#f59e0b,stroke-width:1px,color:#f8fafc
-    style REL fill:#0f172a,stroke:#a855f7,stroke-width:2px,color:#f8fafc
+    style S1 fill:#141418,stroke:#27272a,stroke-width:1px,color:#f4f4f5
+    style S2 fill:#141418,stroke:#27272a,stroke-width:1px,color:#f4f4f5
+    style S3 fill:#141418,stroke:#27272a,stroke-width:1px,color:#f4f4f5
+    style S4 fill:#141418,stroke:#27272a,stroke-width:1px,color:#f4f4f5
+    style S5 fill:#141418,stroke:#27272a,stroke-width:1px,color:#f4f4f5
+    style S6 fill:#1a1710,stroke:#8a7334,stroke-width:2px,color:#fef08a
+    style S7 fill:#1a1710,stroke:#8a7334,stroke-width:2px,color:#fef08a
+    style S8 fill:#1a1710,stroke:#8a7334,stroke-width:2px,color:#fef08a
 ```
+
+### The 8-Stage Governed Engineering Lifecycle
+
+| Stage | Operation | Core Responsibility | Primary Artifact |
+| :--- | :--- | :--- | :--- |
+| **01 · Project Understanding** | Developer Intake & Pre-flight | Clarifies requirements, scope boundaries, constraints, and non-goals with explicit human sign-off. | `PROJECT.md` |
+| **02 · Project Intelligence** | Complexity & Risk Analysis | Deep codebase inspection, architecture classification, dependency discovery, and risk scoring. | `architecture_report.json` |
+| **03 · Engineering Planning** | Acyclic Task DAG Generation | Decomposes goals into verifiable subtasks with strict file allowlists and acceptance criteria. | `active_task.json` (DAG) |
+| **04 · Specialist Workforce** | Capability-Matched Assembly | Deploys vetted specialist personas across Engineering, QA, Security, and Architecture divisions. | `workforce_manifest.json` |
+| **05 · Tool & Model Selection** | Multi-Provider MIE Routing | Selects optimal LLMs (GPT-6, Claude, Gemini, DeepSeek, Ollama) balancing reasoning, speed, and cost. | `routing_decision.json` |
+| **06 · Governed Execution** | Sandboxed Least-Privilege Diffs | Agents execute scoped code edits restricted to allowed file boundaries; commands run in sandbox. | Isolated patch diffs |
+| **07 · Verification & QA** | Deterministic Evidence Validation | Independent verification passes (tests, linters, link checks, security audits) with hash verification. | `audit_ledger.sqlite3` |
+| **08 · Final Delivery** | Sealed Audit & Human Acceptance | Human owner reviews cryptographic audit digest and commits verified artifacts to release branch. | Release Tag & Commit |
 
 ### Division of Responsibilities
 
-- **Developer:** Defines project purpose, business goals, and non-goals. Authorizes sensitive changes (destructive operations, external dependencies, deployments). Owns the final product.
+- **Developer:** Defines project purpose, business goals, and non-goals. Authorizes sensitive changes (destructive operations, external dependencies, deployments). Retains ultimate release authority.
 - **OpenClone:** Coordinates available capabilities, maintains project context, calculates approval digests, enforces dependency order, and executes quality gates.
 - **AI Coding Agent:** Interprets structured task specifications, writes clean modular code, runs local unit tests, and captures execution output within strictly allowed file paths.
 - **Verification Engine:** Deterministically verifies that all claimed tests actually ran and exited with code 0 before transitioning tasks to `VERIFIED`.
