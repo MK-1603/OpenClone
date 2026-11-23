@@ -1,5 +1,9 @@
 <p align="center">
-  <img src="assets/openclone-wordmark.svg" alt="OpenClone Universal AI Software Engineering Framework" width="100%" />
+  <img
+    src="assets/branding/openclone-logo.png"
+    alt="OpenClone — Build with Any AI. Governed by One Engineering Standard."
+    width="850"
+  />
 </p>
 
 <p align="center">
@@ -18,40 +22,40 @@
 
 <p align="center">
   <strong>Provider-Neutral · IDE-Independent · Deterministic Engineering Standard · Anti-AI-Slop Governance</strong><br />
-  <em>Build with Any AI. Governed by One Engineering Standard. (OpenClone Release 2.0.0 · AISDF Standard 1.0.0)</em>
+  <em>One engineering standard for every AI-powered software development workflow.</em>
 </p>
 
 <p align="center">
-  <a href="#how-it-works">
-    <img src="assets/lifecycle-diagram.svg" alt="OpenClone Verified Engineering Workflow" width="100%" />
-  </a>
-</p>
-
-<p align="center">
-  <a href="#overview">Overview</a> ·
-  <a href="#why-openclone">Why OpenClone</a> ·
-  <a href="#how-it-works">How It Works</a> ·
-  <a href="#from-projectmd-to-production">From PROJECT.md to Production</a> ·
-  <a href="#core-architecture">Architecture</a> ·
-  <a href="#global-plugin-ecosystem">Global Plugin</a> ·
-  <a href="#the-22-phase-engineering-lifecycle">22-Phase Lifecycle</a> ·
-  <a href="#governance-security-and-assurance">Governance & Security</a> ·
-  <a href="#persistent-memory-and-continuity">Memory</a> ·
-  <a href="#anti-ai-slop-governance">Anti-Slop UX</a> ·
-  <a href="#mcp-integration">MCP</a> ·
-  <a href="#installation-and-quickstart">Installation</a> ·
-  <a href="#cli-reference">CLI</a> ·
-  <a href="#configuration">Configuration</a> ·
-  <a href="#project-examples">Examples</a> ·
-  <a href="#documentation-index">Documentation</a> ·
-  <a href="#roadmap">Roadmap</a> ·
-  <a href="#contributing-and-security">Contributing</a> ·
-  <a href="#license">License</a>
+  <a href="#02-what-is-openclone">02. What Is OpenClone?</a> ·
+  <a href="#03-the-problem-openclone-solves">03. The Problem</a> ·
+  <a href="#04-core-philosophy">04. Philosophy</a> ·
+  <a href="#05-how-openclone-works">05. How It Works</a> ·
+  <a href="#06-projectmd--the-project-source-of-truth">06. PROJECT.md</a> ·
+  <a href="#07-complete-project-lifecycle">07. Lifecycle</a> ·
+  <a href="#08-portable-project-execution-package">08. Execution Package</a> ·
+  <a href="#09-global-plugin--ide-ecosystem">09. Global Plugin</a> ·
+  <a href="#10-core-engineering-architecture">10. Architecture</a> ·
+  <a href="#11-task-graph-and-execution-management">11. Task Graph</a> ·
+  <a href="#12-governance-and-human-approval">12. Governance</a> ·
+  <a href="#13-persistent-memory-and-knowledge">13. Memory</a> ·
+  <a href="#14-engineering-lifecycle--22-phases">14. 22 Phases</a> ·
+  <a href="#15-verification-and-independent-assurance">15. Verification</a> ·
+  <a href="#16-security-and-anti-ai-slop">16. Security & Anti-Slop</a> ·
+  <a href="#17-mcp-integration">17. MCP</a> ·
+  <a href="#18-installation">18. Installation</a> ·
+  <a href="#19-cli-reference">19. CLI</a> ·
+  <a href="#20-practical-usage-example">20. Example</a> ·
+  <a href="#21-configuration">21. Configuration</a> ·
+  <a href="#22-documentation-hub">22. Documentation Hub</a> ·
+  <a href="#23-roadmap">23. Roadmap</a> ·
+  <a href="#24-contributing">24. Contributing</a> ·
+  <a href="#25-security">25. Security</a> ·
+  <a href="#26-license-and-acknowledgements">26. License</a>
 </p>
 
 ---
 
-## Overview
+## 02. What Is OpenClone?
 
 ### Build with Any AI. Governed by One Engineering Standard.
 
@@ -59,7 +63,7 @@ Modern generative AI models write code at superhuman speed. However, **software 
 
 Without a unifying engineering framework, AI-assisted development quickly deteriorates into **AI Slope**—where context resets erase past architectural decisions, hallucinated test passes bypass quality checks, uncontrolled model edits create unintended breaking changes, and generic visual clichés flood user interfaces.
 
-**OpenClone** provides the structured engineering governance, reusable capability engines, persistent project continuity, controlled execution harnesses, and independent evidence verification needed to transform AI coding from unstructured text generation into a repeatable, high-reliability engineering discipline.
+**OpenClone** is a provider-neutral, IDE-independent AI software engineering framework that provides a consistent, deterministic engineering standard for planning, building, governing, validating, and maintaining software projects with AI coding agents.
 
 > **Central Positioning:**
 > **OpenClone is the engineering framework around the AI coding agent, not simply another code-generation agent.**
@@ -67,13 +71,23 @@ Without a unifying engineering framework, AI-assisted development quickly deteri
 
 ---
 
-## Why OpenClone?
+## 03. The Problem OpenClone Solves
 
-The table below contrasts uncontrolled AI-assisted development against software engineered under OpenClone governance:
+Uncontrolled AI-assisted software development faces widespread operational and architectural failure modes:
+
+- **Inconsistent Engineering Practices:** Every AI model applies differing conventions, inconsistent directory structures, and incompatible patterns across sessions.
+- **Missing Requirements & Scope Creep:** Implicit assumptions turn into uncontrolled feature bloat without recorded user authorization.
+- **Architecture Drift:** Architectural decisions drift silently across conversational turns, leading to contradictory abstractions.
+- **Context Loss ("AI Amnesia"):** Context window resets wipe out previous technical decisions, requiring developers to re-prompt and re-explain the system constantly.
+- **Hallucinated Verification:** AI agents state *"All tests pass and the implementation is complete"* without actually executing test suites or producing verifiable test logs.
+- **Security & Supply Chain Oversights:** Accidental credential exposure, unauthorized third-party packages, and missing least-privilege boundary enforcement.
+- **Visual AI-Slop:** Monotonous dark purple gradients, meaningless pill badges, unstyled form elements, and substandard accessibility.
+
+### The Contrast: Uncontrolled AI vs. OpenClone Governed Engineering
 
 | Engineering Dimension | Uncontrolled AI Development ("AI Slope") | OpenClone Governed Engineering |
 |---|---|---|
-| **Project Understanding** | Ephemeral; trapped in transient chat sessions. | **Canonical Single Source of Truth:** Structured [`PROJECT.md`](templates/PROJECT.template.md) defines immutable boundaries. |
+| **Project Understanding** | Ephemeral; trapped in transient chat sessions. | **Canonical Source of Truth:** Structured [`PROJECT.md`](templates/PROJECT.template.md) defines immutable boundaries. |
 | **Requirements Traceability**| Requirements easily lost, overlooked, or hallucinated. | **Traceable Contract Hierarchy:** Requirements map directly to tasks, code diffs, and verification artifacts. |
 | **Architecture Drift** | Decisions drift silently across sessions and model turns. | **Documented Architectural Invariants:** 10 core concepts and normative standards in [`domains/`](domains/). |
 | **Project Continuity** | Context window resets erase architecture and progress. | **Durable Filesystem Handoffs:** `PROGRESS.md` & `HANDOFF.md` ensure seamless session resumption. |
@@ -86,88 +100,217 @@ The table below contrasts uncontrolled AI-assisted development against software 
 
 ---
 
-## How It Works
+## 04. Core Philosophy
 
-OpenClone orchestrates the full software engineering lifecycle through structured stages, separating human intent, AI proposal synthesis, and deterministic validation:
+OpenClone is governed by eight foundational engineering principles:
+
+1. **Provider Neutrality:** The framework never locks you into a specific model provider. It operates identically whether powered by Anthropic, OpenAI, Google DeepMind, or open-weight models.
+2. **IDE Independence:** Architecture, governance, and verification are portable across Google Antigravity, Cursor, Claude Code, OpenAI Codex, or standard terminal workflows.
+3. **Engineering Governance:** LLMs propose; deterministic code and authorized humans decide. Critical operations require verifiable permissions.
+4. **Deterministic Standards:** Architectural rules, task state machines, schema validations, and scanner lockfiles are enforced programmatically, not probabilistically.
+5. **Evidence-Based Verification:** No task is declared complete without tangible evidence on disk—actual test execution logs, static analysis outputs, and reproducible diffs.
+6. **Human Authority:** The developer maintains ultimate ownership of project direction, scope boundaries, architectural trade-offs, and production deployments.
+7. **Project Continuity:** Context is preserved across token resets and multi-day sessions via durable, version-controlled filesystem artifacts.
+8. **Anti-AI-Slop Engineering:** Rejection of low-effort generative tropes in both code (unnecessary abstractions, duplicate helpers) and design (generic purple gradients, unreadable contrast).
+
+---
+
+## 05. How OpenClone Works
+
+OpenClone acts as a deterministic control plane between the human developer, the AI coding agent, and the underlying codebase:
 
 ```mermaid
 flowchart TD
-    DEV["Developer<br/><small>Defines Intent & Retains Final Decision Authority</small>"] --> SPEC["PROJECT.md<br/><small>Canonical Project Specification & Scope</small>"]
-    SPEC --> INTEL["Project Intelligence Engine<br/><small>Decomposes Requirements, Boundaries & Risks</small>"]
-    INTEL --> REQ["Requirements & Architectural Design<br/><small>System Topology, Data Models & API Contracts</small>"]
-    REQ --> PKG["Project Execution Package<br/><small>PROJECT.md · BUILD_PROMPT · ACCEPTANCE_MATRIX</small>"]
-    PKG --> HOST["AI Coding Environment<br/><small>Google Antigravity · Cursor · Claude Code · Codex</small>"]
-    HOST --> GOV["OpenClone Governance Control Plane<br/><small>Permission Allowlists & SHA-256 Digest Binding</small>"]
-    GOV --> DAG["Task Planning & Dependency DAG<br/><small>Deterministic Task State Machine & Work Units</small>"]
-    DAG --> IMPL["AI-Assisted Implementation<br/><small>Smallest Valid Change & Governed Tool Harness</small>"]
-    IMPL --> EVID["Observable Evidence Collection<br/><small>Test Logs · Coverage · Build Output · Diffs</small>"]
-    EVID --> GATE["Quality Gates & Assurance<br/><small>22-Phase Verification & Independent 'Goldfish' Review</small>"]
-    GATE --> REL["Release & Staged Rollout<br/><small>Production Readiness & Audit Ledger Archival</small>"]
+    DEV["Human Developer<br/><small>Defines Intent · Retains Final Approval Authority</small>"]
+
+    subgraph OC["OpenClone Governance Control Plane"]
+        SPEC["PROJECT.md<br/><small>Project Source of Truth</small>"]
+        INTEL["Project Intelligence Engine<br/><small>Requirements & Risk Decomposition</small>"]
+        DAG["Task Graph & State Machine<br/><small>Acyclic Dependency DAG</small>"]
+        GOV["Governance & Digest Binding<br/><small>SHA-256 Approval Invalidation</small>"]
+    end
+
+    subgraph AGENT["AI Coding Agent"]
+        HOST["AI Coding Environment<br/><small>Antigravity · Cursor · Claude Code · Codex</small>"]
+        IMPL["Smallest Valid Implementation<br/><small>Targeted Code Diffs within Allowlists</small>"]
+    end
+
+    subgraph VERIFY["Verification & Release"]
+        EVID["Observable Evidence on Disk<br/><small>Test Logs · Coverage · Diffs · Scans</small>"]
+        INDEP["Independent Assurance (EGM)<br/><small>'Goldfish' Clean-Context Review</small>"]
+        REL["Verified Production Release<br/><small>Sealed Audit Ledger & Pinned Artifacts</small>"]
+    end
+
+    DEV --> SPEC
+    SPEC --> INTEL
+    INTEL --> DAG
+    DAG --> GOV
+    GOV --> HOST
+    HOST --> IMPL
+    IMPL --> EVID
+    EVID --> INDEP
+    INDEP --> REL
 
     style DEV fill:#0f172a,stroke:#38bdf8,stroke-width:2px,color:#f8fafc
-    style SPEC fill:#0f172a,stroke:#818cf8,stroke-width:2px,color:#f8fafc
-    style INTEL fill:#0f172a,stroke:#c084fc,stroke-width:2px,color:#f8fafc
-    style REQ fill:#0f172a,stroke:#f59e0b,stroke-width:2px,color:#f8fafc
-    style PKG fill:#0f172a,stroke:#10b981,stroke-width:2px,color:#f8fafc
-    style HOST fill:#0f172a,stroke:#06b6d4,stroke-width:2px,color:#f8fafc
+    style SPEC fill:#0f172a,stroke:#818cf8,stroke-width:1px,color:#f8fafc
+    style INTEL fill:#0f172a,stroke:#c084fc,stroke-width:1px,color:#f8fafc
+    style DAG fill:#0f172a,stroke:#10b981,stroke-width:1px,color:#f8fafc
     style GOV fill:#0f172a,stroke:#ef4444,stroke-width:2px,color:#f8fafc
-    style DAG fill:#0f172a,stroke:#6366f1,stroke-width:2px,color:#f8fafc
-    style IMPL fill:#0f172a,stroke:#38bdf8,stroke-width:2px,color:#f8fafc
-    style EVID fill:#0f172a,stroke:#10b981,stroke-width:2px,color:#f8fafc
-    style GATE fill:#0f172a,stroke:#f59e0b,stroke-width:2px,color:#f8fafc
+    style HOST fill:#0f172a,stroke:#06b6d4,stroke-width:1px,color:#f8fafc
+    style IMPL fill:#0f172a,stroke:#38bdf8,stroke-width:1px,color:#f8fafc
+    style EVID fill:#0f172a,stroke:#10b981,stroke-width:1px,color:#f8fafc
+    style INDEP fill:#0f172a,stroke:#f59e0b,stroke-width:1px,color:#f8fafc
     style REL fill:#0f172a,stroke:#a855f7,stroke-width:2px,color:#f8fafc
 ```
 
 ### Division of Responsibilities
 
-1. **Human Developer:** Retains ultimate authority. Defines problem statements, non-goals, and architectural boundaries. Approves sensitive tasks, security waivers, and release deployments.
-2. **OpenClone Framework:** The deterministic control plane. Enforces dependency DAGs, approval digest matching, secret redaction, scanner lockfiles, and quality verification gates.
-3. **AI Coding Agent:** The implementation engine. Proposes plans, drafts code diffs, writes unit tests, and formats documentation within authorized task boundaries.
-4. **Verification Mechanisms:** Automated test suites, structural repository gates, and independent assurance agents evaluate tangible evidence on disk before tasks reach `VERIFIED`.
+- **Developer:** Defines project purpose, business goals, and non-goals. Authorizes sensitive changes (destructive operations, external dependencies, deployments). Owns the final product.
+- **OpenClone:** Coordinates available capabilities, maintains project context, calculates approval digests, enforces dependency order, and executes quality gates.
+- **AI Coding Agent:** Interprets structured task specifications, writes clean modular code, runs local unit tests, and captures execution output within strictly allowed file paths.
+- **Verification Engine:** Deterministically verifies that all claimed tests actually ran and exited with code 0 before transitioning tasks to `VERIFIED`.
 
 ---
 
-## From PROJECT.md to Production
+## 06. PROJECT.md — The Project Source of Truth
 
-OpenClone guides projects from initial concept to verified production release through twelve concrete steps:
+At the heart of every OpenClone project is [`PROJECT.md`](templates/PROJECT.template.md). It serves as the immutable project constitution, ensuring that any AI agent in any session immediately understands the project boundaries:
 
-### Step 01 — Project Definition (`PROJECT.md`)
-Every OpenClone project begins with [`templates/PROJECT.template.md`](templates/PROJECT.template.md). This document anchors the project's vision, problem statement, target personas, functional requirements (FRs), non-functional requirements (NFRs), tech stack constraints, and non-goals.
+### The Ten Elements of `PROJECT.md`
 
-### Step 02 — Project Intelligence
-The framework ingests `PROJECT.md` using the [Portable Project Intelligence Prompt](prompts/PORTABLE-PROJECT-INTELLIGENCE-MASTER-PROMPT.md). It extracts discrete functional capabilities, detects implicit assumptions or conflicting requirements, flags technical risks, and defines strict scope boundaries.
+1. **Project Identity:** Official project name, version, repository URL, and license.
+2. **Product Vision & Problem Statement:** What problem the software solves and for whom.
+3. **Target Personas & User Journeys:** Explicit user roles and primary interaction flows.
+4. **Functional Requirements (FRs):** Uniquely numbered, unambiguous functional capabilities (`FR-001`, `FR-002`, ...).
+5. **Non-Functional Requirements (NFRs):** Latency budgets, concurrency targets, uptime SLAs, and browser/runtime support.
+6. **Technology Stack & Constraints:** Explicit language versions, database engines, styling frameworks, and prohibited packages.
+7. **Architecture & Data Boundaries:** Microservice vs. monolith topology, database schemas, and integration boundaries.
+8. **Explicit Non-Goals (Scope Ceilings):** Features that must **not** be built, protecting against AI scope creep.
+9. **Acceptance Criteria & Verification Tiers:** Concrete observable criteria required to declare each requirement done.
+10. **Project-Specific Agent Instructions:** Custom allowlists, coding styles, and deployment constraints.
 
-### Step 03 — Requirements Engineering
-Requirements are converted into traceable, numbered contracts:
-```text
-FR-001: User Authentication
-   │
-   ├── Architecture: Session Token & bcrypt Hashing
-   ├── Backend: Auth Controller & Database Schema
-   ├── Frontend: Accessible Login Form & Design Tokens
-   ├── Tests: 12 Unit Tests & 2 Integration Tests
-   └── Verification: V4 Observable Test Logs on Disk
+---
+
+## 07. Complete Project Lifecycle
+
+OpenClone governs the entire engineering trajectory across 15 structured stages:
+
+```mermaid
+flowchart LR
+    S1["1. Idea"] --> S2["2. Intel"]
+    S2 --> S3["3. Reqs"]
+    S3 --> S4["4. Arch"]
+    S4 --> S5["5. Plan"]
+    S5 --> S6["6. Package"]
+    S6 --> S7["7. IDE"]
+    S7 --> S8["8. Tasks"]
+    S8 --> S9["9. Build"]
+    S9 --> S10["10. Evidence"]
+    S10 --> S11["11. Verify"]
+    S11 --> S12["12. Security"]
+    S12 --> S13["13. Release"]
+    S13 --> S14["14. Deploy"]
+    S14 --> S15["15. Maintain"]
+
+    style S1 fill:#0f172a,stroke:#38bdf8,stroke-width:1px,color:#f8fafc
+    style S6 fill:#0f172a,stroke:#10b981,stroke-width:1px,color:#f8fafc
+    style S7 fill:#0f172a,stroke:#06b6d4,stroke-width:1px,color:#f8fafc
+    style S9 fill:#0f172a,stroke:#818cf8,stroke-width:1px,color:#f8fafc
+    style S11 fill:#0f172a,stroke:#f59e0b,stroke-width:1px,color:#f8fafc
+    style S13 fill:#0f172a,stroke:#a855f7,stroke-width:1px,color:#f8fafc
 ```
 
-### Step 04 — Architecture & Technical Design
-The architecture is locked down before writing code: module boundaries, database schemas, REST/gRPC API contracts, and security perimeter definitions are documented in `docs/architecture/`.
+1. **Project Idea:** Initial developer brief and problem concept.
+2. **Project Intelligence:** Automated capability extraction and conflict analysis using [`prompts/PORTABLE-PROJECT-INTELLIGENCE-MASTER-PROMPT.md`](prompts/PORTABLE-PROJECT-INTELLIGENCE-MASTER-PROMPT.md).
+3. **Requirements Engineering:** Traceable functional requirement definitions with unique identifiers.
+4. **Architecture Design:** Module boundaries, schema designs, API contracts, and security perimeters.
+5. **Technical Planning:** Verification level assignments (V0–V5) and execution sequence definition.
+6. **Execution Package Generation:** Compiling `PROJECT.md`, `BUILD_PROMPT.md`, `ACCEPTANCE_MATRIX.md`, `PROGRESS.md`, and `HANDOFF.md`.
+7. **AI IDE Integration:** Loading the package into Google Antigravity, Cursor, Claude Code, or Codex.
+8. **Task Planning:** Decomposing requirements into an acyclic dependency graph (DAG).
+9. **Implementation:** Smallest valid code changes within strict file allowlists.
+10. **Evidence Collection:** Capturing raw terminal test outputs, coverage summaries, and git diffs on disk.
+11. **Verification:** Validating test exit codes, AST syntax, and schema conformance.
+12. **Security Review:** Running the 7 pinned security scanners and verifying secret redaction.
+13. **Release Preparation:** Production build packaging, Dockerfile validation, and audit ledger sealing.
+14. **Deployment:** Staged deployment rollout with zero-downtime health probes.
+15. **Maintenance & Feedback:** Production telemetry monitoring, bug finding resolution, and iterative upgrades.
 
-### Step 05 — Execution Package Generation
-For portable, zero-install workflows, OpenClone compiles a self-contained execution package:
-- `PROJECT.md`: Immutable scope and architectural decisions.
-- `BUILD_PROMPT.md`: Sequenced, actionable instructions for the AI coding environment.
-- `ACCEPTANCE_MATRIX.md`: Pass/fail criteria for each functional requirement.
-- `PROGRESS.md`: Current execution checkpoint and task status.
-- `HANDOFF.md`: Next immediate action and context for the resuming agent.
+---
 
-### Step 06 — AI Coding Environment Ingestion
-The execution package is loaded into the developer's preferred AI coding environment (Google Antigravity, Cursor, Claude Code, or OpenAI Codex) via native host adapters or standard MCP tool connections.
+## 08. Portable Project Execution Package
 
-### Step 07 — Task Planning & Dependency DAG
-Tasks are decomposed into an acyclic dependency graph:
+For zero-install or cross-platform workflows, OpenClone compiles a portable 5-artifact execution package:
+
+| Artifact | Responsibility & Purpose | Format & Location |
+|---|---|---|
+| **`PROJECT.md`** | **Project Source of Truth:** Immutable project constitution, architecture, tech stack, and scope boundaries. | Markdown (`./PROJECT.md`) |
+| **`BUILD_PROMPT.md`** | **Actionable Instructions:** Step-by-step implementation prompt instructing the coding agent on sequence and standards. | Markdown (`./BUILD_PROMPT.md`) |
+| **`ACCEPTANCE_MATRIX.md`** | **Acceptance Criteria:** Requirement-to-test mapping defining exact conditions for task completion. | Markdown Table (`./ACCEPTANCE_MATRIX.md`) |
+| **`PROGRESS.md`** | **Execution Journal:** Live tracker of completed tasks, active blockers, test commands, and git commits. | Markdown (`./PROGRESS.md`) |
+| **`HANDOFF.md`** | **Session Continuity:** Structured handoff note allowing a fresh agent to resume work with zero context amnesia. | Markdown (`./HANDOFF.md`) |
+
+---
+
+## 09. Global Plugin & IDE Ecosystem
+
+OpenClone distributes its capabilities as a modular, host-agnostic global plugin. Developers get an identical engineering standard across all coding environments:
+
+```mermaid
+flowchart TD
+    HOST["AI Coding Environment"] --> ADAPT["Host Adapter<br/><small>Antigravity · Cursor · Claude Code · Codex · Generic MCP</small>"]
+    ADAPT --> CORE["Canonical OpenClone Core<br/><small>src/openclone/ · openclone.manifest.json</small>"]
+    CORE --> GOV["Governance & Lifecycle Rules"]
+    CORE --> SKL["Taste Skill & Design Tokens"]
+    CORE --> WORK["56 Engines & 14 Workflows"]
+    CORE --> MCP["Shared MCP Service (JSON-RPC 2.0)"]
+
+    style HOST fill:#0f172a,stroke:#38bdf8,stroke-width:1px,color:#f8fafc
+    style ADAPT fill:#0f172a,stroke:#818cf8,stroke-width:1px,color:#f8fafc
+    style CORE fill:#0f172a,stroke:#10b981,stroke-width:1px,color:#f8fafc
+    style GOV fill:#0f172a,stroke:#f59e0b,stroke-width:1px,color:#f8fafc
+    style SKL fill:#0f172a,stroke:#c084fc,stroke-width:1px,color:#f8fafc
+    style WORK fill:#0f172a,stroke:#ef4444,stroke-width:1px,color:#f8fafc
+    style MCP fill:#0f172a,stroke:#06b6d4,stroke-width:1px,color:#f8fafc
+```
+
+### Host Compatibility Matrix
+
+| AI Coding Host | Integration Type | Install Scope | Skills & Instructions | MCP Tools | Verification Support | Implementation Status |
+|---|---|---|---|---|---|:---:|
+| **Google Antigravity** | Native Plugin (`agy`) | Workspace & User | 16 Specialist Agents + Rules | **YES** (stdio MCP) | V0–V5 Evidence Checks | `Fully Supported` |
+| **Claude Code** | Marketplace Plugin | Workspace & User | Native Skills + `CLAUDE.md` | **YES** (stdio `.mcp.json`) | V0–V5 Evidence Checks | `Fully Supported` |
+| **OpenAI Codex** | Marketplace Plugin | Workspace & User | Codex Skills + Rules | **YES** (stdio MCP) | V0–V5 Evidence Checks | `Fully Supported` |
+| **Cursor** | Workspace Adapter | Workspace | `.cursorrules` + `.cursor/rules/*.mdc` | **YES** (stdio MCP) | V0–V5 Evidence Checks | `Fully Supported` |
+| **ChatGPT** | Custom GPT / OpenAPI | Remote Session | Custom Instructions Pack | Remote HTTP / SSE | Hand-off via Package | `Partially Supported` |
+| **Generic MCP** | Stdio / SSE JSON-RPC 2.0 | Process / CLI | Standard Tool Registrations | 7 Core Tools | JSON-RPC Inspection | `Fully Supported` |
+
+---
+
+## 10. Core Engineering Architecture
+
+OpenClone's foundation rests on ten unified architectural concepts documented in [`concepts/`](concepts/):
+
+1. **[Governance & Authority](concepts/01-GOVERNANCE-AND-AUTHORITY.md):** Humans remain the ultimate authority for software requirements, architecture, and destructive operations. Enforces deny-by-default execution gating. *(Status: Fully Supported)*
+2. **[Project Source of Truth](concepts/02-PROJECT-SOURCE-OF-TRUTH.md):** Canonical `PROJECT.md` establishes immutable project boundaries. Prevents silent architectural drift. *(Status: Fully Supported)*
+3. **[Specialist Workforce](concepts/03-SPECIALIST-WORKFORCE.md):** 72 specialist engineering worker roles across 12 teams, with support for adaptive dynamic skill injection. *(Status: Fully Supported)*
+4. **[Task Graph & State Machine](concepts/04-TASK-GRAPH-AND-STATE-MACHINE.md):** Deterministic, cycle-free DAG scheduler preventing out-of-order execution, with reactive event scheduling. *(Status: Fully Supported)*
+5. **[Cryptographic Audit Ledger](concepts/05-CRYPTOGRAPHIC-AUDIT-LEDGER.md):** SQLite SHA-256 hash-chained event ledger guaranteeing tamper-evident auditability. *(Status: Fully Supported)*
+6. **[Human Approval & Digest Binding](concepts/06-HUMAN-APPROVAL-AND-DIGEST-BINDING.md):** Interactive digest binding where modifying task parameters automatically invalidates prior approvals. *(Status: Fully Supported)*
+7. **[Execution Harness & Sandboxing](concepts/07-EXECUTION-HARNESS-AND-SANDBOXING.md):** Governed process execution with real-time regex secret redaction and rootless container isolation boundaries. *(Status: Fully Supported)*
+8. **[Persistent Memory & AKIS](concepts/08-PERSISTENT-MEMORY-AND-AKIS.md):** 4-tier memory architecture (`PROJECT.md`, `PROGRESS.md`, `HANDOFF.md`, and markdown vault) supplemented by Autonomous Knowledge Ingestion & Synthesis (AKIS). *(Status: Fully Supported)*
+9. **[Independent Assurance / EGM](concepts/09-INDEPENDENT-ASSURANCE-EGM.md):** "Goldfish" clean-context review protocol ensuring code is verified by fresh reviewer agents with zero author bias. *(Status: Fully Supported)*
+10. **[Multi-Tool Adapter Ecosystem](concepts/10-MULTI-TOOL-ADAPTER-ECOSYSTEM.md):** Canonical capability contracts translated into native host formats across Antigravity, Cursor, Claude Code, and Codex. *(Status: Fully Supported)*
+
+---
+
+## 11. Task Graph and Execution Management
+
+OpenClone prevents out-of-order execution and incomplete implementations by organizing all engineering tasks into an acyclic dependency graph (DAG):
+
 ```mermaid
 graph TD
-    T1["T-001: Database Schema & Migrations"] --> T2["T-002: Core Domain Model & Unit Tests"]
+    T1["T-001: Database Schema & Migrations"] --> T2["T-002: Core Domain Models & Unit Tests"]
     T2 --> T3["T-003: API Endpoints & Auth Gate"]
     T2 --> T4["T-004: Frontend Tokens & Component Layout"]
     T3 --> T5["T-005: End-to-End Integration Tests"]
@@ -181,135 +324,42 @@ graph TD
     style T5 fill:#0f172a,stroke:#c084fc,stroke-width:1px,color:#f8fafc
     style T6 fill:#0f172a,stroke:#ef4444,stroke-width:1px,color:#f8fafc
 ```
-Tasks progress through deterministic states: `PENDING` $
-ightarrow$ `READY` $
-ightarrow$ `IN_PROGRESS` $
-ightarrow$ `VERIFIED`.
 
-### Step 08 — Human Approval & Governance
-Sensitive operations (destructive commands, schema migrations, third-party dependency additions) pause execution for human approval. The runtime computes a SHA-256 digest of the task specification and command. Any alteration to the task automatically revokes approval.
+### Deterministic State Machine
 
-### Step 09 — AI-Assisted Implementation
-The agent executes authorized tasks following the "Smallest Valid Change" principle. It implements the code, executes local unit tests, captures command outputs, and updates `PROGRESS.md`.
+Every task transitions through strict lifecycle states:
 
-### Step 10 — Evidence-Based Verification (V0–V5 Model)
-Verbal claims like *"I have implemented authentication"* are rejected by OpenClone. The task must provide observable evidence matching its required verification tier:
+$$\text{PENDING} \longrightarrow \text{READY} \longrightarrow \text{IN\_PROGRESS} \longrightarrow \text{COMPLETED} \longrightarrow \text{VERIFIED}$$
 
-| Level | Identifier | Required Observable Evidence on Disk |
-|:---:|---|---|
-| **V0** | `UNVERIFIED` | AI verbal claim or conversational text only (Not accepted for completion). |
-| **V1** | `SYNTACTIC` | Clean AST parse, zero lint errors, valid type checks. |
-| **V2** | `UNIT_TESTED` | Local unit test suite executed with exit code 0 and captured stdout. |
-| **V3** | `INTEGRATED` | Inter-service integration or API test passing in a staging container. |
-| **V4** | `SECURITY_AUDITED` | Static scanner clean (`scanners.lock.json`), anti-slop gate passed. |
-| **V5** | `INDEPENDENT_EGM` | Clean-context independent assurance review completed with signed report. |
-
-### Step 11 — Quality Gates & Verification
-Phase gates evaluate all completed tasks against phase criteria (e.g. `PHASE_01_DISCOVERY` through `PHASE_22_FEEDBACK`). If a required test or scanner finding is unresolved, the gate blocks progression.
-
-### Step 12 — Release & Continuing Maintenance
-The completed application is packaged with reproducible build configurations (Docker, CI/CD pipelines). Handoff notes are archived, and the tamper-evident audit ledger is sealed for long-term compliance.
+If any blocker or unexpected failure occurs, the task enters `BLOCKED` or `FAILED`. A task cannot transition to `VERIFIED` without physical evidence (test output, coverage report, or clean scanner exit code) recorded on disk.
 
 ---
 
-## Core Architecture
+## 12. Governance and Human Approval
 
-OpenClone's foundation rests on ten unified architectural specifications documented in [`concepts/`](concepts/):
+OpenClone establishes clear authority boundaries to ensure that AI agents never exceed their approved remit:
 
-<p align="center">
-  <img src="assets/architecture-topology.svg" alt="OpenClone Architecture Topology" width="100%" />
-</p>
-
-```mermaid
-flowchart TD
-    subgraph L1["Layer 1: Multi-IDE & Host Adapters"]
-        IDE1["Google Antigravity<br/><small>Native Plugin & 16 Agents</small>"]
-        IDE2["Claude Code<br/><small>Marketplace Plugin & CLAUDE.md</small>"]
-        IDE3["Cursor<br/><small>.cursorrules & mcp.json</small>"]
-        IDE4["OpenAI Codex<br/><small>.agents/plugins/ & Skills</small>"]
-        IDE5["Generic MCP<br/><small>JSON-RPC 2.0 Client</small>"]
-    end
-
-    subgraph L2["Layer 2: Shared MCP Service & Capabilities"]
-        MCP["src/openclone/mcp/server.py<br/>7 Core Tools · 15 Canonical Capabilities"]
-    end
-
-    subgraph L3["Layer 3: Deterministic Local Control Plane"]
-        HARNESS["runtime/openclone_runtime/workforce.py<br/>Process Harness & Secret Redaction"]
-        DAG["runtime/openclone_runtime/task_graph.py<br/>Cycle-Free Task Dependency DAG"]
-        LEDGER["runtime/openclone_runtime/ledger.py<br/>SQLite SHA-256 Tamper-Evident Ledger"]
-    end
-
-    subgraph L4["Layer 4: Engineering Standards, Skills & Workforce"]
-        DOM["31 Engineering Domains<br/><small>00-GOVERNANCE to 30-OBSERVABILITY</small>"]
-        ENG["56 Capability Engines<br/><small>E-001 to E-056 Contracts</small>"]
-        SKL["Taste Skill v2.6.0<br/><small>Anti-AI-Slop Design Tokens</small>"]
-        WRK["72 Specialist Agent Roles<br/><small>12 Teams in workforce/</small>"]
-    end
-
-    L1 --> MCP
-    MCP --> L3
-    L3 --> L4
-
-    style L1 fill:#0f172a,stroke:#38bdf8,stroke-width:1px,color:#f8fafc
-    style L2 fill:#0f172a,stroke:#818cf8,stroke-width:1px,color:#f8fafc
-    style L3 fill:#0f172a,stroke:#10b981,stroke-width:1px,color:#f8fafc
-    style L4 fill:#0f172a,stroke:#c084fc,stroke-width:1px,color:#f8fafc
-```
-
-### The 10 Unified Architectural Concepts
-
-1. **[Governance & Authority](concepts/01-GOVERNANCE-AND-AUTHORITY.md):** Humans remain the ultimate authority for software requirements, architecture, and destructive operations. Incorporates both strict deny-by-default enterprise gating and agile self-sovereign developer mode with automated rollback checkpoints.
-2. **[Project Source of Truth](concepts/02-PROJECT-SOURCE-OF-TRUTH.md):** Canonical `PROJECT.md` establishes immutable project boundaries. Supports distributed issue-centric micro-specs for agile workflows.
-3. **[Specialist Workforce](concepts/03-SPECIALIST-WORKFORCE.md):** 72 specialist engineering worker roles across 12 teams, with support for adaptive generalist dynamic skill injection.
-4. **[Task Graph & State Machine](concepts/04-TASK-GRAPH-AND-STATE-MACHINE.md):** Deterministic, cycle-free DAG scheduler preventing out-of-order execution, with reactive Kanban event scheduling.
-5. **[Cryptographic Audit Ledger](concepts/05-CRYPTOGRAPHIC-AUDIT-LEDGER.md):** SQLite SHA-256 hash-chained event ledger (`runtime/openclone_runtime/ledger.py`) guaranteeing tamper-evident auditability.
-6. **[Human Approval & Digest Binding](concepts/06-HUMAN-APPROVAL-AND-DIGEST-BINDING.md):** Interactive TTY digest binding where modifying task parameters automatically invalidates prior approvals; supports asynchronous PR webhooks.
-7. **[Execution Harness & Sandboxing](concepts/07-EXECUTION-HARNESS-AND-SANDBOXING.md):** Governed process execution with real-time regex secret redaction and rootless container isolation boundaries.
-8. **[Persistent Memory & AKIS](concepts/08-PERSISTENT-MEMORY-AND-AKIS.md):** 4-tier memory architecture (`PROJECT.md`, `PROGRESS.md`, `HANDOFF.md`, and markdown vault) supplemented by Autonomous Knowledge Ingestion & Synthesis (AKIS).
-9. **[Independent Assurance / EGM](concepts/09-INDEPENDENT-ASSURANCE-EGM.md):** "Goldfish" clean-context review protocol ensuring code is verified by fresh reviewer agents with zero author bias.
-10. **[Multi-Tool Adapter Ecosystem](concepts/10-MULTI-TOOL-ADAPTER-ECOSYSTEM.md):** Canonical capability contracts translated into native host formats across Antigravity, Cursor, Claude Code, and Codex.
+- **Deny-by-Default Policy:** AI agents cannot execute destructive file commands, install unvetted dependencies, or alter system architecture without explicit human authorization.
+- **Cryptographic Digest Binding:** When a human approves a task or plan, OpenClone generates a SHA-256 digest of the task specification, allowlisted files, and command string.
+- **Automatic Invalidation:** If the agent or human alters the task description, modifies a dependency, or touches a file outside the allowlist, the digest mismatch **immediately revokes the approval**, halting execution until re-authorized.
+- **Tamper-Evident Ledger:** All approval grants, revocations, and task transitions are written to an immutable SQLite hash-chained ledger.
 
 ---
 
-## Global Plugin Ecosystem
+## 13. Persistent Memory and Knowledge
 
-OpenClone distributes its capabilities as a modular, host-agnostic global plugin. Developers get an identical engineering standard across all coding environments:
+To solve LLM context amnesia across long development cycles, OpenClone implements a durable 4-tier memory architecture:
 
-```mermaid
-flowchart TD
-    IDE["AI Coding Environment"] --> ADAPT["Host-Native Adapter<br/><small>Antigravity · Cursor · Claude Code · Codex · Generic MCP</small>"]
-    ADAPT --> CORE["Canonical OpenClone Core<br/><small>src/openclone/ · openclone.manifest.json</small>"]
-    CORE --> GOV["Governance & Lifecycle Rules"]
-    CORE --> SKL["Taste Skill & Design Tokens"]
-    CORE --> WORK["56 Engines & 15 Workflows"]
-    CORE --> MCP["Shared MCP Service (JSON-RPC 2.0)"]
-
-    style IDE fill:#0f172a,stroke:#38bdf8,stroke-width:1px,color:#f8fafc
-    style ADAPT fill:#0f172a,stroke:#818cf8,stroke-width:1px,color:#f8fafc
-    style CORE fill:#0f172a,stroke:#10b981,stroke-width:1px,color:#f8fafc
-    style GOV fill:#0f172a,stroke:#f59e0b,stroke-width:1px,color:#f8fafc
-    style SKL fill:#0f172a,stroke:#c084fc,stroke-width:1px,color:#f8fafc
-    style WORK fill:#0f172a,stroke:#ef4444,stroke-width:1px,color:#f8fafc
-    style MCP fill:#0f172a,stroke:#06b6d4,stroke-width:1px,color:#f8fafc
-```
-
-### Host Compatibility Matrix
-
-| AI Coding Host | Integration Type | Install Scope | Skills & Instructions | MCP Tools | Verification Support | Maturity Status |
-|---|---|---|---|---|---|:---:|
-| **Google Antigravity** | Native Plugin (`agy`) | Workspace & User | 16 Specialist Agents + Rules | **YES** (stdio MCP) | V0–V5 Evidence Checks | `IMPLEMENTED & VERIFIED` |
-| **Claude Code** | Marketplace Plugin | Workspace & User | Native Skills + `CLAUDE.md` | **YES** (stdio `.mcp.json`) | V0–V5 Evidence Checks | `IMPLEMENTED & VERIFIED` |
-| **OpenAI Codex** | Marketplace Plugin | Workspace & User | Codex Skills + Rules | **YES** (stdio MCP) | V0–V5 Evidence Checks | `IMPLEMENTED & VERIFIED` |
-| **Cursor** | Workspace Adapter | Workspace | `.cursorrules` + `.cursor/rules/*.mdc` | **YES** (stdio MCP) | V0–V5 Evidence Checks | `IMPLEMENTED & VERIFIED` |
-| **ChatGPT** | Custom GPT / OpenAPI | Remote Session | Custom Instructions Pack | Remote HTTP / SSE | Hand-off via Package | `DOCUMENTED & VERIFIED` |
-| **Generic MCP** | Stdio / SSE JSON-RPC 2.0 | Process / CLI | Standard Tool Registrations | 7 Core Tools | JSON-RPC Inspection | `IMPLEMENTED & VERIFIED` |
+1. **Constitutional Memory (`PROJECT.md`):** High-level architectural invariants, business goals, and non-goals.
+2. **Operational Memory (`PROGRESS.md`):** Real-time task progress, git commit references, and active blockers.
+3. **Session Handoff Memory (`HANDOFF.md`):** Compact, actionable briefing for the next agent session.
+4. **Autonomous Knowledge Ingestion & Synthesis (AKIS):** Synthesizes cross-cutting domain insights, architectural decisions (ADRs), and bug resolutions into persistent, searchable Markdown records in `memory/`.
 
 ---
 
-## The 22-Phase Engineering Lifecycle
+## 14. Engineering Lifecycle — 22 Phases
 
-OpenClone enforces the complete software development lifecycle across 22 phases, ensuring no critical stage is bypassed:
+OpenClone defines a comprehensive 22-phase engineering lifecycle spanning foundation to post-launch governance:
 
 ```mermaid
 flowchart LR
@@ -356,50 +406,40 @@ flowchart LR
 
 ---
 
-## Governance, Security and Assurance
+## 15. Verification and Independent Assurance
 
-OpenClone maintains an uncompromising separation between authorization, execution, and verification:
+Verbal claims made by an AI coding agent (*"I implemented authentication and all tests pass"*) are treated as untrusted data until backed by physical evidence on disk.
 
-1. **Governance (Who authorizes?):**
-   - Deny-by-default execution policy.
-   - Cryptographic SHA-256 digest binding for human approvals.
-   - Any modification to a plan or task contract revokes prior approvals immediately.
-2. **Execution (How is work performed?):**
-   - Subprocess execution harness with automatic regex secret redaction.
-   - 4-Tier copyleft isolation boundary: Copyleft tools (`semgrep` LGPL-2.1, `trufflehog` GPL-3.0, `clamav` GPL-2.0) are accessed exclusively via external CLI processes or socket gateways. **Zero copyleft code is vendored into OpenClone core.**
-3. **Assurance (How is work verified?):**
-   - 7 security scanners pinned by 40-character commit SHAs in [`security/scanners.lock.json`](security/scanners.lock.json).
-   - "Goldfish" clean-context independent assurance: Reviewer agents evaluate pull requests in isolated contexts without seeing conversational history.
-   - Active dynamic prompt injection defense via `PyRITAdapter` ([`integrations/adapters/pyrit_adapter.py`](integrations/adapters/pyrit_adapter.py)).
+### The V0–V5 Verification Model
 
----
+| Level | Identifier | Required Observable Evidence on Disk | Gate Action |
+|:---:|---|---|---|
+| **V0** | `UNVERIFIED` | Conversational text or verbal claim only. | **REJECTED** — Cannot close task. |
+| **V1** | `SYNTACTIC` | Clean AST parse, 0 syntax errors, valid typecheck. | Allowed for preliminary drafts. |
+| **V2** | `UNIT_TESTED` | Automated unit tests executed with exit code 0 and captured stdout. | Required for domain logic. |
+| **V3** | `INTEGRATED` | Inter-service integration or API tests passing in staging container. | Required for subsystem completion. |
+| **V4** | `SECURITY_AUDITED` | Pinned security scanners clean (`scanners.lock.json`), anti-slop pass. | Required for release candidates. |
+| **V5** | `INDEPENDENT_EGM` | Clean-context review completed by fresh reviewer with signed report. | Required for production release. |
 
-## Persistent Memory and Continuity
+### "Goldfish" Clean-Context Independent Review
 
-AI coding sessions frequently suffer from "context amnesia" when token limits are reached or sessions reset. OpenClone ensures long-term project continuity through durable filesystem artifacts:
-
-- **[`PROJECT.md`](templates/PROJECT.template.md):** The immutable project constitution defining architecture and requirements.
-- **`PROGRESS.md`:** The live execution journal recording completed tasks, active blockers, and decisions.
-- **`HANDOFF.md`:** Explicit structured handoff notes for the next agent session.
-- **Autonomous Knowledge Ingestion & Synthesis (AKIS):** Ingests architectural decisions and project knowledge into persistent markdown records, allowing any resuming agent to recover context in seconds without conversational re-prompting.
+To eliminate author confirmation bias, OpenClone implements the **Goldfish Review Protocol**: a fresh reviewer subagent is launched with zero conversation history, given only the PR diff and requirement specification, and asked to rigorously critique architecture, test coverage, and security boundaries.
 
 ---
 
-## Anti-AI-Slop Governance
+## 16. Security and Anti-AI-Slop
 
-OpenClone bundles **Taste Skill v2.6.0** ([`domains/05-UX-UI-ENGINEERING/ANTI-AI-SLOP-STANDARDS.md`](domains/05-UX-UI-ENGINEERING/ANTI-AI-SLOP-STANDARDS.md)) to stop generic generative UI clichés before they reach production:
+OpenClone enforces strict security baselines and quality controls:
 
-1. **Visual Anti-Slop Rules:** Prohibits ambient blur circles (`backdrop-filter: blur(20px)`), neon purple-on-black hero gradients, generic centered card grids, and meaningless decorative badges.
-2. **Typography Hierarchy:** Mandates an 8-point typographic scale, functional whitespace, native font pairings, and a strict `4.5:1` minimum contrast ratio for body text (WCAG 2.2 AA).
-3. **Design Tokens:** Enforces semantic CSS tokens for colors, spacing, borders, shadows, and duration across both light and dark themes.
-4. **Automated Governance Gate:** Verified by 13 automated tests:
-   ```bash
-   node skills/taste-skill/tests/test-governance.mjs
-   ```
+- **19-Point SaaS Security Baseline:** Covers OWASP Top 10 defenses, SQL injection prevention, bcrypt password hashing, CSRF/CORS configurations, and strict rate limiting ([`docs/security/saas-security-baseline.md`](docs/security/saas-security-baseline.md)).
+- **Secret Redaction Harness:** Real-time regex scanner scrubs API tokens, AWS keys, private certificates, and passwords before logging or storing tool outputs.
+- **4-Tier Copyleft Isolation:** Upstream copyleft tools (`semgrep`, `trufflehog`, `clamav`) run in decoupled child processes. Zero copyleft code is vendored into OpenClone core.
+- **Pinned Scanner Lockfile:** All security scanners pinned by 40-character commit SHAs in [`security/scanners.lock.json`](security/scanners.lock.json).
+- **Taste Skill v2.6.0:** Anti-AI-slop design engine enforcing an 8-point typographic scale, semantic CSS tokens, WCAG 2.2 AA contrast ratios, and prohibiting ambient blur circles or neon purple clichés ([`domains/05-UX-UI-ENGINEERING/ANTI-AI-SLOP-STANDARDS.md`](domains/05-UX-UI-ENGINEERING/ANTI-AI-SLOP-STANDARDS.md)).
 
 ---
 
-## MCP Integration
+## 17. MCP Integration
 
 OpenClone implements the Model Context Protocol (spec 2024-11-05), exposing its capabilities over stdio and Server-Sent Events (SSE):
 
@@ -450,19 +490,15 @@ OpenClone implements the Model Context Protocol (spec 2024-11-05), exposing its 
 
 ---
 
-## Installation and Quickstart
+## 18. Installation
 
-### Route A: Direct GitHub Plugin Installation (Recommended for End Users)
+### Route A: Global Plugin Installation (Recommended for End Users)
 
-Install OpenClone directly into your AI coding environment without manual cloning:
+Install OpenClone directly into your AI coding environment:
 
 #### 1. Google Antigravity
 ```bash
 agy plugin install https://github.com/MK-1603/OpenClone
-```
-Verify:
-```bash
-agy plugin list
 ```
 
 #### 2. Claude Code
@@ -475,7 +511,6 @@ agy plugin list
 ```bash
 codex plugin marketplace add MK-1603/OpenClone
 ```
-Then select **OpenClone Engineering** in your Codex Plugins Directory.
 
 #### 4. Cursor
 Add OpenClone to `.cursor/mcp.json`:
@@ -494,7 +529,7 @@ Add OpenClone to `.cursor/mcp.json`:
 
 ### Route B: Application Developers (Portable Zero-Install Workflow)
 
-If you are building an application with ChatGPT or Claude, **no local installation is required**:
+If you are developing an application using ChatGPT, Claude, or Gemini in your browser, **no local installation is required**:
 
 1. **Copy Specification:** Copy [`templates/PROJECT.template.md`](templates/PROJECT.template.md) into your project root as `PROJECT.md`.
 2. **Execute Master Prompt:** Provide [`prompts/PORTABLE-PROJECT-INTELLIGENCE-MASTER-PROMPT.md`](prompts/PORTABLE-PROJECT-INTELLIGENCE-MASTER-PROMPT.md) and your `PROJECT.md` to ChatGPT or Claude.
@@ -503,8 +538,6 @@ If you are building an application with ChatGPT or Claude, **no local installati
 ---
 
 ### Route C: Framework Maintainers & Contributors (Local Setup)
-
-> 💡 **Notice:** This route is exclusively for developers contributing to the OpenClone framework itself.
 
 ```bash
 # 1. Clone repository
@@ -518,7 +551,7 @@ pip install -e ".[dev]"
 python tools/validate_repository.py
 
 # 4. Run automated test suite (108 unit & integration tests)
-pytest -s tests/
+pytest tests/
 
 # 5. Run Taste Skill anti-slop governance tests (13 tests)
 node skills/taste-skill/tests/test-governance.mjs
@@ -527,7 +560,7 @@ node skills/taste-skill/tests/test-governance.mjs
 
 ---
 
-## CLI Reference
+## 19. CLI Reference
 
 OpenClone provides unified CLI management through `src.openclone.cli`:
 
@@ -559,55 +592,24 @@ python -m src.openclone.cli install cursor --dry-run
 ```
 
 ### Clean Uninstallation (`uninstall`)
-Safely remove OpenClone files and restore backups:
+Safely remove OpenClone files and restore original backups:
 ```bash
 python -m src.openclone.cli uninstall cursor
 ```
 
-### Lifecycle Checklist Engine (`checklist_engine.py`)
-Manage the 22-phase engineering lifecycle:
+### Portable Workflow Runtime CLI (`openclone_runtime/openclone.py`)
+Run portable EGM lifecycle operations:
 ```bash
-# 1. Generate checklist for a SaaS application
-python tools/checklist_engine.py generate --type web_saas
-
-# 2. Inspect phase status and completion metrics
-python tools/checklist_engine.py status
-
-# 3. Attach observable evidence to a task
-python tools/checklist_engine.py attach-evidence \
-  --item-id PHASE_01_DISCOVERY_TASK_02 \
-  --type test_run \
-  --ref tests/test_lifecycle_verification.py \
-  --desc "Unit tests passing with exit code 0"
-
-# 4. Transition task status to VERIFIED
-python tools/checklist_engine.py transition \
-  --item-id PHASE_01_DISCOVERY_TASK_02 \
-  --status VERIFIED
-
-# 5. Evaluate Phase Quality Gate
-python tools/checklist_engine.py gate --phase PHASE_01_DISCOVERY
+python tools/openclone_runtime/openclone.py init --project .
+python tools/openclone_runtime/openclone.py challenge --project . --title "Feature Concept"
+python tools/openclone_runtime/openclone.py spec-create --project . --title "Feature Design" --id SPEC-001
+python tools/openclone_runtime/openclone.py validate-spec --spec .openclone/specs/SPEC-001.md
+python tools/openclone_runtime/openclone.py drift --project . --spec .openclone/specs/SPEC-001.md
 ```
 
 ---
 
-## Configuration
-
-OpenClone is configured through CLI parameters and runtime options:
-
-| Flag / Parameter | Default | Description |
-|---|:---:|---|
-| `--strict` | `False` | Enforces all lint and repository warnings as fatal exit code 1 errors. |
-| `--port` | `8000` | Port for the Server-Sent Events (SSE) transport of the shared MCP server. |
-| `--ledger` | `.openclone/audit.db` | Filesystem location for the SQLite tamper-evident audit ledger. |
-| `--no-redact` | `False` (Redaction ON) | Disables automatic regex secret and API key redaction in command logs. |
-| `--project-type` | `web_saas` | Default lifecycle project pack used during checklist generation. |
-| `--scope` | `workspace` | Target scope for adapter installation (`workspace` or `user`). |
-| `--dry-run` | `False` | Previews planned file operations without writing to disk. |
-
----
-
-## Project Examples
+## 20. Practical Usage Example
 
 ### Illustrative End-to-End Walkthrough: `TaskFlow SaaS`
 
@@ -639,31 +641,45 @@ For the complete reference implementation specification, inspect [`blueprints/EX
 
 ---
 
-## Documentation Index
+## 21. Configuration
+
+OpenClone is configured through standard environment variables and CLI parameters:
+
+| Environment Variable / Flag | Default Value | Description |
+|---|:---:|---|
+| `OPENCLONE_STRICT` / `--strict` | `False` | Enforces all lint and repository warnings as fatal exit code 1 errors. |
+| `OPENCLONE_PORT` / `--port` | `8000` | Port for the Server-Sent Events (SSE) transport of the shared MCP server. |
+| `OPENCLONE_LEDGER_PATH` / `--ledger` | `.openclone/audit.db` | Filesystem location for the SQLite tamper-evident audit ledger. |
+| `OPENCLONE_REDACT_SECRETS` / `--no-redact` | `True` (Redaction ON) | Automatically redacts API keys and secrets in execution command logs. |
+| `OPENCLONE_PROJECT_TYPE` / `--project-type` | `web_saas` | Default lifecycle project pack used during checklist generation. |
+
+---
+
+## 22. Documentation Hub
 
 Explore the authoritative specifications across the OpenClone repository:
 
 | Engineering Category | Key Documents |
 |---|---|
-| **Platform Standards & Rules** | [`AGENTS.md`](AGENTS.md) · [`PROJECT.md`](PROJECT.md) · [`domains/00-GOVERNANCE/OPENCLONE-RULEBOOK.md`](domains/00-GOVERNANCE/OPENCLONE-RULEBOOK.md) |
+| **Platform Standards & Rules** | [`AGENTS.md`](AGENTS.md) · [`project.md`](project.md) · [`OPENCLONE-CORE-PRINCIPLES.md`](OPENCLONE-CORE-PRINCIPLES.md) |
 | **System Architecture** | [`docs/architecture/OPENCLONE-2.0-ARCHITECTURE.md`](docs/architecture/OPENCLONE-2.0-ARCHITECTURE.md) · [`blueprints/OPENCLONE-MASTER-BLUEPRINT.md`](blueprints/OPENCLONE-MASTER-BLUEPRINT.md) |
 | **Methodology Reference** | [`blueprints/OPENCLONE-METHODOLOGY-REFERENCE.md`](blueprints/OPENCLONE-METHODOLOGY-REFERENCE.md) · [`docs/DOCUMENTATION-MAP.md`](docs/DOCUMENTATION-MAP.md) |
 | **Operational Assessments** | [`assessments/current/REPOSITORY-HEALTH.md`](assessments/current/REPOSITORY-HEALTH.md) · [`assessments/current/SECURITY-STATUS.md`](assessments/current/SECURITY-STATUS.md) · [`assessments/current/RELEASE-READINESS.md`](assessments/current/RELEASE-READINESS.md) |
 | **Host Integrations & Compatibility** | [`docs/installation/GLOBAL-PLUGIN-INSTALLATION.md`](docs/installation/GLOBAL-PLUGIN-INSTALLATION.md) · [`docs/compatibility/HOST-COMPATIBILITY.md`](docs/compatibility/HOST-COMPATIBILITY.md) |
 | **22-Phase Lifecycle** | [`docs/engineering-lifecycle/MASTER_LIFECYCLE_CATALOGUE.md`](docs/engineering-lifecycle/MASTER_LIFECYCLE_CATALOGUE.md) · [`docs/engineering-lifecycle/VERIFICATION_AND_EVIDENCE.md`](docs/engineering-lifecycle/VERIFICATION_AND_EVIDENCE.md) |
 | **Security & Compliance** | [`docs/security/saas-security-baseline.md`](docs/security/saas-security-baseline.md) · [`docs/security/THREAT-MODEL.md`](docs/security/THREAT-MODEL.md) · [`docs/legal/COMPLIANCE_MATRIX.md`](docs/legal/COMPLIANCE_MATRIX.md) |
-| **Knowledge Catalogues (Master)** | [`docs/knowledge-catalogues/`](docs/knowledge-catalogues/) (UI, Backend, AI Engineering, Motion taxonomies) |
-| **Runtime MCP Guidance Profiles** | [`docs/knowledge/`](docs/knowledge/) (Fast, prompt-injectable skills profiles <12KB) |
+| **Design & Anti-Slop** | [`domains/05-UX-UI-ENGINEERING/ANTI-AI-SLOP-STANDARDS.md`](domains/05-UX-UI-ENGINEERING/ANTI-AI-SLOP-STANDARDS.md) · [`assets/branding/README.md`](assets/branding/README.md) |
 | **Third-Party Copyright & IP** | [`NOTICE`](NOTICE) · [`THIRD_PARTY_LICENSES.md`](THIRD_PARTY_LICENSES.md) · [`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md) |
 
 ---
 
-## Roadmap
+## 23. Roadmap
 
 OpenClone tracks its ongoing evolution transparently:
 
 ### ✅ Completed & Verified (`2.0.0`)
 - [x] **Universal Framework Standard:** Unified specification across 31 engineering domains and 56 capability engines.
+- [x] **Official Brand Identity:** Integrated 3D isometric emblem and canonical tagline logo banner.
 - [x] **Shared MCP Server:** JSON-RPC 2.0 stdio/SSE engine with 7 core inspection tools and 15 canonical capabilities.
 - [x] **Taste Skill v2.6.0:** Anti-AI-slop design tokens, typography scales, and 13 automated governance tests.
 - [x] **Portable Specification Workflow:** Zero-install `PROJECT.md` execution package generation (`BUILD_PROMPT.md`, `ACCEPTANCE_MATRIX.md`, `PROGRESS.md`, `HANDOFF.md`).
@@ -682,27 +698,42 @@ OpenClone tracks its ongoing evolution transparently:
 
 ---
 
-## Contributing and Security
+## 24. Contributing
 
-We welcome contributions from engineers, researchers, and tool builders:
+We welcome contributions from software engineers, AI researchers, and open-source practitioners:
 
 - **[Contributing Guidelines](CONTRIBUTING.md):** Development setup, branch naming, testing requirements, and PR expectations.
 - **[Code of Conduct](CODE_OF_CONDUCT.md):** Contributor Covenant v2.1 standards.
-- **[Security Policy](SECURITY.md):** Responsible vulnerability disclosure protocol.
 - **[Governance Model](GOVERNANCE.md):** Architectural decision registers and human approval rules.
 
+### Local Verification Before Submitting a PR
+```bash
+# 1. Structural repository quality gate
+python tools/validate_repository.py
+
+# 2. Automated Python test suite
+pytest tests/
+
+# 3. Taste Skill governance test suite
+node skills/taste-skill/tests/test-governance.mjs
+```
+
 ---
 
-## Star History
+## 25. Security
 
-[![Star History Chart](https://api.star-history.com/svg?repos=MK-1603/OpenClone&type=Date)](https://star-history.com/#MK-1603/OpenClone&Date)
+OpenClone treats software supply chain and execution security as paramount:
+
+- **Vulnerability Disclosure:** Please review [`SECURITY.md`](SECURITY.md) for our responsible disclosure policy and reporting channels.
+- **Secret Redaction:** Subprocess outputs automatically scrub sensitive tokens before persistence.
+- **Pinned Scanners:** All static analysis tools are pinned by commit hash in [`security/scanners.lock.json`](security/scanners.lock.json).
 
 ---
 
-## License
+## 26. License and Acknowledgements
 
 OpenClone is licensed under the [MIT License](LICENSE).  
-Copyright (c) 2026 OpenClone Contributors (formerly AISDF).
+Copyright (c) 2026 OpenClone Contributors.
 
 Third-party open-source components and specifications are subject to their respective licenses:
 - [`NOTICE`](NOTICE): Upstream copyright, authors, and notices.
