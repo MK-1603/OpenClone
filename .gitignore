@@ -1,4 +1,4 @@
-.DS_Store
+﻿.DS_Store
 Thumbs.db
 .env
 .env.*
@@ -7,6 +7,7 @@ Thumbs.db
 venv/
 __pycache__/
 *.py[cod]
+*.pyc
 .pytest_cache/
 node_modules/
 dist/
@@ -16,22 +17,10 @@ coverage/
 .mypy_cache/
 .coverage
 *.egg-info/
-.aisdf/
+.work/
 
-# AISDF local runtime state
-.aisdf/
+# Runtime state
 .openclone/
-.aisdf/workforce.sqlite3
-.aisdf/workforce.sqlite3-shm
-.aisdf/workforce.sqlite3-wal
-
-# Maintainer Upstream Integration Checkouts
 .openclone-dev/
-
 .taste-skill/
 .taste-pro/
-__pycache__/
-*.py[cod]
-.pytest_cache/
-.mypy_cache/
-.ruff_cache/
