@@ -1,0 +1,2 @@
+SourcePath,TargetPath,MergeRationale,VerificationTest
+docs/knowledge/ui-ux-quality-audit.md,docs/knowledge-catalogues/UI_QUALITY_AUDIT.md,Promoted unique 48-item UI checklist to master encyclopedias while preserving live MCP file,validate_repository.py
