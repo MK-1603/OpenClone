@@ -10,7 +10,7 @@ import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const SCRIPTS = path.join(ROOT, 'skills', 'taste-skill', 'scripts');
+const SCRIPTS = fs.existsSync(path.join(ROOT, 'scripts')) ? path.join(ROOT, 'scripts') : path.join(ROOT, 'skills', 'taste-skill', 'scripts');
 
 let passed = 0;
 let failed = 0;
