@@ -712,4 +712,88 @@ PROJECT_TYPE_PACKS: Dict[str, Dict[str, Any]] = {
             },
         ],
     },
+    "LINUX_DISTRIBUTION": {
+        "name": "Custom Linux Distribution / Appliance",
+        "description": "Kernel, initramfs, rootfs assembly, bootloader, package repository, and ISO builds.",
+        "extra_tasks": [
+            {
+                "phase_id": "PHASE_09_BACKEND",
+                "category": "Systems & Kernel",
+                "title": "Build and Verify Kernel Image, Initramfs & Rootfs Assembly",
+                "desc": "Compile kernel with minimal required config, generate initramfs, and verify clean boot.",
+                "priority": "CRITICAL",
+                "risk": "CRITICAL",
+                "criteria": ["Kernel boots without panic", "Initramfs loads root filesystem successfully"],
+            },
+            {
+                "phase_id": "PHASE_17_DEVOPS",
+                "category": "ISO Generation",
+                "title": "Generate Bootable Hybrid ISO with Checksum Verification",
+                "desc": "Build UEFI and BIOS compatible hybrid ISO and verify SHA-256 integrity.",
+                "priority": "HIGH",
+                "risk": "HIGH",
+                "criteria": ["ISO boots in QEMU/KVM virtual machine", "SHA-256 checksum published"],
+            },
+        ],
+    },
+    "EMBEDDED_FIRMWARE": {
+        "name": "Microcontroller Firmware & Embedded Systems",
+        "description": "RTOS firmware, bare-metal C/Rust, memory limits, and hardware safety watchdogs.",
+        "extra_tasks": [
+            {
+                "phase_id": "PHASE_09_BACKEND",
+                "category": "Firmware & Memory",
+                "title": "Assert Static Memory Allocation Bounds & Watchdog Safety",
+                "desc": "Verify zero dynamic memory fragmentation, stack overflow bounds, and watchdog feed loop.",
+                "priority": "CRITICAL",
+                "risk": "CRITICAL",
+                "criteria": ["Zero dynamic heap allocations in ISR", "Watchdog triggers reboot on simulated hang"],
+            },
+        ],
+    },
+    "MACHINE_LEARNING": {
+        "name": "Machine Learning Engineering",
+        "description": "Predictive modeling, deep learning, feature pipelines, and drift monitoring.",
+        "extra_tasks": [
+            {
+                "phase_id": "PHASE_13_AI_INTELLIGENCE",
+                "category": "ML Governance",
+                "title": "Verify Strict Data Splitting, Leakage Controls & Baseline Comparison",
+                "desc": "Enforce train/validation/test split before transformations; measure against simple baseline.",
+                "priority": "CRITICAL",
+                "risk": "HIGH",
+                "criteria": ["No target leakage in pre-processors", "Model outperforms naive baseline with statistical significance"],
+            },
+        ],
+    },
+    "DATA_SCIENCE": {
+        "name": "Data Science & Statistical Analysis",
+        "description": "Exploratory analysis, statistical hypothesis testing, and reproducible notebooks.",
+        "extra_tasks": [
+            {
+                "phase_id": "PHASE_10_DATABASE",
+                "category": "Reproducibility",
+                "title": "Verify Random Seed Determinism & Hypothesis Testing Rigor",
+                "desc": "Ensure all stochastic processes use fixed seeds; document p-values and confidence intervals.",
+                "priority": "HIGH",
+                "risk": "MEDIUM",
+                "criteria": ["Notebooks run from top-to-bottom with identical outputs", "Null hypothesis testing explicitly documented"],
+            },
+        ],
+    },
+    "DEVELOPER_TOOLS": {
+        "name": "Developer Tools & Compilers",
+        "description": "CLI utilities, compiler passes, AST linters, and developer extension platforms.",
+        "extra_tasks": [
+            {
+                "phase_id": "PHASE_10_TESTING",
+                "category": "Conformance & CLI",
+                "title": "Execute CLI Subcommand Conformance Matrix & Exit Code Assertions",
+                "desc": "Test all flags, help messages, stdout/stderr stream isolation, and non-zero exit codes on failure.",
+                "priority": "CRITICAL",
+                "risk": "HIGH",
+                "criteria": ["Exit codes conform to POSIX semantics", "JSON output validates against schema"],
+            },
+        ],
+    },
 }

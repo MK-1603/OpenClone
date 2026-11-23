@@ -37,6 +37,13 @@ Use only the most accurate status:
 - Project name:
 - One-sentence description:
 - Project type:
+- Primary project family & type: `UNKNOWN` (e.g. `web_engineering / saas_web_app`, `operating_systems_and_systems / linux_distribution`)
+- Secondary & supporting types: `[]` (e.g. `ai_engineering / rag_knowledge_system`, `mobile_engineering / cross_platform_mobile`)
+- Classification confidence & rationale: `1.0 — Deterministic evaluation`
+- Ambiguity flags: `[]`
+- Independent complexity level: `MINI / SMALL / MEDIUM / LARGE / ENTERPRISE / RESEARCH_EXPERIMENTAL`
+- Complexity rationale:
+- Delivery targets: `web_browser / android / ios / windows / macos / linux / containers_cloud / on_premises / embedded_hardware / edge_devices / virtual_machines / bootable_media_iso`
 - Current lifecycle stage: `IDEA / DISCOVERY / DESIGN / DEVELOPMENT / DEMO / MAINTENANCE / ARCHIVED / UNKNOWN`
 - Existing system or greenfield:
 - Repository URL / local path:
@@ -157,6 +164,25 @@ Include only relevant categories and explain `NOT_APPLICABLE` decisions.
 - Deployment topology (if applicable):
 - Architecture Decision Records (ADR links):
 - Known architecture debt and constraints:
+
+### 12.1 Universal Domain & Capability Mapping
+- Mandatory domains (from canonical 31 domains):
+- Conditional & supporting domains:
+- Excluded / Not-applicable domains:
+- Required capability engines (from E-001 through E-056):
+
+### 12.2 Conditional Project Profiles
+- AI Engineering Profile (if applicable): `model_family, RAG pipeline, tool permissions, safety evals`
+- ML Engineering Profile (if applicable): `data provenance, leakage controls, baseline, drift monitoring`
+- Data Science Profile (if applicable): `hypotheses, statistical tests, EDA reproducibility`
+- Data Engineering Profile (if applicable): `idempotent pipelines, schema contracts, dead-letter queues`
+- OS & Systems Profile (if applicable): `kernel, initramfs, bootloader, device drivers, ISO target`
+- Embedded & Firmware Profile (if applicable): `target MCU, RTOS, memory limits, firmware updates`
+- Mobile Profile (if applicable): `lifecycle, deep links, push notifications, offline cache`
+- Desktop Profile (if applicable): `windowing, auto-updates, code signing, native packaging`
+- Game & Simulation Profile (if applicable): `engine loop, ECS, asset pipeline, physics/graphics`
+- Developer Tools Profile (if applicable): `CLI commands, type stubs, ABI stability, SDK contracts`
+- Scientific Computing Profile (if applicable): `numerical precision, reproducible benchmarks`
 
 ## 13. Technology stack and dependencies
 | Technology / dependency | Purpose | Version / range | Direct or transitive | License | Support / compatibility evidence | Decision |

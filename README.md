@@ -13,11 +13,11 @@
   &nbsp;
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-6366f1?style=flat" alt="MIT License" /></a>
   &nbsp;
-  <a href="tests/"><img src="https://img.shields.io/badge/tests-187%20passing%20%7C%200%20failed-059669?style=flat" alt="187 Passing Tests (174 Pytest + 13 Governance)" /></a>
+  <a href="tests/"><img src="https://img.shields.io/badge/tests-209%20passing%20%7C%200%20failed-059669?style=flat" alt="209 Passing Tests (196 Pytest + 13 Governance)" /></a>
   &nbsp;
   <a href="security/scanners.lock.json"><img src="https://img.shields.io/badge/security-14%20scanners%20locked-ef4444?style=flat" alt="14 Scanners Locked" /></a>
   &nbsp;
-  <a href="src/openclone/mcp/server.py"><img src="https://img.shields.io/badge/mcp-16%20tools%20active-8b5cf6?style=flat" alt="MCP 16 Tools Active" /></a>
+  <a href="src/openclone/mcp/server.py"><img src="https://img.shields.io/badge/mcp-20%20tools%20active-8b5cf6?style=flat" alt="MCP 20 Tools Active" /></a>
 </p>
 
 <p align="center">
@@ -477,13 +477,29 @@ openclone agency list --division design
 openclone agency team --type website --name "CustomerPortal"
 ```
 
+### Universal Project Intelligence
+```bash
+# Display intelligence status & taxonomy families
+openclone intelligence status
+
+# Classify requirements or repository into project families
+openclone intelligence classify "Offline Flutter mobile app with local RAG agent and FastAPI backend"
+
+# Compute deterministic explainable domain, capability, and workforce routing
+openclone intelligence route "Custom Linux distribution with initramfs and bootable ISO"
+
+# List or view canonical project family blueprints (14 families)
+openclone intelligence blueprint --list
+openclone intelligence blueprint 10-LINUX-OS
+```
+
 ---
 
 ## 12. MCP and Tool Integration
 
-OpenClone implements the **Model Context Protocol (spec 2024-11-05)**, exposing 16 registered tools over stdio and Server-Sent Events (SSE):
+OpenClone implements the **Model Context Protocol (spec 2024-11-05)**, exposing 20 registered tools over stdio and Server-Sent Events (SSE):
 
-### Registered MCP Tools (16)
+### Registered MCP Tools (20)
 
 | Tool Name | Purpose | Primary Inputs | Output |
 |---|---|---|---|
@@ -503,6 +519,10 @@ OpenClone implements the **Model Context Protocol (spec 2024-11-05)**, exposing 
 | **`openclone_discover_agents`**| Discover external Agency specialist agents. | `query` (str), `division` (str) | Matching agent catalog list |
 | **`openclone_get_agent_profile`**| Retrieve full agent persona, rules, workflow, and deliverables. | `division` (str), `agent` (str) | Unredacted agent profile |
 | **`openclone_assemble_team`** | Assemble specialist teams and calculate topological execution order. | `team_type` (str), `name` (str) | Team composition & DAG |
+| **`openclone_classify_project`** | Multi-label project classification across 12 families and 20+ types. | `text` (str) | Multi-label `ProjectProfile` |
+| **`openclone_route_project`** | Deterministic domain, capability, workforce, and model routing. | `text` (str) | Explainable `RoutingDecision` |
+| **`openclone_get_blueprint`** | Fetch canonical architecture blueprints across 14 project families. | `blueprint_id` (str) | Full blueprint Markdown |
+| **`openclone_project_intelligence_status`** | Query metrics on supported families, delivery targets, and blueprints. | None | Taxonomy & blueprint summary |
 
 ---
 
@@ -550,6 +570,7 @@ Explore authoritative specifications across the repository:
 | Engineering Category | Authoritative Documents |
 |---|---|
 | **Platform Standards & Rules** | [`AGENTS.md`](AGENTS.md) · [`PROJECT.md`](PROJECT.md) · [`docs/concepts/OPENCLONE-CORE-PRINCIPLES.md`](docs/concepts/OPENCLONE-CORE-PRINCIPLES.md) |
+| **Universal Project Intelligence** | [`docs/intelligence/README.md`](docs/intelligence/README.md) · [`blueprints/README.md`](blueprints/README.md) · [`framework/registries/project-taxonomy.json`](framework/registries/project-taxonomy.json) |
 | **System Architecture** | [`docs/architecture/OPENCLONE-2.0-ARCHITECTURE.md`](docs/architecture/OPENCLONE-2.0-ARCHITECTURE.md) · [`blueprints/OPENCLONE-MASTER-BLUEPRINT.md`](blueprints/OPENCLONE-MASTER-BLUEPRINT.md) |
 | **Core Concepts (10)** | [`docs/concepts/01-GOVERNANCE-AND-AUTHORITY.md`](docs/concepts/01-GOVERNANCE-AND-AUTHORITY.md) · [`docs/concepts/02-PROJECT-SOURCE-OF-TRUTH.md`](docs/concepts/02-PROJECT-SOURCE-OF-TRUTH.md) · [`docs/concepts/03-SPECIALIST-WORKFORCE.md`](docs/concepts/03-SPECIALIST-WORKFORCE.md) |
 | **22-Phase Lifecycle** | [`docs/engineering-lifecycle/MASTER_LIFECYCLE_CATALOGUE.md`](docs/engineering-lifecycle/MASTER_LIFECYCLE_CATALOGUE.md) · [`docs/engineering-lifecycle/VERIFICATION_AND_EVIDENCE.md`](docs/engineering-lifecycle/VERIFICATION_AND_EVIDENCE.md) |

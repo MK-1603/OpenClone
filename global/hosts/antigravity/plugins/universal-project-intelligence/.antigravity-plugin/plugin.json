@@ -1,0 +1,35 @@
+{
+  "$schema": "https://antigravity.google/schemas/v1/plugin.json",
+  "name": "universal-project-intelligence",
+  "displayName": "Universal Project Intelligence",
+  "version": "1.0.0",
+  "description": "OpenClone Universal Project Intelligence: multi-label taxonomy, deterministic domain routing, capability mapping, and workforce composition.",
+  "author": "OpenClone Contributors",
+  "suggestedPrompts": [
+    "Classify this project requirements into canonical project families and types.",
+    "Route this project to mandatory engineering domains, capability engines, and minimum effective workforce.",
+    "Generate a canonical PROJECT.md with conditional domain profiles.",
+    "Load the engineering blueprint for this project family."
+  ],
+  "capabilities": [
+    "multi_label_project_classification",
+    "project_domain_routing",
+    "capability_engine_mapping",
+    "workforce_composition",
+    "model_tool_matching",
+    "blueprint_guidance"
+  ],
+  "permissions": [
+    "read_project_manifests",
+    "propose_project_profile"
+  ],
+  "mcpServers": {
+    "openclone": {
+      "command": "python",
+      "args": [
+        "-m",
+        "src.openclone.mcp.server"
+      ]
+    }
+  }
+}

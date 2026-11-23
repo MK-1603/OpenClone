@@ -3,7 +3,7 @@ import tempfile
 import unittest
 from pathlib import Path
 
-SCRIPT = Path(__file__).parents[1] / "aisdf.py"
+SCRIPT = (Path(__file__).parents[1] / "openclone.py") if (Path(__file__).parents[1] / "openclone.py").exists() else (Path(__file__).parents[1] / "aisdf.py")
 spec = importlib.util.spec_from_file_location("aisdf", SCRIPT)
 m = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(m)
@@ -31,7 +31,7 @@ class RuntimeTests(unittest.TestCase):
     def test_runtime_initializes_workspace(self):
         with tempfile.TemporaryDirectory() as tmp:
             m.cmd_init(type("Args", (), {"project": tmp})())
-            self.assertTrue((Path(tmp) / ".aisdf" / "runtime-manifest.json").exists())
+            self.assertTrue((Path(tmp) / ".openclone" / "runtime-manifest.json").exists() or (Path(tmp) / ".aisdf" / "runtime-manifest.json").exists())
 
 if __name__ == "__main__":
     unittest.main()

@@ -1,0 +1,203 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://openclone.dev/schemas/project-profile.schema.json",
+  "title": "OpenClone Multi-Label Project Profile",
+  "type": "object",
+  "required": [
+    "project_id",
+    "project_name",
+    "primary_family",
+    "primary_type",
+    "complexity",
+    "delivery_targets"
+  ],
+  "properties": {
+    "project_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_-]+$"
+    },
+    "project_name": {
+      "type": "string"
+    },
+    "primary_family": {
+      "type": "string"
+    },
+    "primary_type": {
+      "type": "string"
+    },
+    "secondary_types": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "default": []
+    },
+    "supporting_types": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "default": []
+    },
+    "classification_confidence": {
+      "type": "number",
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "default": 1.0
+    },
+    "classification_rationale": {
+      "type": "string",
+      "default": ""
+    },
+    "ambiguity_flags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "default": []
+    },
+    "complexity": {
+      "type": "object",
+      "required": ["level", "rationale"],
+      "properties": {
+        "level": {
+          "type": "string",
+          "enum": [
+            "MINI",
+            "SMALL",
+            "MEDIUM",
+            "LARGE",
+            "ENTERPRISE",
+            "RESEARCH_EXPERIMENTAL"
+          ]
+        },
+        "rationale": {
+          "type": "string"
+        }
+      }
+    },
+    "delivery_targets": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "web_browser",
+          "android",
+          "ios",
+          "windows",
+          "macos",
+          "linux",
+          "containers_cloud",
+          "on_premises",
+          "embedded_hardware",
+          "edge_devices",
+          "virtual_machines",
+          "bootable_media_iso"
+        ]
+      }
+    },
+    "conditional_profiles": {
+      "type": "object",
+      "properties": {
+        "ai": {
+          "type": "object",
+          "properties": {
+            "model_family": { "type": "string" },
+            "rag_enabled": { "type": "boolean" },
+            "agentic_tools": { "type": "boolean" },
+            "safety_evaluations": { "type": "array", "items": { "type": "string" } }
+          }
+        },
+        "ml": {
+          "type": "object",
+          "properties": {
+            "target_variable": { "type": "string" },
+            "data_provenance": { "type": "string" },
+            "leakage_controls": { "type": "boolean" },
+            "baseline_model": { "type": "string" },
+            "drift_monitoring": { "type": "boolean" }
+          }
+        },
+        "data_science": {
+          "type": "object",
+          "properties": {
+            "hypothesis": { "type": "string" },
+            "statistical_methods": { "type": "array", "items": { "type": "string" } },
+            "eda_visualizations": { "type": "boolean" },
+            "reproducibility_seed": { "type": "integer" }
+          }
+        },
+        "data_engineering": {
+          "type": "object",
+          "properties": {
+            "pipeline_type": { "type": "string", "enum": ["batch", "streaming", "hybrid"] },
+            "source_connectors": { "type": "array", "items": { "type": "string" } },
+            "storage_layer": { "type": "string" },
+            "idempotency_guarantee": { "type": "boolean" }
+          }
+        },
+        "os_systems": {
+          "type": "object",
+          "properties": {
+            "target_arch": { "type": "string" },
+            "kernel_base": { "type": "string" },
+            "bootloader": { "type": "string" },
+            "init_system": { "type": "string" },
+            "build_environment": { "type": "string" }
+          }
+        },
+        "embedded_hardware": {
+          "type": "object",
+          "properties": {
+            "target_mcu": { "type": "string" },
+            "rtos": { "type": "string" },
+            "memory_limit_kb": { "type": "integer" },
+            "firmware_update_strategy": { "type": "string" }
+          }
+        },
+        "mobile": {
+          "type": "object",
+          "properties": {
+            "platforms": { "type": "array", "items": { "type": "string" } },
+            "offline_storage": { "type": "boolean" },
+            "push_notifications": { "type": "boolean" },
+            "deep_linking": { "type": "boolean" }
+          }
+        },
+        "desktop": {
+          "type": "object",
+          "properties": {
+            "framework": { "type": "string" },
+            "auto_update": { "type": "boolean" },
+            "code_signing": { "type": "boolean" }
+          }
+        },
+        "game_simulation": {
+          "type": "object",
+          "properties": {
+            "engine": { "type": "string" },
+            "dimension": { "type": "string", "enum": ["2D", "3D", "XR"] },
+            "physics_simulation": { "type": "boolean" },
+            "networking": { "type": "string" }
+          }
+        },
+        "developer_tools": {
+          "type": "object",
+          "properties": {
+            "interface_type": { "type": "string", "enum": ["cli", "sdk", "library", "compiler", "extension"] },
+            "conformance_tests": { "type": "boolean" },
+            "backward_compatibility_policy": { "type": "string" }
+          }
+        },
+        "scientific_research": {
+          "type": "object",
+          "properties": {
+            "field": { "type": "string" },
+            "numerical_precision": { "type": "string" },
+            "reproducibility_benchmark": { "type": "string" }
+          }
+        }
+      }
+    }
+  }
+}

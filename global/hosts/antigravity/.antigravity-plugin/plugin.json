@@ -5,6 +5,7 @@
   "version": "1.0.0",
   "description": "OpenClone universal spec-driven engineering and governance plugin",
   "suggestedPrompts": [
+    "Classify and route project requirements using Universal Project Intelligence.",
     "Run OpenClone WF-001 to initialize a new governed project.",
     "Draft an OpenClone design specification and stop for approval.",
     "Run an independent design review using isolated reviewers (Goldfish protocol).",

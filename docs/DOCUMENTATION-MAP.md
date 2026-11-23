@@ -45,6 +45,7 @@ To eliminate conflicting specifications, overlapping rules, and contradictory re
 | **Workforce Roles (72)** | [`workforce/registry/workers/`](../framework/workforce/registry/workers/) | 72 JSON worker role definitions | `workforce/teams/` |
 | **Capability Engines (56)** | [`engines/`](../framework/engines/) | 56 engine execution specifications (E-001..E-056) | `docs/engineering-coverage/CATALOGUE.md` |
 | **Workflows (15)** | [`workflows/`](../framework/workflows/) | 15 executable workflow definitions (WF-001..WF-015) | `openclone.manifest.json` |
+| **Universal Project Intelligence** | [`docs/intelligence/README.md`](intelligence/README.md) | Universal taxonomy (12 families), multi-label classifier, router, 14 blueprints | `framework/registries/project-taxonomy.json`, `blueprints/README.md` |
 
 ---
 

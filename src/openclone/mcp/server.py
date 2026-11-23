@@ -356,6 +356,70 @@ TOOLS = [
             "additionalProperties": False,
         },
     },
+    {
+        "name": "openclone_classify_project",
+        "description": "Multi-label classification of natural-language requirements or repository files into universal project families, delivery targets, and independent complexity.",
+        "inputSchema": {
+            "type": "object",
+            "properties": {
+                "text": {
+                    "type": "string",
+                    "description": "Natural-language project requirements, vision, or codebase description.",
+                },
+                "project_name": {
+                    "type": "string",
+                    "default": "project",
+                    "description": "Name or identifier of the project.",
+                },
+            },
+            "required": ["text"],
+            "additionalProperties": False,
+        },
+    },
+    {
+        "name": "openclone_route_project",
+        "description": "Deterministic explainable routing of project requirements to mandatory engineering domains, capability engines, minimum effective workforce, models, and workflows.",
+        "inputSchema": {
+            "type": "object",
+            "properties": {
+                "text": {
+                    "type": "string",
+                    "description": "Natural-language requirements or specification.",
+                },
+                "project_name": {
+                    "type": "string",
+                    "default": "project",
+                    "description": "Name of the target project.",
+                },
+            },
+            "required": ["text"],
+            "additionalProperties": False,
+        },
+    },
+    {
+        "name": "openclone_get_blueprint",
+        "description": "Retrieve the canonical engineering blueprint for a given project family or architecture.",
+        "inputSchema": {
+            "type": "object",
+            "properties": {
+                "blueprint_id": {
+                    "type": "string",
+                    "description": "Blueprint ID (e.g. '01-MINI-WEBSITE', '02-SAAS-WEB-APP', '10-LINUX-OS') or filename.",
+                },
+            },
+            "required": ["blueprint_id"],
+            "additionalProperties": False,
+        },
+    },
+    {
+        "name": "openclone_project_intelligence_status",
+        "description": "Get summary metrics on supported universal project families, complexity levels, delivery targets, and blueprints.",
+        "inputSchema": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": False,
+        },
+    },
 ]
 
 
@@ -750,6 +814,45 @@ class OpenCloneMCPServer:
         else:
             return orch.assemble_ui_ux_team(project_name).to_dict()
 
+    def classify_project(self, text: str, project_name: str = "project") -> Dict[str, Any]:
+        """Multi-label classification of natural-language requirements."""
+        from src.openclone.intelligence import ProjectClassifier
+        classifier = ProjectClassifier()
+        profile = classifier.classify_text(text, project_name=project_name)
+        return profile.to_dict()
+
+    def route_project(self, text: str, project_name: str = "project") -> Dict[str, Any]:
+        """Deterministic explainable routing of project requirements."""
+        from src.openclone.intelligence import ProjectClassifier, ProjectRouter
+        classifier = ProjectClassifier()
+        profile = classifier.classify_text(text, project_name=project_name)
+        router = ProjectRouter()
+        decision = router.route(profile)
+        return decision.to_dict()
+
+    def get_blueprint(self, blueprint_id: str) -> Dict[str, Any]:
+        """Retrieve canonical engineering blueprint for a project family."""
+        from src.openclone.intelligence import BlueprintManager
+        mgr = BlueprintManager(self.root / "blueprints")
+        content = mgr.get_blueprint(blueprint_id)
+        if not content:
+            raise KeyError(f"Blueprint not found: '{blueprint_id}'")
+        return {"blueprint_id": blueprint_id, "content": content}
+
+    def project_intelligence_status(self) -> Dict[str, Any]:
+        """Get summary metrics on supported universal project families and blueprints."""
+        from src.openclone.intelligence import TaxonomyRegistry, BlueprintManager
+        tax = TaxonomyRegistry()
+        bp = BlueprintManager(self.root / "blueprints")
+        return {
+            "version": tax.version,
+            "family_count": len(tax.families),
+            "families": tax.list_families(),
+            "complexity_levels": tax.complexity_levels,
+            "delivery_targets": tax.delivery_targets,
+            "blueprints_count": len(bp.list_blueprints()),
+        }
+
     def call_tool(self, name: str, arguments: Dict[str, Any]) -> Dict[str, Any]:
         """Dispatch tool invocation with argument validation."""
         if name == "openclone_get_status":
@@ -800,6 +903,20 @@ class OpenCloneMCPServer:
             return self.get_agent_profile(arguments["agent_id"])
         elif name == "openclone_assemble_team":
             return self.assemble_team(arguments.get("team_type", "ui_ux"), arguments.get("project_name", "Project"))
+        elif name == "openclone_classify_project":
+            if "text" not in arguments:
+                raise ValueError("Missing required argument: 'text'")
+            return self.classify_project(arguments["text"], arguments.get("project_name", "project"))
+        elif name == "openclone_route_project":
+            if "text" not in arguments:
+                raise ValueError("Missing required argument: 'text'")
+            return self.route_project(arguments["text"], arguments.get("project_name", "project"))
+        elif name == "openclone_get_blueprint":
+            if "blueprint_id" not in arguments:
+                raise ValueError("Missing required argument: 'blueprint_id'")
+            return self.get_blueprint(arguments["blueprint_id"])
+        elif name == "openclone_project_intelligence_status":
+            return self.project_intelligence_status()
         elif self.canonical_registry.get(name):
             return self.gateway.execute(self.default_auth, name, arguments)
         else:

@@ -2,6 +2,10 @@
 
 - Status: DRAFT — NOT APPROVED
 - Project type: TBD
+- Primary project family & type: TBD
+- Secondary & supporting types: []
+- Independent complexity: MINI | SMALL | MEDIUM | LARGE | ENTERPRISE | RESEARCH_EXPERIMENTAL
+- Delivery targets: web_browser | android | ios | windows | macos | linux | containers_cloud | on_premises | embedded_hardware | edge_devices | virtual_machines | bootable_media_iso
 - Owner: TBD
 - Last reviewed: YYYY-MM-DD
 

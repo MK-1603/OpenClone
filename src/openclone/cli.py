@@ -22,6 +22,10 @@ def main():
         from tools.skill_engine import main as skill_main
         sys.argv.pop(1)
         skill_main()
+    elif len(sys.argv) > 1 and sys.argv[1] in ("intelligence", "intel"):
+        from src.openclone.intelligence.cli import main as intel_main
+        sys.argv.pop(1)
+        intel_main()
     elif len(sys.argv) > 1 and sys.argv[1] == "agency":
         from src.openclone.workforce.agency.cli import main as agency_main
         sys.argv.pop(1)
