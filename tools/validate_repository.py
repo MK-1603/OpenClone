@@ -96,12 +96,13 @@ for svg_p in ROOT.rglob('*.svg'):
     except Exception as e:
         errors.append(f'{svg_p.relative_to(ROOT)}: invalid SVG XML: {e}')
 
-# Every major directory has README.md
-for d in [p for p in ROOT.iterdir() if p.is_dir() and not p.name.startswith('.')]:
+# Every major directory has README.md (ignore hidden, build, and packaging artifacts)
+IGNORED_MAJOR_DIRS = {'.git', '.github', '__pycache__', 'build', 'dist', '.pytest_cache', '.openclone'}
+for d in [p for p in ROOT.iterdir() if p.is_dir() and not p.name.startswith('.') and not p.name.endswith('.egg-info') and p.name not in IGNORED_MAJOR_DIRS]:
     if any(d.iterdir()) and not (d / 'README.md').is_file():
         warnings.append(f'Major directory has no README.md: {d.name}')
 
-# Internal markdown links (ignore anchors-only, external URLs, templates)
+# Internal markdown links (ignore anchors-only, external URLs, templates; strictly verify casing)
 for md in ROOT.rglob('*.md'):
     if any(part.startswith('.') for part in md.parts):
         continue
@@ -113,9 +114,22 @@ for md in ROOT.rglob('*.md'):
         t_clean = target.split('#', 1)[0].strip()
         if not t_clean or re.match(r'^[a-zA-Z][a-zA-Z0-9+.-]*:', t_clean) or t_clean.startswith('#') or '{{' in t_clean or t_clean.startswith('file://'):
             continue
-        resolved = (md.parent / t_clean).resolve()
-        if not resolved.exists():
-            errors.append(f'Broken Markdown link in {md.relative_to(ROOT)}: {target}')
+        rel_parts = t_clean.replace('\\', '/').split('/')
+        curr = md.parent
+        for part in rel_parts:
+            if not part or part == '.':
+                continue
+            if part == '..':
+                curr = curr.parent
+                continue
+            matches = [x.name for x in curr.iterdir() if x.name.lower() == part.lower()]
+            if not matches:
+                errors.append(f'Broken Markdown link in {md.relative_to(ROOT)}: {target}')
+                break
+            if matches[0] != part:
+                errors.append(f'Broken Markdown link in {md.relative_to(ROOT)}: {target} (casing mismatch: disk has {matches[0]})')
+                break
+            curr = curr / matches[0]
 
 # Version check
 ver = (ROOT / 'VERSION').read_text().strip()

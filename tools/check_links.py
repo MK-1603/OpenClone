@@ -26,9 +26,22 @@ def verify_links() -> int:
             if not t_clean or re.match(r'^[a-zA-Z][a-zA-Z0-9+.-]*:', t_clean) or t_clean.startswith('#') or '{{' in t_clean or t_clean.startswith('file://'):
                 continue
             total_links += 1
-            resolved = (md.parent / t_clean).resolve()
-            if not resolved.exists():
-                errors.append((str(md.relative_to(ROOT)), target))
+            rel_parts = t_clean.replace('\\', '/').split('/')
+            curr = md.parent
+            for part in rel_parts:
+                if not part or part == '.':
+                    continue
+                if part == '..':
+                    curr = curr.parent
+                    continue
+                matches = [x.name for x in curr.iterdir() if x.name.lower() == part.lower()]
+                if not matches:
+                    errors.append((str(md.relative_to(ROOT)), target))
+                    break
+                if matches[0] != part:
+                    errors.append((str(md.relative_to(ROOT)), f"{target} (casing mismatch: disk has {matches[0]})"))
+                    break
+                curr = curr / matches[0]
 
     print(f"Scanned {checked_files} Markdown files, verified {total_links} relative links.")
     if errors:

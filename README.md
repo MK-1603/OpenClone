@@ -687,7 +687,7 @@ Explore the authoritative specifications across the OpenClone repository:
 
 | Engineering Category | Key Documents |
 |---|---|
-| **Platform Standards & Rules** | [`AGENTS.md`](AGENTS.md) · [`project.md`](project.md) · [`docs/concepts/OPENCLONE-CORE-PRINCIPLES.md`](docs/concepts/OPENCLONE-CORE-PRINCIPLES.md) |
+| **Platform Standards & Rules** | [`AGENTS.md`](AGENTS.md) · [`PROJECT.md`](PROJECT.md) · [`docs/concepts/OPENCLONE-CORE-PRINCIPLES.md`](docs/concepts/OPENCLONE-CORE-PRINCIPLES.md) |
 | **System Architecture** | [`docs/architecture/OPENCLONE-2.0-ARCHITECTURE.md`](docs/architecture/OPENCLONE-2.0-ARCHITECTURE.md) · [`blueprints/OPENCLONE-MASTER-BLUEPRINT.md`](blueprints/OPENCLONE-MASTER-BLUEPRINT.md) |
 | **Methodology Reference** | [`blueprints/OPENCLONE-METHODOLOGY-REFERENCE.md`](blueprints/OPENCLONE-METHODOLOGY-REFERENCE.md) · [`docs/DOCUMENTATION-MAP.md`](docs/DOCUMENTATION-MAP.md) |
 | **Operational Assessments** | [`docs/guides/REPOSITORY-HEALTH.md`](docs/guides/REPOSITORY-HEALTH.md) · [`docs/security/SECURITY-STATUS.md`](docs/security/SECURITY-STATUS.md) · [`docs/guides/RELEASE-READINESS.md`](docs/guides/RELEASE-READINESS.md) |

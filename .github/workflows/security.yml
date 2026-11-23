@@ -22,6 +22,7 @@ jobs:
           lock = pathlib.Path('security/scanners.lock.json')
           assert lock.exists(), 'security/scanners.lock.json missing'
           data = json.loads(lock.read_text(encoding='utf-8'))
-          assert 'scanners' in data, 'Invalid scanners lock schema'
-          print(f'Security scanners lock verified: {len(data["scanners"])} scanners verified.')
+          entries = data.get('entries') or data.get('scanners')
+          assert entries is not None and len(entries) > 0, 'Invalid scanners lock schema'
+          print(f'Security scanners lock verified: {len(entries)} scanners verified.')
           "
