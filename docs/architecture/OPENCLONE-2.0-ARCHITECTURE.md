@@ -53,7 +53,7 @@ OpenClone 2.0 is designed as a **lean, provider-neutral, modular AI software eng
   - Maps OpenClone capabilities to host-native configuration structures (e.g., Antigravity `plugin.json` and rules, Claude Code global tools, Codex instructions, Cursor `.cursorrules`).
   - Ensures clean removal of OpenClone-owned configuration blocks during uninstallation without disturbing unrelated user settings.
 - **Minimal Core Package:**
-  - Contains only essential runtime files: `src/openclone/`, `openclone.manifest.json`, `aisdf.manifest.json`, and live guidance files in `docs/knowledge/`.
+  - Contains only essential runtime files: `src/openclone/`, `openclone.manifest.json`, `openclone.manifest.json`, and live guidance files in `docs/knowledge/`.
   - Installed payload footprint: **< 350 KB**.
 
 ### 2.2 Source & Runtime Layer (Core Side)

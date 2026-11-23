@@ -7,7 +7,7 @@ description: Runs OpenClone's gated spec-driven engineering lifecycle WF-007 thr
 
 ## Start-up
 1. Read repository `AGENTS.md`/`GEMINI.md` and the OpenClone governance documents.
-2. Locate the OpenClone runtime script. If installed at `.aisdf-tools/aisdf.py`, run `python .aisdf-tools/aisdf.py --help` first. Otherwise use the OpenClone distribution's `runtime/tools/aisdf.py`.
+2. Locate the OpenClone runtime script. If installed at `.aisdf-tools/openclone.py`, run `python .aisdf-tools/openclone.py --help` first. Otherwise use the OpenClone distribution's `runtime/tools/openclone.py`.
 3. Keep durable artifacts under `.aisdf/`. Never treat chat output as the sole record.
 4. Execute only the requested workflow stage; preserve the stage gates WF-007 → WF-008 → WF-009 → WF-010 → human approval → implementation → WF-012.
 

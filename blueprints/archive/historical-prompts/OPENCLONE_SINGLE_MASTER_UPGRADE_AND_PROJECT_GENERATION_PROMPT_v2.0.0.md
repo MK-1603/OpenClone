@@ -51,8 +51,8 @@ The supplied tree indicates these existing assets. Confirm their current presenc
 - `workflows/` contains WF-001 through WF-013.
 - `skills/taste-skill/` is a substantial skill package with its own references, assets, scripts, tests, license and changelog. Preserve package integrity, license and attribution.
 - `templates/` already contains project, agent, project-profile, checkpoint, memory, work-unit and report templates.
-- Project-lifecycle assets already exist in `docs/project-lifecycle/`, `tools/aisdf_runtime/project.py`, `tools/aisdf_runtime/`, `workflows/WF-001-NEW-PROJECT-FROM-DOCUMENT.md`, `examples/demo-project/`, and root project instructions. Inspect and integrate these rather than creating a competing generator.
-- Both `src/openclone/` and `runtime/` exist, as does `tools/aisdf_runtime/`. Audit their actual responsibilities and imports before deciding their boundaries.
+- Project-lifecycle assets already exist in `docs/project-lifecycle/`, `tools/openclone_runtime/project.py`, `tools/openclone_runtime/`, `workflows/WF-001-NEW-PROJECT-FROM-DOCUMENT.md`, `examples/demo-project/`, and root project instructions. Inspect and integrate these rather than creating a competing generator.
+- Both `src/openclone/` and `runtime/` exist, as does `tools/openclone_runtime/`. Audit their actual responsibilities and imports before deciding their boundaries.
 - `schemas/`, `registries/`, `security/`, `security-operations/`, `prompts/`, `modes/`, `memory/`, `concepts/`, `blueprints/`, `ASSESSMENT/`, `EGM-WORKFLOWS/`, `reference/`, `REFERENCE-PROJECTS/`, `standards/`, `docs/`, `tools/`, `examples/` and root governance/configuration files are present in the supplied snapshot.
 
 The repository tree showed:
@@ -391,7 +391,7 @@ Use this as a proposed mapping; confirm each file's actual purpose first.
 | `modes/` | `workflows/` or `core/` | Determine whether each is a workflow or runtime mode |
 | `registries/` | Component-owned registries plus one index | Avoid multiple competing sources of truth |
 | `memory/` | `runtime/storage/` or `core/memory/` | Preserve vault format and lifecycle contracts |
-| `tools/aisdf_runtime/` | Existing runtime or project-generation package | Inspect imports and package boundaries first |
+| `tools/openclone_runtime/` | Existing runtime or project-generation package | Inspect imports and package boundaries first |
 | `runtime/` and `src/` | Clarified runtime/package boundaries | No blind consolidation |
 | `docs/` | `docs/` | Reorganize by audience and lifecycle |
 | `domains/` | `domains/` | Retain as canonical |
@@ -488,9 +488,9 @@ Inspect and connect these existing assets where present:
 - `templates/PROJECT.template.md`
 - `templates/AGENTS.template.md`
 - `templates/PROJECT-PROFILE.template.yaml`
-- `tools/aisdf_runtime/project.py`
-- `tools/aisdf_runtime/aisdf.py`
-- `tools/aisdf_runtime/`
+- `tools/openclone_runtime/project.py`
+- `tools/openclone_runtime/openclone.py`
+- `tools/openclone_runtime/`
 - `docs/project-lifecycle/PROJECT-AND-AGENT-FILES.md`
 - `workflows/WF-001-NEW-PROJECT-FROM-DOCUMENT.md`
 - `workflows/WF-013-PROJECT-DEFINITION-ASSESSMENT-AND-IMPLEMENTATION-PLANNING.md`

@@ -1,7 +1,7 @@
 import subprocess, sys, tempfile, unittest
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
-CLI=ROOT/'tools'/'aisdf_runtime'/'project.py'
+CLI=ROOT/'tools'/'openclone_runtime'/'project.py'
 class ProjectLifecycleTests(unittest.TestCase):
     def run_cli(self,*args,ok=True):
         r=subprocess.run([sys.executable,str(CLI),*map(str,args)],capture_output=True,text=True)

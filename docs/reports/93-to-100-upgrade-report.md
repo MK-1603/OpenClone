@@ -18,7 +18,7 @@ This report documents the completion of the OpenClone 93 → 100 Master Engineer
 | Dimension | Baseline State (Score: 93/100) | Upgraded State (Score: 100/100) | Verification Evidence |
 |---|---|---|---|
 | **Version Alignment** | Discrepancies between 1.0.0 and v3.1.0 in branding | Single canonical version `1.0.0` across all files, manifests, and documentation | `VERSION`, `pyproject.toml`, manifests, `plugin.json` |
-| **Workflow Inventory** | Manifests listed 13 workflows; 15 files existed | Manifests reconciled to exactly 15 workflows (`WF-001` to `WF-015`) | `openclone.manifest.json`, `aisdf.manifest.json` |
+| **Workflow Inventory** | Manifests listed 13 workflows; 15 files existed | Manifests reconciled to exactly 15 workflows (`WF-001` to `WF-015`) | `openclone.manifest.json`, `openclone.manifest.json` |
 | **MCP Metrics** | Fixed test counts (50/13/63) hardcoded in `get_status()` | Dynamic calculation reporting verified counts (89 unit + 13 taste = 102 total) | `src/openclone/mcp/server.py` `get_status()` |
 | **Human Approvals** | Length-only 64-character string check | Cryptographically verifiable operation-bound approval records with nonce replay protection, payload SHA-256 digest checks, and expiry | `src/openclone/integrations/gateway.py`, `test_gateway_cryptographic_approval_record_lifecycle` |
 | **Evidence Integrity** | Simple file existence check | Workspace containment validation, path traversal rejection, SHA-256 artifact hashing, file size calculation | `src/openclone/integrations/capabilities.py`, `test_evidence_integrity_and_containment` |

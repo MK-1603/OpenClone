@@ -10,7 +10,7 @@
 ## 1. Objectives
 
 1. Align OpenClone's root `PROJECT.md` with the new requirements engineering standard (IDs, priorities, knowledge states, verification criteria).
-2. Ensure project-generation tooling (`tools/aisdf_runtime/project.py`) and templates adhere to the dual-subject model.
+2. Ensure project-generation tooling (`tools/openclone_runtime/project.py`) and templates adhere to the dual-subject model.
 3. Implement and test the Shared OpenClone MCP Service to satisfy multi-IDE interoperability requirements.
 4. Establish complete adapter documentation for Antigravity, Claude Code, Codex, Cursor, and ChatGPT.
 

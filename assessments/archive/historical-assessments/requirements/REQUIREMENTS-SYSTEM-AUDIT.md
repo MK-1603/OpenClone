@@ -15,7 +15,7 @@ This audit assesses OpenClone's requirements engineering mechanisms, source-of-t
 
 The primary requirement separation established by this audit is:
 1. **OpenClone Framework Product Definition:** The canonical requirements defining OpenClone itself—its local control plane, 31 domains, 56 capability engines, 14 workflows, 72 specialist roles, MCP interoperability service, and security release gates.
-2. **Generated Application Requirements:** The requirements generated for specific software applications created by OpenClone users, managed through `templates/PROJECT.template.md`, `templates/AGENTS.template.md`, and `tools/aisdf_runtime/project.py`.
+2. **Generated Application Requirements:** The requirements generated for specific software applications created by OpenClone users, managed through `templates/PROJECT.template.md`, `templates/AGENTS.template.md`, and `tools/openclone_runtime/project.py`.
 
 ---
 

@@ -15,7 +15,7 @@
 This baseline audit establishes the measured foundation for the OpenClone 2.0 transformation. It distinguishes **verified source facts** from copied documentation claims and unverified assumptions.
 
 ### Verified Source Facts
-- **Software Release Version:** Standardized to `2.0.0` in `VERSION`, `pyproject.toml`, `openclone.manifest.json`, `aisdf.manifest.json`, `plugin.json`, `PROJECT.md`, and runtime servers.
+- **Software Release Version:** Standardized to `2.0.0` in `VERSION`, `pyproject.toml`, `openclone.manifest.json`, `openclone.manifest.json`, `plugin.json`, `PROJECT.md`, and runtime servers.
 - **Framework Standard Version:** Independently tracked as AISDF Standard `1.0.0`.
 - **Tracked Files:** 2,525 files across 14 top-level directories.
 - **Working Tree Size:** 41.51 MB.

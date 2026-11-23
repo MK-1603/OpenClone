@@ -19,7 +19,7 @@ The repository is healthy, deterministic, and fully covered by automated regress
 
 | Component | Verified Technology / Path | Status | Evidence |
 |---|---|---|---|
-| **Language & Runtime** | Python 3.12 (`tools/`, `src/openclone/`, `aisdf.py`, `openclone.py`) | Production Active | 70 passing unit tests |
+| **Language & Runtime** | Python 3.12 (`tools/`, `src/openclone/`, `openclone.py`, `openclone.py`) | Production Active | 70 passing unit tests |
 | **Node.js Scripts** | Node.js v20+ ESM (`skills/taste-skill/`) | Production Active | 13 passing governance tests |
 | **Control Plane** | SQLite3 hash-chained tamper-evident ledger (`openclone.py`) | Implemented & Tested | `test_runtime_hardening.py` |
 | **MCP Protocol** | JSON-RPC 2.0 stdio/SSE server (`src/openclone/mcp/server.py`) | Implemented & Tested | 13 passing MCP tests |
@@ -50,7 +50,7 @@ Automated verification was executed cleanly across all subsystems:
    - All 10 JSON Schemas valid under Draft 2020-12; fixtures parse.
    - All internal markdown links resolve cleanly.
    - All SVG assets parse as valid XML.
-   - Version 1.0.0 consistent across `VERSION`, `aisdf.manifest.json`, `PROJECT.md`, and `README.md`.
+   - Version 1.0.0 consistent across `VERSION`, `openclone.manifest.json`, `PROJECT.md`, and `README.md`.
    - Result: `PASS (0 errors, 0 warnings)`.
 
 ---
@@ -60,7 +60,7 @@ Automated verification was executed cleanly across all subsystems:
 ```text
 OpenClone Repository Root
 ├── .github/workflows/validate.yml    # Pinned GitHub Actions CI pipeline
-├── aisdf.py / openclone.py            # Local deterministic control plane
+├── openclone.py / openclone.py            # Local deterministic control plane
 ├── assets/                            # SVG visual diagrams (topology, lifecycle)
 ├── blueprints/                        # 32 authoritative architectural specifications
 ├── docs/                              # Framework, knowledge, integrations, security docs

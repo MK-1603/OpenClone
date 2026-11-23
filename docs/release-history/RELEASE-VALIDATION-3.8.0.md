@@ -10,7 +10,7 @@ This release consolidates the prior AISDF framework snapshot into a conventional
 |---|---|---|
 | Repository validator | PASS | `python tools/validate_repository.py` |
 | Python test suite | PASS | `python -m pytest -q` — 8 passed |
-| Runtime CLI entry point | PASS | `python tools/aisdf_runtime/aisdf.py --help` |
+| Runtime CLI entry point | PASS | `python tools/openclone_runtime/openclone.py --help` |
 | Runtime end-to-end lifecycle | PASS | `tests/test_workflow_runtime_e2e.py` exercises WF-007–WF-012 artifact lifecycle and Git drift scope |
 | Markdown relative links | PASS | Local relative-link scan; zero broken targets |
 | Antigravity plugin manifest | PASS | JSON parsed successfully |

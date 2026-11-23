@@ -2,7 +2,7 @@
 
 ## 1. Identified Architectural Gaps & Resolutions
 1. **Module Separation (`src/openclone` vs `runtime/`):**
-   - *Previous State:* Runtime control plane was embedded in `runtime/aisdf_runtime/`, while high-level CLI was in `src/openclone/`.
+   - *Previous State:* Runtime control plane was embedded in `runtime/openclone_runtime/`, while high-level CLI was in `src/openclone/`.
    - *Target State:* `src/openclone/` serves as the public platform entrypoint, CLI, and MCP service; `runtime/openclone_runtime/` serves as the deterministic local control plane engine. Strict down-stack dependency flow enforced.
 2. **Case Sensitivity & Directory Overlap:**
    - *Previous State:* `ASSESSMENT/` collided with `assessments/` on Windows/macOS.

@@ -98,7 +98,7 @@ The snapshot also showed root-level governance and project documents, Python pac
 It included possible overlap between:
 - `src/openclone/`
 - `runtime/`
-- `tools/aisdf_runtime/`
+- `tools/openclone_runtime/`
 
 It also showed possible organizational overlap between:
 - `domains/` and `standards/`
@@ -364,7 +364,7 @@ The prior tree suggested possible overlap among:
 ```text
 src/openclone/
 runtime/
-tools/aisdf_runtime/
+tools/openclone_runtime/
 ```
 
 Verify this in the live repository.

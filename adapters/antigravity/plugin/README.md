@@ -7,7 +7,7 @@ A native Google Antigravity plugin bundle for AISDF's WF-007–WF-012 workflow p
 - App: Customizations → Marketplace/Installed → install from the supported local/GitHub plugin source.
 - Validate locally with `agy plugin validate` from the plugin directory when the CLI is installed.
 
-The portable runtime is distributed separately in `runtime/tools/aisdf.py`; copy it into the target project as `.aisdf-tools/aisdf.py`, then run `python .aisdf-tools/aisdf.py init --project .`.
+The portable runtime is distributed separately in `runtime/tools/openclone.py`; copy it into the target project as `.aisdf-tools/openclone.py`, then run `python .aisdf-tools/openclone.py init --project .`.
 
 ## Reviewer isolation
 The plugin defines reviewer roles, not a guarantee of independent execution. Use Antigravity subagents with isolated Git worktrees/sessions where available. Capture session and worktree evidence. If isolation is not demonstrable, record `NON_INDEPENDENT` or `BLOCKED`.

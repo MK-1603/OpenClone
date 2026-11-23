@@ -15,9 +15,9 @@
 | 5 | `GOVERNANCE.md` | Policy | Governance Reviewers | Active / Canonical | Precedence rules, human approval gates, audit standards |
 | 6 | `DOMAIN-MAP.md` | Taxonomy | Architects & Leads | Active / Canonical | Complete map across the 31 engineering domains |
 | 7 | `IMPLEMENTATION-STATUS.md` | Verification | Auditors & Users | Active / Canonical | Maturity status and capability ledger |
-| 8 | `AISDF-MISSION-AND-SCOPE.md` | Philosophy | Public & Contributors | Active / Canonical | Foundational mission, boundaries, and scope constraints |
-| 9 | `AISDF-CORE-PRINCIPLES.md` | Principles | Engineers & Agents | Active / Canonical | Instruction-first, deterministic governance, least privilege |
-| 10 | `AISDF-LIFECYCLE-OVERVIEW.md` | Process | Engineering Leads | Active / Canonical | 7-phase instruction-to-deployment engineering lifecycle |
+| 8 | `OPENCLONE-MISSION-AND-SCOPE.md` | Philosophy | Public & Contributors | Active / Canonical | Foundational mission, boundaries, and scope constraints |
+| 9 | `OPENCLONE-CORE-PRINCIPLES.md` | Principles | Engineers & Agents | Active / Canonical | Instruction-first, deterministic governance, least privilege |
+| 10 | `OPENCLONE-LIFECYCLE-OVERVIEW.md` | Process | Engineering Leads | Active / Canonical | 7-phase instruction-to-deployment engineering lifecycle |
 | 11 | `RELEASE-READINESS.md` | Quality Gate | Release Managers | Active / Canonical | Gate criteria, waiver rules, and sign-off contracts |
 | 12 | `THIRD_PARTY_NOTICES.md` | Compliance | Legal & Open Source | Active / Canonical | Attribution for 27 external repositories and tools |
 | 13 | `blueprints/01_AISDF_Universal_Framework_Master_Blueprint.md` | Blueprint | Architects | Reference / Canonical | Foundational master framework architecture |

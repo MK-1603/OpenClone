@@ -67,7 +67,7 @@ The top 30 largest files in the repository account for over 50% of repository we
 | 15 | `blueprints/OPENCLONE_MASTER_REPOSITORY_UPGRADE_PROMPT_v1.0.0.md` | 275 KB | Historical Upgrade Blueprint | `ARCHIVE` |
 | 16 | `blueprints/OPENCLONE_GLOBAL_README_AND_USER_ONBOARDING_UPGRADE_v2.2.0.md` | 240 KB | Historical Onboarding Blueprint | `ARCHIVE` |
 | 17 | `domains/05-UX-UI-ENGINEERING/ANTI-AI-SLOP-STANDARDS.md` | 185 KB | Core Normative Standard | `CORE_KEEP` |
-| 18 | `domains/00-GOVERNANCE/AISDF-RULEBOOK.md` | 145 KB | Core Normative Governance | `CORE_KEEP` |
+| 18 | `domains/00-GOVERNANCE/OPENCLONE-RULEBOOK.md` | 145 KB | Core Normative Governance | `CORE_KEEP` |
 | 19 | `docs/alternatives/ALTERNATIVES_CATALOGUE.md` | 120 KB | Master Alternatives Reference | `CANONICAL_DOC` |
 | 20 | `docs/alternatives/PROVIDER_AND_MODEL_ALTERNATIVES.md` | 98 KB | Provider & Router Matrix | `CANONICAL_DOC` |
 | 21 | `docs/security/saas-security-baseline.md` | 95 KB | 19-Point SaaS Security Standard | `CANONICAL_DOC` |

@@ -8,8 +8,8 @@ Date: 2026-11-21
 |---|---|---|
 | `python tools/validate_repository.py` | PASS | 56 engine specs; 9 JSON schemas; 2 fixtures; required docs and internal Markdown links validated |
 | `python -m pytest -q` | PASS | 10 tests passed |
-| `python tools/aisdf_runtime/aisdf.py --help` | PASS | CLI help command exited successfully |
-| `python tools/aisdf_runtime/project.py --help` | PASS | CLI help command exited successfully |
+| `python tools/openclone_runtime/openclone.py --help` | PASS | CLI help command exited successfully |
+| `python tools/openclone_runtime/project.py --help` | PASS | CLI help command exited successfully |
 | WF-013 lifecycle test | PASS | Test covers init, deterministic assessment, draft plan, blocked unapproved prompt, plan digest, approved prompt generation |
 | Non-overwrite test | PASS | Existing PROJECT.md content preserved when init is attempted |
 

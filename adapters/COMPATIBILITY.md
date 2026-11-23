@@ -1,12 +1,12 @@
 # Tool Compatibility & Host Integration Matrix
 
-OpenClone is tool-independent by design: the shared contract is Markdown (`AGENTS.md`, `PROJECT.md`), the Model Context Protocol (MCP) service (`src/openclone/mcp/server.py`), and the local runtime CLI (`python openclone.py` / `python aisdf.py`). **"Works with any tool" is not claimed unconditionally. Each integration must be earned and verified** (`adapters/CONFORMANCE.md` and [`adapters/INTEGRATION-MATRIX.md`](INTEGRATION-MATRIX.md)).
+OpenClone is tool-independent by design: the shared contract is Markdown (`AGENTS.md`, `PROJECT.md`), the Model Context Protocol (MCP) service (`src/openclone/mcp/server.py`), and the local runtime CLI (`python openclone.py` / `python openclone.py`). **"Works with any tool" is not claimed unconditionally. Each integration must be earned and verified** (`adapters/CONFORMANCE.md` and [`adapters/INTEGRATION-MATRIX.md`](INTEGRATION-MATRIX.md)).
 
 Integration levels:
 - **I0** none/untested
 - **I1** rules file only (the tool can read `AGENTS.md` / `PROJECT.md`)
 - **I2** assisted handoff (a human carries context and results)
-- **I3** tool runs `python openclone.py` / `python aisdf.py` commands under human approval
+- **I3** tool runs `python openclone.py` / `python openclone.py` commands under human approval
 - **I4** native adapter implementing MCP tool protocol or `runtime/adapters/WORKER-ADAPTER-CONTRACT.md` with recorded evidence.
 
 | Host Tool / Platform | Level Claimed | Verification Status | MCP Server Connection | Notes |

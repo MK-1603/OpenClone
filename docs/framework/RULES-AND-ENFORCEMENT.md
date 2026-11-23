@@ -5,7 +5,7 @@ AISDF has **two enforcement systems**. Confusing them is the most common way to 
 | System | What it is | Who enforces it | Strength |
 |---|---|---|---|
 | **A. Written rules** | Markdown the AI must read and follow: entry prompt, 12 principles, 20 rules, precedence, role contracts, 56 engines, 13 workflows | The AI tool itself, then a human or an independent reviewer | Depends on the model obeying; **not** machine-checked |
-| **B. The runtime** | `python aisdf.py ...` (`runtime/aisdf_runtime/workforce.py`) | Code, plus a SQLite ledger and the release gate | Deterministic and tested, but a local tool, **not** an OS security boundary |
+| **B. The runtime** | `python openclone.py ...` (`runtime/openclone_runtime/workforce.py`) | Code, plus a SQLite ledger and the release gate | Deterministic and tested, but a local tool, **not** an OS security boundary |
 
 ## 1. The instruction stack (System A)
 

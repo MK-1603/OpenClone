@@ -15,7 +15,7 @@ Date: 2026-11-21
 |---|---|
 | `python tools/validate_repository.py` | PASS |
 | `python -m pytest -q` | PASS — 10 tests |
-| `python tools/aisdf_runtime/aisdf.py --help` | PASS |
+| `python tools/openclone_runtime/openclone.py --help` | PASS |
 | JSON manifest parse | PASS |
 | MK Framework infographic exists | PASS |
 

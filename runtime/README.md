@@ -1,6 +1,6 @@
 # AISDF Runtime (1.0)
 
-A deterministic, local control plane using only Python's standard library and SQLite. Run it with `python aisdf.py <command>` from the repository root (same as `python runtime/aisdf_runtime/workforce.py`).
+A deterministic, local control plane using only Python's standard library and SQLite. Run it with `python openclone.py <command>` from the repository root (same as `python runtime/openclone_runtime/workforce.py`).
 
 ## Commands
 | Command | Purpose |

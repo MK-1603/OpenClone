@@ -47,7 +47,7 @@ Requirements adhere to the OpenClone Requirements Engineering Standard (`fol.md`
 
 | Req ID | Title | Statement | Priority | Status | Knowledge State | Verification Method | Traceability |
 |---|---|---|---|---|---|---|---|
-| `REQ-CORE-001` | Deterministic Local Runtime | The system SHALL enforce task states (`DRAFT`->`PLANNED`->`APPROVED`->`READY`->`RUNNING`->`SUCCEEDED`) without external dependencies. | `MUST` | `IMPLEMENTED` | `VERIFIED_FACT` | Unit Test | `runtime/aisdf_runtime/workforce.py`, `tests/test_runtime_hardening.py` |
+| `REQ-CORE-001` | Deterministic Local Runtime | The system SHALL enforce task states (`DRAFT`->`PLANNED`->`APPROVED`->`READY`->`RUNNING`->`SUCCEEDED`) without external dependencies. | `MUST` | `IMPLEMENTED` | `VERIFIED_FACT` | Unit Test | `runtime/openclone_runtime/workforce.py`, `tests/test_runtime_hardening.py` |
 | `REQ-CORE-002` | Cycle-Free Task Dependency DAG | The system SHALL reject circular task dependencies and ensure prerequisite completion before marking tasks `READY`. | `MUST` | `IMPLEMENTED` | `VERIFIED_FACT` | Unit Test | `workforce.py`, `tests/test_workforce_runtime.py` |
 | `REQ-CORE-003` | Human Approval Digest Binding | The system SHALL bind task approval to an immutable SHA-256 digest of task parameters and reject unapproved modifications. | `MUST` | `IMPLEMENTED` | `VERIFIED_FACT` | Unit Test | `workforce.py`, `ApprovalTests` |
 | `REQ-CORE-004` | Hash-Chained Audit Ledger | The system SHALL record all task transitions, approvals, and execution hashes in a tamper-evident SQLite ledger. | `MUST` | `IMPLEMENTED` | `VERIFIED_FACT` | Unit Test | `workforce.py`, `ReadinessTests.test_ledger_tampering_detected` |
@@ -62,7 +62,7 @@ Requirements adhere to the OpenClone Requirements Engineering Standard (`fol.md`
 
 ## 5. Non-Functional Requirements & Measurable Invariants
 
-- **NFR-001: Zero Core Dependencies:** Local reference runtime (`aisdf.py`, `workforce.py`, `openclone.py`) MUST execute on Python 3.10+ standard library without mandatory pip packages.
+- **NFR-001: Zero Core Dependencies:** Local reference runtime (`openclone.py`, `workforce.py`, `openclone.py`) MUST execute on Python 3.10+ standard library without mandatory pip packages.
 - **NFR-002: Fast Validation:** Repository validation (`validate_repository.py`) MUST execute in `< 3.0 seconds`.
 - **NFR-003: Strict Schema Conformance:** All schemas in `schemas/` MUST conform to JSON Schema Draft 2020-12.
 - **NFR-004: Secret Redaction:** API keys, AWS keys, GitHub tokens, and private credentials MUST be redacted before ledger or log persistence.
@@ -84,7 +84,7 @@ flowchart TD
 
     subgraph CoreService["OpenClone Core & MCP Service"]
         MCP["Shared MCP Server (stdio / SSE)"]
-        CLI["OpenClone CLI (openclone.py / aisdf.py)"]
+        CLI["OpenClone CLI (openclone.py / openclone.py)"]
         PRJ["Project Generation Engine (project.py)"]
     end
 

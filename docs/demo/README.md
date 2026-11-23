@@ -13,7 +13,7 @@ This walkthrough demonstrates the actual local project lifecycle helper against 
 From the AISDF repository root:
 
 ```bash
-python tools/aisdf_runtime/project.py init --project ../tiny-notes-demo --name "Tiny Notes Demo" --type DEMO
+python tools/openclone_runtime/project.py init --project ../tiny-notes-demo --name "Tiny Notes Demo" --type DEMO
 ```
 
 Creates `PROJECT.md`, `AGENTS.md`, and `.aisdf/` folders. It refuses to overwrite existing project documents. Use `--no-agents` only if you deliberately do not want a generated root `AGENTS.md`.
@@ -23,7 +23,7 @@ Creates `PROJECT.md`, `AGENTS.md`, and `.aisdf/` folders. It refuses to overwrit
 ## Step 2 — Create a repository inventory
 
 ```bash
-python tools/aisdf_runtime/project.py assess --project ../tiny-notes-demo
+python tools/openclone_runtime/project.py assess --project ../tiny-notes-demo
 ```
 
 Creates `.aisdf/assessment/EXISTING-PROJECT-ASSESSMENT.md`. This is a deterministic file inventory and detected-artifact report. It is not semantic feature analysis.
@@ -41,14 +41,14 @@ Review the proposed `PROJECT.md` updates and findings. Do not accept guessed or 
 ## Step 4 — Check document structure
 
 ```bash
-python tools/aisdf_runtime/project.py check --project ../tiny-notes-demo
+python tools/openclone_runtime/project.py check --project ../tiny-notes-demo
 ```
 
 The checker validates 25 required headings, metadata, status vocabulary, duplicate IDs, and AGENTS policy sections. A new template should show warnings while fields remain placeholders or the approval status remains draft. That is expected.
 
 ```bash
-python tools/aisdf_runtime/project.py check --project ../tiny-notes-demo --json
-python tools/aisdf_runtime/project.py check --project ../tiny-notes-demo --strict
+python tools/openclone_runtime/project.py check --project ../tiny-notes-demo --json
+python tools/openclone_runtime/project.py check --project ../tiny-notes-demo --strict
 ```
 
 `--strict` returns a non-zero exit code while warnings remain. This is useful for a project that wants a completed-document gate. The checker cannot validate the truth of the project narrative or prove features work.
@@ -60,7 +60,7 @@ python tools/aisdf_runtime/project.py check --project ../tiny-notes-demo --stric
 After the human has reviewed the assessment and approved the requirements/scope:
 
 ```bash
-python tools/aisdf_runtime/project.py plan-create --project ../tiny-notes-demo --id P001 --title "First improvement"
+python tools/openclone_runtime/project.py plan-create --project ../tiny-notes-demo --id P001 --title "First improvement"
 ```
 
 Fill the plan with requirement IDs, findings, dependencies, exact files, data/API impact, tests, security considerations, rollback, and out-of-scope work. Do not use wildcard paths in the file allowlist.
@@ -70,7 +70,7 @@ Fill the plan with requirement IDs, findings, dependencies, exact files, data/AP
 After the plan is final:
 
 ```bash
-python tools/aisdf_runtime/project.py plan-hash --project ../tiny-notes-demo --plan .aisdf/plans/IMPLEMENTATION-PLAN-P001.md
+python tools/openclone_runtime/project.py plan-hash --project ../tiny-notes-demo --plan .aisdf/plans/IMPLEMENTATION-PLAN-P001.md
 ```
 
 An authorized human records `APPROVED`, their name, date, the exact digest, and exact approved file allowlist in the plan. If plan content changes, compute a new digest and obtain approval again.
@@ -80,7 +80,7 @@ An authorized human records `APPROVED`, their name, date, the exact digest, and 
 ## Step 7 — Generate the implementation prompt
 
 ```bash
-python tools/aisdf_runtime/project.py prompt-create --project ../tiny-notes-demo --plan .aisdf/plans/IMPLEMENTATION-PLAN-P001.md
+python tools/openclone_runtime/project.py prompt-create --project ../tiny-notes-demo --plan .aisdf/plans/IMPLEMENTATION-PLAN-P001.md
 ```
 
 The command checks the approval record, digest, and file allowlist. It then creates `.aisdf/prompts/IMPLEMENTATION-PROMPT-P001.md` for the connected coding agent.

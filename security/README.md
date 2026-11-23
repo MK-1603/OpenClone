@@ -7,9 +7,9 @@
 Tools are **not bundled or executed by AISDF**. Install the pinned version yourself, add its executable to `allowed_executables` in `.aisdf/policy.json`, then record results as gate checks:
 
 ```bash
-python aisdf.py check run --project P --id secrets-scan --tool trufflehog --tool-version 3.x --pinned-ref <sha> -- trufflehog filesystem . --fail
-python aisdf.py check run --project P --id dependency-scan --tool trivy --pinned-ref <sha> -- trivy fs --exit-code 1 .
-python aisdf.py check run --project P --id sast --tool semgrep --pinned-ref <sha> -- semgrep scan --error
+python openclone.py check run --project P --id secrets-scan --tool trufflehog --tool-version 3.x --pinned-ref <sha> -- trufflehog filesystem . --fail
+python openclone.py check run --project P --id dependency-scan --tool trivy --pinned-ref <sha> -- trivy fs --exit-code 1 .
+python openclone.py check run --project P --id sast --tool semgrep --pinned-ref <sha> -- semgrep scan --error
 ```
 `check run` marks PASS only on exit code 0 and stores redacted logs with hashes. Exit-code conventions differ per tool; confirm yours.
 

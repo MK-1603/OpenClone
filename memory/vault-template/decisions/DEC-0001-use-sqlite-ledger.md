@@ -9,6 +9,6 @@ authority: verified
 project_id: DEMO
 workspace_id: local
 source_refs:
-  - runtime/aisdf_runtime/workforce.py
+  - runtime/openclone_runtime/workforce.py
 ---
 Decision: audit events are stored in SQLite with a hash chain so edits are detectable (verify-ledger). Tamper-evident, not tamper-proof.

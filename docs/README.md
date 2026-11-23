@@ -22,7 +22,7 @@
 - [Lifecycle Overview](../OPENCLONE-LIFECYCLE-OVERVIEW.md) — The 7-phase instruction-to-deployment engineering lifecycle.
 - [Governance & Rules](../GOVERNANCE.md) — Precedence hierarchy, human approval gates, audit standards.
 - [Domain Map](../DOMAIN-MAP.md) — High-level map across the 31 engineering domains.
-- [Implementation Status](../IMPLEMENTATION-STATUS.md) — Transparent maturity matrix and capability ledger.
+- [Release Readiness & Implementation Status](../RELEASE-READINESS.md) — Transparent maturity matrix and capability ledger.
 
 ## Portable Project Workflow & Tooling
 - [Workflow WF-015: Portable Specification to Build](../workflows/WF-015-PORTABLE-PROJECT-SPECIFICATION-TO-BUILD.md) — Zero-install workflow.

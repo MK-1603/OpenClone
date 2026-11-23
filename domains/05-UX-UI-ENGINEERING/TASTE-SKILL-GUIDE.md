@@ -89,5 +89,5 @@ node skills/taste-skill/scripts/gate.mjs index.html
 When implementing tasks assigned to the UX/UI team:
 1. Work is orchestrated under `05-UX-UI-ENGINEERING`.
 2. The agent executes `instruction-audit.mjs` and `plan-check.mjs`.
-3. In human-approval workflows (`WF-004` and `WF-013`), the output of `plan-check.mjs` is bound to the task digest via `aisdf.py plan`.
+3. In human-approval workflows (`WF-004` and `WF-013`), the output of `plan-check.mjs` is bound to the task digest via `openclone.py plan`.
 4. Independent reviewers in EGM (`WF-009`) verify that no code was introduced without clearing the pre-build gate.

@@ -24,7 +24,7 @@ Primary artifacts inspected:
 - `ASSESSMENT/AISDF-MATURITY-RUBRIC.md`.
 - `RELEASE-VALIDATION-4.0.0.md`.
 - `README.md`, `docs/v4/ARCHITECTURE.md`, `docs/v4/MATURITY-MODEL.md`.
-- `runtime/README.md`, `runtime/aisdf_runtime/workforce.py`.
+- `runtime/README.md`, `runtime/openclone_runtime/workforce.py`.
 - `07-ENGINEERING-KNOWLEDGE/PERSISTENT-MEMORY-ARCHITECTURE.md`.
 - `12-ORCHESTRATION-AND-CONTEXT/MEMORY-LIFECYCLE-AND-RECALL-PROTOCOL.md`.
 - Workforce registry/catalogue, adapters, skills, workflows, schemas, and tests.

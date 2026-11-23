@@ -28,4 +28,4 @@
    - *Resolution:* All 31 domains consolidated under [`domains/`](file:///domains) in commit `ba8d2a1`; zero numbered folders at root.
 3. **Execution Sandbox vs Governed Subprocess:**
    - *Conflict:* Prose occasionally suggested OpenClone includes an OS-level kernel container.
-   - *Resolution:* Truthful documentation asserts `aisdf.py` / `workforce.py` provides deterministic process execution, argument validation, and env redaction; real container sandboxing requires Docker or VM.
+   - *Resolution:* Truthful documentation asserts `openclone.py` / `workforce.py` provides deterministic process execution, argument validation, and env redaction; real container sandboxing requires Docker or VM.

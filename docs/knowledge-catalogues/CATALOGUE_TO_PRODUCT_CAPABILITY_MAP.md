@@ -24,7 +24,7 @@ To prevent implementation bloat and maintain architectural discipline, every cap
 | **Portable Specification Generator** | Core Architecture | `CORE_PRODUCT` | `templates/PROJECT.template.md`, `README.md` | Core zero-install workflow for application creators |
 | **Deterministic Skill Engine** | Skill System | `CORE_PRODUCT` | `src/openclone/skills/engine.py`, `tools/skill_engine.py` | Eliminates skill amnesia; executes 8-stage lifecycle |
 | **Shared MCP Service** | Tool Protocols | `CORE_PRODUCT` | `src/openclone/mcp/server.py` | Universal JSON-RPC 2.0 stdio/SSE server for multi-IDE integration |
-| **Local Task DAG & Audit Ledger** | Control Plane | `INTERNAL_ENGINEERING` | `openclone.py`, `aisdf.py` | Tamper-evident SQLite state machine and hash-chained log |
+| **Local Task DAG & Audit Ledger** | Control Plane | `INTERNAL_ENGINEERING` | `openclone.py`, `openclone.py` | Tamper-evident SQLite state machine and hash-chained log |
 | **Taste Skill Anti-Slop Scanner** | UI Governance | `INTERNAL_ENGINEERING` | `skills/taste-skill/audit-slop.mjs` | AST-based static scanner blocking AI aesthetic clichés |
 | **Design Plan Pre-Build Gate** | UI Governance | `INTERNAL_ENGINEERING` | `skills/taste-skill/plan-check.mjs` | Deterministic quality gate (Level 1 to Level 5) |
 | **19-Point SaaS Security Baseline** | Security Controls | `INTERNAL_ENGINEERING` | `docs/security/saas-security-baseline.md` | Verification checklist and security gate criteria |

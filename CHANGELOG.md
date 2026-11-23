@@ -28,7 +28,7 @@
 Release designation: **OpenClone** (AISDF — AI Software Development Framework).
 Tagline: *Build with Any AI. Governed by One Engineering Standard.*
 
-Versioning note: the public version is standardized to 1.0.0. The earlier internal numbering (3.x, 4.0.0) is preserved in `docs/release-history/`. 1.0.0 stabilizes the OpenClone CLI (`aisdf.py`), ledger schema v2, the 31 engineering domains, 56 engine specs, 13 workflows, 72 specialist roles, and task/evidence/finding/check contracts. Provider adapters are structured via `runtime/adapters/WORKER-ADAPTER-CONTRACT.md`.
+Versioning note: the public version is standardized to 1.0.0. The earlier internal numbering (3.x, 4.0.0) is preserved in `docs/release-history/`. 1.0.0 stabilizes the OpenClone CLI (`openclone.py`), ledger schema v2, the 31 engineering domains, 56 engine specs, 13 workflows, 72 specialist roles, and task/evidence/finding/check contracts. Provider adapters are structured via `runtime/adapters/WORKER-ADAPTER-CONTRACT.md`.
 
 ### Fixed (gaps found by testing 4.0.0)
 - Approvals accepted any string, including AI names. Now only registered humans, with recorded assurance.
@@ -36,7 +36,7 @@ Versioning note: the public version is standardized to 1.0.0. The earlier intern
 - Approval digest was stored but never re-checked. Now re-verified at READY and RUN; changing a task revokes approval; completed tasks cannot be silently re-planned.
 - Success could be asserted without evidence. Now only `run` or `complete --evidence` can record it.
 - Audit events could be edited undetected. Now hash-chained; `verify-ledger` detects tampering.
-- README quick start pointed at a non-existent `tools/aisdf_runtime/workforce.py`. Now `python aisdf.py`.
+- README quick start pointed at a non-existent `tools/openclone_runtime/workforce.py`. Now `python openclone.py`.
 - `MASTER-ENTRY-PROMPT.md` contradicted the README about being a runtime. Reconciled.
 - Test roles could not request `execute`; "independent" reviewers could request `write`. Permission profiles corrected and role docs generated from manifests.
 - CI used a floating action tag. Now pinned by commit SHA.

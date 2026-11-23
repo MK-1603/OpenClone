@@ -27,7 +27,7 @@ To eliminate conflicting specifications, overlapping rules, and contradictory re
 | Engineering Area | Canonical Authority Document | Scope / Role | Subordinate / Supporting Docs |
 |---|---|---|---|
 | **Repository Operating Contract** | [`AGENTS.md`](../AGENTS.md) | Single operating ruleset for all AI agents | `rules/*.md`, `adapters/*/rules` |
-| **Product & Framework Standard** | [`openclone.manifest.json`](../openclone.manifest.json) | Version, runtime capabilities, scanner lock | `aisdf.manifest.json`, `VERSION` |
+| **Product & Framework Standard** | [`openclone.manifest.json`](../openclone.manifest.json) | Version, runtime capabilities, scanner lock | `openclone.manifest.json`, `VERSION` |
 | **Anti-AI-Slop Governance** | [`domains/05-UX-UI-ENGINEERING/ANTI-AI-SLOP-STANDARDS.md`](../domains/05-UX-UI-ENGINEERING/ANTI-AI-SLOP-STANDARDS.md) | Normative design rules, tokens, and contrast gates | `docs/knowledge/ui-ux-design-catalogue.md` |
 | **SaaS Security Baseline** | [`docs/security/saas-security-baseline.md`](security/saas-security-baseline.md) | 19-point SaaS security standard | `security/scanners.lock.json`, `docs/security/THREAT-MODEL.md` |
 | **22-Phase Lifecycle** | [`docs/engineering-lifecycle/MASTER_LIFECYCLE_CATALOGUE.md`](engineering-lifecycle/MASTER_LIFECYCLE_CATALOGUE.md) | Canonical 22-phase lifecycle and quality gates | `tools/checklist_engine.py` |

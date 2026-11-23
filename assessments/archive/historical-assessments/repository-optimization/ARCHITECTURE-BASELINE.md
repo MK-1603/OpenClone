@@ -21,7 +21,7 @@ Layer 2: Shared MCP Service & Gateway
                      │
                      ▼
 Layer 3: Deterministic Execution Core
-         (openclone.py / aisdf.py · tools/validate_repository.py · tools/checklist_engine.py)
+         (openclone.py / openclone.py · tools/validate_repository.py · tools/checklist_engine.py)
          - 22-Phase Lifecycle State Machine (V0-V5 Evidence Verification)
          - Cycle-Free Task Dependency DAG
                      │

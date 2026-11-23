@@ -1220,10 +1220,10 @@ Every domain README/INDEX points to canonical documents. Avoid duplicated knowle
 
 Root files:
 - `README.md`
-- `AISDF-MISSION-AND-SCOPE.md`
-- `AISDF-FUNCTIONAL-MAP.md`
-- `AISDF-LIFECYCLE-OVERVIEW.md`
-- `AISDF-CORE-PRINCIPLES.md`
+- `OPENCLONE-MISSION-AND-SCOPE.md`
+- `OPENCLONE-FUNCTIONAL-MAP.md`
+- `OPENCLONE-LIFECYCLE-OVERVIEW.md`
+- `OPENCLONE-CORE-PRINCIPLES.md`
 - `AISDF-GLOSSARY.md`
 - `AISDF-FAQ.md`
 - `QUICK-START.md`
@@ -1259,7 +1259,7 @@ The detailed per-domain Markdown file map from the v1.1 source is retained in Ap
 - Framework maintenance, distribution, standards, examples and benchmarks.
 
 Additional v1.3 files:
-- `AISDF-RULEBOOK.md`
+- `OPENCLONE-RULEBOOK.md`
 - `RULE-PRECEDENCE-AND-CONFLICT-RESOLUTION.md`
 - `KNOWLEDGE-FRESHNESS-AND-REVIEW-POLICY.md`
 - `EVIDENCE-AND-PROVENANCE-POLICY.md`
@@ -4112,10 +4112,10 @@ The original 31 numbered domains remain the canonical knowledge domains. The add
 ```text
 AISDF/
 ├── README.md
-├── AISDF-MISSION-AND-SCOPE.md
-├── AISDF-FUNCTIONAL-MAP.md
-├── AISDF-LIFECYCLE-OVERVIEW.md
-├── AISDF-CORE-PRINCIPLES.md
+├── OPENCLONE-MISSION-AND-SCOPE.md
+├── OPENCLONE-FUNCTIONAL-MAP.md
+├── OPENCLONE-LIFECYCLE-OVERVIEW.md
+├── OPENCLONE-CORE-PRINCIPLES.md
 ├── AISDF-GLOSSARY.md
 ├── AISDF-FAQ.md
 ├── QUICK-START.md
@@ -4180,10 +4180,10 @@ AISDF/
 | File | Why it is needed |
 |---|---|
 | `README.md` | First landing page, value, quick start and navigation |
-| `AISDF-MISSION-AND-SCOPE.md` | What AISDF is and is not |
-| `AISDF-FUNCTIONAL-MAP.md` | Complete capability inventory and relationships |
-| `AISDF-LIFECYCLE-OVERVIEW.md` | End-to-end lifecycle and stage gates |
-| `AISDF-CORE-PRINCIPLES.md` | Laws and non-negotiable principles |
+| `OPENCLONE-MISSION-AND-SCOPE.md` | What AISDF is and is not |
+| `OPENCLONE-FUNCTIONAL-MAP.md` | Complete capability inventory and relationships |
+| `OPENCLONE-LIFECYCLE-OVERVIEW.md` | End-to-end lifecycle and stage gates |
+| `OPENCLONE-CORE-PRINCIPLES.md` | Laws and non-negotiable principles |
 | `AISDF-GLOSSARY.md` | Consistent terminology and acronym definitions |
 | `AISDF-FAQ.md` | Adoption, tool, scope and limitation questions |
 | `QUICK-START.md` | First successful use in a real project |
@@ -6444,7 +6444,7 @@ Add these canonical documents:
 
 ```text
 00-GOVERNANCE/
-  AISDF-RULEBOOK.md
+  OPENCLONE-RULEBOOK.md
   RULE-PRECEDENCE-AND-CONFLICT-RESOLUTION.md
   KNOWLEDGE-FRESHNESS-AND-REVIEW-POLICY.md
   EVIDENCE-AND-PROVENANCE-POLICY.md

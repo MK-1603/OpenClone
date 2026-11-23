@@ -1,6 +1,6 @@
 import json, tempfile, unittest
 from pathlib import Path
-from runtime.aisdf_runtime.workforce import load_workers, topo, Ledger, TRANSITIONS
+from runtime.openclone_runtime.workforce import load_workers, topo, Ledger, TRANSITIONS
 
 class WorkforceTests(unittest.TestCase):
     def test_worker_registry_has_many_roles(self):

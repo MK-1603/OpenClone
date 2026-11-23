@@ -13,7 +13,7 @@ from unittest import mock
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
-from runtime.aisdf_runtime import workforce as wf  # noqa: E402
+from runtime.openclone_runtime import workforce as wf  # noqa: E402
 
 PY = sys.executable
 PYNAME = os.path.basename(PY)
@@ -357,8 +357,8 @@ class RegistryAndReleaseTests(unittest.TestCase):
     def test_one_version_everywhere(self):
         v = (ROOT / "VERSION").read_text().strip()
         self.assertRegex(v, r"^\d+\.\d+\.\d+(-[0-9A-Za-z.]+)?$")
-        self.assertEqual(json.loads((ROOT / "aisdf.manifest.json").read_text())["version"], v)
-        from runtime.aisdf_runtime import __version__
+        self.assertEqual(json.loads((ROOT / "openclone.manifest.json").read_text())["version"], v)
+        from runtime.openclone_runtime import __version__
         self.assertEqual(__version__, v)
         self.assertIn(f"Version: {v}", (ROOT / "PROJECT.md").read_text())
         self.assertIn(v, (ROOT / "README.md").read_text())

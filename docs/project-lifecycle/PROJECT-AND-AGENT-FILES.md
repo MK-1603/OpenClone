@@ -13,7 +13,7 @@ Do not put the full product specification in AGENTS.md. Keep AGENTS.md an operat
 Run from the AISDF repository root:
 
 ```bash
-python tools/aisdf_runtime/project.py init --project ../my-project --name "My Project" --type DEMO
+python tools/openclone_runtime/project.py init --project ../my-project --name "My Project" --type DEMO
 ```
 
 By default, it creates both `PROJECT.md` and `AGENTS.md`, plus `.aisdf/assessment`, `findings`, `plans`, `prompts`, `reports`, and `context`. Existing files are preserved. The command refuses to overwrite an existing `PROJECT.md`; if `AGENTS.md` exists, it is preserved and the generated policy is not merged automatically. Use `--no-agents` to opt out of AGENTS generation.
@@ -67,7 +67,7 @@ For an open-source library, a demo, or a college project, fill relevant sections
 ## Run the project document checker
 
 ```bash
-python tools/aisdf_runtime/project.py check --project ../my-project
+python tools/openclone_runtime/project.py check --project ../my-project
 ```
 
 The checker validates required headings, metadata markers, status vocabulary, duplicate feature/acceptance IDs, and required AGENTS policy sections. It warns while a project template still has placeholders or draft status. Add `--strict` to fail while warnings remain, or `--json` for machine-readable results.
@@ -77,7 +77,7 @@ This is a structural checker. It cannot judge whether the project statement is a
 ## Existing project assessment
 
 ```bash
-python tools/aisdf_runtime/project.py assess --project ../my-project
+python tools/openclone_runtime/project.py assess --project ../my-project
 ```
 
 This writes a deterministic file inventory under `.aisdf/assessment/`. Then connect an AI coding environment to the actual repository and use `prompts/PROJECT-ASSESSMENT-ENTRY-PROMPT.md`.
@@ -87,9 +87,9 @@ The agent must inspect source code, tests, documentation, manifests, migrations,
 ## Plan and approval lifecycle
 
 ```bash
-python tools/aisdf_runtime/project.py plan-create --project ../my-project --id P001 --title "Improve feature X"
-python tools/aisdf_runtime/project.py plan-hash --project ../my-project --plan .aisdf/plans/IMPLEMENTATION-PLAN-P001.md
-python tools/aisdf_runtime/project.py prompt-create --project ../my-project --plan .aisdf/plans/IMPLEMENTATION-PLAN-P001.md
+python tools/openclone_runtime/project.py plan-create --project ../my-project --id P001 --title "Improve feature X"
+python tools/openclone_runtime/project.py plan-hash --project ../my-project --plan .aisdf/plans/IMPLEMENTATION-PLAN-P001.md
+python tools/openclone_runtime/project.py prompt-create --project ../my-project --plan .aisdf/plans/IMPLEMENTATION-PLAN-P001.md
 ```
 
 The human fills the plan and exact file allowlist, computes the digest, then records explicit approval, approver, date, digest, and approved file list. If the plan changes, re-hash and re-approve. Prompt generation is blocked if required approval evidence or the digest is invalid.

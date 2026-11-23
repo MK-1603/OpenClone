@@ -4,7 +4,7 @@ from pathlib import Path
 import json, re, sys
 ROOT=Path(__file__).resolve().parents[1]
 errors=[]; warnings=[]
-required=['README.md','PROJECT.md','AGENTS.md','LICENSE','LICENSE-DECISION.md','templates/PROJECT.template.md','templates/AGENTS.template.md','workflows/WF-013-PROJECT-DEFINITION-ASSESSMENT-AND-IMPLEMENTATION-PLANNING.md','tools/aisdf_runtime/project.py','tools/aisdf_runtime/templates/PROJECT.md.template.md','OPENCLONE-MISSION-AND-SCOPE.md','domains/00-GOVERNANCE/OPENCLONE-RULEBOOK.md','modes/MODE-1-PROBLEM-DISCOVERY.md','modes/MODE-2-NEW-PROJECT.md','modes/MODE-3-EXISTING-PROJECT.md','prompts/MASTER-ENTRY-PROMPT.md','REFERENCE-PROJECTS/DEVTRACK/README.md','RELEASE-READINESS.md','docs/project-lifecycle/PROJECT-AND-AGENT-FILES.md']
+required=['README.md','PROJECT.md','AGENTS.md','LICENSE','LICENSE-DECISION.md','templates/PROJECT.template.md','templates/AGENTS.template.md','workflows/WF-013-PROJECT-DEFINITION-ASSESSMENT-AND-IMPLEMENTATION-PLANNING.md','tools/openclone_runtime/project.py','tools/openclone_runtime/templates/PROJECT.md.template.md','OPENCLONE-MISSION-AND-SCOPE.md','domains/00-GOVERNANCE/OPENCLONE-RULEBOOK.md','modes/MODE-1-PROBLEM-DISCOVERY.md','modes/MODE-2-NEW-PROJECT.md','modes/MODE-3-EXISTING-PROJECT.md','prompts/MASTER-ENTRY-PROMPT.md','REFERENCE-PROJECTS/DEVTRACK/README.md','RELEASE-READINESS.md','docs/project-lifecycle/PROJECT-AND-AGENT-FILES.md']
 for rel in required:
  if not (ROOT/rel).is_file(): errors.append(f'Missing required file: {rel}')
 domain_dirs=sorted([p.name for p in (ROOT/'domains').iterdir() if p.is_dir() and re.match(r'^\d\d-',p.name)])
@@ -55,7 +55,7 @@ for md in ROOT.rglob('*.md'):
   if not resolved.exists(): errors.append(f'Broken Markdown link in {md.relative_to(ROOT)}: {target}')
 # --- 1.0 additions: single version everywhere, pinned scanners, required hardening artefacts
 ver=(ROOT/'VERSION').read_text().strip()
-if json.loads((ROOT/'aisdf.manifest.json').read_text())['version']!=ver: errors.append('aisdf.manifest.json version differs from VERSION')
+if json.loads((ROOT/'openclone.manifest.json').read_text())['version']!=ver: errors.append('openclone.manifest.json version differs from VERSION')
 if f'Version: {ver}' not in (ROOT/'PROJECT.md').read_text(): errors.append('PROJECT.md version differs from VERSION')
 if ver not in (ROOT/'README.md').read_text(): errors.append('README.md does not mention the current VERSION')
 lock=ROOT/'security/scanners.lock.json'
@@ -63,7 +63,7 @@ if not lock.is_file(): errors.append('missing security/scanners.lock.json')
 else:
  for e in json.loads(lock.read_text())['entries']:
   if not re.fullmatch(r'[0-9a-f]{40}',e.get('pinned_ref') or ''): errors.append(f"scanner lock entry {e.get('id')} is not pinned to a 40-char commit SHA")
-for rel in ('aisdf.py','docs/framework/RULES-AND-ENFORCEMENT.md','security/policies/release-gate.json','adapters/COMPATIBILITY.md','adapters/CONFORMANCE.md','memory/README.md','examples/demo.sh','docs/demo/TRANSCRIPT.md'):
+for rel in ('openclone.py','docs/framework/RULES-AND-ENFORCEMENT.md','security/policies/release-gate.json','adapters/COMPATIBILITY.md','adapters/CONFORMANCE.md','memory/README.md','examples/demo.sh','docs/demo/TRANSCRIPT.md'):
  if not (ROOT/rel).is_file(): errors.append(f'missing required file: {rel}')
 wf_txt=(ROOT/'.github/workflows/validate.yml').read_text()
 for ref in re.findall(r'uses:\s*(\S+)',wf_txt):

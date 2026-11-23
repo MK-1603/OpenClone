@@ -7,10 +7,10 @@
 `python -m unittest discover -s tests -v`
 
 ## 3. Initialize your project
-`python runtime/aisdf_runtime/workforce.py init --project ../my-project --name "My Project"`
+`python runtime/openclone_runtime/workforce.py init --project ../my-project --name "My Project"`
 
 ## 4. Inspect the project
-Use `python tools/aisdf_runtime/project.py assess --project ../my-project`, then ask a connected coding assistant or human engineer to inspect code and fill the semantic assessment with evidence.
+Use `python tools/openclone_runtime/project.py assess --project ../my-project`, then ask a connected coding assistant or human engineer to inspect code and fill the semantic assessment with evidence.
 
 ## 5. Define requirements
 Complete PROJECT.md; run the PROJECT.md checker; do not treat placeholders as approved facts.

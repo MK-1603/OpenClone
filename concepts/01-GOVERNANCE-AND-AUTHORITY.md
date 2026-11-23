@@ -9,7 +9,7 @@ Humans remain the ultimate authority for software requirements, architectural de
 3. **Cryptographic Revocation:** Any alteration to a task specification revokes previous human approvals immediately.
 
 ## 3. Implementation
-Enforced by the OpenClone deterministic runtime (`runtime/aisdf_runtime/workforce.py`) via the human approver allow-list and SHA-256 task digest matching.
+Enforced by the OpenClone deterministic runtime (`runtime/openclone_runtime/workforce.py`) via the human approver allow-list and SHA-256 task digest matching.
 
 ---
 

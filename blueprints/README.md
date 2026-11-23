@@ -9,7 +9,7 @@ This directory contains the canonical architectural blueprints, engineering meth
 | Document | Purpose |
 |---|---|
 | **[OPENCLONE-MASTER-BLUEPRINT.md](OPENCLONE-MASTER-BLUEPRINT.md)** | Canonical OpenClone engineering platform blueprint, modular architecture, and execution engine contracts. |
-| **[AISDF-METHODOLOGY-REFERENCE.md](AISDF-METHODOLOGY-REFERENCE.md)** | Foundational AI Software Development Framework (AISDF) engineering methodology, governance rules, and verification standards. |
+| **[OPENCLONE-METHODOLOGY-REFERENCE.md](OPENCLONE-METHODOLOGY-REFERENCE.md)** | Foundational AI Software Development Framework (AISDF) engineering methodology, governance rules, and verification standards. |
 | **[EXAMPLE-AI-SAAS-PROJECT.md](EXAMPLE-AI-SAAS-PROJECT.md)** | Reference implementation specification demonstrating an end-to-end governed AI SaaS application. |
 
 ---

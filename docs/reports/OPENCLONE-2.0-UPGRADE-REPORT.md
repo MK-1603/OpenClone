@@ -49,7 +49,7 @@ Synchronized `2.0.0` version strings across all canonical project descriptors:
 - `VERSION`: `2.0.0`
 - `pyproject.toml`: `version = "2.0.0"`
 - `openclone.manifest.json`: `"version": "2.0.0", "standard_version": "1.0.0"`
-- `aisdf.manifest.json`: `"version": "2.0.0", "standard_version": "1.0.0"`
+- `openclone.manifest.json`: `"version": "2.0.0", "standard_version": "1.0.0"`
 - `plugin.json`: `"version": "2.0.0"`
 - `PROJECT.md`: `Version: 2.0.0`
 - `src/openclone/mcp/server.py`: `SERVER_VERSION = "2.0.0"`

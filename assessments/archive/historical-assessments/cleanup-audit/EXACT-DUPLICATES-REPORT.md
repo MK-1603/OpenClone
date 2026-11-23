@@ -55,7 +55,7 @@
 | 43 | `7791b0dff118...` | 2 | `skills/taste-skill/skills/taste-skill/assets/icons/demo/zendesk.svg`<br>`skills/taste-skill/skills/taste-skill/assets/ui/icons/zendesk.svg` | Evaluate consolidation |
 | 44 | `057c58ccc1fd...` | 2 | `skills/taste-skill/skills/taste-skill/assets/layout/img/photo-d88.jpg`<br>`skills/taste-skill/skills/taste-skill/assets/objects/photo-kit/photos/lamp.jpg` | Evaluate consolidation |
 | 45 | `cf3c9d509576...` | 2 | `skills/taste-skill/skills/taste-skill/assets/objects/photo-kit/photos/concrete.jpg`<br>`skills/taste-skill/skills/taste-skill/assets/scenes/_demo/concrete.jpg` | Evaluate consolidation |
-| 46 | `8d924553897e...` | 2 | `tools/aisdf_runtime/aisdf.py`<br>`tools/openclone_runtime/aisdf.py` | Evaluate consolidation |
-| 47 | `e56e821d0732...` | 2 | `tools/aisdf_runtime/schemas/review-finding.schema.json`<br>`tools/openclone_runtime/schemas/review-finding.schema.json` | Evaluate consolidation |
-| 48 | `f7919586b55e...` | 2 | `tools/aisdf_runtime/templates/PROJECT.md.template.md`<br>`tools/openclone_runtime/templates/PROJECT.md.template.md` | Preserve intentional multi-host adapter template or forwarder |
-| 49 | `f7a642825576...` | 2 | `tools/aisdf_runtime/tests/test_runtime.py`<br>`tools/openclone_runtime/tests/test_runtime.py` | Evaluate consolidation |
+| 46 | `8d924553897e...` | 2 | `tools/openclone_runtime/openclone.py`<br>`tools/openclone_runtime/openclone.py` | Evaluate consolidation |
+| 47 | `e56e821d0732...` | 2 | `tools/openclone_runtime/schemas/review-finding.schema.json`<br>`tools/openclone_runtime/schemas/review-finding.schema.json` | Evaluate consolidation |
+| 48 | `f7919586b55e...` | 2 | `tools/openclone_runtime/templates/PROJECT.md.template.md`<br>`tools/openclone_runtime/templates/PROJECT.md.template.md` | Preserve intentional multi-host adapter template or forwarder |
+| 49 | `f7a642825576...` | 2 | `tools/openclone_runtime/tests/test_runtime.py`<br>`tools/openclone_runtime/tests/test_runtime.py` | Evaluate consolidation |

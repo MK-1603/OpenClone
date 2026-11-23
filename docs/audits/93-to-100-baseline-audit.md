@@ -13,7 +13,7 @@
 This baseline audit evaluates the OpenClone repository against the 93 → 100 Engineering Maturity specification. The evaluation examined the live repository files, test suites, architecture, security controls, and adapter implementations.
 
 All verified audit leads have been resolved and independently validated with automated test evidence:
-- **Canonical Version:** Reconciled to `1.0.0` everywhere (`VERSION`, `pyproject.toml`, `openclone.manifest.json`, `aisdf.manifest.json`, `plugin.json`).
+- **Canonical Version:** Reconciled to `1.0.0` everywhere (`VERSION`, `pyproject.toml`, `openclone.manifest.json`, `openclone.manifest.json`, `plugin.json`).
 - **Automated Tests:** 102 automated tests passing with 0 failures (89 Python unit tests in `tests/` + 13 Taste Skill governance tests in `skills/taste-skill/tests/`).
 - **MCP Server Capabilities:** 7 default core inspection tools exposed over standard `tools/list`; 15 canonical capabilities accessible via `tools/call`, REST API, and extended discovery (`{"all": true}`).
 - **Cryptographic Human Approval Binding:** Implemented in `src/openclone/integrations/gateway.py` with multi-field binding (capability ID, approver ID, project ID, SHA-256 canonical payload digest, nonce replay protection, and expiration).
@@ -26,8 +26,8 @@ All verified audit leads have been resolved and independently validated with aut
 
 | Area | Baseline Lead | Implementation Correction | Verified Evidence | Status |
 |---|---|---|---|---|
-| **Versioning** | Contradictory version references (1.0.0 vs v3.1.0) | Standardized canonical version `1.0.0` across all manifests and documentation | `VERSION`, `pyproject.toml`, `openclone.manifest.json`, `aisdf.manifest.json`, `plugin.json` | `VERIFIED` |
-| **Workflows Count** | Manifests showed 13 while 15 workflow files existed | Updated `openclone.manifest.json` and `aisdf.manifest.json` to 15 workflows (`WF-001`–`WF-015`) | `workflows/WF-001` to `WF-015`, manifest JSONs | `VERIFIED` |
+| **Versioning** | Contradictory version references (1.0.0 vs v3.1.0) | Standardized canonical version `1.0.0` across all manifests and documentation | `VERSION`, `pyproject.toml`, `openclone.manifest.json`, `openclone.manifest.json`, `plugin.json` | `VERIFIED` |
+| **Workflows Count** | Manifests showed 13 while 15 workflow files existed | Updated `openclone.manifest.json` and `openclone.manifest.json` to 15 workflows (`WF-001`–`WF-015`) | `workflows/WF-001` to `WF-015`, manifest JSONs | `VERIFIED` |
 | **MCP Status Metrics** | Fixed test counts (50/13/63) in `get_status()` | Replaced with dynamic discovery reporting actual verified counts (89 unit + 13 taste = 102 total) | `src/openclone/mcp/server.py` `get_status()` | `VERIFIED` |
 | **Human Approvals** | 64-char length-only digest check | Cryptographically bound approval records with nonce replay protection, payload SHA-256 hash check, and expiry | `src/openclone/integrations/gateway.py`, `test_gateway_cryptographic_approval_record_lifecycle` | `VERIFIED` |
 | **Evidence Validation** | File existence check only | Validated workspace containment, path traversal rejection, SHA-256 hash calculation, and file size checks | `src/openclone/integrations/capabilities.py`, `test_evidence_integrity_and_containment` | `VERIFIED` |

@@ -11,6 +11,6 @@
 2. **`docs/v4/` vs `docs/framework/`:**
    - **Issue:** Older v4 draft duplicated active framework operating guide.
    - **Resolution:** `docs/v4/` moved to `docs/archive/v4/`.
-3. **`runtime/aisdf_runtime/` vs `runtime/openclone_runtime/`:**
+3. **`runtime/openclone_runtime/` vs `runtime/openclone_runtime/`:**
    - **Issue:** Legacy naming package.
-   - **Resolution:** Canonical `runtime/openclone_runtime/` created as primary; `runtime/aisdf_runtime/` maintained strictly as a non-breaking forwarding wrapper.
+   - **Resolution:** Canonical `runtime/openclone_runtime/` created as primary; `runtime/openclone_runtime/` maintained strictly as a non-breaking forwarding wrapper.

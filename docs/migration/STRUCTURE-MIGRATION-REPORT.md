@@ -57,7 +57,7 @@ Zero numbered domain folders remain at the repository root. All internal relativ
 
 1. **`domains/README.md`**: Created as the comprehensive canonical index of all 31 domains with purpose, owners, key outputs, and Mermaid dependency topology.
 2. **`tools/validate_repository.py`**:
-   - Updated required file paths (`domains/00-GOVERNANCE/AISDF-RULEBOOK.md`).
+   - Updated required file paths (`domains/00-GOVERNANCE/OPENCLONE-RULEBOOK.md`).
    - Added automated structure check enforcing exactly 31 domains inside `domains/` and zero numbered folders at repository root.
 3. **`README.md`**: Updated the domain table (lines 128–158) and UX/UI manual links (lines 455–460) to target `domains/`.
 4. **`DOMAIN-MAP.md`**: Updated to reference all 31 domains under `domains/`.

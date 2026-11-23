@@ -9,9 +9,9 @@
 
 | Functional Subject | Authoritative Source of Truth | Subordinate / Supporting Documents | Deprecated / Archived Locations |
 |---|---|---|---|
-| **Core Governance Rules** | `domains/00-GOVERNANCE/OPENCLONE-RULEBOOK.md` | `AGENTS.md`, `GOVERNANCE.md` | `domains/00-GOVERNANCE/AISDF-RULEBOOK.md` (Forwarder) |
+| **Core Governance Rules** | `domains/00-GOVERNANCE/OPENCLONE-RULEBOOK.md` | `AGENTS.md`, `GOVERNANCE.md` | `domains/00-GOVERNANCE/OPENCLONE-RULEBOOK.md` (Forwarder) |
 | **System Architecture** | `docs/architecture/OPENCLONE-2.0-ARCHITECTURE.md` | `TARGET_REPOSITORY_ARCHITECTURE.md` | `docs/archive/v4/ARCHITECTURE.md` |
-| **Product Charter & Truth**| `PROJECT.md` | `OPENCLONE-MISSION-AND-SCOPE.md` | `AISDF-MISSION-AND-SCOPE.md` (Forwarder) |
+| **Product Charter & Truth**| `PROJECT.md` | `OPENCLONE-MISSION-AND-SCOPE.md` | `OPENCLONE-MISSION-AND-SCOPE.md` (Forwarder) |
 | **Platform Operating Guide**| `docs/framework/OPERATING-GUIDE.md` | `docs/framework/RULES-AND-ENFORCEMENT.md` | `docs/archive/v4/OPERATING-GUIDE.md` |
 | **UI/UX Anti-Slop Standard**| `domains/05-UX-UI-ENGINEERING/ANTI-AI-SLOP-STANDARDS.md` | `skills/taste-skill/` | N/A |
 | **Live MCP Guidance** | `docs/knowledge/*.md` (< 12 KB each) | `src/openclone/mcp/server.py` | `docs/archive/knowledge-drafts/` |

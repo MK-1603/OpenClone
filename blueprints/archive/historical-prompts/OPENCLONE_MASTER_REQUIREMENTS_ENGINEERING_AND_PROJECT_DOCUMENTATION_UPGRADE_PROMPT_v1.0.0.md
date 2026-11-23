@@ -74,8 +74,8 @@ Search and inspect, if present:
 - `templates/AGENTS.template.md`.
 - `templates/PROJECT-PROFILE.template.yaml`.
 - Other project, requirements, architecture, testing, deployment and report templates.
-- `tools/aisdf_runtime/project.py`.
-- `tools/aisdf_runtime/aisdf.py`.
+- `tools/openclone_runtime/project.py`.
+- `tools/openclone_runtime/openclone.py`.
 - `src/openclone/`.
 - `runtime/`.
 - `workflows/WF-001-NEW-PROJECT-FROM-DOCUMENT.md`.

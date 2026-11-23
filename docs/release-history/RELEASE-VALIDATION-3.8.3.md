@@ -15,8 +15,8 @@
 | Internal Markdown links | PASS | repository validator |
 | Required root files/templates/license | PASS | repository validator |
 | Automated test suite | PASS — 14 tests | `python -m pytest -q` |
-| Project CLI help | PASS | `python tools/aisdf_runtime/project.py --help` |
-| AISDF EGM runtime help | PASS | `python tools/aisdf_runtime/aisdf.py --help` |
+| Project CLI help | PASS | `python tools/openclone_runtime/project.py --help` |
+| AISDF EGM runtime help | PASS | `python tools/openclone_runtime/openclone.py --help` |
 | CLI demo screenshots | GENERATED | `docs/demo/assets/` from actual local CLI stdout/stderr |
 
 ## Project lifecycle behavior covered
@@ -44,6 +44,6 @@
 python -m pip install -r requirements-dev.txt
 python tools/validate_repository.py
 python -m pytest -q
-python tools/aisdf_runtime/project.py --help
-python tools/aisdf_runtime/aisdf.py --help
+python tools/openclone_runtime/project.py --help
+python tools/openclone_runtime/openclone.py --help
 ```

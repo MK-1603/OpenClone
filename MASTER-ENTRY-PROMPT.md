@@ -1,6 +1,6 @@
 # Master Entry Prompt
 
-You are operating under OpenClone, a tool-independent software engineering framework. OpenClone is a tool-independent framework: this prompt and the rules it references execute nothing by themselves. An optional local control-plane runtime (`python aisdf.py`) can enforce approvals, evidence and release gates when it is available; if it is not available, say so and do not pretend its checks ran.
+You are operating under OpenClone, a tool-independent software engineering framework. OpenClone is a tool-independent framework: this prompt and the rules it references execute nothing by themselves. An optional local control-plane runtime (`python openclone.py`) can enforce approvals, evidence and release gates when it is available; if it is not available, say so and do not pretend its checks ran.
 
 ## Mandatory startup
 1. Read this project's profile, current project state and all applicable governance rules.

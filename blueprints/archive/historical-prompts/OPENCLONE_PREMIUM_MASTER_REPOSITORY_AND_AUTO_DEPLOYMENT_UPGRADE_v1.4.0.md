@@ -1103,7 +1103,7 @@ Update existing canonical locations. Do not create a detached upgrade folder.
 1. `domains/README.md` — complete 31-domain index.
 2. Updated root `README.md`.
 3. Updated `AGENTS.md` with the new canonical paths and repository navigation rules.
-4. Updated `DOMAIN-MAP.md`, `AISDF-FUNCTIONAL-MAP.md`, lifecycle overview, mission/scope docs, and relevant governance docs.
+4. Updated `DOMAIN-MAP.md`, `OPENCLONE-FUNCTIONAL-MAP.md`, lifecycle overview, mission/scope docs, and relevant governance docs.
 5. Updated engine, adapter, skill, workflow, and technology registries.
 6. Machine-readable path migration map.
 7. Human-readable structure migration report.

@@ -14,10 +14,10 @@
   - `OPENCLONE-LIFECYCLE-OVERVIEW.md` (Authoritative)
   - `OPENCLONE-MISSION-AND-SCOPE.md` (Authoritative)
 - **Forwarding Stubs:**
-  - `AISDF-CORE-PRINCIPLES.md` (Forwarding stub to preserve external links)
-  - `AISDF-FUNCTIONAL-MAP.md` (Forwarding stub)
-  - `AISDF-LIFECYCLE-OVERVIEW.md` (Forwarding stub)
-  - `AISDF-MISSION-AND-SCOPE.md` (Forwarding stub)
+  - `OPENCLONE-CORE-PRINCIPLES.md` (Forwarding stub to preserve external links)
+  - `OPENCLONE-FUNCTIONAL-MAP.md` (Forwarding stub)
+  - `OPENCLONE-LIFECYCLE-OVERVIEW.md` (Forwarding stub)
+  - `OPENCLONE-MISSION-AND-SCOPE.md` (Forwarding stub)
 - **Verdict:** `PRESERVE` forwarding stubs to guarantee backward-compatibility for external bookmarks and existing automation; no content duplication exists because stubs contain only forwarding notices.
 
 ### Cluster B: Knowledge Catalogues (Live MCP vs Master Encyclopedias)
@@ -27,7 +27,7 @@
 
 ### Cluster C: Governance Rulebook
 - **Primary Canonical:** `domains/00-GOVERNANCE/OPENCLONE-RULEBOOK.md`
-- **Forwarding Stub:** `domains/00-GOVERNANCE/AISDF-RULEBOOK.md`
+- **Forwarding Stub:** `domains/00-GOVERNANCE/OPENCLONE-RULEBOOK.md`
 - **Verdict:** `PRESERVE`. Forwarding stub resolves backward-compatibility while establishing single source of truth.
 
 ### Cluster D: Concept Specifications (Standard vs Alternate)

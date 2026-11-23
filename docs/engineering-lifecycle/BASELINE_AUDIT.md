@@ -9,8 +9,8 @@
 
 | Subsystem | Existing Implementation | Reusability in Lifecycle System |
 |---|---|---|
-| **Task State Machine** | `runtime/aisdf_runtime/workforce.py` (DAG, approvers, run) | Reused state concepts; extended to 10-state lifecycle with `VERIFICATION_PENDING` and `NEEDS_REWORK`. |
-| **Audit Ledger** | `openclone.py` / `aisdf.py` (SQLite hash-chained audit events) | Reused event logging structure; lifecycle operations generate tamper-evident audit events. |
+| **Task State Machine** | `runtime/openclone_runtime/workforce.py` (DAG, approvers, run) | Reused state concepts; extended to 10-state lifecycle with `VERIFICATION_PENDING` and `NEEDS_REWORK`. |
+| **Audit Ledger** | `openclone.py` / `openclone.py` (SQLite hash-chained audit events) | Reused event logging structure; lifecycle operations generate tamper-evident audit events. |
 | **Skill Engine** | `src/openclone/skills/engine.py` (Discovery, selection, precedence) | Reused to attach relevant skills to checklist tasks during handoff. |
 | **Anti-Slop Linter** | `skills/taste-skill/audit-slop.mjs` (Static AST visual scanner) | Integrated as automated verification check for Phase 06/07 frontend tasks. |
 | **MCP Server** | `src/openclone/mcp/server.py` (JSON-RPC 2.0 stdio/SSE) | Extended `get_guidance` to expose lifecycle guidance and verification contracts. |
