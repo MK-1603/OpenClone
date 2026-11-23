@@ -1,0 +1,109 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://openclone.org/schemas/logo-specification.schema.json",
+  "title": "OpenClone Logo Specification Schema",
+  "description": "Schema governing logo concept, geometry, typography, color intelligence, and variant deliverables.",
+  "type": "object",
+  "required": [
+    "concept_id",
+    "category",
+    "design_intention",
+    "geometry",
+    "color",
+    "typography",
+    "variants"
+  ],
+  "properties": {
+    "concept_id": {
+      "type": "string",
+      "description": "Unique identifier for the logo concept."
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "WORDMARK",
+        "LETTERMARK",
+        "ABSTRACT_SYMBOL",
+        "COMBINATION_MARK",
+        "EMBLEM",
+        "GEOMETRIC_MARK",
+        "MASCOT"
+      ]
+    },
+    "design_intention": {
+      "type": "string",
+      "description": "Architectural and symbolic explanation of the logo design."
+    },
+    "geometry": {
+      "type": "object",
+      "required": ["grid_unit_px", "clear_space_factor", "min_digital_width_px"],
+      "properties": {
+        "grid_unit_px": { "type": "integer", "minimum": 1 },
+        "proportion_ratio_name": { "type": "string" },
+        "proportion_ratio_value": { "type": "number", "minimum": 0 },
+        "clear_space_factor": { "type": "number", "minimum": 0 },
+        "min_digital_width_px": { "type": "integer", "minimum": 1 },
+        "min_print_width_mm": { "type": "number", "minimum": 1 }
+      }
+    },
+    "color": {
+      "type": "object",
+      "required": [
+        "primary_hex",
+        "secondary_hex",
+        "accent_hex",
+        "neutral_dark_hex",
+        "neutral_light_hex"
+      ],
+      "properties": {
+        "primary_hex": { "type": "string", "pattern": "^#[0-9A-Fa-f]{6}$" },
+        "secondary_hex": { "type": "string", "pattern": "^#[0-9A-Fa-f]{6}$" },
+        "accent_hex": { "type": "string", "pattern": "^#[0-9A-Fa-f]{6}$" },
+        "neutral_dark_hex": { "type": "string", "pattern": "^#[0-9A-Fa-f]{6}$" },
+        "neutral_light_hex": { "type": "string", "pattern": "^#[0-9A-Fa-f]{6}$" },
+        "contrast_primary_on_light": { "type": "number" },
+        "contrast_primary_on_dark": { "type": "number" },
+        "cmyk_primary": { "type": "string" },
+        "cmyk_secondary": { "type": "string" }
+      }
+    },
+    "typography": {
+      "type": "object",
+      "required": ["primary_font", "primary_classification", "secondary_font"],
+      "properties": {
+        "primary_font": { "type": "string" },
+        "primary_classification": { "type": "string" },
+        "secondary_font": { "type": "string" },
+        "secondary_classification": { "type": "string" },
+        "hierarchy_scale": { "type": "string" },
+        "licensing": { "type": "string" }
+      }
+    },
+    "variants": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["type", "dimensions", "description"],
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": [
+              "PRIMARY",
+              "HORIZONTAL",
+              "VERTICAL",
+              "SYMBOL_ONLY",
+              "MONOCHROME_DARK",
+              "MONOCHROME_LIGHT",
+              "FAVICON",
+              "SOCIAL_PREVIEW"
+            ]
+          },
+          "dimensions": { "type": "string" },
+          "description": { "type": "string" }
+        }
+      }
+    }
+  },
+  "additionalProperties": false
+}

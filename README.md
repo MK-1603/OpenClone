@@ -458,6 +458,7 @@ OpenClone enforces strict security baselines and quality controls:
 - **4-Tier Copyleft Isolation:** Upstream copyleft tools (`semgrep`, `trufflehog`, `clamav`) run in decoupled child processes. Zero copyleft code is vendored into OpenClone core.
 - **Pinned Scanner Lockfile:** All security scanners pinned by 40-character commit SHAs in [`security/scanners.lock.json`](security/scanners.lock.json).
 - **Taste Skill v2.6.0:** Anti-AI-slop design engine enforcing an 8-point typographic scale, semantic CSS tokens, WCAG 2.2 AA contrast ratios, and prohibiting ambient blur circles or neon purple clichés ([`framework/domains/05-UX-UI-ENGINEERING/ANTI-AI-SLOP-STANDARDS.md`](framework/domains/05-UX-UI-ENGINEERING/ANTI-AI-SLOP-STANDARDS.md)).
+- **Logo Engineering & Brand Identity System (LEBIS):** Production-grade brand identity engineering pipeline transforming brand briefs into mathematical, accessible, and verified vector SVG master asset kits ([`framework/domains/05-UX-UI-ENGINEERING/LOGO-ENGINEERING-AND-BRAND-IDENTITY.md`](framework/domains/05-UX-UI-ENGINEERING/LOGO-ENGINEERING-AND-BRAND-IDENTITY.md) · [`assets/branding/BRAND-GUIDELINES.md`](assets/branding/BRAND-GUIDELINES.md)).
 
 ---
 
@@ -476,6 +477,9 @@ OpenClone implements the Model Context Protocol (spec 2024-11-05), exposing its 
 | **`openclone_validate_project`**| Run repository structural integrity and schema quality gates. | `strict` (bool) | Pass/Fail report with errors |
 | **`openclone_get_guidance`** | Retrieve specialized guidance (anti-slop, security, architecture). | `topic` (enum: `'anti_slop'`, `'saas_security'`, etc.) | Markdown guidance profile |
 | **`openclone_list_capabilities`**| List all domains, engines, workflows, workforce roles, and adapters. | `filter` (enum: `'all'`, `'domains'`, `'engines'`, etc.) | Comprehensive registry list |
+| **`openclone_route_model`** | Intelligent multi-mode model routing across 7 modes with HA circuit-breaker failover. | `prompt` (str), `mode` (str), `preferred_model` (str) | Decision with candidate scores and fallback chain |
+| **`openclone_engineer_brand`**| Transform a brand brief into an engineered brand identity package with vector SVGs. | `brand_name` (str), `category` (str), `primary_color` (str) | Complete Brand Identity Package |
+| **`openclone_validate_logo`** | Audit raw SVG logo markup against LEBIS QA standards (XML, contrast, zero-raster). | `svg_content` (str) | Verification report with pass/fail metrics |
 
 ### Sample JSON-RPC 2.0 Request & Response
 

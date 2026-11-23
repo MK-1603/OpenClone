@@ -22,6 +22,10 @@ def main():
         from tools.skill_engine import main as skill_main
         sys.argv.pop(1)
         skill_main()
+    elif len(sys.argv) > 1 and sys.argv[1] == "brand":
+        from src.openclone.branding.cli import main as brand_main
+        sys.argv.pop(1)
+        brand_main()
     elif len(sys.argv) > 1 and sys.argv[1] in installer_verbs:
         from src.openclone.installer.cli import main as installer_main
         if sys.argv[1] == "installer":

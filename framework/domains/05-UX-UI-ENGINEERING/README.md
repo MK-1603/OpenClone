@@ -46,7 +46,8 @@ OpenClone bridges this gap by embedding **Taste Skill v2.6.0** (`skills/taste-sk
 1. [`TASTE-SKILL-GUIDE.md`](file:///TASTE-SKILL-GUIDE.md) — Step-by-step developer and agent guide to executing Taste Skill commands, pre-build gates, and browser verification inside OpenClone.
 2. [`USER-CHOICE-DESIGN-PATTERNS.md`](file:///USER-CHOICE-DESIGN-PATTERNS.md) — Comprehensive technical reference for user-chosen styles (Glassmorphism, Neumorphism/UI Morphism, Swiss Minimalism, Brutalism). Details how Taste Skill evaluates them (REQUIRED/JUSTIFIED vs UNNECESSARY) and exact CSS token implementations.
 3. [`ANTI-AI-SLOP-STANDARDS.md`](file:///ANTI-AI-SLOP-STANDARDS.md) — The OpenClone Anti-AI-Slop Manifesto. Detailed comparative breakdown of generic AI tropes vs human-crafted UI engineering.
-4. [`HUMAN-CRAFTED-DESIGN-SYSTEM.md`](file:///HUMAN-CRAFTED-DESIGN-SYSTEM.md) — Canonical design tokens, typography scales, elevation systems, surface hierarchies, and micro-interaction timing curves.
+4. [`HUMAN-CRAFTED-DESIGN-SYSTEM.md`](HUMAN-CRAFTED-DESIGN-SYSTEM.md) — Canonical design tokens, typography scales, elevation systems, surface hierarchies, and micro-interaction timing curves.
+5. [`LOGO-ENGINEERING-AND-BRAND-IDENTITY.md`](LOGO-ENGINEERING-AND-BRAND-IDENTITY.md) — Complete specification of the Logo Engineering & Brand Identity System (LEBIS), the 10 specialized engines, vector SVG generation, and automated QA gating.
 
 ---
 

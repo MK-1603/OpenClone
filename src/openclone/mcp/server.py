@@ -247,6 +247,48 @@ TOOLS = [
             "additionalProperties": False,
         },
     },
+    {
+        "name": "openclone_engineer_brand",
+        "description": "Transform a brand brief into an engineered visual identity package with SVG variants, color intelligence, and QA report.",
+        "inputSchema": {
+            "type": "object",
+            "properties": {
+                "brand_name": {
+                    "type": "string",
+                    "description": "Name of the brand or software product.",
+                },
+                "category": {
+                    "type": "string",
+                    "description": "Product or business category.",
+                },
+                "positioning": {
+                    "type": "string",
+                    "description": "Market positioning or tagline.",
+                },
+                "primary_color": {
+                    "type": "string",
+                    "description": "Primary brand hex color (e.g. '#2563EB').",
+                },
+            },
+            "required": ["brand_name"],
+            "additionalProperties": False,
+        },
+    },
+    {
+        "name": "openclone_validate_logo",
+        "description": "Validate SVG logo code against LEBIS quality assurance standards (XML syntax, zero-raster check, viewBox).",
+        "inputSchema": {
+            "type": "object",
+            "properties": {
+                "svg_content": {
+                    "type": "string",
+                    "description": "Raw SVG markup content to audit.",
+                },
+            },
+            "required": ["svg_content"],
+            "additionalProperties": False,
+        },
+    },
 ]
 
 
@@ -568,6 +610,38 @@ class OpenCloneMCPServer:
             ]
         }
 
+    def engineer_brand(self, brief: Dict[str, Any]) -> Dict[str, Any]:
+        """Execute LEBIS brand identity pipeline and return serialized package."""
+        try:
+            from src.openclone.branding import engineer_brand_identity
+            pkg = engineer_brand_identity(brief)
+            return pkg.to_dict()
+        except Exception as e:
+            return {"error": f"Brand engineering failed: {str(e)}"}
+
+    def validate_logo(self, svg_content: str) -> Dict[str, Any]:
+        """Validate SVG logo markup against LEBIS QA standards."""
+        import xml.etree.ElementTree as ET
+        errors = []
+        try:
+            root = ET.fromstring(svg_content)
+            viewbox = root.attrib.get("viewBox") or root.attrib.get("viewbox")
+            if not viewbox:
+                errors.append("Missing viewBox attribute.")
+        except Exception as e:
+            errors.append(f"Invalid XML: {str(e)}")
+
+        has_raster = "<image" in svg_content.lower() or "data:image/" in svg_content
+        if has_raster:
+            errors.append("Embedded raster images detected.")
+
+        return {
+            "valid": len(errors) == 0,
+            "errors": errors,
+            "zero_raster": not has_raster,
+            "length_bytes": len(svg_content.encode("utf-8")),
+        }
+
     def call_tool(self, name: str, arguments: Dict[str, Any]) -> Dict[str, Any]:
         """Dispatch tool invocation with argument validation."""
         if name == "openclone_get_status":
@@ -600,6 +674,14 @@ class OpenCloneMCPServer:
             return self.list_models(arguments.get("provider"), arguments.get("tier"))
         elif name == "openclone_model_health":
             return self.get_model_health(arguments.get("provider"))
+        elif name == "openclone_engineer_brand":
+            if "brand_name" not in arguments:
+                raise ValueError("Missing required argument: 'brand_name'")
+            return self.engineer_brand(arguments)
+        elif name == "openclone_validate_logo":
+            if "svg_content" not in arguments:
+                raise ValueError("Missing required argument: 'svg_content'")
+            return self.validate_logo(arguments["svg_content"])
         elif self.canonical_registry.get(name):
             return self.gateway.execute(self.default_auth, name, arguments)
         else:
