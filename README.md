@@ -291,16 +291,38 @@ flowchart TD
 
 OpenClone's foundation rests on ten unified architectural concepts documented in [`concepts/`](concepts/):
 
-1. **[Governance & Authority](concepts/01-GOVERNANCE-AND-AUTHORITY.md):** Humans remain the ultimate authority for software requirements, architecture, and destructive operations. Enforces deny-by-default execution gating. *(Status: Fully Supported)*
-2. **[Project Source of Truth](concepts/02-PROJECT-SOURCE-OF-TRUTH.md):** Canonical `PROJECT.md` establishes immutable project boundaries. Prevents silent architectural drift. *(Status: Fully Supported)*
-3. **[Specialist Workforce](concepts/03-SPECIALIST-WORKFORCE.md):** 72 specialist engineering worker roles across 12 teams, with support for adaptive dynamic skill injection. *(Status: Fully Supported)*
-4. **[Task Graph & State Machine](concepts/04-TASK-GRAPH-AND-STATE-MACHINE.md):** Deterministic, cycle-free DAG scheduler preventing out-of-order execution, with reactive event scheduling. *(Status: Fully Supported)*
-5. **[Cryptographic Audit Ledger](concepts/05-CRYPTOGRAPHIC-AUDIT-LEDGER.md):** SQLite SHA-256 hash-chained event ledger guaranteeing tamper-evident auditability. *(Status: Fully Supported)*
-6. **[Human Approval & Digest Binding](concepts/06-HUMAN-APPROVAL-AND-DIGEST-BINDING.md):** Interactive digest binding where modifying task parameters automatically invalidates prior approvals. *(Status: Fully Supported)*
-7. **[Execution Harness & Sandboxing](concepts/07-EXECUTION-HARNESS-AND-SANDBOXING.md):** Governed process execution with real-time regex secret redaction and rootless container isolation boundaries. *(Status: Fully Supported)*
-8. **[Persistent Memory & AKIS](concepts/08-PERSISTENT-MEMORY-AND-AKIS.md):** 4-tier memory architecture (`PROJECT.md`, `PROGRESS.md`, `HANDOFF.md`, and markdown vault) supplemented by Autonomous Knowledge Ingestion & Synthesis (AKIS). *(Status: Fully Supported)*
-9. **[Independent Assurance / EGM](concepts/09-INDEPENDENT-ASSURANCE-EGM.md):** "Goldfish" clean-context review protocol ensuring code is verified by fresh reviewer agents with zero author bias. *(Status: Fully Supported)*
-10. **[Multi-Tool Adapter Ecosystem](concepts/10-MULTI-TOOL-ADAPTER-ECOSYSTEM.md):** Canonical capability contracts translated into native host formats across Antigravity, Cursor, Claude Code, and Codex. *(Status: Fully Supported)*
+1. **[Governance & Authority](docs/concepts/01-GOVERNANCE-AND-AUTHORITY.md):** Humans remain the ultimate authority for software requirements, architecture, and destructive operations. Enforces deny-by-default execution gating. *(Status: Fully Supported)*
+2. **[Project Source of Truth](docs/concepts/02-PROJECT-SOURCE-OF-TRUTH.md):** Canonical `PROJECT.md` establishes immutable project boundaries. Prevents silent architectural drift. *(Status: Fully Supported)*
+3. **[Specialist Workforce](docs/concepts/03-SPECIALIST-WORKFORCE.md):** 72 specialist engineering worker roles across 12 teams, with support for adaptive dynamic skill injection. *(Status: Fully Supported)*
+4. **[Task Graph & State Machine](docs/concepts/04-TASK-GRAPH-AND-STATE-MACHINE.md):** Deterministic, cycle-free DAG scheduler preventing out-of-order execution, with reactive event scheduling. *(Status: Fully Supported)*
+5. **[Cryptographic Audit Ledger](docs/concepts/05-CRYPTOGRAPHIC-AUDIT-LEDGER.md):** SQLite SHA-256 hash-chained event ledger guaranteeing tamper-evident auditability. *(Status: Fully Supported)*
+6. **[Human Approval & Digest Binding](docs/concepts/06-HUMAN-APPROVAL-AND-DIGEST-BINDING.md):** Interactive digest binding where modifying task parameters automatically invalidates prior approvals. *(Status: Fully Supported)*
+7. **[Execution Harness & Sandboxing](docs/concepts/07-EXECUTION-HARNESS-AND-SANDBOXING.md):** Governed process execution with real-time regex secret redaction and rootless container isolation boundaries. *(Status: Fully Supported)*
+8. **[Persistent Memory & AKIS](docs/concepts/08-PERSISTENT-MEMORY-AND-AKIS.md):** 4-tier memory architecture (`PROJECT.md`, `PROGRESS.md`, `HANDOFF.md`, and markdown vault) supplemented by Autonomous Knowledge Ingestion & Synthesis (AKIS). *(Status: Fully Supported)*
+9. **[Independent Assurance / EGM](docs/concepts/09-INDEPENDENT-ASSURANCE-EGM.md):** "Goldfish" clean-context review protocol ensuring code is verified by fresh reviewer agents with zero author bias. *(Status: Fully Supported)*
+10. **[Multi-Tool Adapter Ecosystem](docs/concepts/10-MULTI-TOOL-ADAPTER-ECOSYSTEM.md):** Canonical capability contracts translated into native host formats across Antigravity, Cursor, Claude Code, and Codex. *(Status: Fully Supported)*
+
+
+
+### Repository Layout
+
+`	ext
+OpenClone/
+├── .github/          # CI/CD workflows, issue/PR templates, CODEOWNERS, dependabot
+├── .gitignore        # Standardized git ignore rules
+├── global/           # Universal single-install global layer (core/, hosts/, installer/, docs/)
+├── project/          # Project-level templates (PROJECT.md, AGENTS.md, host-rules/, .openclone/)
+├── framework/        # Governed framework (engines/, workflows/, modes/, agents/, rules/, workforce/)
+├── src/openclone/    # Canonical Python runtime, CLI, installer, MCP server, and skills
+├── adapters/         # IDE host adapters (antigravity, claude-code, codex, cursor, vscode, chatgpt, generic-mcp)
+├── integrations/     # External tool and runtime integrations
+├── security/         # Security operations, threat modeling, and scanner policy locks
+├── docs/             # Technical documentation, concepts, guides, reference, legal, compliance
+├── tests/            # Automated test suite (unit, integration, lifecycle, verification)
+├── tools/            # Verification and repository governance tooling
+├── archive/          # Consolidated historical records and legacy snapshots
+└── README.md         # Canonical project entrypoint and documentation homepage
+`
 
 ---
 

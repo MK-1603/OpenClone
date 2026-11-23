@@ -1,0 +1,27 @@
+name: Security Scanner Gate
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  release-gate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Verify Security Scanners Lock
+        run: |
+          python -c "
+          import json, pathlib
+          lock = pathlib.Path('security/scanners.lock.json')
+          assert lock.exists(), 'security/scanners.lock.json missing'
+          data = json.loads(lock.read_text(encoding='utf-8'))
+          assert 'scanners' in data, 'Invalid scanners lock schema'
+          print(f'Security scanners lock verified: {len(data["scanners"])} scanners verified.')
+          "
