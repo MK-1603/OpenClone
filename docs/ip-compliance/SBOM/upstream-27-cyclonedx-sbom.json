@@ -1,0 +1,962 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:openclone-sbom-upstream-27-20261123",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-11-23T02:30:00Z",
+    "component": {
+      "type": "framework",
+      "name": "OpenClone",
+      "version": "2.0.0",
+      "description": "Universal AI Software Engineering Platform"
+    }
+  },
+  "components": [
+    {
+      "type": "library",
+      "bom-ref": "pkg:github/bergside/design-md-chrome@8e07614f",
+      "name": "design-md-chrome",
+      "version": "8e07614f",
+      "description": "Chrome extension to extract computed design tokens and CSS into formatted Markdown.",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:github/bergside/design-md-chrome",
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/bergside/design-md-chrome"
+        }
+      ],
+      "properties": [
+        {
+          "name": "openclone:integration_id",
+          "value": "UI-001"
+        },
+        {
+          "name": "openclone:category",
+          "value": "ui-ux"
+        },
+        {
+          "name": "openclone:license_category",
+          "value": "PERMISSIVE"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:github/shadcn-ui/shadcn-ui@bfa64ff4",
+      "name": "shadcn-ui",
+      "version": "bfa64ff4",
+      "description": "Accessible, customizable component templates and primitives built with Radix UI and Tailwind CSS.",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:github/shadcn-ui/shadcn-ui",
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/shadcn-ui/ui"
+        }
+      ],
+      "properties": [
+        {
+          "name": "openclone:integration_id",
+          "value": "UI-002"
+        },
+        {
+          "name": "openclone:category",
+          "value": "ui-ux"
+        },
+        {
+          "name": "openclone:license_category",
+          "value": "PERMISSIVE"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:github/Dammyjay93/interface-design@2f9be320",
+      "name": "interface-design",
+      "version": "2f9be320",
+      "description": "Curated consumer and dashboard UI pattern collection and design system references.",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:github/Dammyjay93/interface-design",
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/Dammyjay93/interface-design"
+        }
+      ],
+      "properties": [
+        {
+          "name": "openclone:integration_id",
+          "value": "UI-003"
+        },
+        {
+          "name": "openclone:category",
+          "value": "ui-ux"
+        },
+        {
+          "name": "openclone:license_category",
+          "value": "PERMISSIVE"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:github/Mohit-Raj-Singh/Unstop-UI@09da6d20",
+      "name": "Unstop-UI",
+      "version": "09da6d20",
+      "description": "React-based UI component assembly for interactive assessments and dashboard views.",
+      "licenses": [
+        {
+          "license": {
+            "id": "UNKNOWN"
+          }
+        }
+      ],
+      "purl": "pkg:github/Mohit-Raj-Singh/Unstop-UI",
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/Mohit-Raj-Singh/Unstop-UI"
+        }
+      ],
+      "properties": [
+        {
+          "name": "openclone:integration_id",
+          "value": "UI-004"
+        },
+        {
+          "name": "openclone:category",
+          "value": "ui-ux"
+        },
+        {
+          "name": "openclone:license_category",
+          "value": "NO IDENTIFIABLE LICENSE"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:github/anthropics/anthropic-frontend-design@e4bb5d96",
+      "name": "anthropic-frontend-design",
+      "version": "e4bb5d96",
+      "description": "Anthropic official Claude-optimized frontend design guidelines, spatial rules, and art direction.",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "purl": "pkg:github/anthropics/anthropic-frontend-design",
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/anthropics/skills/tree/main/skills/frontend-design"
+        }
+      ],
+      "properties": [
+        {
+          "name": "openclone:integration_id",
+          "value": "UI-005"
+        },
+        {
+          "name": "openclone:category",
+          "value": "ui-ux"
+        },
+        {
+          "name": "openclone:license_category",
+          "value": "PERMISSIVE"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:github/Leonxlnx/taste-skill@f6b76575",
+      "name": "taste-skill",
+      "version": "f6b76575",
+      "description": "Anti-AI-slop design skill, kinetic motion curves, contrast validators, and pre-build plan gates.",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:github/Leonxlnx/taste-skill",
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/Leonxlnx/taste-skill"
+        }
+      ],
+      "properties": [
+        {
+          "name": "openclone:integration_id",
+          "value": "UI-006"
+        },
+        {
+          "name": "openclone:category",
+          "value": "ui-ux"
+        },
+        {
+          "name": "openclone:license_category",
+          "value": "PERMISSIVE"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:github/nutlope/hallmark@04977e15",
+      "name": "hallmark",
+      "version": "04977e15",
+      "description": "Automated frontend design evaluation and critique engine targeting AI-generated visual clich\u00e9s.",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:github/nutlope/hallmark",
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/nutlope/hallmark"
+        }
+      ],
+      "properties": [
+        {
+          "name": "openclone:integration_id",
+          "value": "UI-007"
+        },
+        {
+          "name": "openclone:category",
+          "value": "ui-ux"
+        },
+        {
+          "name": "openclone:license_category",
+          "value": "PERMISSIVE"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:github/nextlevelbuilder/ui-ux-pro-max-skill@6ec2bb58",
+      "name": "ui-ux-pro-max-skill",
+      "version": "6ec2bb58",
+      "description": "Multi-domain design system ruleset covering 67 application domains from enterprise SaaS to fintech.",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:github/nextlevelbuilder/ui-ux-pro-max-skill",
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill"
+        }
+      ],
+      "properties": [
+        {
+          "name": "openclone:integration_id",
+          "value": "UI-008"
+        },
+        {
+          "name": "openclone:category",
+          "value": "ui-ux"
+        },
+        {
+          "name": "openclone:license_category",
+          "value": "PERMISSIVE"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:github/flitzrrr/frontend-design-skills@d607ba30",
+      "name": "frontend-design-skills",
+      "version": "d607ba30",
+      "description": "Multi-assistant frontend skill collection formatted for Claude Code, Cursor, and Windsurf.",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:github/flitzrrr/frontend-design-skills",
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/flitzrrr/frontend-design-skills"
+        }
+      ],
+      "properties": [
+        {
+          "name": "openclone:integration_id",
+          "value": "UI-009"
+        },
+        {
+          "name": "openclone:category",
+          "value": "ui-ux"
+        },
+        {
+          "name": "openclone:license_category",
+          "value": "PERMISSIVE"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:github/pbakaus/impeccable@b49177d3",
+      "name": "impeccable",
+      "version": "b49177d3",
+      "description": "Design critique vocabulary, visual hierarchy standards, and UI defect scoring methodology.",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "purl": "pkg:github/pbakaus/impeccable",
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/pbakaus/impeccable"
+        }
+      ],
+      "properties": [
+        {
+          "name": "openclone:integration_id",
+          "value": "UI-010"
+        },
+        {
+          "name": "openclone:category",
+          "value": "ui-ux"
+        },
+        {
+          "name": "openclone:license_category",
+          "value": "PERMISSIVE"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:github/jpoindexter/typography-skills@615006a1",
+      "name": "typography-skills",
+      "version": "615006a1",
+      "description": "Mathematical typography scaling guidelines, Major Third progression, optical line length, and clamp().",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:github/jpoindexter/typography-skills",
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/jpoindexter/typography-skills"
+        }
+      ],
+      "properties": [
+        {
+          "name": "openclone:integration_id",
+          "value": "UI-011"
+        },
+        {
+          "name": "openclone:category",
+          "value": "ui-ux"
+        },
+        {
+          "name": "openclone:license_category",
+          "value": "PERMISSIVE"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:github/usestrix/strix@a1ccf777",
+      "name": "strix",
+      "version": "a1ccf777",
+      "description": "Autonomous AI penetration testing agent and dynamic security assessment platform.",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "purl": "pkg:github/usestrix/strix",
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/usestrix/strix"
+        }
+      ],
+      "properties": [
+        {
+          "name": "openclone:integration_id",
+          "value": "SEC-001"
+        },
+        {
+          "name": "openclone:category",
+          "value": "security"
+        },
+        {
+          "name": "openclone:license_category",
+          "value": "PERMISSIVE"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:github/projectdiscovery/nuclei@e169d3bb",
+      "name": "nuclei",
+      "version": "e169d3bb",
+      "description": "Fast and customizable vulnerability scanner based on simple YAML-based DSL templates.",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:github/projectdiscovery/nuclei",
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/projectdiscovery/nuclei"
+        }
+      ],
+      "properties": [
+        {
+          "name": "openclone:integration_id",
+          "value": "SEC-002"
+        },
+        {
+          "name": "openclone:category",
+          "value": "security"
+        },
+        {
+          "name": "openclone:license_category",
+          "value": "PERMISSIVE"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:github/openai/codex-security@35373239",
+      "name": "codex-security",
+      "version": "35373239",
+      "description": "Automated vulnerability triage, analysis rubrics, and remediation verification patterns.",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "purl": "pkg:github/openai/codex-security",
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/openai/codex-security"
+        }
+      ],
+      "properties": [
+        {
+          "name": "openclone:integration_id",
+          "value": "SEC-003"
+        },
+        {
+          "name": "openclone:category",
+          "value": "security"
+        },
+        {
+          "name": "openclone:license_category",
+          "value": "PERMISSIVE"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:github/cloudflare/security-audit-skill@c1c8a8c1",
+      "name": "security-audit-skill",
+      "version": "c1c8a8c1",
+      "description": "Cloudflare engineering skill providing codebase security audit checklists and inspection routines.",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:github/cloudflare/security-audit-skill",
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/cloudflare/security-audit-skill"
+        }
+      ],
+      "properties": [
+        {
+          "name": "openclone:integration_id",
+          "value": "SEC-004"
+        },
+        {
+          "name": "openclone:category",
+          "value": "security"
+        },
+        {
+          "name": "openclone:license_category",
+          "value": "PERMISSIVE"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:github/semgrep/semgrep@c4dbe9ee",
+      "name": "semgrep",
+      "version": "c4dbe9ee",
+      "description": "Fast, lightweight static analysis engine for finding bugs, enforcing standards, and secret detection.",
+      "licenses": [
+        {
+          "license": {
+            "id": "LGPL-2.1"
+          }
+        }
+      ],
+      "purl": "pkg:github/semgrep/semgrep",
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/semgrep/semgrep"
+        }
+      ],
+      "properties": [
+        {
+          "name": "openclone:integration_id",
+          "value": "SEC-005"
+        },
+        {
+          "name": "openclone:category",
+          "value": "security"
+        },
+        {
+          "name": "openclone:license_category",
+          "value": "WEAK COPYLEFT"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:github/anthropics/claude-code-security-review@0c6a49f1",
+      "name": "claude-code-security-review",
+      "version": "0c6a49f1",
+      "description": "GitHub Action and workflow automating pull request security review with Claude Code.",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:github/anthropics/claude-code-security-review",
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/anthropics/claude-code-security-review"
+        }
+      ],
+      "properties": [
+        {
+          "name": "openclone:integration_id",
+          "value": "SEC-006"
+        },
+        {
+          "name": "openclone:category",
+          "value": "security"
+        },
+        {
+          "name": "openclone:license_category",
+          "value": "PERMISSIVE"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:github/aquasecurity/trivy@edf9f5c1",
+      "name": "trivy",
+      "version": "edf9f5c1",
+      "description": "Comprehensive security scanner for container images, file systems, git repos, and misconfigurations.",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "purl": "pkg:github/aquasecurity/trivy",
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/aquasecurity/trivy"
+        }
+      ],
+      "properties": [
+        {
+          "name": "openclone:integration_id",
+          "value": "SEC-007"
+        },
+        {
+          "name": "openclone:category",
+          "value": "security"
+        },
+        {
+          "name": "openclone:license_category",
+          "value": "PERMISSIVE"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:github/trufflesecurity/trufflehog@4ef51f69",
+      "name": "trufflehog",
+      "version": "4ef51f69",
+      "description": "High-entropy secret scanner searching git repositories, s3 buckets, and filesystems for exposed keys.",
+      "licenses": [
+        {
+          "license": {
+            "id": "GPL-3.0"
+          }
+        }
+      ],
+      "purl": "pkg:github/trufflesecurity/trufflehog",
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/trufflesecurity/trufflehog"
+        }
+      ],
+      "properties": [
+        {
+          "name": "openclone:integration_id",
+          "value": "SEC-008"
+        },
+        {
+          "name": "openclone:category",
+          "value": "security"
+        },
+        {
+          "name": "openclone:license_category",
+          "value": "STRONG COPYLEFT"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:github/NVIDIA/skillspector@f9bb13dd",
+      "name": "skillspector",
+      "version": "f9bb13dd",
+      "description": "Security audit and inspection framework for AI skills, agent tools, and prompt injection defenses.",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "purl": "pkg:github/NVIDIA/skillspector",
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/NVIDIA/skillspector"
+        }
+      ],
+      "properties": [
+        {
+          "name": "openclone:integration_id",
+          "value": "SEC-009"
+        },
+        {
+          "name": "openclone:category",
+          "value": "security"
+        },
+        {
+          "name": "openclone:license_category",
+          "value": "PERMISSIVE"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:github/Cisco-Talos/clamav@cad7b18a",
+      "name": "clamav",
+      "version": "cad7b18a",
+      "description": "Open source antivirus engine for detecting trojans, viruses, malware and malicious threats.",
+      "licenses": [
+        {
+          "license": {
+            "id": "GPL-2.0"
+          }
+        }
+      ],
+      "purl": "pkg:github/Cisco-Talos/clamav",
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/Cisco-Talos/clamav"
+        }
+      ],
+      "properties": [
+        {
+          "name": "openclone:integration_id",
+          "value": "SEC-010"
+        },
+        {
+          "name": "openclone:category",
+          "value": "security"
+        },
+        {
+          "name": "openclone:license_category",
+          "value": "STRONG COPYLEFT"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:github/qybaihe/bla@2b7a7c4f",
+      "name": "bla",
+      "version": "2b7a7c4f",
+      "description": "Behavioral analysis and security evaluation tool for LLM agent interactions and tool safety.",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:github/qybaihe/bla",
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/qybaihe/bla"
+        }
+      ],
+      "properties": [
+        {
+          "name": "openclone:integration_id",
+          "value": "SEC-011"
+        },
+        {
+          "name": "openclone:category",
+          "value": "security"
+        },
+        {
+          "name": "openclone:license_category",
+          "value": "PERMISSIVE"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:github/microsoft/pyrit@81752345",
+      "name": "pyrit",
+      "version": "81752345",
+      "description": "Python Risk Identification Tool for Generative AI red-teaming and prompt injection evaluation.",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:github/microsoft/pyrit",
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/microsoft/pyrit"
+        }
+      ],
+      "properties": [
+        {
+          "name": "openclone:integration_id",
+          "value": "SEC-012"
+        },
+        {
+          "name": "openclone:category",
+          "value": "security"
+        },
+        {
+          "name": "openclone:license_category",
+          "value": "PERMISSIVE"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:github/cloudera/hue@7ad92b18",
+      "name": "hue",
+      "version": "7ad92b18",
+      "description": "Open source SQL Assistant, schema explorer, and query development workbench.",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "purl": "pkg:github/cloudera/hue",
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/cloudera/hue"
+        }
+      ],
+      "properties": [
+        {
+          "name": "openclone:integration_id",
+          "value": "ENG-001"
+        },
+        {
+          "name": "openclone:category",
+          "value": "software-engineering"
+        },
+        {
+          "name": "openclone:license_category",
+          "value": "PERMISSIVE"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:github/obra/superpowers@22f0b463",
+      "name": "superpowers",
+      "version": "22f0b463",
+      "description": "Coding agent core methodology: Test-Driven Development, systematic root-cause debugging, milestone plans.",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:github/obra/superpowers",
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/obra/superpowers"
+        }
+      ],
+      "properties": [
+        {
+          "name": "openclone:integration_id",
+          "value": "ENG-002"
+        },
+        {
+          "name": "openclone:category",
+          "value": "software-engineering"
+        },
+        {
+          "name": "openclone:license_category",
+          "value": "PERMISSIVE"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:github/shadcn/improve@cac56e1e",
+      "name": "improve",
+      "version": "cac56e1e",
+      "description": "Codebase inspection, architectural X-ray, and systematic refactoring workflows for existing codebases.",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:github/shadcn/improve",
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/shadcn/improve"
+        }
+      ],
+      "properties": [
+        {
+          "name": "openclone:integration_id",
+          "value": "ENG-003"
+        },
+        {
+          "name": "openclone:category",
+          "value": "software-engineering"
+        },
+        {
+          "name": "openclone:license_category",
+          "value": "PERMISSIVE"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:github/microsoft/TokenEconomizer@1bfeccdc",
+      "name": "TokenEconomizer",
+      "version": "1bfeccdc",
+      "description": "Token budget optimization, prompt deduplication, and context compression for large language models.",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:github/microsoft/TokenEconomizer",
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/microsoft/TokenEconomizer"
+        }
+      ],
+      "properties": [
+        {
+          "name": "openclone:integration_id",
+          "value": "ENG-004"
+        },
+        {
+          "name": "openclone:category",
+          "value": "software-engineering"
+        },
+        {
+          "name": "openclone:license_category",
+          "value": "PERMISSIVE"
+        }
+      ]
+    }
+  ]
+}

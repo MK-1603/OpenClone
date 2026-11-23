@@ -9,6 +9,8 @@
 - [OpenClone 2.0 Repository Cleanup Plan](reports/OPENCLONE-2.0-CLEANUP-PLAN.md) — Taxonomy, redundancy resolution, modularization roadmap, and approval gates.
 - [OpenClone 2.0 Baseline & Repository X-Ray Audit](reports/OPENCLONE-2.0-BASELINE-AUDIT.md) — Measured baseline footprint, directory analysis, and verified facts.
 - [OpenClone 2.0 File Classification Ledger](reports/OPENCLONE-2.0-FILE-CLASSIFICATION.csv) — Complete 10-category classification of every tracked repository file.
+- [Master Repository Assessment Suite](../assessments/repository/README.md) — 17-part architecture baseline, duplication audit, and release readiness suite.
+- [Intellectual Property & Legal Compliance Suite](ip-compliance/README.md) — 27-repository inventory, license matrix, reuse permission matrix, and SBOM.
 
 ## Core Framework & Getting Started
 - [Canonical Documentation Map](DOCUMENTATION-MAP.md) — Single source of authority, subject matrices, and precedence rules.

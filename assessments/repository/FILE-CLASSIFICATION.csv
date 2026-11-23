@@ -1,0 +1,12 @@
+Path / Pattern,Category,Rationale,Action Taken
+src/openclone/**,KEEP,Canonical Python runtime implementation,Retain and optimize type safety
+integrations/registry/**,KEEP,Canonical machine-readable upstream registry,Retain
+integrations/manifests/**,KEEP,Individual declarative upstream manifests,Retain
+integrations/adapters/**,KEEP,Thin bounded runtime adapters for external tools,Retain
+domains/**,KEEP,31 engineering domain rules and standards,Retain single source of truth
+engines/**,KEEP,56 capability engine execution contracts,Retain standardized contracts
+skills/taste-skill/assets/**,MODULARIZE,Heavy 3D renders and photos (35.76 MB),Decoupled into on-demand module mod-taste-skill-assets
+blueprints/**,ARCHIVE,Historical upgrade prompts and past specifications,Retained for immutable audit history
+docs/demo/legacy-v4-captures/**,REMOVE,Verified exact SHA-256 duplicate PNG files,Safely deleted in prior phase
+examples/OPENCLONE_ANTIGRAVITY_MASTER_AUDIT_UPGRADE_PROMPT_v1.0.0.md,REMOVE,Exact duplicate of blueprints/ copy,Safely deleted in prior phase
+tests/**,KEEP,Automated test suites (118 tests passing),Retain and expand
