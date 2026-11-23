@@ -1,8 +1,8 @@
 # AGENTS.md — OpenClone (AISDF) Repository Operating Rules
 
 ## Canonical product & identity
-- **Canonical Product:** OpenClone (AISDF — AI Software Development Framework)
-- **Canonical Repository:** `MK-1603/aisdf` (`https://github.com/MK-1603/aisdf`)
+- **Canonical Product:** OpenClone (governed by the AISDF Standard)
+- **Canonical Repository:** `MK-1603/OpenClone` (`https://github.com/MK-1603/OpenClone`)
 - **Product Direction:** Universal AI Software Engineering Framework
 - **Tagline:** Build with Any AI. Governed by One Engineering Standard.
 

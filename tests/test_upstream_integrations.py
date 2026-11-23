@@ -1,6 +1,6 @@
 """
 Unit and Integration Tests for OpenClone Upstream Repositories Integration
-Validates registry schema, 27 manifests, provenance integrity, and adapter contracts.
+Validates registry schema, 28 manifests, provenance integrity, and adapter contracts.
 """
 
 import json
@@ -30,16 +30,16 @@ class UpstreamIntegrationsTests(unittest.TestCase):
         cls.registry = json.loads(REGISTRY_PATH.read_text(encoding="utf-8"))
 
     def test_registry_schema_and_counts(self):
-        """Verify registry contains exactly 27 entries and valid schema."""
+        """Verify registry contains exactly 28 entries and valid schema."""
         self.assertEqual(self.registry.get("schema_version"), "1.0.0")
-        self.assertEqual(self.registry.get("total_entries"), 27)
+        self.assertEqual(self.registry.get("total_entries"), 28)
         integrations = self.registry.get("integrations", [])
-        self.assertEqual(len(integrations), 27)
+        self.assertEqual(len(integrations), 28)
 
     def test_unique_ids_and_categories(self):
-        """Verify unique IDs and valid categories across all 27 entries."""
+        """Verify unique IDs and valid categories across all 28 entries."""
         ids = set()
-        valid_cats = {"ui-ux", "security", "software-engineering"}
+        valid_cats = {"ui-ux", "security", "software-engineering", "knowledge"}
         for item in self.registry["integrations"]:
             iid = item["id"]
             self.assertNotIn(iid, ids, f"Duplicate integration ID: {iid}")
@@ -50,7 +50,7 @@ class UpstreamIntegrationsTests(unittest.TestCase):
             self.assertIn("review_status", item["license"])
 
     def test_individual_manifests_exist_and_match(self):
-        """Verify each of the 27 entries has a corresponding manifest in integrations/manifests/."""
+        """Verify each of the 28 entries has a corresponding manifest in integrations/manifests/."""
         for item in self.registry["integrations"]:
             mfile = MANIFESTS_DIR / f"{item['id']}.manifest.json"
             self.assertTrue(mfile.exists(), f"Manifest file missing for {item['id']}")

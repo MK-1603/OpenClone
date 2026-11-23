@@ -535,7 +535,7 @@ class OpenCloneMCPServer:
                         },
                         {
                             "uri": "openclone://governance/rulebook",
-                            "name": "AISDF Governance Rulebook",
+                            "name": "OpenClone Governance Rulebook (AISDF Standard)",
                             "description": "Precedence rules, human approval boundaries, and anti-slop guidelines.",
                             "mimeType": "text/markdown",
                         },

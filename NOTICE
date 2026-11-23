@@ -1,0 +1,40 @@
+OpenClone
+Copyright (c) 2026 OpenClone Contributors
+
+This product includes software, specifications, and architecture developed by
+independent open-source projects under their respective licenses:
+
+1. UI & Design System Components:
+   - design-md-chrome: Copyright (c) 2024 Bergside (MIT License)
+   - shadcn/ui: Copyright (c) 2023 shadcn (MIT License)
+   - interface-design: Copyright (c) 2024 Dammyjay93 (MIT License)
+   - anthropic-frontend-design (from anthropics/skills): Copyright (c) 2024 Anthropic, PBC (Apache-2.0 License)
+   - taste-skill: Copyright (c) 2024 Leonxlnx (MIT License)
+   - hallmark: Copyright (c) 2024 Hassan El Mghari (MIT License)
+   - ui-ux-pro-max-skill: Copyright (c) 2024 nextlevelbuilder (MIT License)
+   - frontend-design-skills: Copyright (c) 2024 flitzrrr (MIT License)
+   - impeccable: Copyright (c) 2024 Paul Bakaus (Apache-2.0 License)
+   - typography-skills: Copyright (c) 2024 J. Poindexter (MIT License)
+
+2. Security Scanners, Frameworks & Adapters:
+   - Strix: Copyright (c) 2024 Strix Security (Apache-2.0 License)
+   - Nuclei: Copyright (c) 2024 ProjectDiscovery, Inc. (MIT License)
+   - OpenAI Codex Security: Copyright (c) 2024 OpenAI (Apache-2.0 License)
+   - Cloudflare Security Audit Skill: Copyright (c) 2024 Cloudflare, Inc. (MIT License)
+   - Semgrep: Copyright (c) 2024 Semgrep, Inc. (LGPL-2.1 - subprocess isolation)
+   - Claude Code Security Review: Copyright (c) 2024 Anthropic, PBC (MIT License)
+   - Trivy: Copyright (c) 2024 Aqua Security Software Ltd. (Apache-2.0 License)
+   - TruffleHog: Copyright (c) 2024 Truffle Security Co. (GPL-3.0 - subprocess isolation)
+   - NVIDIA SkillSpector: Copyright (c) 2024 NVIDIA Corporation (Apache-2.0 License)
+   - ClamAV: Copyright (c) 2024 Cisco Systems, Inc. (GPL-2.0 - daemon/subprocess isolation)
+   - BLA (Binary Level Analysis): Copyright (c) 2024 qybaihe (MIT License)
+   - Microsoft PyRIT: Copyright (c) 2024 Microsoft Corporation (MIT License)
+
+3. Software Engineering Capabilities:
+   - Cloudera Hue: Copyright (c) 2024 Cloudera, Inc. (Apache-2.0 License)
+   - Superpowers: Copyright (c) 2024 Jesse Vincent (MIT License)
+   - Improve: Copyright (c) 2024 shadcn (MIT License)
+   - TokenEconomizer: Copyright (c) 2024 Microsoft Corporation (MIT License)
+
+4. Engineering Knowledge Resources:
+   - Build Your Own X: Maintained by CodeCrafters, Inc. (CC0-1.0 Public Domain Dedication)

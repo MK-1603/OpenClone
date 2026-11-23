@@ -77,6 +77,10 @@ class AisdfError(Exception):
     """Expected, user-facing failure."""
 
 
+# Alias for OpenClone platform runtime
+OpenCloneError = AisdfError
+
+
 # ----------------------------------------------------------------- helpers
 def utc() -> str:
     return datetime.now(timezone.utc).isoformat()

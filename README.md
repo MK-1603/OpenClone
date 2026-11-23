@@ -9,7 +9,7 @@
   &nbsp;
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-6366f1?style=flat" alt="MIT License" /></a>
   &nbsp;
-  <a href="tests/"><img src="https://img.shields.io/badge/tests-110%20passed%20%7C%200%20failed-059669?style=flat" alt="110 Passing Tests (97 Unit + 13 Governance)" /></a>
+  <a href="tests/"><img src="https://img.shields.io/badge/tests-118%20passed%20%7C%200%20failed-059669?style=flat" alt="118 Passing Tests (105 Python + 13 Governance)" /></a>
   &nbsp;
   <a href="security/scanners.lock.json"><img src="https://img.shields.io/badge/security-12%20scanners%20locked-ef4444?style=flat" alt="12 Scanners Locked" /></a>
   &nbsp;
@@ -483,10 +483,16 @@ We welcome contributions from software engineers and maintainers! Please read ou
 
 ---
 
-## License
+## License & Third-Party Notices
 
 OpenClone is licensed under the [MIT License](LICENSE).  
 Copyright (c) 2026 OpenClone Contributors (formerly AISDF).
+
+Third-party components, specifications, and integrated tools are subject to their respective open-source licenses:
+- [NOTICE](NOTICE) — Third-party copyright, owners, and notices.
+- [THIRD_PARTY_LICENSES.md](THIRD_PARTY_LICENSES.md) — Complete 28-repository license inventory.
+- [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) — Comprehensive upstream attribution, commit SHAs, and modification records.
+- [Legal Compliance Documentation](docs/legal/README.md) — Copyleft isolation policies and compliance audits.
 
 <p align="center">
   <sub>OpenClone · Build with Any AI. Governed by One Engineering Standard.</sub>
