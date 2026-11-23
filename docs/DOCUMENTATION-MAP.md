@@ -69,4 +69,4 @@ To maintain sub-second response times for AI coding assistants while preserving 
 Historical master blueprints, older upgrade prompts, and transition specifications in `blueprints/` and `docs/upgrade/` serve as immutable reference provenance. They are:
 - Retained in the source repository for development traceability.
 - **Excluded from default end-user plugin installations.**
-- Classified under `ARCHIVE` in [`docs/reports/repository-cleanup-classification.csv`](reports/repository-cleanup-classification.csv).
+- Classified under `ARCHIVE` in `archive/README.md`.
