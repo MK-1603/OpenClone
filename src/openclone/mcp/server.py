@@ -289,6 +289,73 @@ TOOLS = [
             "additionalProperties": False,
         },
     },
+    {
+        "name": "openclone_workforce_status",
+        "description": "Retrieve comprehensive specialist workforce metrics: native OpenClone workers, external Agency Agents, divisions, and synchronization.",
+        "inputSchema": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": False,
+        },
+    },
+    {
+        "name": "openclone_discover_agents",
+        "description": "Discover, search, and filter specialist agents across divisions and capabilities from the Agency Agents catalog.",
+        "inputSchema": {
+            "type": "object",
+            "properties": {
+                "query": {
+                    "type": "string",
+                    "description": "Search keyword for agent name, role, or mission.",
+                },
+                "division": {
+                    "type": "string",
+                    "description": "Filter by division (e.g. 'design', 'engineering', 'product', 'project-management', 'testing').",
+                },
+                "capability": {
+                    "type": "string",
+                    "description": "Filter by specific expertise keyword.",
+                },
+            },
+            "additionalProperties": False,
+        },
+    },
+    {
+        "name": "openclone_get_agent_profile",
+        "description": "Retrieve the complete unredacted profile, personality, mission, critical rules, workflow, and deliverables of a specialist agent.",
+        "inputSchema": {
+            "type": "object",
+            "properties": {
+                "agent_id": {
+                    "type": "string",
+                    "description": "Identifier of the agent (e.g. 'ui-designer', 'ux-researcher', 'backend-architect', 'reality-checker').",
+                },
+            },
+            "required": ["agent_id"],
+            "additionalProperties": False,
+        },
+    },
+    {
+        "name": "openclone_assemble_team",
+        "description": "Assemble a specialist multi-agent team with defined roles, responsibilities, handoff contracts, and execution DAG.",
+        "inputSchema": {
+            "type": "object",
+            "properties": {
+                "team_type": {
+                    "type": "string",
+                    "enum": ["ui_ux", "website", "custom"],
+                    "default": "ui_ux",
+                    "description": "Preset team architecture to assemble.",
+                },
+                "project_name": {
+                    "type": "string",
+                    "default": "Project",
+                    "description": "Name of the target project or application.",
+                },
+            },
+            "additionalProperties": False,
+        },
+    },
 ]
 
 
@@ -642,6 +709,47 @@ class OpenCloneMCPServer:
             "length_bytes": len(svg_content.encode("utf-8")),
         }
 
+    def workforce_status(self) -> Dict[str, Any]:
+        """Return unified status of native workers and external Agency Agents."""
+        from src.openclone.workforce.agency.catalog import AgencyCatalog
+        cat = AgencyCatalog(self.root / "framework" / "workforce" / "external" / "agency-agents")
+        return {
+            "native_workers": 72,
+            "external_agency_agents": len(cat.list_agents()),
+            "total_divisions": len(cat.list_divisions()),
+            "divisions": [d.id for d in cat.list_divisions()],
+            "upstream_repository": "https://github.com/msitarzewski/agency-agents",
+            "license": "MIT (Michael Sitarzewski)",
+            "governance": "OpenClone Universal Engineering Governance",
+        }
+
+    def discover_agents(self, query: str = "", division: Optional[str] = None, capability: Optional[str] = None) -> List[Dict[str, Any]]:
+        """Search and filter Agency Agents by keyword, division, or capability."""
+        from src.openclone.workforce.agency.catalog import AgencyCatalog
+        cat = AgencyCatalog(self.root / "framework" / "workforce" / "external" / "agency-agents")
+        agents = cat.search(query=query, division=division, capability=capability) if (query or capability) else cat.list_agents(division)
+        return [a.to_dict() for a in agents]
+
+    def get_agent_profile(self, agent_id: str) -> Dict[str, Any]:
+        """Retrieve full unredacted profile for a specialist agent."""
+        from src.openclone.workforce.agency.catalog import AgencyCatalog
+        cat = AgencyCatalog(self.root / "framework" / "workforce" / "external" / "agency-agents")
+        agent = cat.get_agent(agent_id)
+        if not agent:
+            raise KeyError(f"Specialist agent '{agent_id}' not found in catalog.")
+        return agent.to_dict()
+
+    def assemble_team(self, team_type: str = "ui_ux", project_name: str = "Project") -> Dict[str, Any]:
+        """Assemble a multi-agent specialist team."""
+        from src.openclone.workforce.agency.team_orchestrator import AgencyTeamOrchestrator
+        orch = AgencyTeamOrchestrator()
+        if team_type == "ui_ux":
+            return orch.assemble_ui_ux_team(project_name).to_dict()
+        elif team_type == "website":
+            return orch.assemble_website_development_team(project_name).to_dict()
+        else:
+            return orch.assemble_ui_ux_team(project_name).to_dict()
+
     def call_tool(self, name: str, arguments: Dict[str, Any]) -> Dict[str, Any]:
         """Dispatch tool invocation with argument validation."""
         if name == "openclone_get_status":
@@ -682,6 +790,16 @@ class OpenCloneMCPServer:
             if "svg_content" not in arguments:
                 raise ValueError("Missing required argument: 'svg_content'")
             return self.validate_logo(arguments["svg_content"])
+        elif name == "openclone_workforce_status":
+            return self.workforce_status()
+        elif name == "openclone_discover_agents":
+            return {"agents": self.discover_agents(arguments.get("query", ""), arguments.get("division"), arguments.get("capability"))}
+        elif name == "openclone_get_agent_profile":
+            if "agent_id" not in arguments:
+                raise ValueError("Missing required argument: 'agent_id'")
+            return self.get_agent_profile(arguments["agent_id"])
+        elif name == "openclone_assemble_team":
+            return self.assemble_team(arguments.get("team_type", "ui_ux"), arguments.get("project_name", "Project"))
         elif self.canonical_registry.get(name):
             return self.gateway.execute(self.default_auth, name, arguments)
         else:
