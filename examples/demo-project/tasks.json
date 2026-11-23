@@ -1,0 +1,55 @@
+[
+  {
+    "task_id": "DESIGN",
+    "title": "Design NoteDigest extraction schema & models",
+    "worker_id": "api-architect",
+    "action": "propose",
+    "depends_on": [],
+    "acceptance_criteria": [
+      "Data models defined for ActionItem, Decision, KeyPoint, and DigestResult",
+      "Rule-based pattern extraction boundaries identified"
+    ],
+    "budget_usd": 0,
+    "estimated_cost_usd": 0
+  },
+  {
+    "task_id": "BUILD",
+    "title": "Implement core engine, extractor, and CLI",
+    "worker_id": "api-engineer",
+    "action": "write",
+    "depends_on": [
+      "DESIGN"
+    ],
+    "acceptance_criteria": [
+      "NoteExtractor handles decisions, action items with owners and deadlines",
+      "NoteDigestEngine generates GitHub-flavored markdown and JSON",
+      "CLI supports file inputs and flags"
+    ],
+    "budget_usd": 0,
+    "estimated_cost_usd": 0
+  },
+  {
+    "task_id": "VERIFY",
+    "title": "Run test suite and verify governance evidence",
+    "worker_id": "devops-engineer",
+    "action": "execute",
+    "depends_on": [
+      "BUILD"
+    ],
+    "command": [
+      "python",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tests"
+    ],
+    "timeout_s": 30,
+    "acceptance_criteria": [
+      "All unit tests pass with exit code 0",
+      "Evidence recorded in audit ledger"
+    ],
+    "budget_usd": 0,
+    "estimated_cost_usd": 0
+  }
+]

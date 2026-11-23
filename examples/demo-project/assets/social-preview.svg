@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 640" width="1280" height="640">
+    <rect width="100%" height="100%" fill="#0B0F19" />
+    <!-- Fine geometric backdrop grid -->
+    <defs>
+        <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1E293B" stroke-width="1" opacity="0.3"/>
+        </pattern>
+    </defs>
+    <rect width="100%" height="100%" fill="url(#grid)" />
+    
+    <!-- Hexagonal Watermark Backdrop -->
+    <circle cx="950" cy="320" r="280" fill="#2563EB" opacity="0.08" />
+    
+    <!-- Primary Symbol -->
+    <g transform="translate(100, 180) scale(2.8)">
+            <!-- Hexagonal outer frame -->
+            <polygon points="50,5 92,27 92,73 50,95 8,73 8,27" fill="#2563EB" opacity="0.95" />
+            <!-- Inner facet bevels -->
+            <polygon points="50,5 92,27 50,50 8,27" fill="#38BDF8" opacity="0.4" />
+            <polygon points="8,27 50,50 50,95 8,73" fill="#000000" opacity="0.25" />
+            <polygon points="50,50 92,27 92,73 50,95" fill="#38BDF8" opacity="0.15" />
+            <!-- Code brackets glyph </ > -->
+            <path d="M38,42 L28,50 L38,58 M62,42 L72,50 L62,58 M54,38 L46,62" 
+                  fill="none" stroke="#FFFFFF" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" />
+        </g>
+    
+    <!-- Typographic Title -->
+    <text x="440" y="310" font-family="'Plus Jakarta Sans', 'Inter', sans-serif" 
+          font-size="108" font-weight="800" letter-spacing="-2" fill="#FFFFFF">
+        NoteDigest
+    </text>
+    
+    <!-- Tagline -->
+    <text x="448" y="375" font-family="'Inter', sans-serif" 
+          font-size="32" font-weight="500" letter-spacing="1.5" fill="#38BDF8">
+        Premium AI Productivity &amp; Knowledge Management
+    </text>
+    
+    <!-- Frame border -->
+    <rect x="2" y="2" width="1276" height="636" fill="none" stroke="#334155" stroke-width="2" rx="8" />
+</svg>
