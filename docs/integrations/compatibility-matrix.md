@@ -24,7 +24,7 @@ OpenClone provides native adapters for all major agent environments using the Mo
 
 | Provider / Route | Connection Type | Tool Calling | Streaming | Vision | Context Window | Verified Quota Status |
 | :--- | :--- | :---: | :---: | :---: | :---: | :--- |
-| **OpenAI** (GPT-4o, o1, o3) | Direct API / Gateway | Yes | Yes | Yes | 128k | Commercial / Tiered |
+| **OpenAI** (GPT-6.2 Sol, GPT-6.2 Astra, GPT-6.1 Terra, GPT-6 Luna, o1, o3) | Direct API / Responses API | Yes | Yes | Yes | 256k | Commercial / Tiered |
 | **Anthropic** (Claude 3.5 Sonnet) | Direct API | Yes | Yes | Yes | 200k | Commercial / Tiered |
 | **Google Gemini** (Gemini 1.5/2.0) | AI Studio / Vertex AI | Yes | Yes | Yes | 1M - 2M | Free Tier & PayGo |
 | **xAI** (Grok 2) | Direct API | Yes | Yes | Yes | 128k | Commercial |

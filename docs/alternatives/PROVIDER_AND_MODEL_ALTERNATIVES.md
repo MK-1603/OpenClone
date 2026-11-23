@@ -8,8 +8,8 @@
 
 | Provider / Model | Role | Key Strengths | Known Limitations | License / Privacy | Fallback Path |
 |---|---|---|---|---|---|
-| **Anthropic (Claude 3.5 / 3.7 Sonnet)** | `PRIMARY` | Nuanced reasoning, system design, architectural depth, low hallucination | Higher cost per million tokens; strict rate limits on Tier 1 | Commercial API; zero training on commercial data | OpenAI GPT-4o / o3-mini |
-| **OpenAI (GPT-4o, o1, o3-mini)** | `FALLBACK` | High speed, extensive tool-calling ecosystem, strong coding synthesis | Occasional aesthetic slop in UI code; aggressive prompt caching | Commercial API; zero retention agreements available | Claude 3.5 Sonnet / DeepSeek |
+| **Anthropic (Claude 3.5 / 3.7 Sonnet)** | `PRIMARY` | Nuanced reasoning, system design, architectural depth, low hallucination | Higher cost per million tokens; strict rate limits on Tier 1 | Commercial API; zero training on commercial data | OpenAI GPT-6.2 Sol / Astra |
+| **OpenAI (GPT-6.2 Sol, GPT-6.2 Astra, GPT-6.1 Terra, o1, o3-mini)** | `PRIMARY` | Responses API, high speed, deep reasoning (Astra), visual floorplans (Terra), strong coding synthesis | Rate limits during high demand; strict temperature constraints on reasoning tiers | Commercial API; zero retention agreements available | Claude 3.5 / 3.7 Sonnet |
 | **Google Gemini (Gemini 1.5 Pro / Flash)** | `OPTIONAL` | Massive context window (2M tokens), multimodal processing, low cost | Can lose fine-grained instruction details across large contexts | Commercial API; Google Cloud enterprise terms | Anthropic Claude |
 | **DeepSeek (DeepSeek-V3 / R1)** | `OPTIONAL` | Exceptional math and code reasoning; extremely low API cost; self-hostable | Variable API latency during peak hours; regional compliance considerations | Open Weights (MIT/DeepSeek) / Commercial API | Claude 3.5 Sonnet |
 | **Ollama / Local Models (Llama 3.3, Qwen 2.5 Coder)** | `SPECIALIST` | 100% offline, zero data exfiltration, no API cost | High GPU hardware requirements; limited context window | Apache 2.0 / Open Weights | Commercial API Provider |

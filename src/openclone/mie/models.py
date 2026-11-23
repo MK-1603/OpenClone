@@ -81,9 +81,12 @@ class ModelPricing:
 class ModelCapabilities:
     """Declared capabilities, token limits, and task specializations."""
     reasoning_effort: bool = False
+    supported_reasoning_levels: List[str] = field(default_factory=list)
     tool_calling: bool = True
     vision: bool = False
     json_schema: bool = True
+    supports_responses_api: bool = True
+    supports_streaming: bool = True
     max_context_tokens: int = 128_000
     max_output_tokens: int = 4_096
     strengths: List[TaskCategory] = field(default_factory=list)
@@ -98,6 +101,8 @@ class ModelRecord:
     tier: ProviderTier
     capabilities: ModelCapabilities
     pricing: ModelPricing
+    model_family: str = "general"
+    alias_to: Optional[str] = None
     quality_score: float = 90.0           # 0.0 to 100.0 scale
     latency_p50_ms: float = 800.0         # Baseline latency benchmark
     reliability_score: float = 99.0       # Historical SLA uptime percentage

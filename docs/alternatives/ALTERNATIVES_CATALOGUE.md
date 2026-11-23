@@ -14,7 +14,7 @@ This catalogue details the primary and alternative technologies supported across
 
 | Area | Capability | Current Primary | Primary Role | Tested / Preferred Fallback | Specialist Alternative |
 |---|---|---|---|---|---|
-| **AI Models** | Frontier Code Generation | Claude 3.5 / 3.7 Sonnet | `PRIMARY` | OpenAI GPT-4o / o3-mini | DeepSeek-R1 (Local / Ollama) |
+| **AI Models** | Frontier Code Generation | Claude 3.5 / 3.7 Sonnet | `PRIMARY` | OpenAI GPT-6.2 Sol / Astra / o3-mini | DeepSeek-R1 (Local / Ollama) |
 | **Model Routing** | Provider Failover | Direct Provider Adapters | `PRIMARY` | LiteLLM Proxy | Portkey / Cloudflare Gateway |
 | **UI Components** | Primitives & Tokens | `shadcn/ui` + Tailwind CSS | `PRIMARY` | Radix Primitives + CSS Variables | Park UI (Ark UI) / Mantine |
 | **Visual Governance** | Anti-AI-Slop & Quality | Taste Skill v2.6.0 | `PRIMARY` | Stylelint + ESLint Custom Rules | Biome + Custom AST Guards |

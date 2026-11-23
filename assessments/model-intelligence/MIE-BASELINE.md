@@ -87,7 +87,7 @@ Host AI environments invoke MIE either via direct Python library invocation (`sr
 
 | Tier | Provider Identifier | Target Endpoint Type | Authentication Mechanism | Supported Flagship Models | Conformance Status |
 |---|---|---|---|---|---|
-| **P0** | `openai` | Direct REST API (`api.openai.com/v1`) | `Bearer $OPENAI_API_KEY` | `gpt-4o`, `gpt-4o-mini`, `o1`, `o3-mini` | `IMPLEMENTED` |
+| **P0** | `openai` | Direct REST API (`api.openai.com/v1`) | `Bearer $OPENAI_API_KEY` | `gpt-6.2-sol`, `gpt-6.2-astra`, `gpt-6.1-terra`, `gpt-6-luna`, `o1`, `o3-mini` (aliases: `gpt-4o`) | `IMPLEMENTED` |
 | **P0** | `anthropic` | Direct REST API (`api.anthropic.com/v1`) | `x-api-key $ANTHROPIC_API_KEY` | `claude-3-7-sonnet`, `claude-3-5-sonnet`, `claude-3-5-haiku` | `IMPLEMENTED` |
 | **P0** | `gemini` | Direct REST API (`generativelanguage.googleapis.com/v1beta`) | `key=$GEMINI_API_KEY` or ADC Bearer | `gemini-2.0-flash`, `gemini-1.5-pro`, `gemini-1.5-flash` | `IMPLEMENTED` |
 | **P0** | `xai` | Direct REST API (`api.x.ai/v1`) | `Bearer $XAI_API_KEY` | `grok-2`, `grok-2-mini` | `IMPLEMENTED` |

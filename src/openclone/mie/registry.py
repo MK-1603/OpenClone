@@ -31,9 +31,17 @@ class ModelRegistry:
         """Register or update a model record in the catalog."""
         self._models[record.model_id] = record
 
-    def get(self, model_id: str) -> Optional[ModelRecord]:
-        """Retrieve model record by identifier, or None if not found."""
-        return self._models.get(model_id)
+    def get(self, model_id: str, resolve_alias: bool = False) -> Optional[ModelRecord]:
+        """Retrieve model record by identifier, or None if not found.
+
+        If resolve_alias is True and the record has alias_to, resolves to the target model.
+        """
+        rec = self._models.get(model_id)
+        if rec and resolve_alias and rec.alias_to:
+            target = self._models.get(rec.alias_to)
+            if target:
+                return target
+        return rec
 
     def list_all(self) -> List[ModelRecord]:
         """Return all registered model records."""
@@ -75,17 +83,137 @@ class ModelRegistry:
     def _preload_canonical_catalog(self) -> None:
         """Seed registry with authoritative industry models as of 2026."""
         canonical_records = [
-            # --- OpenAI Tier 0 ---
+            # --- OpenAI Tier 0 — GPT-6 Canonical Family & Reasoning ---
+            ModelRecord(
+                model_id="gpt-6.2-sol",
+                provider_id="openai",
+                display_name="OpenAI GPT-6.2 Sol (Adaptive Reasoning & Default)",
+                tier=ProviderTier.P0_DIRECT,
+                model_family="gpt-6",
+                capabilities=ModelCapabilities(
+                    reasoning_effort=True,
+                    supported_reasoning_levels=["low", "medium", "high"],
+                    tool_calling=True,
+                    vision=True,
+                    json_schema=True,
+                    supports_responses_api=True,
+                    supports_streaming=True,
+                    max_context_tokens=256_000,
+                    max_output_tokens=32_768,
+                    strengths=[
+                        TaskCategory.BACKEND_API,
+                        TaskCategory.FRONTEND_UI,
+                        TaskCategory.GENERAL_ORCHESTRATION,
+                        TaskCategory.REFACTORING,
+                        TaskCategory.DATABASE_DATA,
+                    ],
+                ),
+                pricing=ModelPricing(input_price_per_m=2.00, output_price_per_m=8.00),
+                quality_score=98.0,
+                latency_p50_ms=850.0,
+                reliability_score=99.9,
+                status=MaturityStatus.VERIFIED,
+            ),
+            ModelRecord(
+                model_id="gpt-6.2-astra",
+                provider_id="openai",
+                display_name="OpenAI GPT-6.2 Astra (Deep Reasoning & Architecture)",
+                tier=ProviderTier.P0_DIRECT,
+                model_family="gpt-6",
+                capabilities=ModelCapabilities(
+                    reasoning_effort=True,
+                    supported_reasoning_levels=["low", "medium", "high"],
+                    tool_calling=True,
+                    vision=True,
+                    json_schema=True,
+                    supports_responses_api=True,
+                    supports_streaming=True,
+                    max_context_tokens=256_000,
+                    max_output_tokens=64_000,
+                    strengths=[
+                        TaskCategory.ARCHITECTURE_DESIGN,
+                        TaskCategory.SECURITY_AUDIT,
+                        TaskCategory.DEBUGGING_RCA,
+                        TaskCategory.CODE_REVIEW,
+                        TaskCategory.ML_DATA_SCIENCE,
+                    ],
+                ),
+                pricing=ModelPricing(input_price_per_m=5.00, output_price_per_m=20.00),
+                quality_score=99.5,
+                latency_p50_ms=2800.0,
+                reliability_score=99.8,
+                status=MaturityStatus.VERIFIED,
+            ),
+            ModelRecord(
+                model_id="gpt-6.1-terra",
+                provider_id="openai",
+                display_name="OpenAI GPT-6.1 Terra (Visual Reasoning & UI)",
+                tier=ProviderTier.P0_DIRECT,
+                model_family="gpt-6",
+                capabilities=ModelCapabilities(
+                    reasoning_effort=False,
+                    supported_reasoning_levels=[],
+                    tool_calling=True,
+                    vision=True,
+                    json_schema=True,
+                    supports_responses_api=True,
+                    supports_streaming=True,
+                    max_context_tokens=200_000,
+                    max_output_tokens=16_384,
+                    strengths=[
+                        TaskCategory.FRONTEND_UI,
+                        TaskCategory.DOCUMENTATION_SPECS,
+                        TaskCategory.CODE_REVIEW,
+                    ],
+                ),
+                pricing=ModelPricing(input_price_per_m=1.75, output_price_per_m=7.00),
+                quality_score=96.5,
+                latency_p50_ms=720.0,
+                reliability_score=99.7,
+                status=MaturityStatus.VERIFIED,
+            ),
+            ModelRecord(
+                model_id="gpt-6-luna",
+                provider_id="openai",
+                display_name="OpenAI GPT-6 Luna (High-Speed & Cost-Efficient)",
+                tier=ProviderTier.P0_DIRECT,
+                model_family="gpt-6",
+                capabilities=ModelCapabilities(
+                    reasoning_effort=False,
+                    supported_reasoning_levels=[],
+                    tool_calling=True,
+                    vision=True,
+                    json_schema=True,
+                    supports_responses_api=True,
+                    supports_streaming=True,
+                    max_context_tokens=128_000,
+                    max_output_tokens=16_384,
+                    strengths=[
+                        TaskCategory.FAST_SCAFFOLDING,
+                        TaskCategory.DOCUMENTATION_SPECS,
+                        TaskCategory.TEST_ENGINEERING,
+                    ],
+                ),
+                pricing=ModelPricing(input_price_per_m=0.20, output_price_per_m=0.80),
+                quality_score=91.5,
+                latency_p50_ms=320.0,
+                reliability_score=99.8,
+                status=MaturityStatus.VERIFIED,
+            ),
             ModelRecord(
                 model_id="gpt-4o",
                 provider_id="openai",
-                display_name="OpenAI GPT-4o (Omni)",
+                display_name="OpenAI GPT-4o (Legacy — Aliased to GPT-6.2 Sol)",
                 tier=ProviderTier.P0_DIRECT,
+                model_family="gpt-4",
+                alias_to="gpt-6.2-sol",
                 capabilities=ModelCapabilities(
                     reasoning_effort=False,
                     tool_calling=True,
                     vision=True,
                     json_schema=True,
+                    supports_responses_api=False,
+                    supports_streaming=True,
                     max_context_tokens=128_000,
                     max_output_tokens=16_384,
                     strengths=[
@@ -104,13 +232,17 @@ class ModelRegistry:
             ModelRecord(
                 model_id="gpt-4o-mini",
                 provider_id="openai",
-                display_name="OpenAI GPT-4o-mini",
+                display_name="OpenAI GPT-4o-mini (Legacy — Aliased to GPT-6 Luna)",
                 tier=ProviderTier.P0_DIRECT,
+                model_family="gpt-4",
+                alias_to="gpt-6-luna",
                 capabilities=ModelCapabilities(
                     reasoning_effort=False,
                     tool_calling=True,
                     vision=True,
                     json_schema=True,
+                    supports_responses_api=False,
+                    supports_streaming=True,
                     max_context_tokens=128_000,
                     max_output_tokens=16_384,
                     strengths=[
