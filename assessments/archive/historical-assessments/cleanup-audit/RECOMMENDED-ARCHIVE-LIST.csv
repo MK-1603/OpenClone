@@ -1,4 +1,0 @@
-ExactPath,FileName,CurrentCategory,ProposedArchiveLocation,Rationale
-docs/v4/*,v4 draft docs,Historical reference,docs/archive/v4/,Older intermediate v4 draft superseded by docs/framework/ (Already completed)
-ASSESSMENT/*,historical rubrics,Historical reference,assessments/historical/,Case-sensitivity collision resolution (Already completed)
-blueprints/*,historical blueprints,Historical reference,blueprints/ (Preserved in-place with historical index),Immutable engineering provenance
