@@ -1,0 +1,1510 @@
+{
+  "$schema": "https://openclone.org/schemas/v2/integration-registry.json",
+  "schema_version": "1.0.0",
+  "updated_at": "2026-11-23T02:20:00Z",
+  "total_entries": 27,
+  "integrations": [
+    {
+      "id": "UI-001",
+      "name": "design-md-chrome",
+      "category": "ui-ux",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/bergside/design-md-chrome",
+        "parent_url": "https://github.com/bergside/design-md-chrome",
+        "subpath": "",
+        "default_branch": "main",
+        "commit": "8e07614fb18752ab1ee14dd65a8ff93e63c9b13b",
+        "commit_date": "2026-05-25"
+      },
+      "classification": [
+        "DESIGN_SYSTEM",
+        "KNOWLEDGE_REFERENCE"
+      ],
+      "license": {
+        "spdx_id": "MIT",
+        "file": "LICENSE",
+        "review_status": "REVIEWED"
+      },
+      "dependencies": [
+        "None"
+      ],
+      "capabilities": [
+        "cap-design-token-extraction",
+        "cap-markdown-design-spec"
+      ],
+      "integration": {
+        "status": "INTEGRATED",
+        "decision": "ADAPTED",
+        "adapter": "integrations/adapters/design_token_adapter.py",
+        "operational_role": "Design token extraction and markdown conversion from web pages.",
+        "rationale": "Lightweight pure-JS extraction logic adapted into OpenClone token specification rules.",
+        "verified": true
+      },
+      "distribution": {
+        "included_by_default": false,
+        "optional": true
+      },
+      "tech_stack": {
+        "languages": [
+          "Markdown/Other"
+        ],
+        "package_managers": [
+          "None"
+        ],
+        "entry_points": [],
+        "has_skills": false,
+        "has_cursorrules": false,
+        "has_prompts": false
+      }
+    },
+    {
+      "id": "UI-002",
+      "name": "shadcn-ui",
+      "category": "ui-ux",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/shadcn-ui/ui",
+        "parent_url": "https://github.com/shadcn-ui/ui",
+        "subpath": "",
+        "default_branch": "main",
+        "commit": "bfa64ff4d1cb7317d2403ecb176df6826d4caffc",
+        "commit_date": "2026-11-21"
+      },
+      "classification": [
+        "DESIGN_SYSTEM",
+        "LIBRARY"
+      ],
+      "license": {
+        "spdx_id": "MIT",
+        "file": "LICENSE.md",
+        "review_status": "REVIEWED"
+      },
+      "dependencies": [
+        "npm/pnpm/yarn"
+      ],
+      "capabilities": [
+        "cap-accessible-primitives",
+        "cap-tailwind-components"
+      ],
+      "integration": {
+        "status": "AVAILABLE",
+        "decision": "REFERENCED",
+        "adapter": null,
+        "operational_role": "Standard React / Tailwind accessible component templates.",
+        "rationale": "Referenced as canonical design system in domain 05 without vendoring heavy node_modules.",
+        "verified": true
+      },
+      "distribution": {
+        "included_by_default": false,
+        "optional": true
+      },
+      "tech_stack": {
+        "languages": [
+          "JavaScript/TypeScript"
+        ],
+        "package_managers": [
+          "npm/pnpm/yarn"
+        ],
+        "entry_points": [
+          "build",
+          "build:packages",
+          "registry:build",
+          "registry:capture",
+          "registry:health"
+        ],
+        "has_skills": true,
+        "has_cursorrules": false,
+        "has_prompts": false
+      }
+    },
+    {
+      "id": "UI-003",
+      "name": "interface-design",
+      "category": "ui-ux",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/Dammyjay93/interface-design",
+        "parent_url": "https://github.com/Dammyjay93/interface-design",
+        "subpath": "",
+        "default_branch": "main",
+        "commit": "2f9be3206855bcb2d1d0af262c8bae25cba6658d",
+        "commit_date": "2026-06-20"
+      },
+      "classification": [
+        "DESIGN_SYSTEM",
+        "KNOWLEDGE_REFERENCE"
+      ],
+      "license": {
+        "spdx_id": "MIT",
+        "file": "LICENSE",
+        "review_status": "REVIEWED"
+      },
+      "dependencies": [
+        "None"
+      ],
+      "capabilities": [
+        "cap-consumer-interface-patterns"
+      ],
+      "integration": {
+        "status": "AVAILABLE",
+        "decision": "REFERENCED",
+        "adapter": null,
+        "operational_role": "Consumer interface patterns and screen layout references.",
+        "rationale": "Curated reference patterns mapped to domain 05 UX guidelines.",
+        "verified": true
+      },
+      "distribution": {
+        "included_by_default": false,
+        "optional": true
+      },
+      "tech_stack": {
+        "languages": [
+          "Markdown/Other"
+        ],
+        "package_managers": [
+          "None"
+        ],
+        "entry_points": [],
+        "has_skills": true,
+        "has_cursorrules": false,
+        "has_prompts": false
+      }
+    },
+    {
+      "id": "UI-004",
+      "name": "Unstop-UI",
+      "category": "ui-ux",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/Mohit-Raj-Singh/Unstop-UI",
+        "parent_url": "https://github.com/Mohit-Raj-Singh/Unstop-UI",
+        "subpath": "",
+        "default_branch": "master",
+        "commit": "09da6d2088099e0d419c334d40fbaf25b4d48840",
+        "commit_date": "2023-07-26"
+      },
+      "classification": [
+        "DESIGN_SYSTEM",
+        "KNOWLEDGE_REFERENCE"
+      ],
+      "license": {
+        "spdx_id": "UNKNOWN",
+        "file": "NONE",
+        "review_status": "BLOCKED_LICENSE_REVIEW"
+      },
+      "dependencies": [
+        "npm/pnpm/yarn"
+      ],
+      "capabilities": [
+        "cap-unstop-component-reference"
+      ],
+      "integration": {
+        "status": "CLONED",
+        "decision": "BLOCKED_LICENSE_REVIEW",
+        "adapter": null,
+        "operational_role": "Component reference implementation.",
+        "rationale": "No declared license in root repository. Blocked from redistribution or core integration pending license clarification.",
+        "verified": false
+      },
+      "distribution": {
+        "included_by_default": false,
+        "optional": true
+      },
+      "tech_stack": {
+        "languages": [
+          "JavaScript/TypeScript"
+        ],
+        "package_managers": [
+          "npm/pnpm/yarn"
+        ],
+        "entry_points": [
+          "start",
+          "build",
+          "test",
+          "eject"
+        ],
+        "has_skills": false,
+        "has_cursorrules": false,
+        "has_prompts": false
+      }
+    },
+    {
+      "id": "UI-005",
+      "name": "anthropic-frontend-design",
+      "category": "ui-ux",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/anthropics/skills/tree/main/skills/frontend-design",
+        "parent_url": "https://github.com/anthropics/skills",
+        "subpath": "skills/frontend-design",
+        "default_branch": "main",
+        "commit": "e4bb5d960d87126ff3b3a8af1a104b7db67560ba",
+        "commit_date": "2026-11-16"
+      },
+      "classification": [
+        "SKILL_SOURCE",
+        "DESIGN_SYSTEM"
+      ],
+      "license": {
+        "spdx_id": "Apache-2.0",
+        "file": "LICENSE.txt",
+        "review_status": "REVIEWED"
+      },
+      "dependencies": [
+        "None"
+      ],
+      "capabilities": [
+        "cap-claude-frontend-design",
+        "cap-spatial-hierarchy"
+      ],
+      "integration": {
+        "status": "INTEGRATED",
+        "decision": "ADOPTED",
+        "adapter": "skills/taste-skill/skills/frontend-design/SKILL.md",
+        "operational_role": "Claude-optimized frontend design skill and spatial hierarchy rules.",
+        "rationale": "Apache-2.0 licensed design prompt skill adapted into OpenClone design engine.",
+        "verified": true
+      },
+      "distribution": {
+        "included_by_default": false,
+        "optional": true
+      },
+      "tech_stack": {
+        "languages": [
+          "Markdown/Other"
+        ],
+        "package_managers": [
+          "None"
+        ],
+        "entry_points": [],
+        "has_skills": true,
+        "has_cursorrules": false,
+        "has_prompts": false
+      }
+    },
+    {
+      "id": "UI-006",
+      "name": "taste-skill",
+      "category": "ui-ux",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/Leonxlnx/taste-skill",
+        "parent_url": "https://github.com/Leonxlnx/taste-skill",
+        "subpath": "",
+        "default_branch": "main",
+        "commit": "f6b76575f949707b4e3c37cd86cb44b0b98643e8",
+        "commit_date": "2026-11-07"
+      },
+      "classification": [
+        "SKILL_SOURCE",
+        "DESIGN_SYSTEM"
+      ],
+      "license": {
+        "spdx_id": "MIT",
+        "file": "LICENSE",
+        "review_status": "REVIEWED"
+      },
+      "dependencies": [
+        "None"
+      ],
+      "capabilities": [
+        "cap-anti-ai-slop-governance",
+        "cap-design-tokens",
+        "cap-contrast-verification"
+      ],
+      "integration": {
+        "status": "INTEGRATED",
+        "decision": "ADOPTED",
+        "adapter": "skills/taste-skill/scripts/gate.mjs",
+        "operational_role": "Core anti-AI-slop design governance, token library, and pre-build plan gates.",
+        "rationale": "Directly integrated into OpenClone taste-skill governance suite with 13 automated tests.",
+        "verified": true
+      },
+      "distribution": {
+        "included_by_default": false,
+        "optional": true
+      },
+      "tech_stack": {
+        "languages": [
+          "Markdown/Other"
+        ],
+        "package_managers": [
+          "None"
+        ],
+        "entry_points": [],
+        "has_skills": true,
+        "has_cursorrules": false,
+        "has_prompts": false
+      }
+    },
+    {
+      "id": "UI-007",
+      "name": "hallmark",
+      "category": "ui-ux",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/nutlope/hallmark",
+        "parent_url": "https://github.com/nutlope/hallmark",
+        "subpath": "",
+        "default_branch": "main",
+        "commit": "04977e15f3dfd6ee4b74c887dac3eb52665d6c92",
+        "commit_date": "2026-11-11"
+      },
+      "classification": [
+        "DESIGN_SYSTEM",
+        "APPLICATION"
+      ],
+      "license": {
+        "spdx_id": "MIT",
+        "file": "LICENSE",
+        "review_status": "REVIEWED"
+      },
+      "dependencies": [
+        "npm/pnpm/yarn"
+      ],
+      "capabilities": [
+        "cap-frontend-design-critique",
+        "cap-anti-slop-evaluation"
+      ],
+      "integration": {
+        "status": "INTEGRATED",
+        "decision": "ADAPTED",
+        "adapter": "domains/05-UX-UI-ENGINEERING/ANTI-AI-SLOP-STANDARDS.md",
+        "operational_role": "Design critique rules preventing AI clich\u00e9s and neon blur blobs.",
+        "rationale": "Benchmark criteria synthesized into normative anti-slop rules.",
+        "verified": true
+      },
+      "distribution": {
+        "included_by_default": false,
+        "optional": true
+      },
+      "tech_stack": {
+        "languages": [
+          "JavaScript/TypeScript"
+        ],
+        "package_managers": [
+          "npm/pnpm/yarn"
+        ],
+        "entry_points": [
+          "serve"
+        ],
+        "has_skills": true,
+        "has_cursorrules": false,
+        "has_prompts": false
+      }
+    },
+    {
+      "id": "UI-008",
+      "name": "ui-ux-pro-max-skill",
+      "category": "ui-ux",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill",
+        "parent_url": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill",
+        "subpath": "",
+        "default_branch": "main",
+        "commit": "6ec2bb58334ca3014573c4cbd4834ee3a40afd9d",
+        "commit_date": "2026-11-22"
+      },
+      "classification": [
+        "SKILL_SOURCE",
+        "KNOWLEDGE_REFERENCE"
+      ],
+      "license": {
+        "spdx_id": "MIT",
+        "file": "LICENSE",
+        "review_status": "REVIEWED"
+      },
+      "dependencies": [
+        "None"
+      ],
+      "capabilities": [
+        "cap-multi-domain-design-systems",
+        "cap-dashboard-architecture"
+      ],
+      "integration": {
+        "status": "INTEGRATED",
+        "decision": "ADAPTED",
+        "adapter": "docs/knowledge/ui-ux-design-catalogue.md",
+        "operational_role": "67-domain design system rules for SaaS and dashboards.",
+        "rationale": "Catalogued into fast live MCP guidance and master design encyclopedia.",
+        "verified": true
+      },
+      "distribution": {
+        "included_by_default": false,
+        "optional": true
+      },
+      "tech_stack": {
+        "languages": [
+          "Markdown/Other"
+        ],
+        "package_managers": [
+          "None"
+        ],
+        "entry_points": [],
+        "has_skills": true,
+        "has_cursorrules": false,
+        "has_prompts": false
+      }
+    },
+    {
+      "id": "UI-009",
+      "name": "frontend-design-skills",
+      "category": "ui-ux",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/flitzrrr/frontend-design-skills",
+        "parent_url": "https://github.com/flitzrrr/frontend-design-skills",
+        "subpath": "",
+        "default_branch": "main",
+        "commit": "d607ba305bf606605de9382609864a69ad92699b",
+        "commit_date": "2026-04-06"
+      },
+      "classification": [
+        "SKILL_SOURCE",
+        "KNOWLEDGE_REFERENCE"
+      ],
+      "license": {
+        "spdx_id": "MIT",
+        "file": "LICENSE",
+        "review_status": "REVIEWED"
+      },
+      "dependencies": [
+        "npm/pnpm/yarn",
+        "pip/poetry/uv"
+      ],
+      "capabilities": [
+        "cap-multi-ide-skill-conventions"
+      ],
+      "integration": {
+        "status": "AVAILABLE",
+        "decision": "REFERENCED",
+        "adapter": null,
+        "operational_role": "Cross-IDE prompt conventions for Claude Code and Cursor.",
+        "rationale": "Referenced in host adapter documentation and prompt scaffolds.",
+        "verified": true
+      },
+      "distribution": {
+        "included_by_default": false,
+        "optional": true
+      },
+      "tech_stack": {
+        "languages": [
+          "JavaScript/TypeScript",
+          "Python"
+        ],
+        "package_managers": [
+          "npm/pnpm/yarn",
+          "pip/poetry/uv"
+        ],
+        "entry_points": [
+          "test",
+          "build",
+          "validate",
+          "check-counts",
+          "update-counts"
+        ],
+        "has_skills": true,
+        "has_cursorrules": true,
+        "has_prompts": false
+      }
+    },
+    {
+      "id": "UI-010",
+      "name": "impeccable",
+      "category": "ui-ux",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/pbakaus/impeccable",
+        "parent_url": "https://github.com/pbakaus/impeccable",
+        "subpath": "",
+        "default_branch": "main",
+        "commit": "b49177d32788f2dc585c42831d845dacf1ebed2c",
+        "commit_date": "2026-11-18"
+      },
+      "classification": [
+        "SKILL_SOURCE",
+        "KNOWLEDGE_REFERENCE"
+      ],
+      "license": {
+        "spdx_id": "Apache-2.0",
+        "file": "LICENSE",
+        "review_status": "REVIEWED"
+      },
+      "dependencies": [
+        "npm/pnpm/yarn",
+        "cargo"
+      ],
+      "capabilities": [
+        "cap-visual-qa-vocabulary",
+        "cap-defect-classification"
+      ],
+      "integration": {
+        "status": "INTEGRATED",
+        "decision": "ADAPTED",
+        "adapter": "docs/knowledge/ui-ux-quality-audit.md",
+        "operational_role": "Structured design critique vocabulary and UI defect taxonomy.",
+        "rationale": "Adapted into live MCP guidance topic 'ui_ux_quality'.",
+        "verified": true
+      },
+      "distribution": {
+        "included_by_default": false,
+        "optional": true
+      },
+      "tech_stack": {
+        "languages": [
+          "JavaScript/TypeScript",
+          "Rust"
+        ],
+        "package_managers": [
+          "npm/pnpm/yarn",
+          "cargo"
+        ],
+        "entry_points": [
+          "build:skills",
+          "build:skills:release",
+          "build",
+          "build:release",
+          "build:extension"
+        ],
+        "has_skills": true,
+        "has_cursorrules": false,
+        "has_prompts": false
+      }
+    },
+    {
+      "id": "UI-011",
+      "name": "typography-skills",
+      "category": "ui-ux",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/jpoindexter/typography-skills",
+        "parent_url": "https://github.com/jpoindexter/typography-skills",
+        "subpath": "",
+        "default_branch": "main",
+        "commit": "615006a142464d1a5abfa16304fbafa5e2ffef20",
+        "commit_date": "2026-07-29"
+      },
+      "classification": [
+        "SKILL_SOURCE",
+        "DESIGN_SYSTEM"
+      ],
+      "license": {
+        "spdx_id": "MIT",
+        "file": "LICENSE",
+        "review_status": "REVIEWED"
+      },
+      "dependencies": [
+        "None"
+      ],
+      "capabilities": [
+        "cap-major-third-type-scale",
+        "cap-fluid-typography",
+        "cap-optical-line-length"
+      ],
+      "integration": {
+        "status": "INTEGRATED",
+        "decision": "ADOPTED",
+        "adapter": "domains/05-UX-UI-ENGINEERING/TYPOGRAPHY-STANDARDS.md",
+        "operational_role": "Rigorous typography rules: Major Third scale, fluid clamp(), line length limits.",
+        "rationale": "Adopted into domain 05 typography governance.",
+        "verified": true
+      },
+      "distribution": {
+        "included_by_default": false,
+        "optional": true
+      },
+      "tech_stack": {
+        "languages": [
+          "Markdown/Other"
+        ],
+        "package_managers": [
+          "None"
+        ],
+        "entry_points": [],
+        "has_skills": true,
+        "has_cursorrules": false,
+        "has_prompts": false
+      }
+    },
+    {
+      "id": "SEC-001",
+      "name": "strix",
+      "category": "security",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/usestrix/strix",
+        "parent_url": "https://github.com/usestrix/strix",
+        "subpath": "",
+        "default_branch": "main",
+        "commit": "a1ccf777d80e812edf23fc8b82bdc17def6143ac",
+        "commit_date": "2026-11-19"
+      },
+      "classification": [
+        "SECURITY_SCANNER",
+        "APPLICATION"
+      ],
+      "license": {
+        "spdx_id": "Apache-2.0",
+        "file": "LICENSE",
+        "review_status": "REVIEWED"
+      },
+      "dependencies": [
+        "pip/poetry/uv"
+      ],
+      "capabilities": [
+        "cap-ai-dynamic-pentest",
+        "cap-strix-sandbox-runner"
+      ],
+      "integration": {
+        "status": "INTEGRATED",
+        "decision": "OPTIONAL_ADAPTER",
+        "adapter": "integrations/adapters/strix_adapter.py",
+        "operational_role": "Dynamic AI penetration testing in an isolated Docker container with strict target allowlists.",
+        "rationale": "Encapsulated as an optional, authorization-gated security adapter.",
+        "verified": true
+      },
+      "distribution": {
+        "included_by_default": false,
+        "optional": true
+      },
+      "tech_stack": {
+        "languages": [
+          "Python"
+        ],
+        "package_managers": [
+          "pip/poetry/uv"
+        ],
+        "entry_points": [],
+        "has_skills": true,
+        "has_cursorrules": false,
+        "has_prompts": false
+      }
+    },
+    {
+      "id": "SEC-002",
+      "name": "nuclei",
+      "category": "security",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/projectdiscovery/nuclei",
+        "parent_url": "https://github.com/projectdiscovery/nuclei",
+        "subpath": "",
+        "default_branch": "dev",
+        "commit": "e169d3bb5d6c39eeb3de02219fcb1267bfbac5fe",
+        "commit_date": "2026-11-21"
+      },
+      "classification": [
+        "SECURITY_SCANNER",
+        "CLI_TOOL"
+      ],
+      "license": {
+        "spdx_id": "MIT",
+        "file": "LICENSE.md",
+        "review_status": "REVIEWED"
+      },
+      "dependencies": [
+        "go modules"
+      ],
+      "capabilities": [
+        "cap-template-vulnerability-scanning"
+      ],
+      "integration": {
+        "status": "AVAILABLE",
+        "decision": "OPTIONAL_ADAPTER",
+        "adapter": "integrations/adapters/scanner_gateway.py",
+        "operational_role": "Template-based vulnerability scanner for authorized test harnesses.",
+        "rationale": "Managed via scanner gateway lockfile with explicit authorization checks.",
+        "verified": true
+      },
+      "distribution": {
+        "included_by_default": false,
+        "optional": true
+      },
+      "tech_stack": {
+        "languages": [
+          "Go"
+        ],
+        "package_managers": [
+          "go modules"
+        ],
+        "entry_points": [],
+        "has_skills": false,
+        "has_cursorrules": false,
+        "has_prompts": false
+      }
+    },
+    {
+      "id": "SEC-003",
+      "name": "codex-security",
+      "category": "security",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/openai/codex-security",
+        "parent_url": "https://github.com/openai/codex-security",
+        "subpath": "",
+        "default_branch": "main",
+        "commit": "35373239d9319e5f5ada1f135f13a7da5c01c909",
+        "commit_date": "2026-11-22"
+      },
+      "classification": [
+        "SECURITY_SCANNER",
+        "KNOWLEDGE_REFERENCE"
+      ],
+      "license": {
+        "spdx_id": "Apache-2.0",
+        "file": "LICENSE",
+        "review_status": "REVIEWED"
+      },
+      "dependencies": [
+        "npm/pnpm/yarn"
+      ],
+      "capabilities": [
+        "cap-ai-vulnerability-triage"
+      ],
+      "integration": {
+        "status": "AVAILABLE",
+        "decision": "REFERENCED",
+        "adapter": null,
+        "operational_role": "AI automated vulnerability triage patterns and remediation guidance.",
+        "rationale": "Synthesized into domain 14 security rules and threat models.",
+        "verified": true
+      },
+      "distribution": {
+        "included_by_default": false,
+        "optional": true
+      },
+      "tech_stack": {
+        "languages": [
+          "JavaScript/TypeScript"
+        ],
+        "package_managers": [
+          "npm/pnpm/yarn"
+        ],
+        "entry_points": [],
+        "has_skills": true,
+        "has_cursorrules": false,
+        "has_prompts": false
+      }
+    },
+    {
+      "id": "SEC-004",
+      "name": "security-audit-skill",
+      "category": "security",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/cloudflare/security-audit-skill",
+        "parent_url": "https://github.com/cloudflare/security-audit-skill",
+        "subpath": "",
+        "default_branch": "main",
+        "commit": "c1c8a8c1471069fb0e188eeaff69b8e8db6564a8",
+        "commit_date": "2026-09-14"
+      },
+      "classification": [
+        "SKILL_SOURCE",
+        "SECURITY_SCANNER"
+      ],
+      "license": {
+        "spdx_id": "MIT",
+        "file": "LICENSE",
+        "review_status": "REVIEWED"
+      },
+      "dependencies": [
+        "None"
+      ],
+      "capabilities": [
+        "cap-codebase-security-audit-skill"
+      ],
+      "integration": {
+        "status": "INTEGRATED",
+        "decision": "ADAPTED",
+        "adapter": "domains/14-SECURITY-AND-PRIVACY/SECURITY-AUDIT-SKILL.md",
+        "operational_role": "Agent-driven codebase security audit checklists and inspection routines.",
+        "rationale": "Adapted into domain 14 as canonical audit guidance.",
+        "verified": true
+      },
+      "distribution": {
+        "included_by_default": false,
+        "optional": true
+      },
+      "tech_stack": {
+        "languages": [
+          "Markdown/Other"
+        ],
+        "package_managers": [
+          "None"
+        ],
+        "entry_points": [],
+        "has_skills": true,
+        "has_cursorrules": false,
+        "has_prompts": false
+      }
+    },
+    {
+      "id": "SEC-005",
+      "name": "semgrep",
+      "category": "security",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/semgrep/semgrep",
+        "parent_url": "https://github.com/semgrep/semgrep",
+        "subpath": "",
+        "default_branch": "develop",
+        "commit": "c4dbe9ee2fc6d0022ba02ef6b97c5954ed9549e3",
+        "commit_date": "2026-11-20"
+      },
+      "classification": [
+        "SECURITY_SCANNER",
+        "CLI_TOOL"
+      ],
+      "license": {
+        "spdx_id": "GPL-2.0",
+        "file": "LICENSE",
+        "review_status": "REVIEWED"
+      },
+      "dependencies": [
+        "pip/poetry/uv"
+      ],
+      "capabilities": [
+        "cap-static-code-analysis-sast"
+      ],
+      "integration": {
+        "status": "AVAILABLE",
+        "decision": "OPTIONAL_ADAPTER",
+        "adapter": "integrations/adapters/scanner_gateway.py",
+        "operational_role": "Multi-language static code analysis for injection flaws and insecure configs.",
+        "rationale": "Pinned in security/scanners.lock.json and integrated through scanner gateway.",
+        "verified": true
+      },
+      "distribution": {
+        "included_by_default": false,
+        "optional": true
+      },
+      "tech_stack": {
+        "languages": [
+          "Python"
+        ],
+        "package_managers": [
+          "pip/poetry/uv"
+        ],
+        "entry_points": [],
+        "has_skills": false,
+        "has_cursorrules": false,
+        "has_prompts": false
+      }
+    },
+    {
+      "id": "SEC-006",
+      "name": "claude-code-security-review",
+      "category": "security",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/anthropics/claude-code-security-review",
+        "parent_url": "https://github.com/anthropics/claude-code-security-review",
+        "subpath": "",
+        "default_branch": "main",
+        "commit": "0c6a49f1fa56a1d472575da86a94dbc1edb78eda",
+        "commit_date": "2026-02-11"
+      },
+      "classification": [
+        "SKILL_SOURCE",
+        "SECURITY_SCANNER"
+      ],
+      "license": {
+        "spdx_id": "MIT",
+        "file": "LICENSE",
+        "review_status": "REVIEWED"
+      },
+      "dependencies": [
+        "None"
+      ],
+      "capabilities": [
+        "cap-pr-security-review-workflow"
+      ],
+      "integration": {
+        "status": "INTEGRATED",
+        "decision": "ADAPTED",
+        "adapter": "domains/14-SECURITY-AND-PRIVACY/PR-SECURITY-REVIEW.md",
+        "operational_role": "Structured security review checklists for pull requests and verification gates.",
+        "rationale": "Adapted into phase 18 verification quality gates.",
+        "verified": true
+      },
+      "distribution": {
+        "included_by_default": false,
+        "optional": true
+      },
+      "tech_stack": {
+        "languages": [
+          "Markdown/Other"
+        ],
+        "package_managers": [
+          "None"
+        ],
+        "entry_points": [],
+        "has_skills": false,
+        "has_cursorrules": false,
+        "has_prompts": false
+      }
+    },
+    {
+      "id": "SEC-007",
+      "name": "trivy",
+      "category": "security",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/aquasecurity/trivy",
+        "parent_url": "https://github.com/aquasecurity/trivy",
+        "subpath": "",
+        "default_branch": "main",
+        "commit": "edf9f5c13d27ba1f6b1bc747f2f41a383dc56dc9",
+        "commit_date": "2026-11-20"
+      },
+      "classification": [
+        "SECURITY_SCANNER",
+        "CLI_TOOL"
+      ],
+      "license": {
+        "spdx_id": "Apache-2.0",
+        "file": "LICENSE",
+        "review_status": "REVIEWED"
+      },
+      "dependencies": [
+        "go modules"
+      ],
+      "capabilities": [
+        "cap-container-cve-scanning",
+        "cap-dependency-audit"
+      ],
+      "integration": {
+        "status": "AVAILABLE",
+        "decision": "OPTIONAL_ADAPTER",
+        "adapter": "integrations/adapters/scanner_gateway.py",
+        "operational_role": "Container image, dependency lockfile, and misconfiguration vulnerability scanner.",
+        "rationale": "Pinned in security/scanners.lock.json for supply-chain assurance.",
+        "verified": true
+      },
+      "distribution": {
+        "included_by_default": false,
+        "optional": true
+      },
+      "tech_stack": {
+        "languages": [
+          "Go"
+        ],
+        "package_managers": [
+          "go modules"
+        ],
+        "entry_points": [],
+        "has_skills": false,
+        "has_cursorrules": false,
+        "has_prompts": false
+      }
+    },
+    {
+      "id": "SEC-008",
+      "name": "trufflehog",
+      "category": "security",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/trufflesecurity/trufflehog",
+        "parent_url": "https://github.com/trufflesecurity/trufflehog",
+        "subpath": "",
+        "default_branch": "main",
+        "commit": "4ef51f69ca6347aaa76a5e64a87eac9c0c909f71",
+        "commit_date": "2026-11-20"
+      },
+      "classification": [
+        "SECURITY_SCANNER",
+        "CLI_TOOL"
+      ],
+      "license": {
+        "spdx_id": "GPL-3.0",
+        "file": "LICENSE",
+        "review_status": "REVIEWED"
+      },
+      "dependencies": [
+        "go modules"
+      ],
+      "capabilities": [
+        "cap-secret-and-key-detection"
+      ],
+      "integration": {
+        "status": "AVAILABLE",
+        "decision": "OPTIONAL_ADAPTER",
+        "adapter": "integrations/adapters/scanner_gateway.py",
+        "operational_role": "High-entropy secret, API key, and credential detector in commits and logs.",
+        "rationale": "Pinned in security/scanners.lock.json and tested against synthetic credentials.",
+        "verified": true
+      },
+      "distribution": {
+        "included_by_default": false,
+        "optional": true
+      },
+      "tech_stack": {
+        "languages": [
+          "Go"
+        ],
+        "package_managers": [
+          "go modules"
+        ],
+        "entry_points": [],
+        "has_skills": true,
+        "has_cursorrules": false,
+        "has_prompts": false
+      }
+    },
+    {
+      "id": "SEC-009",
+      "name": "skillspector",
+      "category": "security",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/NVIDIA/skillspector",
+        "parent_url": "https://github.com/NVIDIA/skillspector",
+        "subpath": "",
+        "default_branch": "main",
+        "commit": "f9bb13dd1667eb4e7ac97b8ebace3160041ed571",
+        "commit_date": "2026-11-22"
+      },
+      "classification": [
+        "SECURITY_SCANNER",
+        "CLI_TOOL"
+      ],
+      "license": {
+        "spdx_id": "Apache-2.0",
+        "file": "LICENSE",
+        "review_status": "REVIEWED"
+      },
+      "dependencies": [
+        "npm/pnpm/yarn",
+        "pip/poetry/uv"
+      ],
+      "capabilities": [
+        "cap-agent-skill-inspection",
+        "cap-prompt-injection-audit"
+      ],
+      "integration": {
+        "status": "INTEGRATED",
+        "decision": "ADAPTED",
+        "adapter": "domains/30-AGENT-RULES-AND-VERIFICATION/AGENT-SKILL-INSPECTOR.md",
+        "operational_role": "Audits AI skill manifests and tools for malicious prompt injection or unauthorized escalation.",
+        "rationale": "Integrated into skill validation tooling in tools/skill_engine.py.",
+        "verified": true
+      },
+      "distribution": {
+        "included_by_default": false,
+        "optional": true
+      },
+      "tech_stack": {
+        "languages": [
+          "JavaScript/TypeScript",
+          "Python"
+        ],
+        "package_managers": [
+          "npm/pnpm/yarn",
+          "pip/poetry/uv"
+        ],
+        "entry_points": [],
+        "has_skills": true,
+        "has_cursorrules": false,
+        "has_prompts": false
+      }
+    },
+    {
+      "id": "SEC-010",
+      "name": "clamav",
+      "category": "security",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/Cisco-Talos/clamav",
+        "parent_url": "https://github.com/Cisco-Talos/clamav",
+        "subpath": "",
+        "default_branch": "main",
+        "commit": "cad7b18a3e6505195fe08db1412449a18fc9f012",
+        "commit_date": "2026-11-22"
+      },
+      "classification": [
+        "SECURITY_SCANNER",
+        "CLI_TOOL"
+      ],
+      "license": {
+        "spdx_id": "GPL-2.0",
+        "file": "COPYING.txt",
+        "review_status": "REVIEWED"
+      },
+      "dependencies": [
+        "cmake",
+        "cargo"
+      ],
+      "capabilities": [
+        "cap-malware-scan-upload-pipeline"
+      ],
+      "integration": {
+        "status": "AVAILABLE",
+        "decision": "OPTIONAL_ADAPTER",
+        "adapter": "integrations/adapters/scanner_gateway.py",
+        "operational_role": "Antivirus scanning engine for SaaS user file-upload pipelines.",
+        "rationale": "GPL-2.0 external CLI scanner mapped as optional upload protection adapter.",
+        "verified": true
+      },
+      "distribution": {
+        "included_by_default": false,
+        "optional": true
+      },
+      "tech_stack": {
+        "languages": [
+          "C/C++",
+          "Rust"
+        ],
+        "package_managers": [
+          "cmake",
+          "cargo"
+        ],
+        "entry_points": [],
+        "has_skills": false,
+        "has_cursorrules": false,
+        "has_prompts": false
+      }
+    },
+    {
+      "id": "SEC-011",
+      "name": "bla",
+      "category": "security",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/qybaihe/bla",
+        "parent_url": "https://github.com/qybaihe/bla",
+        "subpath": "",
+        "default_branch": "main",
+        "commit": "2b7a7c4f2ac69623542c3ba98e22695855e26449",
+        "commit_date": "2026-11-22"
+      },
+      "classification": [
+        "SECURITY_SCANNER",
+        "KNOWLEDGE_REFERENCE"
+      ],
+      "license": {
+        "spdx_id": "MIT",
+        "file": "LICENSE",
+        "review_status": "REVIEWED"
+      },
+      "dependencies": [
+        "npm/pnpm/yarn"
+      ],
+      "capabilities": [
+        "cap-llm-agent-behavioral-analysis"
+      ],
+      "integration": {
+        "status": "AVAILABLE",
+        "decision": "REFERENCED",
+        "adapter": null,
+        "operational_role": "LLM security research and behavioral evaluation patterns.",
+        "rationale": "Synthesized into domain 11 agent engineering security rules.",
+        "verified": true
+      },
+      "distribution": {
+        "included_by_default": false,
+        "optional": true
+      },
+      "tech_stack": {
+        "languages": [
+          "JavaScript/TypeScript"
+        ],
+        "package_managers": [
+          "npm/pnpm/yarn"
+        ],
+        "entry_points": [
+          "build",
+          "dev",
+          "pretest",
+          "test",
+          "test:watch"
+        ],
+        "has_skills": true,
+        "has_cursorrules": false,
+        "has_prompts": false
+      }
+    },
+    {
+      "id": "SEC-012",
+      "name": "pyrit",
+      "category": "security",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/microsoft/pyrit",
+        "parent_url": "https://github.com/microsoft/pyrit",
+        "subpath": "",
+        "default_branch": "main",
+        "commit": "817523458433ef20c1316418bab10be312535416",
+        "commit_date": "2026-11-22"
+      },
+      "classification": [
+        "SECURITY_SCANNER",
+        "LIBRARY"
+      ],
+      "license": {
+        "spdx_id": "MIT",
+        "file": "LICENSE",
+        "review_status": "REVIEWED"
+      },
+      "dependencies": [
+        "pip/poetry/uv"
+      ],
+      "capabilities": [
+        "cap-generative-ai-red-teaming"
+      ],
+      "integration": {
+        "status": "AVAILABLE",
+        "decision": "OPTIONAL_ADAPTER",
+        "adapter": "integrations/adapters/pyrit_adapter.py",
+        "operational_role": "Microsoft generative AI red-teaming framework for prompt injection and jailbreak tests.",
+        "rationale": "Available as an on-demand security testing module.",
+        "verified": true
+      },
+      "distribution": {
+        "included_by_default": false,
+        "optional": true
+      },
+      "tech_stack": {
+        "languages": [
+          "Python"
+        ],
+        "package_managers": [
+          "pip/poetry/uv"
+        ],
+        "entry_points": [],
+        "has_skills": false,
+        "has_cursorrules": false,
+        "has_prompts": false
+      }
+    },
+    {
+      "id": "ENG-001",
+      "name": "hue",
+      "category": "software-engineering",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/cloudera/hue",
+        "parent_url": "https://github.com/cloudera/hue",
+        "subpath": "",
+        "default_branch": "master",
+        "commit": "7ad92b1820d62a0d5fde38889a1d16646d7a397f",
+        "commit_date": "2026-10-30"
+      },
+      "classification": [
+        "APPLICATION",
+        "FRAMEWORK"
+      ],
+      "license": {
+        "spdx_id": "Apache-2.0",
+        "file": "LICENSE.txt",
+        "review_status": "REVIEWED"
+      },
+      "dependencies": [
+        "npm/pnpm/yarn",
+        "pip/poetry/uv"
+      ],
+      "capabilities": [
+        "cap-sql-query-assistant-ux",
+        "cap-schema-tree-navigation"
+      ],
+      "integration": {
+        "status": "AVAILABLE",
+        "decision": "REFERENCED",
+        "adapter": null,
+        "operational_role": "SQL query workbench patterns, schema navigation, and query optimization UI.",
+        "rationale": "Referenced in domain 15 database engineering guidelines without vendoring monolithic app.",
+        "verified": true
+      },
+      "distribution": {
+        "included_by_default": false,
+        "optional": true
+      },
+      "tech_stack": {
+        "languages": [
+          "JavaScript/TypeScript",
+          "Python"
+        ],
+        "package_managers": [
+          "npm/pnpm/yarn",
+          "pip/poetry/uv"
+        ],
+        "entry_points": [
+          "devinstall",
+          "webpack",
+          "webpack-login",
+          "webpack-workers",
+          "webpack-npm"
+        ],
+        "has_skills": false,
+        "has_cursorrules": false,
+        "has_prompts": false
+      }
+    },
+    {
+      "id": "ENG-002",
+      "name": "superpowers",
+      "category": "software-engineering",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/obra/superpowers",
+        "parent_url": "https://github.com/obra/superpowers",
+        "subpath": "",
+        "default_branch": "main",
+        "commit": "22f0b463e7a5e579904dd6211a520321035526f7",
+        "commit_date": "2026-11-03"
+      },
+      "classification": [
+        "SKILL_SOURCE",
+        "CLI_TOOL"
+      ],
+      "license": {
+        "spdx_id": "MIT",
+        "file": "LICENSE",
+        "review_status": "REVIEWED"
+      },
+      "dependencies": [
+        "npm/pnpm/yarn"
+      ],
+      "capabilities": [
+        "cap-tdd-agent-workflow",
+        "cap-root-cause-debugging"
+      ],
+      "integration": {
+        "status": "INTEGRATED",
+        "decision": "ADAPTED",
+        "adapter": "domains/01-METHODOLOGY/SUPERPOWERS-WORKFLOWS.md",
+        "operational_role": "Coding agent workflows: test-driven development, systematic debugging, milestone plans.",
+        "rationale": "Adapted into OpenClone core engineering lifecycle and agent prompt guidelines.",
+        "verified": true
+      },
+      "distribution": {
+        "included_by_default": false,
+        "optional": true
+      },
+      "tech_stack": {
+        "languages": [
+          "JavaScript/TypeScript"
+        ],
+        "package_managers": [
+          "npm/pnpm/yarn"
+        ],
+        "entry_points": [],
+        "has_skills": true,
+        "has_cursorrules": false,
+        "has_prompts": false
+      }
+    },
+    {
+      "id": "ENG-003",
+      "name": "improve",
+      "category": "software-engineering",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/shadcn/improve",
+        "parent_url": "https://github.com/shadcn/improve",
+        "subpath": "",
+        "default_branch": "main",
+        "commit": "cac56e1ebd3c279aa9153616cfeac7b174ab90f9",
+        "commit_date": "2026-09-12"
+      },
+      "classification": [
+        "CLI_TOOL",
+        "KNOWLEDGE_REFERENCE"
+      ],
+      "license": {
+        "spdx_id": "MIT",
+        "file": "LICENSE.md",
+        "review_status": "REVIEWED"
+      },
+      "dependencies": [
+        "None"
+      ],
+      "capabilities": [
+        "cap-brownfield-codebase-xray"
+      ],
+      "integration": {
+        "status": "AVAILABLE",
+        "decision": "REFERENCED",
+        "adapter": null,
+        "operational_role": "Brownfield repository inspection and codebase improvement workflows.",
+        "rationale": "Synthesized into Workflow WF-002 (Existing Project X-Ray).",
+        "verified": true
+      },
+      "distribution": {
+        "included_by_default": false,
+        "optional": true
+      },
+      "tech_stack": {
+        "languages": [
+          "Markdown/Other"
+        ],
+        "package_managers": [
+          "None"
+        ],
+        "entry_points": [],
+        "has_skills": true,
+        "has_cursorrules": false,
+        "has_prompts": false
+      }
+    },
+    {
+      "id": "ENG-004",
+      "name": "TokenEconomizer",
+      "category": "software-engineering",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/microsoft/TokenEconomizer",
+        "parent_url": "https://github.com/microsoft/TokenEconomizer",
+        "subpath": "",
+        "default_branch": "main",
+        "commit": "1bfeccdcecf48333b22762ad1dd9e36c6dc065df",
+        "commit_date": "2026-11-19"
+      },
+      "classification": [
+        "LIBRARY",
+        "KNOWLEDGE_REFERENCE"
+      ],
+      "license": {
+        "spdx_id": "MIT",
+        "file": "LICENSE",
+        "review_status": "REVIEWED"
+      },
+      "dependencies": [
+        "npm/pnpm/yarn",
+        "pip/poetry/uv"
+      ],
+      "capabilities": [
+        "cap-token-budget-optimization",
+        "cap-prompt-deduplication"
+      ],
+      "integration": {
+        "status": "INTEGRATED",
+        "decision": "ADAPTED",
+        "adapter": "src/openclone/mcp/server.py",
+        "operational_role": "Progressive context disclosure, prompt deduplication, and context budget management.",
+        "rationale": "Implemented directly in OpenClone's dual-tier knowledge retrieval and MCP guidance server.",
+        "verified": true
+      },
+      "distribution": {
+        "included_by_default": false,
+        "optional": true
+      },
+      "tech_stack": {
+        "languages": [
+          "JavaScript/TypeScript",
+          "Python"
+        ],
+        "package_managers": [
+          "npm/pnpm/yarn",
+          "pip/poetry/uv"
+        ],
+        "entry_points": [],
+        "has_skills": true,
+        "has_cursorrules": false,
+        "has_prompts": false
+      }
+    }
+  ]
+}

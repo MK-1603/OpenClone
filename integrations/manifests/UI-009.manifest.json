@@ -1,0 +1,62 @@
+{
+  "id": "UI-009",
+  "name": "frontend-design-skills",
+  "category": "ui-ux",
+  "source": {
+    "type": "git",
+    "url": "https://github.com/flitzrrr/frontend-design-skills",
+    "parent_url": "https://github.com/flitzrrr/frontend-design-skills",
+    "subpath": "",
+    "default_branch": "main",
+    "commit": "d607ba305bf606605de9382609864a69ad92699b",
+    "commit_date": "2026-04-06"
+  },
+  "classification": [
+    "SKILL_SOURCE",
+    "KNOWLEDGE_REFERENCE"
+  ],
+  "license": {
+    "spdx_id": "MIT",
+    "file": "LICENSE",
+    "review_status": "REVIEWED"
+  },
+  "dependencies": [
+    "npm/pnpm/yarn",
+    "pip/poetry/uv"
+  ],
+  "capabilities": [
+    "cap-multi-ide-skill-conventions"
+  ],
+  "integration": {
+    "status": "AVAILABLE",
+    "decision": "REFERENCED",
+    "adapter": null,
+    "operational_role": "Cross-IDE prompt conventions for Claude Code and Cursor.",
+    "rationale": "Referenced in host adapter documentation and prompt scaffolds.",
+    "verified": true
+  },
+  "distribution": {
+    "included_by_default": false,
+    "optional": true
+  },
+  "tech_stack": {
+    "languages": [
+      "JavaScript/TypeScript",
+      "Python"
+    ],
+    "package_managers": [
+      "npm/pnpm/yarn",
+      "pip/poetry/uv"
+    ],
+    "entry_points": [
+      "test",
+      "build",
+      "validate",
+      "check-counts",
+      "update-counts"
+    ],
+    "has_skills": true,
+    "has_cursorrules": true,
+    "has_prompts": false
+  }
+}

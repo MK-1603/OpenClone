@@ -1,0 +1,54 @@
+{
+  "id": "ENG-002",
+  "name": "superpowers",
+  "category": "software-engineering",
+  "source": {
+    "type": "git",
+    "url": "https://github.com/obra/superpowers",
+    "parent_url": "https://github.com/obra/superpowers",
+    "subpath": "",
+    "default_branch": "main",
+    "commit": "22f0b463e7a5e579904dd6211a520321035526f7",
+    "commit_date": "2026-11-03"
+  },
+  "classification": [
+    "SKILL_SOURCE",
+    "CLI_TOOL"
+  ],
+  "license": {
+    "spdx_id": "MIT",
+    "file": "LICENSE",
+    "review_status": "REVIEWED"
+  },
+  "dependencies": [
+    "npm/pnpm/yarn"
+  ],
+  "capabilities": [
+    "cap-tdd-agent-workflow",
+    "cap-root-cause-debugging"
+  ],
+  "integration": {
+    "status": "INTEGRATED",
+    "decision": "ADAPTED",
+    "adapter": "domains/01-METHODOLOGY/SUPERPOWERS-WORKFLOWS.md",
+    "operational_role": "Coding agent workflows: test-driven development, systematic debugging, milestone plans.",
+    "rationale": "Adapted into OpenClone core engineering lifecycle and agent prompt guidelines.",
+    "verified": true
+  },
+  "distribution": {
+    "included_by_default": false,
+    "optional": true
+  },
+  "tech_stack": {
+    "languages": [
+      "JavaScript/TypeScript"
+    ],
+    "package_managers": [
+      "npm/pnpm/yarn"
+    ],
+    "entry_points": [],
+    "has_skills": true,
+    "has_cursorrules": false,
+    "has_prompts": false
+  }
+}

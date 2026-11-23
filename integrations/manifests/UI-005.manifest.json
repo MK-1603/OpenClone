@@ -1,0 +1,54 @@
+{
+  "id": "UI-005",
+  "name": "anthropic-frontend-design",
+  "category": "ui-ux",
+  "source": {
+    "type": "git",
+    "url": "https://github.com/anthropics/skills/tree/main/skills/frontend-design",
+    "parent_url": "https://github.com/anthropics/skills",
+    "subpath": "skills/frontend-design",
+    "default_branch": "main",
+    "commit": "e4bb5d960d87126ff3b3a8af1a104b7db67560ba",
+    "commit_date": "2026-11-16"
+  },
+  "classification": [
+    "SKILL_SOURCE",
+    "DESIGN_SYSTEM"
+  ],
+  "license": {
+    "spdx_id": "Apache-2.0",
+    "file": "LICENSE.txt",
+    "review_status": "REVIEWED"
+  },
+  "dependencies": [
+    "None"
+  ],
+  "capabilities": [
+    "cap-claude-frontend-design",
+    "cap-spatial-hierarchy"
+  ],
+  "integration": {
+    "status": "INTEGRATED",
+    "decision": "ADOPTED",
+    "adapter": "skills/taste-skill/skills/frontend-design/SKILL.md",
+    "operational_role": "Claude-optimized frontend design skill and spatial hierarchy rules.",
+    "rationale": "Apache-2.0 licensed design prompt skill adapted into OpenClone design engine.",
+    "verified": true
+  },
+  "distribution": {
+    "included_by_default": false,
+    "optional": true
+  },
+  "tech_stack": {
+    "languages": [
+      "Markdown/Other"
+    ],
+    "package_managers": [
+      "None"
+    ],
+    "entry_points": [],
+    "has_skills": true,
+    "has_cursorrules": false,
+    "has_prompts": false
+  }
+}

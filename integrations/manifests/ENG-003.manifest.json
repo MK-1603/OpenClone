@@ -1,0 +1,53 @@
+{
+  "id": "ENG-003",
+  "name": "improve",
+  "category": "software-engineering",
+  "source": {
+    "type": "git",
+    "url": "https://github.com/shadcn/improve",
+    "parent_url": "https://github.com/shadcn/improve",
+    "subpath": "",
+    "default_branch": "main",
+    "commit": "cac56e1ebd3c279aa9153616cfeac7b174ab90f9",
+    "commit_date": "2026-09-12"
+  },
+  "classification": [
+    "CLI_TOOL",
+    "KNOWLEDGE_REFERENCE"
+  ],
+  "license": {
+    "spdx_id": "MIT",
+    "file": "LICENSE.md",
+    "review_status": "REVIEWED"
+  },
+  "dependencies": [
+    "None"
+  ],
+  "capabilities": [
+    "cap-brownfield-codebase-xray"
+  ],
+  "integration": {
+    "status": "AVAILABLE",
+    "decision": "REFERENCED",
+    "adapter": null,
+    "operational_role": "Brownfield repository inspection and codebase improvement workflows.",
+    "rationale": "Synthesized into Workflow WF-002 (Existing Project X-Ray).",
+    "verified": true
+  },
+  "distribution": {
+    "included_by_default": false,
+    "optional": true
+  },
+  "tech_stack": {
+    "languages": [
+      "Markdown/Other"
+    ],
+    "package_managers": [
+      "None"
+    ],
+    "entry_points": [],
+    "has_skills": true,
+    "has_cursorrules": false,
+    "has_prompts": false
+  }
+}

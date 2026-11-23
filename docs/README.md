@@ -77,6 +77,12 @@
 - [Implementation Report](engineering-lifecycle/IMPLEMENTATION_REPORT.md) — Final delivery verification and acceptance record.
 
 ## Universal AI Tool Integrations & Global Plugin Ecosystem
+- [27 Upstream Repositories Master Registry](integrations/INTEGRATION-REGISTRY.md) — Master provenance, commit hashes, and integration status for 27 upstream repositories.
+- [Upstream Integration Decisions](integrations/INTEGRATION-DECISIONS.md) — Architectural rationale, what was reused, what was rejected, and testing locations.
+- [Upstream License & Attribution Register](integrations/UPSTREAM-LICENSE-AND-ATTRIBUTION.md) — SPDX licenses, copyleft boundary isolation, and author attribution.
+- [Upstream Update & Cadence Policy](integrations/UPSTREAM-UPDATE-POLICY.md) — 6-step update protocol, license diffs, and emergency revocation procedures.
+- [27 Upstream Repositories Final Delivery Report](reports/UPSTREAM-INTEGRATION-FINAL-REPORT.md) — Verification scorecard, metrics, and test results.
+- [27 Upstream Repositories Audit Report](reports/UPSTREAM-REPOSITORY-AUDIT.md) — Detailed technical audit breakdown across UI/UX, Security, and Engineering.
 - [Universal Integrations Index](integrations/README.md) — Universal integration core, gateway, and multi-adapter architecture.
 - [Universal Architecture](integrations/UNIVERSAL_INTEGRATION_ARCHITECTURE.md) — Single canonical core, multi-adapter design, and security layers.
 - [Canonical Capability Registry](integrations/CAPABILITY_REGISTRY.md) — The 15 canonical capabilities, schemas, risk classes, and scopes.

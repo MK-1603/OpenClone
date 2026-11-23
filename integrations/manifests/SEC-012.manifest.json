@@ -1,0 +1,53 @@
+{
+  "id": "SEC-012",
+  "name": "pyrit",
+  "category": "security",
+  "source": {
+    "type": "git",
+    "url": "https://github.com/microsoft/pyrit",
+    "parent_url": "https://github.com/microsoft/pyrit",
+    "subpath": "",
+    "default_branch": "main",
+    "commit": "817523458433ef20c1316418bab10be312535416",
+    "commit_date": "2026-11-22"
+  },
+  "classification": [
+    "SECURITY_SCANNER",
+    "LIBRARY"
+  ],
+  "license": {
+    "spdx_id": "MIT",
+    "file": "LICENSE",
+    "review_status": "REVIEWED"
+  },
+  "dependencies": [
+    "pip/poetry/uv"
+  ],
+  "capabilities": [
+    "cap-generative-ai-red-teaming"
+  ],
+  "integration": {
+    "status": "AVAILABLE",
+    "decision": "OPTIONAL_ADAPTER",
+    "adapter": "integrations/adapters/pyrit_adapter.py",
+    "operational_role": "Microsoft generative AI red-teaming framework for prompt injection and jailbreak tests.",
+    "rationale": "Available as an on-demand security testing module.",
+    "verified": true
+  },
+  "distribution": {
+    "included_by_default": false,
+    "optional": true
+  },
+  "tech_stack": {
+    "languages": [
+      "Python"
+    ],
+    "package_managers": [
+      "pip/poetry/uv"
+    ],
+    "entry_points": [],
+    "has_skills": false,
+    "has_cursorrules": false,
+    "has_prompts": false
+  }
+}

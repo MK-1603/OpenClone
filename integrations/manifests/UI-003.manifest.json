@@ -1,0 +1,53 @@
+{
+  "id": "UI-003",
+  "name": "interface-design",
+  "category": "ui-ux",
+  "source": {
+    "type": "git",
+    "url": "https://github.com/Dammyjay93/interface-design",
+    "parent_url": "https://github.com/Dammyjay93/interface-design",
+    "subpath": "",
+    "default_branch": "main",
+    "commit": "2f9be3206855bcb2d1d0af262c8bae25cba6658d",
+    "commit_date": "2026-06-20"
+  },
+  "classification": [
+    "DESIGN_SYSTEM",
+    "KNOWLEDGE_REFERENCE"
+  ],
+  "license": {
+    "spdx_id": "MIT",
+    "file": "LICENSE",
+    "review_status": "REVIEWED"
+  },
+  "dependencies": [
+    "None"
+  ],
+  "capabilities": [
+    "cap-consumer-interface-patterns"
+  ],
+  "integration": {
+    "status": "AVAILABLE",
+    "decision": "REFERENCED",
+    "adapter": null,
+    "operational_role": "Consumer interface patterns and screen layout references.",
+    "rationale": "Curated reference patterns mapped to domain 05 UX guidelines.",
+    "verified": true
+  },
+  "distribution": {
+    "included_by_default": false,
+    "optional": true
+  },
+  "tech_stack": {
+    "languages": [
+      "Markdown/Other"
+    ],
+    "package_managers": [
+      "None"
+    ],
+    "entry_points": [],
+    "has_skills": true,
+    "has_cursorrules": false,
+    "has_prompts": false
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "id": "SEC-004",
+  "name": "security-audit-skill",
+  "category": "security",
+  "source": {
+    "type": "git",
+    "url": "https://github.com/cloudflare/security-audit-skill",
+    "parent_url": "https://github.com/cloudflare/security-audit-skill",
+    "subpath": "",
+    "default_branch": "main",
+    "commit": "c1c8a8c1471069fb0e188eeaff69b8e8db6564a8",
+    "commit_date": "2026-09-14"
+  },
+  "classification": [
+    "SKILL_SOURCE",
+    "SECURITY_SCANNER"
+  ],
+  "license": {
+    "spdx_id": "MIT",
+    "file": "LICENSE",
+    "review_status": "REVIEWED"
+  },
+  "dependencies": [
+    "None"
+  ],
+  "capabilities": [
+    "cap-codebase-security-audit-skill"
+  ],
+  "integration": {
+    "status": "INTEGRATED",
+    "decision": "ADAPTED",
+    "adapter": "domains/14-SECURITY-AND-PRIVACY/SECURITY-AUDIT-SKILL.md",
+    "operational_role": "Agent-driven codebase security audit checklists and inspection routines.",
+    "rationale": "Adapted into domain 14 as canonical audit guidance.",
+    "verified": true
+  },
+  "distribution": {
+    "included_by_default": false,
+    "optional": true
+  },
+  "tech_stack": {
+    "languages": [
+      "Markdown/Other"
+    ],
+    "package_managers": [
+      "None"
+    ],
+    "entry_points": [],
+    "has_skills": true,
+    "has_cursorrules": false,
+    "has_prompts": false
+  }
+}

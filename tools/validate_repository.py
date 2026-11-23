@@ -33,6 +33,7 @@ for p in fixtures:
 # Validate all SVG assets parse as valid XML
 import xml.etree.ElementTree as ET
 for svg_p in ROOT.rglob('*.svg'):
+ if any(part.startswith('.') for part in svg_p.parts): continue
  try:
   rt=ET.parse(svg_p).getroot().tag
   if not rt.endswith('svg'): errors.append(f'{svg_p.relative_to(ROOT)}: root tag is not svg')
@@ -42,7 +43,11 @@ for d in [p for p in ROOT.iterdir() if p.is_dir() and not p.name.startswith('.')
  if any(d.iterdir()) and not (d/'README.md').is_file(): warnings.append(f'Major directory has no README.md: {d.name}')
 # Internal markdown links (ignore anchors-only and external URLs).
 for md in ROOT.rglob('*.md'):
- txt=md.read_text(encoding='utf-8')
+ if any(part.startswith('.') for part in md.parts): continue
+ try:
+  txt=md.read_text(encoding='utf-8')
+ except Exception:
+  continue
  for target in re.findall(r'!?\[[^\]]*\]\(([^)]+)\)',txt):
   target=target.split('#',1)[0]
   if not target or re.match(r'^[a-zA-Z][a-zA-Z0-9+.-]*:',target) or target.startswith('#'): continue

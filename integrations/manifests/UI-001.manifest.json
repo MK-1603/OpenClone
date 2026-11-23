@@ -1,0 +1,54 @@
+{
+  "id": "UI-001",
+  "name": "design-md-chrome",
+  "category": "ui-ux",
+  "source": {
+    "type": "git",
+    "url": "https://github.com/bergside/design-md-chrome",
+    "parent_url": "https://github.com/bergside/design-md-chrome",
+    "subpath": "",
+    "default_branch": "main",
+    "commit": "8e07614fb18752ab1ee14dd65a8ff93e63c9b13b",
+    "commit_date": "2026-05-25"
+  },
+  "classification": [
+    "DESIGN_SYSTEM",
+    "KNOWLEDGE_REFERENCE"
+  ],
+  "license": {
+    "spdx_id": "MIT",
+    "file": "LICENSE",
+    "review_status": "REVIEWED"
+  },
+  "dependencies": [
+    "None"
+  ],
+  "capabilities": [
+    "cap-design-token-extraction",
+    "cap-markdown-design-spec"
+  ],
+  "integration": {
+    "status": "INTEGRATED",
+    "decision": "ADAPTED",
+    "adapter": "integrations/adapters/design_token_adapter.py",
+    "operational_role": "Design token extraction and markdown conversion from web pages.",
+    "rationale": "Lightweight pure-JS extraction logic adapted into OpenClone token specification rules.",
+    "verified": true
+  },
+  "distribution": {
+    "included_by_default": false,
+    "optional": true
+  },
+  "tech_stack": {
+    "languages": [
+      "Markdown/Other"
+    ],
+    "package_managers": [
+      "None"
+    ],
+    "entry_points": [],
+    "has_skills": false,
+    "has_cursorrules": false,
+    "has_prompts": false
+  }
+}

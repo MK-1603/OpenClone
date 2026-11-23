@@ -1,0 +1,60 @@
+{
+  "id": "UI-002",
+  "name": "shadcn-ui",
+  "category": "ui-ux",
+  "source": {
+    "type": "git",
+    "url": "https://github.com/shadcn-ui/ui",
+    "parent_url": "https://github.com/shadcn-ui/ui",
+    "subpath": "",
+    "default_branch": "main",
+    "commit": "bfa64ff4d1cb7317d2403ecb176df6826d4caffc",
+    "commit_date": "2026-11-21"
+  },
+  "classification": [
+    "DESIGN_SYSTEM",
+    "LIBRARY"
+  ],
+  "license": {
+    "spdx_id": "MIT",
+    "file": "LICENSE.md",
+    "review_status": "REVIEWED"
+  },
+  "dependencies": [
+    "npm/pnpm/yarn"
+  ],
+  "capabilities": [
+    "cap-accessible-primitives",
+    "cap-tailwind-components"
+  ],
+  "integration": {
+    "status": "AVAILABLE",
+    "decision": "REFERENCED",
+    "adapter": null,
+    "operational_role": "Standard React / Tailwind accessible component templates.",
+    "rationale": "Referenced as canonical design system in domain 05 without vendoring heavy node_modules.",
+    "verified": true
+  },
+  "distribution": {
+    "included_by_default": false,
+    "optional": true
+  },
+  "tech_stack": {
+    "languages": [
+      "JavaScript/TypeScript"
+    ],
+    "package_managers": [
+      "npm/pnpm/yarn"
+    ],
+    "entry_points": [
+      "build",
+      "build:packages",
+      "registry:build",
+      "registry:capture",
+      "registry:health"
+    ],
+    "has_skills": true,
+    "has_cursorrules": false,
+    "has_prompts": false
+  }
+}

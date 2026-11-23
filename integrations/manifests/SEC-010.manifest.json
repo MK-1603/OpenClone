@@ -1,0 +1,56 @@
+{
+  "id": "SEC-010",
+  "name": "clamav",
+  "category": "security",
+  "source": {
+    "type": "git",
+    "url": "https://github.com/Cisco-Talos/clamav",
+    "parent_url": "https://github.com/Cisco-Talos/clamav",
+    "subpath": "",
+    "default_branch": "main",
+    "commit": "cad7b18a3e6505195fe08db1412449a18fc9f012",
+    "commit_date": "2026-11-22"
+  },
+  "classification": [
+    "SECURITY_SCANNER",
+    "CLI_TOOL"
+  ],
+  "license": {
+    "spdx_id": "GPL-2.0",
+    "file": "COPYING.txt",
+    "review_status": "REVIEWED"
+  },
+  "dependencies": [
+    "cmake",
+    "cargo"
+  ],
+  "capabilities": [
+    "cap-malware-scan-upload-pipeline"
+  ],
+  "integration": {
+    "status": "AVAILABLE",
+    "decision": "OPTIONAL_ADAPTER",
+    "adapter": "integrations/adapters/scanner_gateway.py",
+    "operational_role": "Antivirus scanning engine for SaaS user file-upload pipelines.",
+    "rationale": "GPL-2.0 external CLI scanner mapped as optional upload protection adapter.",
+    "verified": true
+  },
+  "distribution": {
+    "included_by_default": false,
+    "optional": true
+  },
+  "tech_stack": {
+    "languages": [
+      "C/C++",
+      "Rust"
+    ],
+    "package_managers": [
+      "cmake",
+      "cargo"
+    ],
+    "entry_points": [],
+    "has_skills": false,
+    "has_cursorrules": false,
+    "has_prompts": false
+  }
+}

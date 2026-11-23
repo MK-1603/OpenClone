@@ -1,0 +1,54 @@
+{
+  "id": "SEC-001",
+  "name": "strix",
+  "category": "security",
+  "source": {
+    "type": "git",
+    "url": "https://github.com/usestrix/strix",
+    "parent_url": "https://github.com/usestrix/strix",
+    "subpath": "",
+    "default_branch": "main",
+    "commit": "a1ccf777d80e812edf23fc8b82bdc17def6143ac",
+    "commit_date": "2026-11-19"
+  },
+  "classification": [
+    "SECURITY_SCANNER",
+    "APPLICATION"
+  ],
+  "license": {
+    "spdx_id": "Apache-2.0",
+    "file": "LICENSE",
+    "review_status": "REVIEWED"
+  },
+  "dependencies": [
+    "pip/poetry/uv"
+  ],
+  "capabilities": [
+    "cap-ai-dynamic-pentest",
+    "cap-strix-sandbox-runner"
+  ],
+  "integration": {
+    "status": "INTEGRATED",
+    "decision": "OPTIONAL_ADAPTER",
+    "adapter": "integrations/adapters/strix_adapter.py",
+    "operational_role": "Dynamic AI penetration testing in an isolated Docker container with strict target allowlists.",
+    "rationale": "Encapsulated as an optional, authorization-gated security adapter.",
+    "verified": true
+  },
+  "distribution": {
+    "included_by_default": false,
+    "optional": true
+  },
+  "tech_stack": {
+    "languages": [
+      "Python"
+    ],
+    "package_managers": [
+      "pip/poetry/uv"
+    ],
+    "entry_points": [],
+    "has_skills": true,
+    "has_cursorrules": false,
+    "has_prompts": false
+  }
+}

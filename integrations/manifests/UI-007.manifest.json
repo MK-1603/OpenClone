@@ -1,0 +1,56 @@
+{
+  "id": "UI-007",
+  "name": "hallmark",
+  "category": "ui-ux",
+  "source": {
+    "type": "git",
+    "url": "https://github.com/nutlope/hallmark",
+    "parent_url": "https://github.com/nutlope/hallmark",
+    "subpath": "",
+    "default_branch": "main",
+    "commit": "04977e15f3dfd6ee4b74c887dac3eb52665d6c92",
+    "commit_date": "2026-11-11"
+  },
+  "classification": [
+    "DESIGN_SYSTEM",
+    "APPLICATION"
+  ],
+  "license": {
+    "spdx_id": "MIT",
+    "file": "LICENSE",
+    "review_status": "REVIEWED"
+  },
+  "dependencies": [
+    "npm/pnpm/yarn"
+  ],
+  "capabilities": [
+    "cap-frontend-design-critique",
+    "cap-anti-slop-evaluation"
+  ],
+  "integration": {
+    "status": "INTEGRATED",
+    "decision": "ADAPTED",
+    "adapter": "domains/05-UX-UI-ENGINEERING/ANTI-AI-SLOP-STANDARDS.md",
+    "operational_role": "Design critique rules preventing AI clich\u00e9s and neon blur blobs.",
+    "rationale": "Benchmark criteria synthesized into normative anti-slop rules.",
+    "verified": true
+  },
+  "distribution": {
+    "included_by_default": false,
+    "optional": true
+  },
+  "tech_stack": {
+    "languages": [
+      "JavaScript/TypeScript"
+    ],
+    "package_managers": [
+      "npm/pnpm/yarn"
+    ],
+    "entry_points": [
+      "serve"
+    ],
+    "has_skills": true,
+    "has_cursorrules": false,
+    "has_prompts": false
+  }
+}

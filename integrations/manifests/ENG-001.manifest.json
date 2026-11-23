@@ -1,0 +1,63 @@
+{
+  "id": "ENG-001",
+  "name": "hue",
+  "category": "software-engineering",
+  "source": {
+    "type": "git",
+    "url": "https://github.com/cloudera/hue",
+    "parent_url": "https://github.com/cloudera/hue",
+    "subpath": "",
+    "default_branch": "master",
+    "commit": "7ad92b1820d62a0d5fde38889a1d16646d7a397f",
+    "commit_date": "2026-10-30"
+  },
+  "classification": [
+    "APPLICATION",
+    "FRAMEWORK"
+  ],
+  "license": {
+    "spdx_id": "Apache-2.0",
+    "file": "LICENSE.txt",
+    "review_status": "REVIEWED"
+  },
+  "dependencies": [
+    "npm/pnpm/yarn",
+    "pip/poetry/uv"
+  ],
+  "capabilities": [
+    "cap-sql-query-assistant-ux",
+    "cap-schema-tree-navigation"
+  ],
+  "integration": {
+    "status": "AVAILABLE",
+    "decision": "REFERENCED",
+    "adapter": null,
+    "operational_role": "SQL query workbench patterns, schema navigation, and query optimization UI.",
+    "rationale": "Referenced in domain 15 database engineering guidelines without vendoring monolithic app.",
+    "verified": true
+  },
+  "distribution": {
+    "included_by_default": false,
+    "optional": true
+  },
+  "tech_stack": {
+    "languages": [
+      "JavaScript/TypeScript",
+      "Python"
+    ],
+    "package_managers": [
+      "npm/pnpm/yarn",
+      "pip/poetry/uv"
+    ],
+    "entry_points": [
+      "devinstall",
+      "webpack",
+      "webpack-login",
+      "webpack-workers",
+      "webpack-npm"
+    ],
+    "has_skills": false,
+    "has_cursorrules": false,
+    "has_prompts": false
+  }
+}
