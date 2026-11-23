@@ -4,7 +4,7 @@
 **Product Category:** Universal AI Software Engineering Framework  
 **Tagline:** *Build with Any AI. Governed by One Engineering Standard.*  
 **Canonical Repository:** [https://github.com/MK-1603/OpenClone](https://github.com/MK-1603/OpenClone)  
-**Version:** 2.0.0  
+Version: 2.0.0  
 **Project Classification:** Open-Source Engineering Framework & Deterministic Control Plane  
 **Maturity Status:** `GOVERNED_LOCAL_CONTROL_PLANE` (Deterministic gates and interfaces verified; untrusted code execution requires container isolation)  
 **License:** [MIT License](LICENSE)  

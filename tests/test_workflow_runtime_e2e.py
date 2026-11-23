@@ -14,6 +14,7 @@ def run(project: Path, *args: str, expected: int = 0):
         cwd=project,
         text=True,
         capture_output=True,
+        stdin=subprocess.DEVNULL,
     )
     assert result.returncode == expected, result.stdout + result.stderr
     return result
@@ -21,14 +22,15 @@ def run(project: Path, *args: str, expected: int = 0):
 
 def test_complete_wf007_to_wf012_artifact_lifecycle(tmp_path: Path):
     # Create a small Git project so WF-012 can inspect real working-tree changes.
-    subprocess.run(["git", "init", "-q"], cwd=tmp_path, check=True)
-    subprocess.run(["git", "config", "user.email", "openclone-test@example.com"], cwd=tmp_path, check=True)
-    subprocess.run(["git", "config", "user.name", "OpenClone Test"], cwd=tmp_path, check=True)
+    devnull = subprocess.DEVNULL
+    subprocess.run(["git", "init", "-q"], cwd=tmp_path, check=True, stdin=devnull, stdout=devnull, stderr=devnull)
+    subprocess.run(["git", "config", "user.email", "openclone-test@example.com"], cwd=tmp_path, check=True, stdin=devnull, stdout=devnull, stderr=devnull)
+    subprocess.run(["git", "config", "user.name", "OpenClone Test"], cwd=tmp_path, check=True, stdin=devnull, stdout=devnull, stderr=devnull)
     source = tmp_path / "src" / "app.py"
     source.parent.mkdir()
     source.write_text('print("baseline")\n', encoding="utf-8")
-    subprocess.run(["git", "add", "."], cwd=tmp_path, check=True)
-    subprocess.run(["git", "commit", "-qm", "baseline"], cwd=tmp_path, check=True)
+    subprocess.run(["git", "add", "."], cwd=tmp_path, check=True, stdin=devnull, stdout=devnull, stderr=devnull)
+    subprocess.run(["git", "commit", "-qm", "baseline"], cwd=tmp_path, check=True, stdin=devnull, stdout=devnull, stderr=devnull)
 
     run(tmp_path, "init", "--project", str(tmp_path))
     run(tmp_path, "challenge", "--project", str(tmp_path), "--title", "Test capability")
@@ -62,8 +64,8 @@ def test_complete_wf007_to_wf012_artifact_lifecycle(tmp_path: Path):
     run(tmp_path, "bootstrap", "--project", str(tmp_path))
 
     # Commit generated control artifacts so the next drift report isolates source changes.
-    subprocess.run(["git", "add", base.name], cwd=tmp_path, check=True)
-    subprocess.run(["git", "commit", "-qm", "record OpenClone artifacts"], cwd=tmp_path, check=True)
+    subprocess.run(["git", "add", base.name], cwd=tmp_path, check=True, stdin=devnull, stdout=devnull, stderr=devnull)
+    subprocess.run(["git", "commit", "-qm", "record OpenClone artifacts"], cwd=tmp_path, check=True, stdin=devnull, stdout=devnull, stderr=devnull)
     source.write_text('print("changed")\n', encoding="utf-8")
     run(tmp_path, "drift", "--project", str(tmp_path), "--spec", str(spec_path))
 

@@ -19,7 +19,7 @@ class MCPServerTests(unittest.TestCase):
         self.server = OpenCloneMCPServer(root=ROOT)
 
     def test_tools_list_count(self):
-        self.assertEqual(len(TOOLS), 7)
+        self.assertEqual(len(TOOLS), 10)
         tool_names = [t["name"] for t in TOOLS]
         self.assertIn("openclone_get_status", tool_names)
         self.assertIn("openclone_search_knowledge", tool_names)
@@ -28,6 +28,9 @@ class MCPServerTests(unittest.TestCase):
         self.assertIn("openclone_validate_project", tool_names)
         self.assertIn("openclone_get_guidance", tool_names)
         self.assertIn("openclone_list_capabilities", tool_names)
+        self.assertIn("openclone_route_model", tool_names)
+        self.assertIn("openclone_list_models", tool_names)
+        self.assertIn("openclone_model_health", tool_names)
 
     def test_initialize_request(self):
         req = {"jsonrpc": "2.0", "id": 1, "method": "initialize", "params": {}}
@@ -40,7 +43,7 @@ class MCPServerTests(unittest.TestCase):
     def test_tools_list_request(self):
         req = {"jsonrpc": "2.0", "id": 2, "method": "tools/list", "params": {}}
         resp = self.server.handle_request(req)
-        self.assertEqual(len(resp["result"]["tools"]), 7)
+        self.assertEqual(len(resp["result"]["tools"]), 10)
 
     def test_get_status_tool(self):
         status = self.server.call_tool("openclone_get_status", {})

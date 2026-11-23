@@ -182,6 +182,71 @@ TOOLS = [
             "additionalProperties": False,
         },
     },
+    {
+        "name": "openclone_route_model",
+        "description": "Route an engineering task or prompt to the optimal AI model based on task category, multi-dimensional scoring, and high availability.",
+        "inputSchema": {
+            "type": "object",
+            "properties": {
+                "prompt": {
+                    "type": "string",
+                    "description": "The engineering task, specification, or prompt to evaluate.",
+                },
+                "mode": {
+                    "type": "string",
+                    "enum": [
+                        "BALANCED",
+                        "BEST_QUALITY",
+                        "LOW_LATENCY",
+                        "LOW_COST",
+                        "HIGH_AVAILABILITY",
+                        "USER_SELECTED",
+                        "POLICY_CONTROLLED",
+                    ],
+                    "default": "BALANCED",
+                    "description": "Routing strategy mode.",
+                },
+                "preferred_model": {
+                    "type": "string",
+                    "description": "Optional model identifier explicitly preferred by user.",
+                },
+            },
+            "required": ["prompt"],
+            "additionalProperties": False,
+        },
+    },
+    {
+        "name": "openclone_list_models",
+        "description": "List all supported AI models across OpenAI, Anthropic, Gemini, xAI, cloud proxies, and local inference engines.",
+        "inputSchema": {
+            "type": "object",
+            "properties": {
+                "provider": {
+                    "type": "string",
+                    "description": "Filter by provider identifier (e.g. 'openai', 'anthropic', 'gemini', 'ollama').",
+                },
+                "tier": {
+                    "type": "string",
+                    "description": "Filter by provider tier (e.g. 'P0_DIRECT', 'P1_CLOUD_PROXY', 'P2_LOCAL').",
+                },
+            },
+            "additionalProperties": False,
+        },
+    },
+    {
+        "name": "openclone_model_health",
+        "description": "Check real-time health, circuit-breaker states, and availability across AI model providers.",
+        "inputSchema": {
+            "type": "object",
+            "properties": {
+                "provider": {
+                    "type": "string",
+                    "description": "Optional provider identifier to inspect.",
+                },
+            },
+            "additionalProperties": False,
+        },
+    },
 ]
 
 
@@ -211,6 +276,17 @@ class OpenCloneMCPServer:
             is_human=False,
             client_type="mcp_client",
         )
+        try:
+            from src.openclone.mie.ha import HighAvailabilityEngine
+            from src.openclone.mie.registry import ModelRegistry
+            from src.openclone.mie.router import ModelRouter
+            self.model_registry = ModelRegistry()
+            self.ha_engine = HighAvailabilityEngine()
+            self.model_router = ModelRouter(self.model_registry, self.ha_engine)
+        except Exception:
+            self.model_registry = None
+            self.ha_engine = None
+            self.model_router = None
 
     def get_status(self) -> Dict[str, Any]:
         """Return runtime status and metrics."""
@@ -451,6 +527,47 @@ class OpenCloneMCPServer:
             res["adapters"] = sorted([d.name for d in (self.root / "adapters").iterdir() if d.is_dir() and not d.name.startswith(".")])
         return res
 
+    def route_model(self, prompt: str, mode: str = "BALANCED", preferred_model: Optional[str] = None) -> Dict[str, Any]:
+        """Route an engineering task or prompt to the optimal AI model."""
+        if not self.model_router:
+            return {"error": "MIE router is not initialized."}
+        from src.openclone.mie.models import RoutingMode
+        routing_mode = RoutingMode[mode] if mode in RoutingMode.__members__ else RoutingMode.BALANCED
+        decision = self.model_router.route_task(prompt=prompt, mode=routing_mode, preferred_model=preferred_model)
+        return decision.to_dict()
+
+    def list_models(self, provider: Optional[str] = None, tier: Optional[str] = None) -> Dict[str, Any]:
+        """List all supported AI models across providers and tiers."""
+        if not self.model_registry:
+            return {"error": "MIE registry is not initialized."}
+        models = self.model_registry.list_all()
+        if provider:
+            models = [m for m in models if m.provider_id.lower() == provider.lower()]
+        if tier:
+            models = [m for m in models if m.tier.value.lower() == tier.lower()]
+        return {"models": [m.to_dict() for m in models], "count": len(models)}
+
+    def get_model_health(self, provider: Optional[str] = None) -> Dict[str, Any]:
+        """Check real-time health and circuit-breaker states across providers."""
+        if not self.ha_engine:
+            return {"error": "MIE HA engine is not initialized."}
+        statuses = self.ha_engine.get_all_health()
+        if provider:
+            statuses = [s for s in statuses if s.provider_id.lower() == provider.lower()]
+        return {
+            "health": [
+                {
+                    "provider_id": s.provider_id,
+                    "circuit_state": s.circuit_state.value,
+                    "is_available": s.is_available,
+                    "failure_count": s.failure_count,
+                    "success_count": s.success_count,
+                    "consecutive_failures": s.consecutive_failures,
+                }
+                for s in statuses
+            ]
+        }
+
     def call_tool(self, name: str, arguments: Dict[str, Any]) -> Dict[str, Any]:
         """Dispatch tool invocation with argument validation."""
         if name == "openclone_get_status":
@@ -475,6 +592,14 @@ class OpenCloneMCPServer:
             return self.get_guidance(arguments["topic"])
         elif name == "openclone_list_capabilities":
             return self.list_capabilities(arguments.get("filter", "all"))
+        elif name == "openclone_route_model":
+            if "prompt" not in arguments:
+                raise ValueError("Missing required argument: 'prompt'")
+            return self.route_model(arguments["prompt"], arguments.get("mode", "BALANCED"), arguments.get("preferred_model"))
+        elif name == "openclone_list_models":
+            return self.list_models(arguments.get("provider"), arguments.get("tier"))
+        elif name == "openclone_model_health":
+            return self.get_model_health(arguments.get("provider"))
         elif self.canonical_registry.get(name):
             return self.gateway.execute(self.default_auth, name, arguments)
         else:
