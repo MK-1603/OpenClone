@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "openclone": {
+      "command": "python",
+      "args": [
+        "-m",
+        "openclone.mcp.server"
+      ],
+      "env": {
+        "OPENCLONE_ENV": "production"
+      }
+    }
+  }
+}

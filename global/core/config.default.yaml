@@ -1,0 +1,16 @@
+# OpenClone Global Default Configuration
+# Provider-neutral, host-agnostic defaults. No API keys or secrets.
+version: "1.0.0"
+provider: "neutral"
+model: "default"
+security_profile: "standard"
+audit_ledger:
+  enabled: true
+  strict_mode: true
+memory:
+  path: "~/.openclone/memory"
+  retention_days: 90
+execution:
+  sandbox_required: true
+  max_retry_count: 3
+  timeout_seconds: 300
