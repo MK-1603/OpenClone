@@ -13,7 +13,7 @@ def verify_links() -> int:
     checked_files = 0
 
     for md in ROOT.rglob("*.md"):
-        if any(part.startswith(".") for part in md.parts):
+        if any(part.startswith(".") for part in md.parts) or "node_modules" in md.parts:
             continue
         checked_files += 1
         try:

@@ -102,9 +102,9 @@ for d in [p for p in ROOT.iterdir() if p.is_dir() and not p.name.startswith('.')
     if any(d.iterdir()) and not (d / 'README.md').is_file():
         warnings.append(f'Major directory has no README.md: {d.name}')
 
-# Internal markdown links (ignore anchors-only, external URLs, templates; strictly verify casing)
+# Internal markdown links (ignore anchors-only, external URLs, templates, node_modules; strictly verify casing)
 for md in ROOT.rglob('*.md'):
-    if any(part.startswith('.') for part in md.parts):
+    if any(part.startswith('.') for part in md.parts) or 'node_modules' in md.parts:
         continue
     try:
         txt = md.read_text(encoding='utf-8')
