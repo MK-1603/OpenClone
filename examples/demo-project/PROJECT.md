@@ -6,7 +6,7 @@
 > **Project type:** `OPEN_SOURCE / DEMO / LIBRARY / CLI / WEB_APP / MOBILE_APP / COLLEGE_PROJECT / PERSONAL_TOOL / SAAS / OTHER`  
 > **Owner / maintainer:** `UNASSIGNED`  
 > **Last reviewed:** `YYYY-MM-DD`  
-> **AISDF template version:** `3.8.3`
+> **OpenClone template version:** `3.8.3`
 
 > This file describes the actual project. It is not automatically approved because an AI agent generated it. Keep observed facts, evidence, assumptions, proposals, decisions, and unknowns separate. Never invent functionality, metrics, users, architecture, or approvals.
 

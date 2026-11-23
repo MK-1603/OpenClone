@@ -28,7 +28,7 @@ def main():
             sys.argv.pop(1)
         installer_main()
     else:
-        from runtime.aisdf_runtime.workforce import main as workforce_main
+        from runtime.openclone_runtime.workforce import main as workforce_main
         workforce_main()
 
 

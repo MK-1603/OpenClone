@@ -47,14 +47,14 @@ class InstallerEngine:
         """
         files: Dict[str, str] = {}
         if host_id == "antigravity":
-            src_rule = self.adapters_dir / "antigravity" / "workspace" / ".agents" / "rules" / "aisdf.md"
-            src_skill = self.adapters_dir / "antigravity" / "workspace" / ".agents" / "skills" / "aisdf" / "SKILL.md"
-            files[".agents/rules/aisdf.md"] = src_rule.read_text(encoding="utf-8") if src_rule.exists() else "# AISDF Antigravity Rule\n"
-            files[".agents/skills/aisdf/SKILL.md"] = src_skill.read_text(encoding="utf-8") if src_skill.exists() else "# AISDF Skill\n"
+            src_rule = self.adapters_dir / "antigravity" / "workspace" / ".agents" / "rules" / "openclone.md"
+            src_skill = self.adapters_dir / "antigravity" / "workspace" / ".agents" / "skills" / "openclone" / "SKILL.md"
+            files[".agents/rules/openclone.md"] = src_rule.read_text(encoding="utf-8") if src_rule.exists() else "# AISDF Antigravity Rule\n"
+            files[".agents/skills/openclone/SKILL.md"] = src_skill.read_text(encoding="utf-8") if src_skill.exists() else "# AISDF Skill\n"
 
         elif host_id == "claude_code":
-            src_skill = self.adapters_dir / "claude-code" / ".claude" / "skills" / "aisdf" / "SKILL.md"
-            files[".claude/skills/aisdf/SKILL.md"] = src_skill.read_text(encoding="utf-8") if src_skill.exists() else "# AISDF Claude Skill\n"
+            src_skill = self.adapters_dir / "claude-code" / ".claude" / "skills" / "openclone" / "SKILL.md"
+            files[".claude/skills/openclone/SKILL.md"] = src_skill.read_text(encoding="utf-8") if src_skill.exists() else "# AISDF Claude Skill\n"
             files[".mcp.json"] = json.dumps({
                 "mcpServers": {
                     "openclone": {
@@ -65,8 +65,8 @@ class InstallerEngine:
             }, indent=2)
 
         elif host_id == "codex":
-            src_skill = self.adapters_dir / "codex" / ".agents" / "skills" / "aisdf" / "SKILL.md"
-            files[".agents/skills/aisdf/SKILL.md"] = src_skill.read_text(encoding="utf-8") if src_skill.exists() else "# AISDF Codex Skill\n"
+            src_skill = self.adapters_dir / "codex" / ".agents" / "skills" / "openclone" / "SKILL.md"
+            files[".agents/skills/openclone/SKILL.md"] = src_skill.read_text(encoding="utf-8") if src_skill.exists() else "# AISDF Codex Skill\n"
             files["mcp.json"] = json.dumps({
                 "mcpServers": {
                     "openclone": {
@@ -77,8 +77,8 @@ class InstallerEngine:
             }, indent=2)
 
         elif host_id == "cursor":
-            src_rule = self.adapters_dir / "cursor" / ".cursor" / "rules" / "aisdf.mdc"
-            files[".cursor/rules/aisdf.mdc"] = src_rule.read_text(encoding="utf-8") if src_rule.exists() else "# AISDF Cursor Rule\n"
+            src_rule = self.adapters_dir / "cursor" / ".cursor" / "rules" / "openclone.mdc"
+            files[".cursor/rules/openclone.mdc"] = src_rule.read_text(encoding="utf-8") if src_rule.exists() else "# AISDF Cursor Rule\n"
             files[".cursor/mcp.json"] = json.dumps({
                 "mcpServers": {
                     "openclone": {

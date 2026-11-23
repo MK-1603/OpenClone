@@ -121,7 +121,7 @@ For a free demo or open-source project, replace pricing and guarantee with the i
 
 ## 3. Disciplined product and software execution
 
-This is the build stage. Use AISDF as the engineering control system. Do not jump from an offer directly into uncontrolled coding.
+This is the build stage. Use OpenClone as the engineering control system. Do not jump from an offer directly into uncontrolled coding.
 
 ### 6.0 Project X-Ray
 
@@ -266,9 +266,9 @@ For each gate, maintain a compact record:
 | Date | When the decision was made |
 | Next action | Continue, experiment, pivot, stop, or defer |
 
-## 7. How MK Framework connects to AISDF
+## 7. How MK Framework connects to OpenClone
 
-Use MK Framework to decide whether and why to pursue an opportunity and how to manage its venture lifecycle. When software is part of the offer, use AISDF to engineer it:
+Use MK Framework to decide whether and why to pursue an opportunity and how to manage its venture lifecycle. When software is part of the offer, use OpenClone to engineer it:
 
 1. Stage 5 defines the offer and intended outcome.
 2. Stage 6.0 performs project X-Ray.

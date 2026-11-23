@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Real end-to-end demonstration of the AISDF 1.0 control plane. Output is unedited.
+# Real end-to-end demonstration of the OpenClone 2.0 control plane. Output is unedited.
 # Usage: bash examples/demo.sh   (writes a throwaway project under a temp dir)
 set -u
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"

@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "AISDF Security Tool Registry",
+  "title": "OpenClone Security Tool Registry",
   "version": "1.0.0",
   "researched_on": "2026-11-21",
   "status": "candidate_catalogue_not_certified_adapters",

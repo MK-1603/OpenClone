@@ -41,7 +41,7 @@ class InstallerEngineTests(unittest.TestCase):
         """Verify dry run outputs planned files without writing to filesystem."""
         res = self.engine.install("cursor", scope="workspace", target_dir=self.workspace, dry_run=True)
         self.assertTrue(res["dry_run"])
-        self.assertIn(".cursor/rules/aisdf.mdc", res["planned_files"])
+        self.assertIn(".cursor/rules/openclone.mdc", res["planned_files"])
         self.assertIn(".cursor/mcp.json", res["planned_files"])
         # Confirm files were NOT actually written
         self.assertFalse((self.workspace / ".cursor").exists())
@@ -53,7 +53,7 @@ class InstallerEngineTests(unittest.TestCase):
         self.assertTrue(res["success"])
         self.assertEqual(res["host_id"], "cursor")
 
-        rule_file = self.workspace / ".cursor" / "rules" / "aisdf.mdc"
+        rule_file = self.workspace / ".cursor" / "rules" / "openclone.mdc"
         mcp_file = self.workspace / ".cursor" / "mcp.json"
         manifest_file = self.workspace / ".openclone" / "install-manifest.json"
 
@@ -66,7 +66,7 @@ class InstallerEngineTests(unittest.TestCase):
         self.assertIn("cursor", manifest.hosts)
         rec = manifest.hosts["cursor"]
         self.assertEqual(rec.scope, "workspace")
-        self.assertIn(".cursor/rules/aisdf.mdc", rec.installed_files)
+        self.assertIn(".cursor/rules/openclone.mdc", rec.installed_files)
         self.assertIn(".cursor/mcp.json", rec.installed_files)
 
     def test_preexisting_file_backup_and_uninstall_restore(self):
@@ -96,7 +96,7 @@ class InstallerEngineTests(unittest.TestCase):
         self.assertEqual(restored_content, user_original_content)
 
         # Confirm non-backed up OpenClone file was cleanly removed
-        self.assertFalse((self.workspace / ".cursor" / "rules" / "aisdf.mdc").exists())
+        self.assertFalse((self.workspace / ".cursor" / "rules" / "openclone.mdc").exists())
 
     def test_integrity_verification(self):
         """Verify manifest detects physical file modification and tampering."""

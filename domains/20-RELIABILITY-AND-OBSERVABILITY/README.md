@@ -1,7 +1,7 @@
 # 20 — Cost And Capacity
 
 ## Purpose
-This domain defines the canonical AISDF guidance for cost and capacity. It is a knowledge and policy area, not an executable service.
+This domain defines the canonical OpenClone guidance for cost and capacity. It is a knowledge and policy area, not an executable service.
 
 ## Required coverage
 - Scope, terminology and non-goals.

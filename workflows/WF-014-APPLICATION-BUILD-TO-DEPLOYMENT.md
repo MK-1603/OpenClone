@@ -40,7 +40,7 @@ Stage 3: Stakeholder Review & Verification
           ↓
 Stage 4: Production Approval Gate (MANDATORY)
   ├── Verify deployment policy: `PRODUCTION_APPROVAL` halts for human sign-off
-  ├── Registered human owner executes: `aisdf.py approve --task-id <deploy-task>`
+  ├── Registered human owner executes: `openclone.py approve --task-id <deploy-task>`
   └── SHA-256 digest verified against preview artifact
           ↓
 Stage 5: Production Deployment & Health Monitoring

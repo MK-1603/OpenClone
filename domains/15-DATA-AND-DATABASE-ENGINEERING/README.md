@@ -1,7 +1,7 @@
 # 15 — Testing And Quality
 
 ## Purpose
-This domain defines the canonical AISDF guidance for testing and quality. It is a knowledge and policy area, not an executable service.
+This domain defines the canonical OpenClone guidance for testing and quality. It is a knowledge and policy area, not an executable service.
 
 ## Required coverage
 - Scope, terminology and non-goals.

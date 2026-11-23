@@ -1,7 +1,7 @@
 # 27 — Benchmarks And Evaluation
 
 ## Purpose
-This domain defines the canonical AISDF guidance for benchmarks and evaluation. It is a knowledge and policy area, not an executable service.
+This domain defines the canonical OpenClone guidance for benchmarks and evaluation. It is a knowledge and policy area, not an executable service.
 
 ## Required coverage
 - Scope, terminology and non-goals.

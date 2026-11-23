@@ -1,7 +1,7 @@
 # 11 — Execution And Harness
 
 ## Purpose
-This domain defines the canonical AISDF guidance for execution and harness. It is a knowledge and policy area, not an executable service.
+This domain defines the canonical OpenClone guidance for execution and harness. It is a knowledge and policy area, not an executable service.
 
 ## Required coverage
 - Scope, terminology and non-goals.

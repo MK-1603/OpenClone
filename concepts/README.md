@@ -26,6 +26,6 @@ OpenClone is built on modular, deterministic software engineering principles. To
 <div align="center">
 
 **OpenClone** · *Build with Any AI. Governed by One Engineering Standard.*  
-Repository: [github.com/MK-1603/aisdf](https://github.com/MK-1603/aisdf) · Licensed under MIT
+Repository: [github.com/MK-1603/OpenClone](https://github.com/MK-1603/OpenClone) · Licensed under MIT
 
 </div>

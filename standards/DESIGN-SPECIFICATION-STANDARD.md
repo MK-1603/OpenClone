@@ -1,4 +1,4 @@
-# AISDF Design Specification Standard
+# OpenClone Design Specification Standard
 
 ## Required document header
 

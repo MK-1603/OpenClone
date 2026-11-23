@@ -13,4 +13,4 @@
 
 Record adapter name/version/source/license, supported operations, permissions, data flow, limitations, test evidence and status. Status: `PROPOSED`, `IN_EVALUATION`, `NOT_VERIFIED`, `VERIFIED_LIMITED`, `DEPRECATED`. README claims alone do not establish verification.
 
-Obsidian is optional. AISDF memory must remain usable without it.
+Obsidian is optional. OpenClone memory must remain usable without it.

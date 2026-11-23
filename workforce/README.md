@@ -1,4 +1,4 @@
-# AISDF Workforce
+# OpenClone Workforce
 
 The workforce is a catalogue of specialist responsibilities, not a claim that every role is an autonomous agent. It includes team directories, human-readable role contracts and machine-readable worker manifests.
 

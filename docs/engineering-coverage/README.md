@@ -1,4 +1,4 @@
-# AISDF Engineering Coverage Pack
+# OpenClone Engineering Coverage Pack
 
 This pack defines **48 engineering topics** across application architecture, backend, data, networking, distributed systems, containers, delivery, security, reliability and operations. Every topic has a dedicated specification and a companion test plan.
 

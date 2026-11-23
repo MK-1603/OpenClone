@@ -7,7 +7,7 @@
 - **Tagline:** Build with Any AI. Governed by One Engineering Standard.
 
 ## Required reading
-Read `README.md`, `PROJECT.md`, `GOVERNANCE.md`, `domains/00-GOVERNANCE/AISDF-RULEBOOK.md`, and relevant architecture/workflow documents before changing the framework.
+Read `README.md`, `PROJECT.md`, `GOVERNANCE.md`, `domains/00-GOVERNANCE/OPENCLONE-RULEBOOK.md`, and relevant architecture/workflow documents before changing the framework.
 
 ## Truth and scope
 - Do not claim a role, adapter, scanner, runtime or workflow is implemented unless source and tests prove it.

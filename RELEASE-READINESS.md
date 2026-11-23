@@ -1,4 +1,4 @@
-# AISDF Release Readiness
+# OpenClone Release Readiness
 
 ## Current release posture
 This repository is a substantial specification and validation foundation. It is not a hosted runtime, certified agent platform or production-proven software delivery system.

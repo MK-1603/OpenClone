@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://aisdf.dev/schemas/worker-manifest.schema.json",
-  "title": "AISDF Worker Manifest",
+  "$id": "https://openclone.dev/schemas/worker-manifest.schema.json",
+  "title": "OpenClone Worker Manifest",
   "type": "object",
   "required": [
     "worker_id",

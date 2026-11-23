@@ -1,7 +1,7 @@
 # 29 — Lifecycle And Operations
 
 ## Purpose
-This domain defines the canonical AISDF guidance for lifecycle and operations. It is a knowledge and policy area, not an executable service.
+This domain defines the canonical OpenClone guidance for lifecycle and operations. It is a knowledge and policy area, not an executable service.
 
 ## Required coverage
 - Scope, terminology and non-goals.

@@ -1,7 +1,7 @@
 # 25 — Standards And Compatibility
 
 ## Purpose
-This domain defines the canonical AISDF guidance for standards and compatibility. It is a knowledge and policy area, not an executable service.
+This domain defines the canonical OpenClone guidance for standards and compatibility. It is a knowledge and policy area, not an executable service.
 
 ## Required coverage
 - Scope, terminology and non-goals.

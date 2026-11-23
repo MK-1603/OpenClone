@@ -1,9 +1,9 @@
 {
   "$schema": "https://antigravity.google/schemas/v1/plugin.json",
-  "name": "aisdf-spec-driven-engineering",
+  "name": "openclone-spec-driven-engineering",
   "displayName": "OpenClone Spec-Driven Engineering",
   "version": "1.0.0",
-  "description": "OpenClone Universal AI Software Engineering Framework: Gated workflows WF-001 through WF-014, 56 capability engines, 31 domains, Taste Skill anti-slop governance, and shared MCP tools.",
+  "description": "OpenClone universal spec-driven engineering and governance plugin",
   "suggestedPrompts": [
     "Run OpenClone WF-001 to initialize a new governed project.",
     "Draft an OpenClone design specification and stop for approval.",
@@ -14,7 +14,10 @@
   "mcpServers": {
     "openclone": {
       "command": "python",
-      "args": ["-m", "src.openclone.mcp.server"]
+      "args": [
+        "-m",
+        "src.openclone.mcp.server"
+      ]
     }
   }
 }

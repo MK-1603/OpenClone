@@ -1,7 +1,7 @@
 # 09 — Agent Intelligence
 
 ## Purpose
-This domain defines the canonical AISDF guidance for agent intelligence. It is a knowledge and policy area, not an executable service.
+This domain defines the canonical OpenClone guidance for agent intelligence. It is a knowledge and policy area, not an executable service.
 
 ## Required coverage
 - Scope, terminology and non-goals.

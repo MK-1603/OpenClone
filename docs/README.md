@@ -17,9 +17,9 @@
 - [Repository & Distribution Architecture](architecture/REPOSITORY-AND-DISTRIBUTION-ARCHITECTURE.md) — Lean core, native adapters, and progressive disclosure model.
 - [Installation & Capability Modules Guide](installation/INSTALLATION-AND-MODULES.md) — Zero-clone host installation, updates, and on-demand capability packs.
 - [Quick Start Guide](../QUICK-START.md) — Portable project workflow and optional local control plane setup.
-- [Mission & Scope](../AISDF-MISSION-AND-SCOPE.md) — Vision, boundaries, and architectural principles.
-- [Core Principles](../AISDF-CORE-PRINCIPLES.md) — Instruction-first, deterministic governance, least privilege.
-- [Lifecycle Overview](../AISDF-LIFECYCLE-OVERVIEW.md) — The 7-phase instruction-to-deployment engineering lifecycle.
+- [Mission & Scope](../OPENCLONE-MISSION-AND-SCOPE.md) — Vision, boundaries, and architectural principles.
+- [Core Principles](../OPENCLONE-CORE-PRINCIPLES.md) — Instruction-first, deterministic governance, least privilege.
+- [Lifecycle Overview](../OPENCLONE-LIFECYCLE-OVERVIEW.md) — The 7-phase instruction-to-deployment engineering lifecycle.
 - [Governance & Rules](../GOVERNANCE.md) — Precedence hierarchy, human approval gates, audit standards.
 - [Domain Map](../DOMAIN-MAP.md) — High-level map across the 31 engineering domains.
 - [Implementation Status](../IMPLEMENTATION-STATUS.md) — Transparent maturity matrix and capability ledger.

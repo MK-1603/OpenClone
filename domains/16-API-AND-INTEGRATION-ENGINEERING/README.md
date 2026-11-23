@@ -1,7 +1,7 @@
 # 16 — Devops And Cloud
 
 ## Purpose
-This domain defines the canonical AISDF guidance for devops and cloud. It is a knowledge and policy area, not an executable service.
+This domain defines the canonical OpenClone guidance for devops and cloud. It is a knowledge and policy area, not an executable service.
 
 ## Required coverage
 - Scope, terminology and non-goals.

@@ -396,7 +396,7 @@ class OpenCloneMCPServer:
             "morphism_styles": self.root / "domains" / "05-UX-UI-ENGINEERING" / "USER-CHOICE-DESIGN-PATTERNS.md",
             "deployment": self.root / "domains" / "19-DEPLOYMENT-AND-OPERATIONS" / "APPLICATION-DEPLOYMENT-GUIDE.md",
             "requirements": self.root / "assessments" / "requirements" / "REQUIREMENTS-SYSTEM-AUDIT.md",
-            "governance": self.root / "domains" / "00-GOVERNANCE" / "AISDF-RULEBOOK.md",
+            "governance": self.root / "domains" / "00-GOVERNANCE" / "OPENCLONE-RULEBOOK.md",
             "saas_security": self.root / "docs" / "security" / "saas-security-baseline.md",
             "ui_ux_catalogue": self.root / "docs" / "knowledge" / "ui-ux-design-catalogue.md",
             "ui_ux_quality": self.root / "docs" / "knowledge" / "ui-ux-quality-audit.md",
@@ -561,7 +561,7 @@ class OpenCloneMCPServer:
                 content_text = json.dumps(self.call_tool("openclone_get_checklist", {}), indent=2)
                 mime_type = "application/json"
             elif uri == "openclone://governance/rulebook":
-                rule_file = self.root / "domains" / "00-GOVERNANCE" / "AISDF-RULEBOOK.md"
+                rule_file = self.root / "domains" / "00-GOVERNANCE" / "OPENCLONE-RULEBOOK.md"
                 content_text = rule_file.read_text(encoding="utf-8", errors="replace") if rule_file.exists() else "# AISDF Rulebook"
                 mime_type = "text/markdown"
             elif uri == "openclone://verification/policies":

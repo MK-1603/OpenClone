@@ -1,6 +1,6 @@
 # Persistent Memory Entry Prompt
 
-Operate under AISDF Persistent Memory Governance.
+Operate under OpenClone Persistent Memory Governance.
 
 ## Inspect before writing
 1. Identify active project/workspace and task.

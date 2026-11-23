@@ -1,9 +1,9 @@
-# AISDF Security Tooling Governance
+# OpenClone Security Tooling Governance
 
 **Status:** Proposed; requires maintainer approval before becoming binding policy.
 
 ## 1. Purpose
-Define how AISDF selects and coordinates external security tools. A tool listed in the registry is a candidate capability, not an AISDF-certified adapter and not proof that a scan has run.
+Define how OpenClone selects and coordinates external security tools. A tool listed in the registry is a candidate capability, not an AISDF-certified adapter and not proof that a scan has run.
 
 ## 2. Mandatory authorization boundary
 - Scan only repositories, applications, files, cloud accounts, domains, networks, and AI systems that the project owner owns or is explicitly authorized to test.
@@ -37,7 +37,7 @@ Each finding must carry:
 AI-generated findings are candidates until validated. A severity label alone is not proof of exploitability.
 
 ## 5. No single-tool assurance
-AISDF must use layered controls appropriate to the project:
+OpenClone must use layered controls appropriate to the project:
 - SAST / code rules
 - Dependency and software composition analysis
 - Secret detection

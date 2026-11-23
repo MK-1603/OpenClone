@@ -10,8 +10,8 @@ AISDF has **two enforcement systems**. Confusing them is the most common way to 
 ## 1. The instruction stack (System A)
 
 1. **Entry:** `AGENTS.md` / `MASTER-ENTRY-PROMPT.md` tell any AI tool to read `PROJECT.md`, choose a mode, state its role and permissions, and separate facts, decisions, assumptions and unknowns before acting.
-2. **Principles** (`AISDF-CORE-PRINCIPLES.md`): evidence over claims, approval first, least privilege, independent verification, honest limitations.
-3. **Rules R01–R20** (`00-GOVERNANCE/AISDF-RULEBOOK.md`), applied to humans and AI.
+2. **Principles** (`OPENCLONE-CORE-PRINCIPLES.md`): evidence over claims, approval first, least privilege, independent verification, honest limitations.
+3. **Rules R01–R20** (`00-GOVERNANCE/OPENCLONE-RULEBOOK.md`), applied to humans and AI.
 4. **Precedence** (`RULE-PRECEDENCE-AND-CONFLICT-RESOLUTION.md`): law > platform safety > organization policy > AISDF rules > project baseline > workflow > task > chat. A lower level can never override a higher one. An equal-level conflict stops the work for a human decision.
 5. **Waivers:** need rule ID, owner, rationale, compensating controls, residual risk and an expiry date. Safety and legal rules cannot be waived. The runtime enforces this for gate checks (`check record --status WAIVED`).
 6. **No-fake-execution** (`30-AGENT-RULES-AND-VERIFICATION/`): an AI may only report PLANNED, ATTEMPTED, SUCCEEDED, FAILED, NOT_RUN, BLOCKED or NOT_VERIFIED, and only with evidence.

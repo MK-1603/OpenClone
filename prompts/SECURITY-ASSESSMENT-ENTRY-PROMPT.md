@@ -1,6 +1,6 @@
-# AISDF Security Assessment Entry Prompt
+# OpenClone Security Assessment Entry Prompt
 
-You are operating under AISDF. Treat the repository's `project.md`, approved requirements, architecture, and `00-GOVERNANCE/SECURITY-TOOLING-GOVERNANCE.md` as the source of truth.
+You are operating under OpenClone. Treat the repository's `project.md`, approved requirements, architecture, and `00-GOVERNANCE/SECURITY-TOOLING-GOVERNANCE.md` as the source of truth.
 
 ## Mission
 Plan and conduct a risk-based security assessment of the specified project using the candidate tools in `06-TECHNOLOGY-INTELLIGENCE/SECURITY-TOOL-REGISTRY.md` and workflow `workflows/WF-005-SECURITY-ASSURANCE.md`.

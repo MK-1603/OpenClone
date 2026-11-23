@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://aisdf.local/schemas/design-review-finding.schema.json",
-  "title": "AISDF Design Review Finding",
+  "$id": "https://openclone.local/schemas/design-review-finding.schema.json",
+  "title": "OpenClone Design Review Finding",
   "type": "object",
   "additionalProperties": false,
   "required": [

@@ -1,9 +1,9 @@
-# DevTrack — AISDF Reference Project
+# DevTrack — OpenClone Reference Project
 
-Status: **REFERENCE SPECIFICATION / NOT IMPLEMENTED**. This project is a controlled validation exercise for AISDF. It is not evidence that AISDF has already delivered a working application.
+Status: **REFERENCE SPECIFICATION / NOT IMPLEMENTED**. This project is a controlled validation exercise for OpenClone. It is not evidence that AISDF has already delivered a working application.
 
 ## Objective
-Build a small developer learning and skill tracker to test AISDF's end-to-end lifecycle. Initial release is intentionally narrow: create learning goals, record learning sessions, track skills and show progress.
+Build a small developer learning and skill tracker to test OpenClone's end-to-end lifecycle. Initial release is intentionally narrow: create learning goals, record learning sessions, track skills and show progress.
 
 ## Suggested scope
 - Create/edit/archive skill records.

@@ -1,4 +1,4 @@
-# AISDF Security Operations
+# OpenClone Security Operations
 
 Security is a specialist engineering department and a release assurance function. It covers governance, threat modeling, secure design, application security, code review, authorized penetration testing, cloud/container/IaC security, IAM, API security, supply chain, privacy, AI/agent security, incident response, remediation and independent retesting.
 

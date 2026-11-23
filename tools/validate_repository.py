@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-"""AISDF repository quality gate. Validates structure, names, schemas, fixtures and internal Markdown links."""
+"""OpenClone repository quality gate. Validates structure, names, schemas, fixtures and internal Markdown links."""
 from pathlib import Path
 import json, re, sys
 ROOT=Path(__file__).resolve().parents[1]
 errors=[]; warnings=[]
-required=['README.md','PROJECT.md','AGENTS.md','LICENSE','LICENSE-DECISION.md','templates/PROJECT.template.md','templates/AGENTS.template.md','workflows/WF-013-PROJECT-DEFINITION-ASSESSMENT-AND-IMPLEMENTATION-PLANNING.md','tools/aisdf_runtime/project.py','tools/aisdf_runtime/templates/PROJECT.md.template.md','AISDF-MISSION-AND-SCOPE.md','domains/00-GOVERNANCE/AISDF-RULEBOOK.md','modes/MODE-1-PROBLEM-DISCOVERY.md','modes/MODE-2-NEW-PROJECT.md','modes/MODE-3-EXISTING-PROJECT.md','prompts/MASTER-ENTRY-PROMPT.md','REFERENCE-PROJECTS/DEVTRACK/README.md','RELEASE-READINESS.md','docs/project-lifecycle/PROJECT-AND-AGENT-FILES.md']
+required=['README.md','PROJECT.md','AGENTS.md','LICENSE','LICENSE-DECISION.md','templates/PROJECT.template.md','templates/AGENTS.template.md','workflows/WF-013-PROJECT-DEFINITION-ASSESSMENT-AND-IMPLEMENTATION-PLANNING.md','tools/aisdf_runtime/project.py','tools/aisdf_runtime/templates/PROJECT.md.template.md','OPENCLONE-MISSION-AND-SCOPE.md','domains/00-GOVERNANCE/OPENCLONE-RULEBOOK.md','modes/MODE-1-PROBLEM-DISCOVERY.md','modes/MODE-2-NEW-PROJECT.md','modes/MODE-3-EXISTING-PROJECT.md','prompts/MASTER-ENTRY-PROMPT.md','REFERENCE-PROJECTS/DEVTRACK/README.md','RELEASE-READINESS.md','docs/project-lifecycle/PROJECT-AND-AGENT-FILES.md']
 for rel in required:
  if not (ROOT/rel).is_file(): errors.append(f'Missing required file: {rel}')
 domain_dirs=sorted([p.name for p in (ROOT/'domains').iterdir() if p.is_dir() and re.match(r'^\d\d-',p.name)])

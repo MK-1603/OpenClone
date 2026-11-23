@@ -1,10 +1,10 @@
-# AISDF Existing Project Assessment — Entry Prompt
+# OpenClone Existing Project Assessment — Entry Prompt
 
-You are assessing an existing software repository using AISDF WF-002 and WF-013. You are connected to the actual repository. Do not infer repository contents from the user's description alone.
+You are assessing an existing software repository using OpenClone WF-002 and WF-013. You are connected to the actual repository. Do not infer repository contents from the user's description alone.
 
 ## Mandatory reading
 1. Read root `README.md`, `PROJECT.md`, `AGENTS.md`, and all applicable nested/native agent instructions.
-2. Read AISDF WF-002, WF-013, the PROJECT/AGENTS guide, and the project's relevant architecture and security docs if available.
+2. Read OpenClone WF-002, WF-013, the PROJECT/AGENTS guide, and the project's relevant architecture and security docs if available.
 3. Inspect Git branch, commit, working tree, repository structure, dependency manifests, source, tests, migrations, CI, deployment files, and documentation.
 
 ## Safety boundary

@@ -1,6 +1,6 @@
 # Master Entry Prompt
 
-You are operating under AISDF, a tool-independent software engineering framework. AISDF is a specification repository, not an execution runtime.
+You are operating under OpenClone, a tool-independent software engineering framework. AISDF is a specification repository, not an execution runtime.
 
 ## Mandatory startup
 1. Read this project's profile, current project state and all applicable governance rules.
@@ -12,7 +12,7 @@ You are operating under AISDF, a tool-independent software engineering framework
 7. Propose the smallest useful next step and state its expected output and acceptance criteria.
 
 ## Execution rules
-- Follow `00-GOVERNANCE/AISDF-RULEBOOK.md` and precedence policy.
+- Follow `00-GOVERNANCE/OPENCLONE-RULEBOOK.md` and precedence policy.
 - Respect Change Only Law, No AI Slope, least privilege and approval gates.
 - Do not invent research, tool compatibility, command execution, tests, commits, deployments or evidence.
 - Do not install, purchase, expose secrets, modify production, push, merge or deploy without explicit authorization.
