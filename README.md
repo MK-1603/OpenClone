@@ -87,16 +87,16 @@ Uncontrolled AI-assisted software development faces widespread operational and a
 
 | Engineering Dimension | Uncontrolled AI Development ("AI Slope") | OpenClone Governed Engineering |
 |---|---|---|
-| **Project Understanding** | Ephemeral; trapped in transient chat sessions. | **Canonical Source of Truth:** Structured [`PROJECT.md`](templates/PROJECT.template.md) defines immutable boundaries. |
+| **Project Understanding** | Ephemeral; trapped in transient chat sessions. | **Canonical Source of Truth:** Structured [`PROJECT.md`](project/PROJECT.md.template) defines immutable boundaries. |
 | **Requirements Traceability**| Requirements easily lost, overlooked, or hallucinated. | **Traceable Contract Hierarchy:** Requirements map directly to tasks, code diffs, and verification artifacts. |
-| **Architecture Drift** | Decisions drift silently across sessions and model turns. | **Documented Architectural Invariants:** 10 core concepts and normative standards in [`domains/`](domains/). |
+| **Architecture Drift** | Decisions drift silently across sessions and model turns. | **Documented Architectural Invariants:** 10 core concepts and normative standards in [`framework/domains/`](framework/domains/). |
 | **Project Continuity** | Context window resets erase architecture and progress. | **Durable Filesystem Handoffs:** `PROGRESS.md` & `HANDOFF.md` ensure seamless session resumption. |
 | **Execution Control** | Monolithic "one-shot" mass rewrites and fragile diffs. | **Deterministic Task DAG:** Cycle-free dependency graph enforces smallest reviewable units of work. |
 | **Scope Governance** | Unprompted feature bloat, dependency creep, and rewrites. | **Cryptographic Digest Binding:** SHA-256 task digest invalidates prior human approvals upon scope shift. |
 | **Verification & Quality** | AI hallucinates test passes and claims completion verbally. | **V0–V5 Observable Evidence Model:** Real test logs, diffs, and scanner outputs must exist on disk. |
 | **Security & Isolation** | Unmonitored lateral tool privileges and host exposure. | **4-Tier Copyleft Isolation & Pinned Scanners:** Strict execution harnesses and secret redaction. |
 | **IDE Portability** | Vendor lock-in to proprietary prompt formats and rules. | **Provider-Neutral Host Adapters:** Works identically in Antigravity, Cursor, Claude Code, and Codex. |
-| **UI/UX Design Quality** | Ambient purple gradients, generic cards, blur blobs. | **[Taste Skill v2.6.0](domains/05-UX-UI-ENGINEERING/ANTI-AI-SLOP-STANDARDS.md):** 8-pt typography scale, tokens, WCAG 2.2 AA contrast. |
+| **UI/UX Design Quality** | Ambient purple gradients, generic cards, blur blobs. | **[Taste Skill v2.6.0](framework/domains/05-UX-UI-ENGINEERING/ANTI-AI-SLOP-STANDARDS.md):** 8-pt typography scale, tokens, WCAG 2.2 AA contrast. |
 
 ---
 
@@ -174,7 +174,7 @@ flowchart TD
 
 ## 06. PROJECT.md — The Project Source of Truth
 
-At the heart of every OpenClone project is [`PROJECT.md`](templates/PROJECT.template.md). It serves as the immutable project constitution, ensuring that any AI agent in any session immediately understands the project boundaries:
+At the heart of every OpenClone project is [`PROJECT.md`](project/PROJECT.md.template). It serves as the immutable project constitution, ensuring that any AI agent in any session immediately understands the project boundaries:
 
 ### The Ten Elements of `PROJECT.md`
 
@@ -221,7 +221,7 @@ flowchart LR
 ```
 
 1. **Project Idea:** Initial developer brief and problem concept.
-2. **Project Intelligence:** Automated capability extraction and conflict analysis using [`prompts/PORTABLE-PROJECT-INTELLIGENCE-MASTER-PROMPT.md`](prompts/PORTABLE-PROJECT-INTELLIGENCE-MASTER-PROMPT.md).
+2. **Project Intelligence:** Automated capability extraction and conflict analysis using [`framework/prompts/PORTABLE-PROJECT-INTELLIGENCE-MASTER-PROMPT.md`](framework/prompts/PORTABLE-PROJECT-INTELLIGENCE-MASTER-PROMPT.md).
 3. **Requirements Engineering:** Traceable functional requirement definitions with unique identifiers.
 4. **Architecture Design:** Module boundaries, schema designs, API contracts, and security perimeters.
 5. **Technical Planning:** Verification level assignments (V0–V5) and execution sequence definition.
@@ -289,7 +289,7 @@ flowchart TD
 
 ## 10. Core Engineering Architecture
 
-OpenClone's foundation rests on ten unified architectural concepts documented in [`concepts/`](concepts/):
+OpenClone's foundation rests on ten unified architectural concepts documented in [`docs/concepts/`](docs/concepts/):
 
 1. **[Governance & Authority](docs/concepts/01-GOVERNANCE-AND-AUTHORITY.md):** Humans remain the ultimate authority for software requirements, architecture, and destructive operations. Enforces deny-by-default execution gating. *(Status: Fully Supported)*
 2. **[Project Source of Truth](docs/concepts/02-PROJECT-SOURCE-OF-TRUTH.md):** Canonical `PROJECT.md` establishes immutable project boundaries. Prevents silent architectural drift. *(Status: Fully Supported)*
@@ -457,7 +457,7 @@ OpenClone enforces strict security baselines and quality controls:
 - **Secret Redaction Harness:** Real-time regex scanner scrubs API tokens, AWS keys, private certificates, and passwords before logging or storing tool outputs.
 - **4-Tier Copyleft Isolation:** Upstream copyleft tools (`semgrep`, `trufflehog`, `clamav`) run in decoupled child processes. Zero copyleft code is vendored into OpenClone core.
 - **Pinned Scanner Lockfile:** All security scanners pinned by 40-character commit SHAs in [`security/scanners.lock.json`](security/scanners.lock.json).
-- **Taste Skill v2.6.0:** Anti-AI-slop design engine enforcing an 8-point typographic scale, semantic CSS tokens, WCAG 2.2 AA contrast ratios, and prohibiting ambient blur circles or neon purple clichés ([`domains/05-UX-UI-ENGINEERING/ANTI-AI-SLOP-STANDARDS.md`](domains/05-UX-UI-ENGINEERING/ANTI-AI-SLOP-STANDARDS.md)).
+- **Taste Skill v2.6.0:** Anti-AI-slop design engine enforcing an 8-point typographic scale, semantic CSS tokens, WCAG 2.2 AA contrast ratios, and prohibiting ambient blur circles or neon purple clichés ([`framework/domains/05-UX-UI-ENGINEERING/ANTI-AI-SLOP-STANDARDS.md`](framework/domains/05-UX-UI-ENGINEERING/ANTI-AI-SLOP-STANDARDS.md)).
 
 ---
 
@@ -553,8 +553,8 @@ Add OpenClone to `.cursor/mcp.json`:
 
 If you are developing an application using ChatGPT, Claude, or Gemini in your browser, **no local installation is required**:
 
-1. **Copy Specification:** Copy [`templates/PROJECT.template.md`](templates/PROJECT.template.md) into your project root as `PROJECT.md`.
-2. **Execute Master Prompt:** Provide [`prompts/PORTABLE-PROJECT-INTELLIGENCE-MASTER-PROMPT.md`](prompts/PORTABLE-PROJECT-INTELLIGENCE-MASTER-PROMPT.md) and your `PROJECT.md` to ChatGPT or Claude.
+1. **Copy Specification:** Copy [`project/PROJECT.md.template`](project/PROJECT.md.template) into your project root as `PROJECT.md`.
+2. **Execute Master Prompt:** Provide [`framework/prompts/PORTABLE-PROJECT-INTELLIGENCE-MASTER-PROMPT.md`](framework/prompts/PORTABLE-PROJECT-INTELLIGENCE-MASTER-PROMPT.md) and your `PROJECT.md` to ChatGPT or Claude.
 3. **Execute in IDE:** Hand off the generated instruction package (`BUILD_PROMPT.md`, `ACCEPTANCE_MATRIX.md`, `PROGRESS.md`, `HANDOFF.md`) to your AI coding environment.
 
 ---
@@ -639,7 +639,7 @@ An illustrative walkthrough demonstrating how OpenClone governs a real-world mul
 
 ```mermaid
 flowchart TD
-    BRIEF["Developer Brief<br/>'Multi-tenant task tracking with OAuth & Stripe'"] --> P["Step 1: templates/PROJECT.template.md<br/>Defines FRs, NFRs, Non-Goals"]
+    BRIEF["Developer Brief<br/>'Multi-tenant task tracking with OAuth & Stripe'"] --> P["Step 1: project/PROJECT.md.template<br/>Defines FRs, NFRs, Non-Goals"]
     P --> PROMPT["Step 2: Portable Intelligence Master Prompt<br/>Decomposes FR-001 to FR-012"]
     PROMPT --> ARCH["Step 3: Architecture & Security Baseline<br/>PostgreSQL schemas, tenant isolation, 19-point SaaS security"]
     ARCH --> PKG["Step 4: Instruction Package<br/>BUILD_PROMPT.md · ACCEPTANCE_MATRIX.md · PROGRESS.md"]
@@ -683,15 +683,15 @@ Explore the authoritative specifications across the OpenClone repository:
 
 | Engineering Category | Key Documents |
 |---|---|
-| **Platform Standards & Rules** | [`AGENTS.md`](AGENTS.md) · [`project.md`](project.md) · [`OPENCLONE-CORE-PRINCIPLES.md`](OPENCLONE-CORE-PRINCIPLES.md) |
+| **Platform Standards & Rules** | [`AGENTS.md`](AGENTS.md) · [`project.md`](project.md) · [`docs/concepts/OPENCLONE-CORE-PRINCIPLES.md`](docs/concepts/OPENCLONE-CORE-PRINCIPLES.md) |
 | **System Architecture** | [`docs/architecture/OPENCLONE-2.0-ARCHITECTURE.md`](docs/architecture/OPENCLONE-2.0-ARCHITECTURE.md) · [`blueprints/OPENCLONE-MASTER-BLUEPRINT.md`](blueprints/OPENCLONE-MASTER-BLUEPRINT.md) |
 | **Methodology Reference** | [`blueprints/OPENCLONE-METHODOLOGY-REFERENCE.md`](blueprints/OPENCLONE-METHODOLOGY-REFERENCE.md) · [`docs/DOCUMENTATION-MAP.md`](docs/DOCUMENTATION-MAP.md) |
 | **Operational Assessments** | [`docs/guides/REPOSITORY-HEALTH.md`](docs/guides/REPOSITORY-HEALTH.md) · [`docs/security/SECURITY-STATUS.md`](docs/security/SECURITY-STATUS.md) · [`docs/guides/RELEASE-READINESS.md`](docs/guides/RELEASE-READINESS.md) |
-| **Host Integrations & Compatibility** | [`docs/installation/GLOBAL-PLUGIN-INSTALLATION.md`](docs/installation/GLOBAL-PLUGIN-INSTALLATION.md) · [`docs/compatibility/HOST-COMPATIBILITY.md`](docs/compatibility/HOST-COMPATIBILITY.md) |
+| **Host Integrations & Compatibility** | [`global/docs/GLOBAL-PLUGIN-INSTALLATION.md`](global/docs/GLOBAL-PLUGIN-INSTALLATION.md) · [`global/docs/HOST-COMPATIBILITY.md`](global/docs/HOST-COMPATIBILITY.md) |
 | **22-Phase Lifecycle** | [`docs/engineering-lifecycle/MASTER_LIFECYCLE_CATALOGUE.md`](docs/engineering-lifecycle/MASTER_LIFECYCLE_CATALOGUE.md) · [`docs/engineering-lifecycle/VERIFICATION_AND_EVIDENCE.md`](docs/engineering-lifecycle/VERIFICATION_AND_EVIDENCE.md) |
 | **Security & Compliance** | [`docs/security/saas-security-baseline.md`](docs/security/saas-security-baseline.md) · [`docs/security/THREAT-MODEL.md`](docs/security/THREAT-MODEL.md) · [`docs/legal/COMPLIANCE_MATRIX.md`](docs/legal/COMPLIANCE_MATRIX.md) |
-| **Design & Anti-Slop** | [`domains/05-UX-UI-ENGINEERING/ANTI-AI-SLOP-STANDARDS.md`](domains/05-UX-UI-ENGINEERING/ANTI-AI-SLOP-STANDARDS.md) · [`assets/branding/README.md`](assets/branding/README.md) |
-| **Third-Party Copyright & IP** | [`NOTICE`](NOTICE) · [`THIRD_PARTY_LICENSES.md`](THIRD_PARTY_LICENSES.md) · [`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md) |
+| **Design & Anti-Slop** | [`framework/domains/05-UX-UI-ENGINEERING/ANTI-AI-SLOP-STANDARDS.md`](framework/domains/05-UX-UI-ENGINEERING/ANTI-AI-SLOP-STANDARDS.md) · [`assets/branding/README.md`](assets/branding/README.md) |
+| **Third-Party Copyright & IP** | [`NOTICE`](NOTICE) · [`docs/legal/THIRD_PARTY_LICENSES.md`](docs/legal/THIRD_PARTY_LICENSES.md) · [`docs/legal/THIRD_PARTY_NOTICES.md`](docs/legal/THIRD_PARTY_NOTICES.md) |
 
 ---
 
@@ -759,8 +759,8 @@ Copyright (c) 2026 OpenClone Contributors.
 
 Third-party open-source components and specifications are subject to their respective licenses:
 - [`NOTICE`](NOTICE): Upstream copyright, authors, and notices.
-- [`THIRD_PARTY_LICENSES.md`](THIRD_PARTY_LICENSES.md): Complete 28-repository license inventory.
-- [`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md): Detailed upstream commit SHAs, modification records, and attribution.
+- [`docs/legal/THIRD_PARTY_LICENSES.md`](docs/legal/THIRD_PARTY_LICENSES.md): Complete 28-repository license inventory.
+- [`docs/legal/THIRD_PARTY_NOTICES.md`](docs/legal/THIRD_PARTY_NOTICES.md): Detailed upstream commit SHAs, modification records, and attribution.
 - [`docs/legal/`](docs/legal/): Copyleft isolation policies and compliance audit matrix.
 
 <p align="center">

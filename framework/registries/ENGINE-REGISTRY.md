@@ -1,6 +1,6 @@
 # Engine Registry
 
-All 56 engine contracts are stored in `engines/`. An engine is a capability, not a separate runtime component. See [catalogue](../OPENCLONE-FUNCTIONAL-MAP.md).
+All 56 engine contracts are stored in `engines/`. An engine is a capability, not a separate runtime component. See [catalogue](../../docs/concepts/OPENCLONE-FUNCTIONAL-MAP.md).
 
 | ID | Engine | Status |
 |---|---|---|

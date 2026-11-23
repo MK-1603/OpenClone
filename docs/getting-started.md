@@ -11,7 +11,7 @@ OpenClone supports two distinct operating modes:
 > OpenClone is an open engineering standard and project-generation methodology. The generated project package lives in your own application repository and is executed by your preferred AI coding IDE.
 
 ### Step 1: Prepare your `PROJECT.md`
-Create a `PROJECT.md` file in your project directory (or use our [starter template](templates/PROJECT.template.md)). Describe:
+Create a `PROJECT.md` file in your project directory (or use our [starter template](../project/PROJECT.md.template)). Describe:
 - The problem your application solves and target users.
 - Core features and workflows.
 - Preferred technology stack (languages, frameworks, databases).
@@ -19,7 +19,7 @@ Create a `PROJECT.md` file in your project directory (or use our [starter templa
 
 ### Step 2: Open ChatGPT or Claude
 1. Open a new chat in [ChatGPT](https://chatgpt.com) or [Claude](https://claude.ai).
-2. Copy and paste the [OpenClone Portable Project Intelligence Master Prompt](prompts/PORTABLE-PROJECT-INTELLIGENCE-MASTER-PROMPT.md).
+2. Copy and paste the [OpenClone Portable Project Intelligence Master Prompt](../framework/prompts/PORTABLE-PROJECT-INTELLIGENCE-MASTER-PROMPT.md).
 3. Paste or attach your `PROJECT.md` file.
 
 ### Step 3: Clarify and Approve

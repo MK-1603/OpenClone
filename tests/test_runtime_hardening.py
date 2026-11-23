@@ -323,7 +323,7 @@ class ReviewAndMemoryTests(Base):
         self.assertEqual(cli("review-package", "--project", self.P, "--out", out)[0], 1)  # refuses non-empty dir
 
     def test_vault_template_passes_memory_check(self):
-        code, out, _ = cli("memory-check", "--vault", ROOT / "memory" / "vault-template")
+        code, out, _ = cli("memory-check", "--vault", (ROOT / "framework" / "memory" / "vault-template" if (ROOT / "framework" / "memory" / "vault-template").exists() else ROOT / "memory" / "vault-template"))
         self.assertEqual(code, 0)
         self.assertIn("4 notes checked", out)  # must not pass vacuously
 
@@ -350,7 +350,7 @@ class RegistryAndReleaseTests(unittest.TestCase):
 
     def test_role_docs_match_manifests(self):
         for wid, m in wf.load_workers().items():
-            doc = next((ROOT / "workforce" / "teams").glob(f"*/roles/{wid.upper()}.md")).read_text(encoding="utf-8")
+            doc = next(((ROOT / "framework" / "workforce" / "teams" if (ROOT / "framework" / "workforce" / "teams").exists() else ROOT / "workforce" / "teams")).glob(f"*/roles/{wid.upper()}.md")).read_text(encoding="utf-8")
             for a in m["approval_required_for"]:
                 self.assertIn(f"`{a}`", doc.split("Permission profile")[1], wid)
 

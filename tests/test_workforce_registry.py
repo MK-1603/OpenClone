@@ -12,7 +12,7 @@ class WorkforceRegistryTests(unittest.TestCase):
         for worker_id, manifest in workers.items():
             self.assertEqual(worker_id, manifest['worker_id'])
             self.assertEqual(manifest['maturity'], 'L1_DEFINED')
-            role_files = list((ROOT / 'workforce' / 'teams').glob(f'*/roles/{worker_id.upper()}.md'))
+            role_files = list(((ROOT / 'framework' / 'workforce' / 'teams' if (ROOT / 'framework' / 'workforce' / 'teams').exists() else ROOT / 'workforce' / 'teams')).glob(f'*/roles/{worker_id.upper()}.md'))
             self.assertEqual(len(role_files), 1, worker_id)
             self.assertTrue(manifest['mission'])
             self.assertIn('observe', manifest['allowed_actions'])
@@ -28,7 +28,7 @@ class WorkforceRegistryTests(unittest.TestCase):
         self.assertNotIn('deploy', workers['frontend-engineer']['approval_required_for'])
 
     def test_all_team_registry_ids_exist(self):
-        teams = json.loads((ROOT / 'workforce/registry/teams.json').read_text())['teams']
+        teams = json.loads(((ROOT / 'framework/workforce/registry/teams.json' if (ROOT / 'framework/workforce/registry/teams.json').exists() else ROOT / 'workforce/registry/teams.json')).read_text())['teams']
         all_ids = {wid for members in teams.values() for wid in members}
         self.assertEqual(all_ids, set(load_workers()))
 

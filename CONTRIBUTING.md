@@ -8,7 +8,7 @@ Thank you for your interest in contributing to **OpenClone** (canonical framewor
 
 1. **Be Respectful:** All contributors must adhere to our [Code of Conduct](CODE_OF_CONDUCT.md).
 2. **Truthful Maturity:** Never claim a feature, adapter, test, or security control is complete without tangible code and reproducible test evidence.
-3. **No Unmonitored AI Slop:** Generated code must follow [Taste Skill v2.6.0](domains/05-UX-UI-ENGINEERING/ANTI-AI-SLOP-STANDARDS.md) anti-slop guidelines and strict least-privilege security boundaries.
+3. **No Unmonitored AI Slop:** Generated code must follow [Taste Skill v2.6.0](framework/domains/05-UX-UI-ENGINEERING/ANTI-AI-SLOP-STANDARDS.md) anti-slop guidelines and strict least-privilege security boundaries.
 4. **Deterministic Decision Authority:** AI models propose; human maintainers and deterministic validation engines decide.
 
 ---

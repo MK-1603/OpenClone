@@ -38,9 +38,9 @@ def _find_repo_root(p: Path) -> Path:
     return p.parents[3]
 
 ROOT = _find_repo_root(Path(__file__).resolve())
-REGISTRY = ROOT / "workforce" / "registry" / "workers"
-FINDING_SCHEMA = ROOT / "EGM-WORKFLOWS" / "schemas" / "design-review-finding.schema.json"
-MEMORY_SCHEMA = ROOT / "schemas" / "memory-record.schema.json"
+REGISTRY = (ROOT / "framework" / "workforce" / "registry" / "workers") if (ROOT / "framework" / "workforce" / "registry" / "workers").exists() else (ROOT / "workforce" / "registry" / "workers")
+FINDING_SCHEMA = (ROOT / "framework" / "methodology" / "egm" / "schemas" / "design-review-finding.schema.json") if (ROOT / "framework" / "methodology" / "egm" / "schemas" / "design-review-finding.schema.json").exists() else (ROOT / "EGM-WORKFLOWS" / "schemas" / "design-review-finding.schema.json")
+MEMORY_SCHEMA = (ROOT / "framework" / "schemas" / "memory-record.schema.json") if (ROOT / "framework" / "schemas" / "memory-record.schema.json").exists() else (ROOT / "schemas" / "memory-record.schema.json")
 DEFAULT_GATE = ROOT / "security" / "policies" / "release-gate.json"
 
 SENSITIVE_ACTIONS = {"write", "execute", "external_access", "destructive_change", "release", "deploy", "security_test"}
@@ -319,7 +319,8 @@ def init_project(a):
     p = Path(a.project).resolve()
     p.mkdir(parents=True, exist_ok=True)
     (p / ".aisdf").mkdir(exist_ok=True)
-    for name, src in [("PROJECT.md", ROOT / "templates/PROJECT.template.md"), ("AGENTS.md", ROOT / "templates/AGENTS.template.md")]:
+    tmpl_dir = (ROOT / "framework" / "templates") if (ROOT / "framework" / "templates").exists() else (ROOT / "templates")
+    for name, src in [("PROJECT.md", tmpl_dir / "PROJECT.template.md"), ("AGENTS.md", tmpl_dir / "AGENTS.template.md")]:
         target = p / name
         if target.exists():
             print(f"PRESERVED: {target}")
@@ -560,7 +561,7 @@ def _execute_command(base: Path, policy: dict, label: str, argv, cwd_rel=".", ti
     started, t0 = utc(), time.monotonic()
     timed_out, rc, out, err, spawn_error = False, None, b"", b"", None
     try:
-        proc = subprocess.Popen(argv, cwd=cwd, env=env, shell=False, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
+        proc = subprocess.Popen(argv, cwd=cwd, env=env, shell=False, stdin=subprocess.DEVNULL, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
                                 start_new_session=(os.name == "posix"), preexec_fn=limits if os.name == "posix" else None)
         try:
             out, err = proc.communicate(timeout=timeout)

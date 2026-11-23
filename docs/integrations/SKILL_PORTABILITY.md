@@ -1,6 +1,6 @@
 # Skill Portability & Lifecycle Management
 
-OpenClone skills (such as [Taste Skill v2.6.0](../../domains/05-UX-UI-ENGINEERING/ANTI-AI-SLOP-STANDARDS.md)) follow a strict, portable packaging format usable across all supported hosts.
+OpenClone skills (such as [Taste Skill v2.6.0](../../framework/domains/05-UX-UI-ENGINEERING/ANTI-AI-SLOP-STANDARDS.md)) follow a strict, portable packaging format usable across all supported hosts.
 
 ---
 

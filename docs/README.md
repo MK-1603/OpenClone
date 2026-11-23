@@ -2,8 +2,8 @@
 
 ## Platform Architecture & Guides
 - [OpenClone Architecture Specification](architecture/OPENCLONE-2.0-ARCHITECTURE.md) — Target system architecture, component boundaries, ADRs, and module dependency model.
-- [Global Plugin Installation Guide](installation/GLOBAL-PLUGIN-INSTALLATION.md) — Zero-clone global installation, CLI reference, and host lifecycle management.
-- [Host Compatibility Matrix](compatibility/HOST-COMPATIBILITY.md) — Multi-host conformance matrix, extension formats, and truthful maturity ratings.
+- [Global Plugin Installation Guide](../global/docs/GLOBAL-PLUGIN-INSTALLATION.md) — Zero-clone global installation, CLI reference, and host lifecycle management.
+- [Host Compatibility Matrix](../global/docs/HOST-COMPATIBILITY.md) — Multi-host conformance matrix, extension formats, and truthful maturity ratings.
 - [Security Architecture & Threat Model](security/THREAT-MODEL.md) — STRIDE threat analysis, boundary containment, and cryptographic replay defense.
 - [19-Point SaaS Security Baseline](security/saas-security-baseline.md) — Pre-production SaaS security controls and verification checks.
 - [Release Readiness & Implementation Status](guides/RELEASE-READINESS.md) — Transparent maturity matrix and capability ledger.
@@ -14,18 +14,18 @@
 - [Canonical Documentation Map](DOCUMENTATION-MAP.md) — Single source of authority, subject matrices, and precedence rules.
 - [Repository & Distribution Architecture](architecture/REPOSITORY-AND-DISTRIBUTION-ARCHITECTURE.md) — Lean core, native adapters, and progressive disclosure model.
 - [Installation & Capability Modules Guide](installation/INSTALLATION-AND-MODULES.md) — Zero-clone host installation, updates, and on-demand capability packs.
-- [Quick Start Guide](../QUICK-START.md) — Portable project workflow and optional local control plane setup.
-- [Mission & Scope](../OPENCLONE-MISSION-AND-SCOPE.md) — Vision, boundaries, and architectural principles.
-- [Core Principles](../OPENCLONE-CORE-PRINCIPLES.md) — Instruction-first, deterministic governance, least privilege.
-- [Lifecycle Overview](../OPENCLONE-LIFECYCLE-OVERVIEW.md) — The 7-phase instruction-to-deployment engineering lifecycle.
+- [Quick Start Guide](getting-started.md) — Portable project workflow and optional local control plane setup.
+- [Mission & Scope](concepts/OPENCLONE-MISSION-AND-SCOPE.md) — Vision, boundaries, and architectural principles.
+- [Core Principles](concepts/OPENCLONE-CORE-PRINCIPLES.md) — Instruction-first, deterministic governance, least privilege.
+- [Lifecycle Overview](concepts/OPENCLONE-LIFECYCLE-OVERVIEW.md) — The 7-phase instruction-to-deployment engineering lifecycle.
 - [Governance & Rules](../GOVERNANCE.md) — Precedence hierarchy, human approval gates, audit standards.
-- [Domain Map](../DOMAIN-MAP.md) — High-level map across the 31 engineering domains.
+- [Domain Map](DOMAIN-MAP.md) — High-level map across the 31 engineering domains.
 
 ## Portable Project Workflow & Tooling
-- [Workflow WF-015: Portable Specification to Build](../workflows/WF-015-PORTABLE-PROJECT-SPECIFICATION-TO-BUILD.md) — Zero-install workflow.
-- [Portable Project Intelligence Master Prompt](../prompts/PORTABLE-PROJECT-INTELLIGENCE-MASTER-PROMPT.md) — Canonical prompt for ChatGPT and Claude.
-- [Templates Library](../templates/README.md) — Portable templates for `PROJECT.md`, `BUILD_PROMPT.md`, `PROGRESS.md`, `HANDOFF.md`.
-- [PROJECT.md and AGENTS.md Lifecycle Guide](project-lifecycle/PROJECT-AND-AGENT-FILES.md) — Structuring specification and agent files.
+- [Workflow WF-015: Portable Specification to Build](../framework/workflows/WF-015-PORTABLE-PROJECT-SPECIFICATION-TO-BUILD.md) — Zero-install workflow.
+- [Portable Project Intelligence Master Prompt](../framework/prompts/PORTABLE-PROJECT-INTELLIGENCE-MASTER-PROMPT.md) — Canonical prompt for ChatGPT and Claude.
+- [Templates Library](../framework/templates/README.md) — Portable templates for `PROJECT.md`, `BUILD_PROMPT.md`, `PROGRESS.md`, `HANDOFF.md`.
+- [PROJECT.md and AGENTS.md Lifecycle Guide](guides/project-lifecycle/PROJECT-AND-AGENT-FILES.md) — Structuring specification and agent files.
 
 ## Alternatives & Fallback Engineering Suite
 - [Alternatives Suite Index](alternatives/README.md) — Architecture principles for replaceable components.
@@ -40,12 +40,12 @@
 - [Deferred & Rejected Options](alternatives/DEFERRED_AND_REJECTED_OPTIONS.md) — Record of rejected routers and unmonitored agent swarms.
 
 ## Complete Knowledge Catalogues & Taxonomy
-- [Knowledge Catalogues Index](knowledge-catalogues/README.md) — Canonical software engineering taxonomies and capability mapping.
-- [UI Design Catalogue](knowledge-catalogues/UI_DESIGN_CATALOGUE.md) — 86 visual styles & 232 architecture taxonomy entries across 8 layers.
-- [Animation & Motion Catalogue](knowledge-catalogues/ANIMATION_MOTION_CATALOGUE.md) — 365 motion concepts, timing tokens, and 60fps rules.
-- [Backend & System Design Catalogue](knowledge-catalogues/BACKEND_SYSTEM_DESIGN_CATALOGUE.md) — 580 backend topics across 23 core engineering domains.
-- [AI Engineering Catalogue](knowledge-catalogues/AI_ENGINEERING_CATALOGUE.md) — 1,095 topics across 18 domains with token budgeting standards.
-- [Catalogue to Product Capability Map](knowledge-catalogues/CATALOGUE_TO_PRODUCT_CAPABILITY_MAP.md) — Product classification mapping.
+- [Knowledge Catalogues Index](reference/README.md) — Canonical software engineering taxonomies and capability mapping.
+- [UI Design Catalogue](reference/UI_DESIGN_CATALOGUE.md) — 86 visual styles & 232 architecture taxonomy entries across 8 layers.
+- [Animation & Motion Catalogue](reference/ANIMATION_MOTION_CATALOGUE.md) — 365 motion concepts, timing tokens, and 60fps rules.
+- [Backend & System Design Catalogue](reference/BACKEND_SYSTEM_DESIGN_CATALOGUE.md) — 580 backend topics across 23 core engineering domains.
+- [AI Engineering Catalogue](reference/AI_ENGINEERING_CATALOGUE.md) — 1,095 topics across 18 domains with token budgeting standards.
+- [Catalogue to Product Capability Map](reference/CATALOGUE_TO_PRODUCT_CAPABILITY_MAP.md) — Product classification mapping.
 
 ## Engineering Lifecycle & Independent Verification Suite
 - [Lifecycle Suite Index](engineering-lifecycle/README.md) — 22-phase lifecycle and dynamic verification architecture.
@@ -88,4 +88,4 @@
 - [External LLM Router Comparison](integrations/llm-router-comparison.md) — Evaluation of 8 external router candidates.
 - [Multi-Host Compatibility Matrix](integrations/compatibility-matrix.md) — Antigravity, Claude Code, Cursor, Codex verification.
 - [Engineering Coverage Catalogue](engineering-coverage/CATALOGUE.md) — The 56 capability engines.
-- [MK Framework Methodology](../domains/01-METHODOLOGY/MK-FRAMEWORK/README.md) — Venture-to-software execution method.
+- [MK Framework Methodology](../framework/methodology/mk-framework/README.md) — Venture-to-software execution method.

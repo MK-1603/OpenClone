@@ -36,7 +36,7 @@ To prevent AI slope, context bloat, and license contamination, OpenClone enforce
 - **What was reused:** Architectural component patterns and theme tokens.
 - **What was not reused:** Hundreds of generated React component files.
 - **Why:** Application developers generate their own components; OpenClone provides the engineering governance.
-- **Implementation Location:** [`domains/05-UX-UI-ENGINEERING/ANTI-AI-SLOP-STANDARDS.md`](../../domains/05-UX-UI-ENGINEERING/ANTI-AI-SLOP-STANDARDS.md).
+- **Implementation Location:** [`domains/05-UX-UI-ENGINEERING/ANTI-AI-SLOP-STANDARDS.md`](../../framework/domains/05-UX-UI-ENGINEERING/ANTI-AI-SLOP-STANDARDS.md).
 - **Test:** Taste Skill governance tests (`skills/taste-skill/tests/test-governance.mjs`).
 
 #### UI-003: Dammyjay93/interface-design (MIT)
@@ -58,7 +58,7 @@ To prevent AI slope, context bloat, and license contamination, OpenClone enforce
 - **What was reused:** Prompt instructions and anti-slop guidelines.
 - **What was not reused:** Unrelated skills in parent repository.
 - **Why:** Bounded to the requested `skills/frontend-design` directory.
-- **Implementation Location:** [`skills/taste-skill/`](../../skills/taste-skill/).
+- **Implementation Location:** [`skills/taste-skill/`](../../framework/skills/taste-skill/).
 - **Test:** Taste Skill instruction audit suite.
 
 #### UI-006: Leonxlnx/taste-skill (MIT)
@@ -81,7 +81,7 @@ To prevent AI slope, context bloat, and license contamination, OpenClone enforce
 - **What was reused:** Fast live MCP guidance topic `ui_ux_catalogue`.
 - **What was not reused:** Massive multi-megabyte prompt files.
 - **Why:** Prevents LLM context blowout by serving concise guidance via `openclone_get_guidance`.
-- **Implementation Location:** [`docs/knowledge/ui-ux-design-catalogue.md`](../knowledge/ui-ux-design-catalogue.md).
+- **Implementation Location:** [`docs/knowledge/ui-ux-design-catalogue.md`](../reference/guidance/ui-ux-design-catalogue.md).
 
 #### UI-009: flitzrrr/frontend-design-skills (MIT)
 - **What was useful:** Cross-IDE prompt conventions for Claude Code and Cursor.
@@ -95,7 +95,7 @@ To prevent AI slope, context bloat, and license contamination, OpenClone enforce
 - **What was reused:** Defect severity scoring and typography hierarchy rules.
 - **What was not reused:** Marketing documentation.
 - **Why:** Converted into live MCP guidance topic `ui_ux_quality`.
-- **Implementation Location:** [`docs/knowledge/ui-ux-quality-audit.md`](../knowledge/ui-ux-quality-audit.md).
+- **Implementation Location:** [`docs/knowledge/ui-ux-quality-audit.md`](../reference/guidance/ui-ux-quality-audit.md).
 
 #### UI-011: jpoindexter/typography-skills (MIT)
 - **What was useful:** Major Third typography scale (1.250), fluid clamp() calculations, optical line lengths (45–75 chars).

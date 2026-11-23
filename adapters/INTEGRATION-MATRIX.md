@@ -79,4 +79,4 @@ Add to `.codex/mcp.json` or root `mcp.json`:
 ```
 
 ### ChatGPT
-Deploy `src/openclone/mcp/server.py` with an SSE/HTTP gateway (e.g. FastAPI/Uvicorn), configure OAuth/Bearer token, and register as an Action in ChatGPT Custom GPT Builder using [`adapters/chatgpt/custom-gpt-instructions.md`](chatgpt/custom-gpt-instructions.md).
+Deploy `src/openclone/mcp/server.py` with an SSE/HTTP gateway (e.g. FastAPI/Uvicorn), configure OAuth/Bearer token, and register as an Action in ChatGPT Custom GPT Builder using [`adapters/../global/hosts/chatgpt/custom-gpt-instructions.md`](../global/hosts/chatgpt/custom-gpt-instructions.md).

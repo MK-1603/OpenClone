@@ -8,7 +8,7 @@ from pathlib import Path
 IGNORE={'.git','node_modules','.next','dist','build','.venv','venv','__pycache__','.turbo','.idea','.vscode','coverage','.aisdf'}
 ROOT=Path(__file__).resolve().parents[2]
 TEMPLATE=ROOT/'tools'/'openclone_runtime'/'templates'/'PROJECT.md.template.md'
-AGENT_TEMPLATE=ROOT/'templates'/'AGENTS.template.md'
+AGENT_TEMPLATE=(ROOT/'framework'/'templates'/'AGENTS.template.md') if (ROOT/'framework'/'templates'/'AGENTS.template.md').exists() else (ROOT/'templates'/'AGENTS.template.md')
 
 def now(): return datetime.now(timezone.utc).replace(microsecond=0).isoformat()
 def write_new(path:Path, text:str):

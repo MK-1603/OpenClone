@@ -4,7 +4,7 @@ ROOT=Path(__file__).resolve().parents[1]
 CLI=ROOT/'tools'/'openclone_runtime'/'project.py'
 class ProjectLifecycleTests(unittest.TestCase):
     def run_cli(self,*args,ok=True):
-        r=subprocess.run([sys.executable,str(CLI),*map(str,args)],capture_output=True,text=True)
+        r=subprocess.run([sys.executable,str(CLI),*map(str,args)],capture_output=True,text=True,stdin=subprocess.DEVNULL)
         if ok: self.assertEqual(r.returncode,0,r.stdout+r.stderr)
         else: self.assertNotEqual(r.returncode,0,r.stdout+r.stderr)
         return r

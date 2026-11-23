@@ -10,6 +10,6 @@ See [`INTEGRATION-MATRIX.md`](INTEGRATION-MATRIX.md) for the complete multi-host
 | **Claude Code** | CLI & Terminal Plugin | `.mcp.json` | `CLAUDE.md` | `.claude/skills/aisdf/SKILL.md`, `CLAUDE.template.md` |
 | **OpenAI Codex** | CLI, Desktop & VSCode Extension | `mcp.json` | `AGENTS.md` | `.agents/skills/aisdf/SKILL.md` |
 | **Cursor** | Editor & Composer Agent | `.cursor/mcp.json` | `AGENTS.md` | `.cursor/rules/aisdf.mdc`, `aisdf-project-rule.template.mdc` |
-| **ChatGPT** | Hosted MCP & Custom GPT | Remote HTTPS / SSE | Custom GPT Instructions | [`chatgpt/README.md`](chatgpt/README.md), [`chatgpt/custom-gpt-instructions.md`](chatgpt/custom-gpt-instructions.md) |
+| **ChatGPT** | Hosted MCP & Custom GPT | Remote HTTPS / SSE | Custom GPT Instructions | [`chatgpt/README.md`](chatgpt/README.md), [`../global/hosts/chatgpt/custom-gpt-instructions.md`](../global/hosts/chatgpt/custom-gpt-instructions.md) |
 
-Adapters do not grant permissions or prove host compatibility. Always inspect existing instructions before installing; merge rather than overwrite. See [PROJECT.md and AGENTS.md](../docs/project-lifecycle/PROJECT-AND-AGENT-FILES.md).
+Adapters do not grant permissions or prove host compatibility. Always inspect existing instructions before installing; merge rather than overwrite. See [PROJECT.md and AGENTS.md](../docs/guides/project-lifecycle/PROJECT-AND-AGENT-FILES.md).

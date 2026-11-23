@@ -215,10 +215,14 @@ class OpenCloneMCPServer:
     def get_status(self) -> Dict[str, Any]:
         """Return runtime status and metrics."""
         version = (self.root / "VERSION").read_text(encoding="utf-8").strip() if (self.root / "VERSION").exists() else "1.0.0"
-        domains_count = len([d for d in (self.root / "domains").iterdir() if d.is_dir() and re.match(r"^\d\d-", d.name)]) if (self.root / "domains").exists() else 0
-        engines_count = len(list((self.root / "engines").glob("E-*.md"))) if (self.root / "engines").exists() else 0
-        workflows_count = len(list((self.root / "workflows").glob("WF-*.md"))) if (self.root / "workflows").exists() else 0
-        roles_count = len(list((self.root / "workforce" / "registry" / "workers").glob("*.json"))) if (self.root / "workforce" / "registry" / "workers").exists() else 0
+        dom_dir = (self.root / "framework" / "domains") if (self.root / "framework" / "domains").exists() else (self.root / "domains")
+        domains_count = len([d for d in dom_dir.iterdir() if d.is_dir() and re.match(r"^\d\d-", d.name)]) if dom_dir.exists() else 0
+        eng_dir = (self.root / "framework" / "engines") if (self.root / "framework" / "engines").exists() else (self.root / "engines")
+        engines_count = len(list(eng_dir.glob("E-*.md"))) if eng_dir.exists() else 0
+        wf_dir = (self.root / "framework" / "workflows") if (self.root / "framework" / "workflows").exists() else (self.root / "workflows")
+        workflows_count = len(list(wf_dir.glob("WF-*.md"))) if wf_dir.exists() else 0
+        wf_reg = (self.root / "framework" / "workforce" / "registry" / "workers") if (self.root / "framework" / "workforce" / "registry" / "workers").exists() else (self.root / "workforce" / "registry" / "workers")
+        roles_count = len(list(wf_reg.glob("*.json"))) if wf_reg.exists() else 0
 
         # Check git branch
         branch = "unknown"
@@ -273,12 +277,15 @@ class OpenCloneMCPServer:
         q = query.lower()
 
         search_dirs = []
-        if category in ("all", "domains") and (self.root / "domains").exists():
-            search_dirs.append(("domain", self.root / "domains"))
-        if category in ("all", "engines") and (self.root / "engines").exists():
-            search_dirs.append(("engine", self.root / "engines"))
-        if category in ("all", "workflows") and (self.root / "workflows").exists():
-            search_dirs.append(("workflow", self.root / "workflows"))
+        dom_dir = (self.root / "framework" / "domains") if (self.root / "framework" / "domains").exists() else (self.root / "domains")
+        if category in ("all", "domains") and dom_dir.exists():
+            search_dirs.append(("domain", dom_dir))
+        eng_dir = (self.root / "framework" / "engines") if (self.root / "framework" / "engines").exists() else (self.root / "engines")
+        if category in ("all", "engines") and eng_dir.exists():
+            search_dirs.append(("engine", eng_dir))
+        wf_dir = (self.root / "framework" / "workflows") if (self.root / "framework" / "workflows").exists() else (self.root / "workflows")
+        if category in ("all", "workflows") and wf_dir.exists():
+            search_dirs.append(("workflow", wf_dir))
         if category in ("all", "blueprints") and (self.root / "blueprints").exists():
             search_dirs.append(("blueprint", self.root / "blueprints"))
 
@@ -311,19 +318,22 @@ class OpenCloneMCPServer:
 
         # Try engines: E-XXX
         if re.match(r"^E-\d{3}", cid, re.IGNORECASE):
-            matches = list((self.root / "engines").glob(f"{cid.upper()}*.md"))
+            eng_dir = (self.root / "framework" / "engines") if (self.root / "framework" / "engines").exists() else (self.root / "engines")
+            matches = list(eng_dir.glob(f"{cid.upper()}*.md"))
             if matches:
                 found_file = matches[0]
 
         # Try workflows: WF-XXX
         if not found_file and re.match(r"^WF-\d{3}", cid, re.IGNORECASE):
-            matches = list((self.root / "workflows").glob(f"{cid.upper()}*.md"))
+            wf_dir = (self.root / "framework" / "workflows") if (self.root / "framework" / "workflows").exists() else (self.root / "workflows")
+            matches = list(wf_dir.glob(f"{cid.upper()}*.md"))
             if matches:
                 found_file = matches[0]
 
         # Try domains: XX-*
-        if not found_file and (self.root / "domains").exists():
-            for d in (self.root / "domains").iterdir():
+        dom_dir = (self.root / "framework" / "domains") if (self.root / "framework" / "domains").exists() else (self.root / "domains")
+        if not found_file and dom_dir.exists():
+            for d in dom_dir.iterdir():
                 if d.is_dir() and (cid.lower() in d.name.lower() or d.name.lower().startswith(cid.lower())):
                     readme = d / "README.md"
                     if readme.exists():
@@ -332,7 +342,7 @@ class OpenCloneMCPServer:
 
         # Try taste skill
         if not found_file and "taste" in cid.lower():
-            ts_readme = self.root / "skills" / "taste-skill" / "README.md"
+            ts_readme = (self.root / "framework" / "skills" / "taste-skill" / "README.md") if (self.root / "framework" / "skills" / "taste-skill" / "README.md").exists() else (self.root / "skills" / "taste-skill" / "README.md")
             if ts_readme.exists():
                 found_file = ts_readme
 
@@ -358,7 +368,8 @@ class OpenCloneMCPServer:
     def run_workflow(self, workflow_id: str, action: str = "inspect") -> Dict[str, Any]:
         """Inspect workflow structure or contract."""
         wid = workflow_id.strip().upper()
-        matches = list((self.root / "workflows").glob(f"{wid}*.md"))
+        wf_dir = (self.root / "framework" / "workflows") if (self.root / "framework" / "workflows").exists() else (self.root / "workflows")
+        matches = list(wf_dir.glob(f"{wid}*.md"))
         if not matches:
             return {"workflow_id": wid, "found": False, "error": f"Workflow {wid} not found."}
 
@@ -392,19 +403,19 @@ class OpenCloneMCPServer:
     def get_guidance(self, topic: str) -> Dict[str, Any]:
         """Retrieve engineering guidance by topic."""
         topic_map = {
-            "anti_slop": self.root / "domains" / "05-UX-UI-ENGINEERING" / "ANTI-AI-SLOP-STANDARDS.md",
-            "morphism_styles": self.root / "domains" / "05-UX-UI-ENGINEERING" / "USER-CHOICE-DESIGN-PATTERNS.md",
-            "deployment": self.root / "domains" / "19-DEPLOYMENT-AND-OPERATIONS" / "APPLICATION-DEPLOYMENT-GUIDE.md",
+            "anti_slop": (self.root / "framework" / "domains" / "05-UX-UI-ENGINEERING" / "ANTI-AI-SLOP-STANDARDS.md") if (self.root / "framework" / "domains" / "05-UX-UI-ENGINEERING" / "ANTI-AI-SLOP-STANDARDS.md").exists() else (self.root / "domains" / "05-UX-UI-ENGINEERING" / "ANTI-AI-SLOP-STANDARDS.md"),
+            "morphism_styles": (self.root / "framework" / "domains" / "05-UX-UI-ENGINEERING" / "USER-CHOICE-DESIGN-PATTERNS.md") if (self.root / "framework" / "domains" / "05-UX-UI-ENGINEERING" / "USER-CHOICE-DESIGN-PATTERNS.md").exists() else (self.root / "domains" / "05-UX-UI-ENGINEERING" / "USER-CHOICE-DESIGN-PATTERNS.md"),
+            "deployment": (self.root / "framework" / "domains" / "19-DEPLOYMENT-AND-OPERATIONS" / "APPLICATION-DEPLOYMENT-GUIDE.md") if (self.root / "framework" / "domains" / "19-DEPLOYMENT-AND-OPERATIONS" / "APPLICATION-DEPLOYMENT-GUIDE.md").exists() else (self.root / "domains" / "19-DEPLOYMENT-AND-OPERATIONS" / "APPLICATION-DEPLOYMENT-GUIDE.md"),
             "requirements": self.root / "assessments" / "requirements" / "REQUIREMENTS-SYSTEM-AUDIT.md",
-            "governance": self.root / "domains" / "00-GOVERNANCE" / "OPENCLONE-RULEBOOK.md",
+            "governance": (self.root / "framework" / "domains" / "00-GOVERNANCE" / "OPENCLONE-RULEBOOK.md") if (self.root / "framework" / "domains" / "00-GOVERNANCE" / "OPENCLONE-RULEBOOK.md").exists() else (self.root / "domains" / "00-GOVERNANCE" / "OPENCLONE-RULEBOOK.md"),
             "saas_security": self.root / "docs" / "security" / "saas-security-baseline.md",
-            "ui_ux_catalogue": self.root / "docs" / "knowledge" / "ui-ux-design-catalogue.md",
-            "ui_ux_quality": self.root / "docs" / "knowledge" / "ui-ux-quality-audit.md",
-            "motion_design": self.root / "docs" / "knowledge" / "motion-and-animation.md",
-            "backend_catalogue": self.root / "docs" / "knowledge" / "backend-system-design-catalogue.md",
-            "ai_catalogue": self.root / "docs" / "knowledge" / "ai-engineering-catalogue.md",
+            "ui_ux_catalogue": (self.root / "docs" / "reference" / "guidance" / "ui-ux-design-catalogue.md") if (self.root / "docs" / "reference" / "guidance" / "ui-ux-design-catalogue.md").exists() else (self.root / "docs" / "knowledge" / "ui-ux-design-catalogue.md"),
+            "ui_ux_quality": (self.root / "docs" / "reference" / "guidance" / "ui-ux-quality-audit.md") if (self.root / "docs" / "reference" / "guidance" / "ui-ux-quality-audit.md").exists() else (self.root / "docs" / "knowledge" / "ui-ux-quality-audit.md"),
+            "motion_design": (self.root / "docs" / "reference" / "guidance" / "motion-and-animation.md") if (self.root / "docs" / "reference" / "guidance" / "motion-and-animation.md").exists() else (self.root / "docs" / "knowledge" / "motion-and-animation.md"),
+            "backend_catalogue": (self.root / "docs" / "reference" / "guidance" / "backend-system-design-catalogue.md") if (self.root / "docs" / "reference" / "guidance" / "backend-system-design-catalogue.md").exists() else (self.root / "docs" / "knowledge" / "backend-system-design-catalogue.md"),
+            "ai_catalogue": (self.root / "docs" / "reference" / "guidance" / "ai-engineering-catalogue.md") if (self.root / "docs" / "reference" / "guidance" / "ai-engineering-catalogue.md").exists() else (self.root / "docs" / "knowledge" / "ai-engineering-catalogue.md"),
             "external_repos": self.root / "docs" / "integrations" / "27-repositories-audit.md",
-            "skills": self.root / "registries" / "SKILL-REGISTRY.md",
+            "skills": (self.root / "framework" / "registries" / "SKILL-REGISTRY.md") if (self.root / "framework" / "registries" / "SKILL-REGISTRY.md").exists() else (self.root / "registries" / "SKILL-REGISTRY.md"),
             "engineering_lifecycle": self.root / "docs" / "engineering-lifecycle" / "README.md",
             "lifecycle_catalogue": self.root / "docs" / "engineering-lifecycle" / "MASTER_LIFECYCLE_CATALOGUE.md",
             "quality_gates": self.root / "docs" / "engineering-lifecycle" / "STATUS_AND_QUALITY_GATES.md",
@@ -424,14 +435,18 @@ class OpenCloneMCPServer:
     def list_capabilities(self, filter_cat: str = "all") -> Dict[str, Any]:
         """List domains, engines, workflows, roles, and adapters."""
         res: Dict[str, Any] = {}
-        if filter_cat in ("all", "domains") and (self.root / "domains").exists():
-            res["domains"] = sorted([d.name for d in (self.root / "domains").iterdir() if d.is_dir() and re.match(r"^\d\d-", d.name)])
-        if filter_cat in ("all", "engines") and (self.root / "engines").exists():
-            res["engines"] = sorted([f.stem for f in (self.root / "engines").glob("E-*.md")])
-        if filter_cat in ("all", "workflows") and (self.root / "workflows").exists():
-            res["workflows"] = sorted([f.stem for f in (self.root / "workflows").glob("WF-*.md")])
-        if filter_cat in ("all", "roles") and (self.root / "workforce" / "registry" / "workers").exists():
-            res["workforce_roles"] = sorted([f.stem for f in (self.root / "workforce" / "registry" / "workers").glob("*.json")])
+        dom_dir = (self.root / "framework" / "domains") if (self.root / "framework" / "domains").exists() else (self.root / "domains")
+        if filter_cat in ("all", "domains") and dom_dir.exists():
+            res["domains"] = sorted([d.name for d in dom_dir.iterdir() if d.is_dir() and re.match(r"^\d\d-", d.name)])
+        eng_dir = (self.root / "framework" / "engines") if (self.root / "framework" / "engines").exists() else (self.root / "engines")
+        if filter_cat in ("all", "engines") and eng_dir.exists():
+            res["engines"] = sorted([f.stem for f in eng_dir.glob("E-*.md")])
+        wf_dir = (self.root / "framework" / "workflows") if (self.root / "framework" / "workflows").exists() else (self.root / "workflows")
+        if filter_cat in ("all", "workflows") and wf_dir.exists():
+            res["workflows"] = sorted([f.stem for f in wf_dir.glob("WF-*.md")])
+        wf_reg = (self.root / "framework" / "workforce" / "registry" / "workers") if (self.root / "framework" / "workforce" / "registry" / "workers").exists() else (self.root / "workforce" / "registry" / "workers")
+        if filter_cat in ("all", "roles") and wf_reg.exists():
+            res["workforce_roles"] = sorted([f.stem for f in wf_reg.glob("*.json")])
         if filter_cat in ("all", "adapters") and (self.root / "adapters").exists():
             res["adapters"] = sorted([d.name for d in (self.root / "adapters").iterdir() if d.is_dir() and not d.name.startswith(".")])
         return res
@@ -561,7 +576,7 @@ class OpenCloneMCPServer:
                 content_text = json.dumps(self.call_tool("openclone_get_checklist", {}), indent=2)
                 mime_type = "application/json"
             elif uri == "openclone://governance/rulebook":
-                rule_file = self.root / "domains" / "00-GOVERNANCE" / "OPENCLONE-RULEBOOK.md"
+                rule_file = (self.root / "framework" / "domains" / "00-GOVERNANCE" / "OPENCLONE-RULEBOOK.md") if (self.root / "framework" / "domains" / "00-GOVERNANCE" / "OPENCLONE-RULEBOOK.md").exists() else (self.root / "domains" / "00-GOVERNANCE" / "OPENCLONE-RULEBOOK.md")
                 content_text = rule_file.read_text(encoding="utf-8", errors="replace") if rule_file.exists() else "# AISDF Rulebook"
                 mime_type = "text/markdown"
             elif uri == "openclone://verification/policies":

@@ -28,7 +28,7 @@ To eliminate conflicting specifications, overlapping rules, and contradictory re
 |---|---|---|---|
 | **Repository Operating Contract** | [`AGENTS.md`](../AGENTS.md) | Single operating ruleset for all AI agents | `rules/*.md`, `adapters/*/rules` |
 | **Product & Framework Standard** | [`openclone.manifest.json`](../openclone.manifest.json) | Version, runtime capabilities, scanner lock | `openclone.manifest.json`, `VERSION` |
-| **Anti-AI-Slop Governance** | [`domains/05-UX-UI-ENGINEERING/ANTI-AI-SLOP-STANDARDS.md`](../domains/05-UX-UI-ENGINEERING/ANTI-AI-SLOP-STANDARDS.md) | Normative design rules, tokens, and contrast gates | `docs/knowledge/ui-ux-design-catalogue.md` |
+| **Anti-AI-Slop Governance** | [`domains/05-UX-UI-ENGINEERING/ANTI-AI-SLOP-STANDARDS.md`](../framework/domains/05-UX-UI-ENGINEERING/ANTI-AI-SLOP-STANDARDS.md) | Normative design rules, tokens, and contrast gates | `docs/knowledge/ui-ux-design-catalogue.md` |
 | **SaaS Security Baseline** | [`docs/security/saas-security-baseline.md`](security/saas-security-baseline.md) | 19-point SaaS security standard | `security/scanners.lock.json`, `docs/security/THREAT-MODEL.md` |
 | **22-Phase Lifecycle** | [`docs/engineering-lifecycle/MASTER_LIFECYCLE_CATALOGUE.md`](engineering-lifecycle/MASTER_LIFECYCLE_CATALOGUE.md) | Canonical 22-phase lifecycle and quality gates | `tools/checklist_engine.py` |
 | **V0–V5 Evidence Verification** | [`docs/engineering-lifecycle/VERIFICATION_AND_EVIDENCE.md`](engineering-lifecycle/VERIFICATION_AND_EVIDENCE.md) | Observable evidence requirements & Goldfish protocol | `src/openclone/integrations/capabilities.py` |
@@ -36,15 +36,15 @@ To eliminate conflicting specifications, overlapping rules, and contradictory re
 | **Gateway & Approvals** | [`src/openclone/integrations/gateway.py`](../src/openclone/integrations/gateway.py) | Cryptographic human approval & policy engine | `docs/integrations/SECURITY_AND_APPROVALS.md` |
 | **Shared MCP Service** | [`src/openclone/mcp/server.py`](../src/openclone/mcp/server.py) | JSON-RPC 2.0 stdio/SSE MCP protocol implementation | `docs/integrations/MCP_SERVER.md` |
 | **OpenClone 2.0 Architecture** | [`docs/architecture/OPENCLONE-2.0-ARCHITECTURE.md`](architecture/OPENCLONE-2.0-ARCHITECTURE.md) | Component boundaries, ADRs, modular distribution | `docs/architecture/REPOSITORY-AND-DISTRIBUTION-ARCHITECTURE.md` |
-| **Host Compatibility** | [`docs/compatibility/HOST-COMPATIBILITY.md`](compatibility/HOST-COMPATIBILITY.md) | Multi-host extension format & conformance matrix | `docs/integrations/HOST_COMPATIBILITY_MATRIX.md` |
+| **Host Compatibility** | [`docs/../global/docs/HOST-COMPATIBILITY.md`](../global/docs/HOST-COMPATIBILITY.md) | Multi-host extension format & conformance matrix | `docs/integrations/HOST_COMPATIBILITY_MATRIX.md` |
 | **Global Plugin Installer** | [`src/openclone/installer/engine.py`](../src/openclone/installer/engine.py) | Multi-host transactional installer, doctor, status | `docs/installation/GLOBAL-PLUGIN-INSTALLATION.md`, `docs/installation/INSTALLATION-AND-MODULES.md` |
-| **UI Design Styles (86)** | [`docs/knowledge-catalogues/UI_DESIGN_CATALOGUE.md`](knowledge-catalogues/UI_DESIGN_CATALOGUE.md) | Exhaustive 86-style visual catalog and architecture | `docs/knowledge/ui-ux-design-catalogue.md` |
-| **Backend System Topics (580)** | [`docs/knowledge-catalogues/BACKEND_SYSTEM_DESIGN_CATALOGUE.md`](knowledge-catalogues/BACKEND_SYSTEM_DESIGN_CATALOGUE.md) | Exhaustive 580 backend & distributed system topics | `docs/knowledge/backend-system-design-catalogue.md` |
-| **AI Engineering Topics (1,095)**| [`docs/knowledge-catalogues/AI_ENGINEERING_CATALOGUE.md`](knowledge-catalogues/AI_ENGINEERING_CATALOGUE.md) | LLM, RAG, agent, prompting, token budgeting topics | `docs/knowledge/ai-engineering-catalogue.md` |
-| **Animation Tokens (365)** | [`docs/knowledge-catalogues/ANIMATION_MOTION_CATALOGUE.md`](knowledge-catalogues/ANIMATION_MOTION_CATALOGUE.md) | Physical spring easing tokens, 60fps rules | `docs/knowledge/motion-and-animation.md` |
-| **Workforce Roles (72)** | [`workforce/registry/workers/`](../workforce/registry/workers/) | 72 JSON worker role definitions | `workforce/teams/` |
-| **Capability Engines (56)** | [`engines/`](../engines/) | 56 engine execution specifications (E-001..E-056) | `docs/engineering-coverage/CATALOGUE.md` |
-| **Workflows (15)** | [`workflows/`](../workflows/) | 15 executable workflow definitions (WF-001..WF-015) | `openclone.manifest.json` |
+| **UI Design Styles (86)** | [`docs/reference/UI_DESIGN_CATALOGUE.md`](reference/UI_DESIGN_CATALOGUE.md) | Exhaustive 86-style visual catalog and architecture | `docs/knowledge/ui-ux-design-catalogue.md` |
+| **Backend System Topics (580)** | [`docs/reference/BACKEND_SYSTEM_DESIGN_CATALOGUE.md`](reference/BACKEND_SYSTEM_DESIGN_CATALOGUE.md) | Exhaustive 580 backend & distributed system topics | `docs/knowledge/backend-system-design-catalogue.md` |
+| **AI Engineering Topics (1,095)**| [`docs/reference/AI_ENGINEERING_CATALOGUE.md`](reference/AI_ENGINEERING_CATALOGUE.md) | LLM, RAG, agent, prompting, token budgeting topics | `docs/knowledge/ai-engineering-catalogue.md` |
+| **Animation Tokens (365)** | [`docs/reference/ANIMATION_MOTION_CATALOGUE.md`](reference/ANIMATION_MOTION_CATALOGUE.md) | Physical spring easing tokens, 60fps rules | `docs/knowledge/motion-and-animation.md` |
+| **Workforce Roles (72)** | [`workforce/registry/workers/`](../framework/workforce/registry/workers/) | 72 JSON worker role definitions | `workforce/teams/` |
+| **Capability Engines (56)** | [`engines/`](../framework/engines/) | 56 engine execution specifications (E-001..E-056) | `docs/engineering-coverage/CATALOGUE.md` |
+| **Workflows (15)** | [`workflows/`](../framework/workflows/) | 15 executable workflow definitions (WF-001..WF-015) | `openclone.manifest.json` |
 
 ---
 

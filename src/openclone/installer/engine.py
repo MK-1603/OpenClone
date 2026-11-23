@@ -77,7 +77,7 @@ class InstallerEngine:
             }, indent=2)
 
         elif host_id == "cursor":
-            src_rule = self.adapters_dir / "cursor" / ".cursor" / "rules" / "openclone.mdc"
+            src_rule = (self.root / "global" / "hosts" / "cursor" / "openclone.mdc") if (self.root / "global" / "hosts" / "cursor" / "openclone.mdc").exists() else (self.adapters_dir / "cursor" / "openclone-project-rule.template.mdc")
             files[".cursor/rules/openclone.mdc"] = src_rule.read_text(encoding="utf-8") if src_rule.exists() else "# AISDF Cursor Rule\n"
             files[".cursor/mcp.json"] = json.dumps({
                 "mcpServers": {
