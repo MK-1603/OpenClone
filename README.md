@@ -13,7 +13,7 @@
   &nbsp;
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-6366f1?style=flat" alt="MIT License" /></a>
   &nbsp;
-  <a href="tests/"><img src="https://img.shields.io/badge/tests-209%20passing%20%7C%200%20failed-059669?style=flat" alt="209 Passing Tests (196 Pytest + 13 Governance)" /></a>
+  <a href="tests/"><img src="https://img.shields.io/badge/tests-351%20passing%20%7C%200%20failed-059669?style=flat" alt="351 Passing Tests" /></a>
   &nbsp;
   <a href="security/scanners.lock.json"><img src="https://img.shields.io/badge/security-14%20scanners%20locked-ef4444?style=flat" alt="14 Scanners Locked" /></a>
   &nbsp;
@@ -362,9 +362,37 @@ OpenClone/
 
 ## 10. Getting Started
 
-### Route A: Global Plugin Installation (Recommended for End Users)
+### Method 1: Direct Pip Installation (Global CLI)
 
-Install OpenClone directly into your AI coding environment:
+Install OpenClone globally using `pip`:
+
+```bash
+# Install directly from the canonical GitHub repository
+pip install git+https://github.com/MK-1603/OpenClone.git
+```
+
+Or install from a pre-compiled wheel downloaded from the official [v1.0.0 GitHub Release](https://github.com/MK-1603/OpenClone/releases/tag/v1.0.0):
+
+```bash
+pip install openclone-1.0.0-py3-none-any.whl
+```
+
+#### Windows PATH Configuration Note:
+On Windows, `pip` may place executable scripts into your user Python directory (e.g. `%LOCALAPPDATA%\Python\pythoncore-3.15-64\Scripts`).
+To make `openclone` accessible everywhere:
+```cmd
+set PATH=%PATH%;C:\Users\<YourUser>\AppData\Local\Python\pythoncore-3.15-64\Scripts
+```
+*Tip: You can always invoke the CLI directly using Python:*
+```cmd
+python -m openclone --version
+```
+
+---
+
+### Method 2: Global Plugin Installation for AI IDEs
+
+Install OpenClone into your preferred AI coding environment:
 
 #### 1. Google Antigravity
 ```bash
@@ -397,7 +425,7 @@ Add OpenClone to `.cursor/mcp.json`:
 
 ---
 
-### Route B: Application Developers (Portable Zero-Install Workflow)
+### Method 3: Application Developers (Portable Zero-Install Workflow)
 
 If you are developing an application using ChatGPT, Claude, or Gemini in your browser, **no local installation is required**:
 
@@ -407,7 +435,7 @@ If you are developing an application using ChatGPT, Claude, or Gemini in your br
 
 ---
 
-### Route C: Framework Maintainers & Contributors (Local Setup)
+### Method 4: Framework Maintainers & Contributors (Local Setup)
 
 ```bash
 # 1. Clone repository
@@ -420,37 +448,117 @@ pip install -e ".[dev]"
 # 3. Verify repository integrity (56 engines, 31 domains, 100% case-accurate links)
 python tools/validate_repository.py
 
-# 4. Run automated test suite (174 unit & integration tests)
+# 4. Run automated test suite (351 tests)
 pytest tests/
-
-# 5. Run Taste Skill anti-slop governance tests (13 tests)
-node framework/skills/taste-skill/tests/test-governance.mjs
-# (Total: 187 automated tests passing with 0 failures)
 ```
 
 ---
 
-## 11. CLI Reference
+## 11. CLI Reference & Operational Quickstart
 
-OpenClone provides unified CLI management through `openclone` (or `python openclone.py`):
+OpenClone provides unified CLI management through `openclone` (or `python -m openclone`):
 
-### Project Initialization & Governance
+### 1. System Health Doctor
+Verify your Python environment, Git binary, Node.js runtime, workspace write permissions, and MCP components:
 ```bash
-# Initialize a new governed project workspace
-openclone init --project ./my-project --name "MySaaS" --owner "Developer" --non-interactive
+openclone doctor
+```
 
-# Plan a task dependency DAG
+### 2. Specialist Workforce Discovery
+List all 72 native governed worker contracts with their teams, maturity levels, and display names:
+```bash
+openclone workers
+```
+
+### 3. Project Initialization & Governance
+Initialize a new governed project workspace with an immutable audit ledger:
+```bash
+openclone init --project ./my-project --name "MyFirstApp" --owner "Developer"
+```
+
+### 4. Task Planning (Acyclic DAG)
+Plan an acyclic dependency graph of tasks. Tasks are topologically sorted and pre-checked:
+```bash
 openclone plan --project ./my-project --tasks ./tasks.json
+```
 
-# Approve a task as a registered human approver
-openclone approve --project ./my-project --task-id BUILD --approver Developer --non-interactive
+### 5. Human Approval Gate
+Approve a planned task as an authorized human approver, binding the approval to the SHA-256 task digest:
+```bash
+openclone approve --project ./my-project --task-id BUILD --approver Developer
+```
 
-# Transition task states
+### 6. Task Transition & Execution
+Transition task states through the validated lifecycle (`DRAFT` &rarr; `PLANNED` &rarr; `APPROVED` &rarr; `READY` &rarr; `RUNNING` &rarr; `COMPLETED`):
+```bash
 openclone transition --project ./my-project --task-id BUILD --to READY
+openclone run --project ./my-project --task-id BUILD
+```
 
-# Verify cryptographic audit ledger integrity
+### 7. Workforce & Task Status
+Inspect task execution status, dependency blockers, and worker assignments:
+```bash
+openclone status --project ./my-project
+```
+
+### 8. Cryptographic Audit Ledger Verification
+Verify the SHA-256 hash-chain integrity of the SQLite audit ledger:
+```bash
 openclone verify-ledger --project ./my-project
 ```
+
+### 9. Project Quality & Schema Checks
+Inspect or execute repository quality checks and compliance gates:
+```bash
+openclone check list --project .
+```
+
+---
+
+## 11.1 Python SDK Usage
+
+You can also use OpenClone directly within Python scripts and applications:
+
+```python
+import openclone
+
+# Verify installed version
+print(f"OpenClone Version: {openclone.__version__}")
+
+# Access the Environment Configuration
+from openclone.config.environment import EnvironmentConfig
+
+config = EnvironmentConfig.from_env()
+print(f"Environment: {config.environment}")
+
+# Access the Workforce Control Plane
+from openclone.runtime.workforce import WorkforceControlPlane
+
+control_plane = WorkforceControlPlane()
+workers = control_plane.load_workers()
+print(f"Active Worker Contracts: {len(workers)}")
+```
+
+---
+
+## 11.2 Release Management & Versioning Architecture
+
+### The v1.0.0 Canonical Baseline: "The First Starting Is Now"
+OpenClone follows strict [Semantic Versioning (SemVer)](https://semver.org/). While earlier experimental exploration branches carried preliminary *2.0.0 draft* tags, **v1.0.0 represents the first officially stable, production-ready, evidence-backed framework release**.
+
+### How Releases Are Automated
+Releases are automated via GitHub Actions (`.github/workflows/release.yml`):
+
+1. **Tag Trigger:** Pushing a version tag (`v1.0.0`) activates the release pipeline.
+2. **Version Parity Gate:** CI verifies that the Git tag strictly matches `pyproject.toml`, `VERSION`, and `plugin.json`.
+3. **Automated Quality Gate:** All 351 tests, link validators, and schema checks must pass with zero errors.
+4. **Binary Wheel Generation:** Compiles `openclone-1.0.0-py3-none-any.whl` and `openclone-1.0.0.tar.gz`.
+5. **Cryptographic Checksums:** Generates `SHA256SUMS.txt` for all release assets.
+6. **Multi-OS Smoke Tests:** Validates wheel installation in clean temporary environments across Ubuntu, Windows, and macOS (Sonoma Apple Silicon).
+7. **GitHub Release Publication:** Automatically publishes the GitHub Release with changelog notes and attached binary assets.
+8. **PyPI Distribution:** Securely publishes to PyPI via OpenID Connect (OIDC) Trusted Publishing or repository API tokens.
+
+---
 
 ### Brand Engineering (LEBIS)
 ```bash
