@@ -17,6 +17,33 @@
     "verification",
     "auto-remediation"
   ],
+  "skills": [
+    "skills/taste-skill",
+    "skills/universal-project-intelligence",
+    "skills/product-discovery",
+    "skills/requirements-engineering",
+    "skills/architecture-design",
+    "skills/ui-ux-engineering",
+    "skills/secure-engineering",
+    "skills/testing-verification"
+  ],
+  "agents": [
+    "agents/orchestrator.md",
+    "agents/product-requirements-agent.md",
+    "agents/product-architect-agent.md",
+    "agents/frontend-agent.md",
+    "agents/backend-agent.md",
+    "agents/database-agent.md",
+    "agents/security-agent.md",
+    "agents/test-qa-agent.md",
+    "agents/independent-verifier-agent.md"
+  ],
+  "rules": [
+    "rules/AGENTS.md",
+    "rules/anti-slop.md",
+    "rules/evidence.md",
+    "rules/security.md"
+  ],
   "suggestedPrompts": [
     "Inspect this project and create a requirement-driven engineering plan.",
     "Audit this interface for visual AI slop and enforce Taste Skill design tokens.",

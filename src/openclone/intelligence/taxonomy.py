@@ -12,6 +12,26 @@ TAXONOMY_REGISTRY_PATH = ROOT / "framework" / "registries" / "project-taxonomy.j
 
 
 @dataclass
+class CategoryDefinition:
+    id: str  # e.g. ENG-01
+    code: str  # e.g. ai_engineering
+    name: str  # e.g. Artificial Intelligence
+    description: str
+    subdisciplines: List[str] = field(default_factory=list)
+    default_domains: List[str] = field(default_factory=list)
+    mandatory_capabilities: List[str] = field(default_factory=list)
+    recommended_workforce: List[str] = field(default_factory=list)
+
+
+@dataclass
+class ArchetypeDefinition:
+    id: str
+    name: str
+    category: str
+    family: str
+
+
+@dataclass
 class ProjectTypeDefinition:
     id: str
     name: str
@@ -37,12 +57,18 @@ class TaxonomyRegistry:
 
     def __init__(self, registry_path: Optional[Path] = None):
         self.path = registry_path or TAXONOMY_REGISTRY_PATH
-        self.version = "1.0.0"
+        self.version = "2.0.0"
         self.updated_at = ""
         self.complexity_levels: List[str] = []
         self.delivery_targets: List[str] = []
         self.maturity_levels: List[str] = []
+        self.deployment_models: List[str] = []
+        self.ai_dependencies: List[str] = []
+        self.data_sensitivity_levels: List[str] = []
+        self.reliability_tiers: List[str] = []
         self.families: Dict[str, ProjectFamilyDefinition] = {}
+        self.categories: Dict[str, CategoryDefinition] = {}
+        self.archetypes: Dict[str, ArchetypeDefinition] = {}
         self._type_to_family: Dict[str, str] = {}
         self._load()
 
@@ -50,12 +76,42 @@ class TaxonomyRegistry:
         if not self.path.exists():
             return
         data = json.loads(self.path.read_text(encoding="utf-8"))
-        self.version = data.get("version", "1.0.0")
+        self.version = data.get("version", "2.0.0")
         self.updated_at = data.get("updated_at", "")
         self.complexity_levels = data.get("complexity_levels", [])
         self.delivery_targets = data.get("delivery_targets", [])
         self.maturity_levels = data.get("maturity_levels", [])
+        self.deployment_models = data.get("deployment_models", ["local", "cloud", "hybrid", "on_premises", "edge"])
+        self.ai_dependencies = data.get("ai_dependencies", ["none", "optional", "required"])
+        self.data_sensitivity_levels = data.get("data_sensitivity_levels", ["public", "internal", "confidential", "restricted"])
+        self.reliability_tiers = data.get("reliability_tiers", ["standard_99_0", "high_99_9", "mission_critical_99_99"])
 
+        # Load 14 primary engineering categories
+        for cat_data in data.get("engineering_categories", []):
+            cat = CategoryDefinition(
+                id=cat_data["id"],
+                code=cat_data["code"],
+                name=cat_data["name"],
+                description=cat_data["description"],
+                subdisciplines=cat_data.get("subdisciplines", []),
+                default_domains=cat_data.get("default_domains", []),
+                mandatory_capabilities=cat_data.get("mandatory_capabilities", []),
+                recommended_workforce=cat_data.get("recommended_workforce", []),
+            )
+            self.categories[cat.id] = cat
+            self.categories[cat.code] = cat
+
+        # Load archetypes
+        for arch_data in data.get("archetypes", []):
+            arch = ArchetypeDefinition(
+                id=arch_data["id"],
+                name=arch_data["name"],
+                category=arch_data["category"],
+                family=arch_data["family"],
+            )
+            self.archetypes[arch.id] = arch
+
+        # Load families and types (canonical 12 families)
         for fam_data in data.get("families", []):
             fam_id = fam_data["id"]
             fam = ProjectFamilyDefinition(
@@ -80,6 +136,40 @@ class TaxonomyRegistry:
                 self._type_to_family[t_id] = fam_id
             self.families[fam_id] = fam
 
+    def get_category(self, cat_id_or_code: str) -> Optional[CategoryDefinition]:
+        return self.categories.get(cat_id_or_code)
+
+    def list_categories(self) -> List[Dict[str, Any]]:
+        # Return unique by id (ENG-01 .. ENG-14)
+        seen = set()
+        res = []
+        for cat in self.categories.values():
+            if cat.id not in seen:
+                seen.add(cat.id)
+                res.append({
+                    "id": cat.id,
+                    "code": cat.code,
+                    "name": cat.name,
+                    "description": cat.description,
+                    "subdisciplines_count": len(cat.subdisciplines),
+                    "default_domains": cat.default_domains,
+                })
+        return sorted(res, key=lambda x: x["id"])
+
+    def get_archetype(self, archetype_id: str) -> Optional[ArchetypeDefinition]:
+        return self.archetypes.get(archetype_id)
+
+    def list_archetypes(self) -> List[Dict[str, Any]]:
+        return [
+            {
+                "id": a.id,
+                "name": a.name,
+                "category": a.category,
+                "family": a.family,
+            }
+            for a in self.archetypes.values()
+        ]
+
     def get_family(self, family_id: str) -> Optional[ProjectFamilyDefinition]:
         return self.families.get(family_id)
 
@@ -87,7 +177,6 @@ class TaxonomyRegistry:
         fam_id = self._type_to_family.get(type_id)
         if fam_id and fam_id in self.families:
             return self.families[fam_id].types.get(type_id)
-        # Search all families
         for fam in self.families.values():
             if type_id in fam.types:
                 return fam.types[type_id]

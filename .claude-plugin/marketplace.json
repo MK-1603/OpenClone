@@ -1,0 +1,18 @@
+{
+  "name": "openclone-marketplace",
+  "description": "OpenClone Universal AI Software Engineering Platform Marketplace",
+  "version": "2.0.0",
+  "plugins": [
+    {
+      "name": "openclone",
+      "displayName": "OpenClone Engineering",
+      "version": "2.0.0",
+      "description": "Universal AI software engineering framework with specialist agents, 22-phase lifecycle checklists, anti-AI-slop governance, 19-point SaaS security baseline, and independent verification.",
+      "source": {
+        "source": "local",
+        "path": "./adapters/claude-code"
+      },
+      "category": "Developer tools"
+    }
+  ]
+}

@@ -420,6 +420,46 @@ TOOLS = [
             "additionalProperties": False,
         },
     },
+    {
+        "name": "openclone_evaluate_technology",
+        "description": "Evaluate and recommend technology stack alternatives (frontend, backend, database, AI/ML) based on requirements.",
+        "inputSchema": {
+            "type": "object",
+            "properties": {
+                "text": {
+                    "type": "string",
+                    "description": "Natural-language project requirements or specification.",
+                },
+                "project_name": {
+                    "type": "string",
+                    "default": "project",
+                    "description": "Name of the target project.",
+                },
+            },
+            "required": ["text"],
+            "additionalProperties": False,
+        },
+    },
+    {
+        "name": "openclone_generate_package",
+        "description": "One-click idea-to-project package generator: produces PROJECT.md, BUILD_PROMPT.md, AGENT_INSTRUCTIONS.md, IMPLEMENTATION_PLAN.md, ACCEPTANCE_MATRIX.md, SECURITY_PLAN.md, and .env.example.",
+        "inputSchema": {
+            "type": "object",
+            "properties": {
+                "prompt": {
+                    "type": "string",
+                    "description": "Natural-language project idea, prompt, or PRD.",
+                },
+                "project_name": {
+                    "type": "string",
+                    "default": "project",
+                    "description": "Name of the target project.",
+                },
+            },
+            "required": ["prompt"],
+            "additionalProperties": False,
+        },
+    },
 ]
 
 
@@ -853,6 +893,22 @@ class OpenCloneMCPServer:
             "blueprints_count": len(bp.list_blueprints()),
         }
 
+    def evaluate_technology(self, text: str, project_name: str = "project") -> List[Dict[str, Any]]:
+        """Evaluate and recommend technology stack options."""
+        from src.openclone.intelligence import ProjectClassifier
+        from src.openclone.intelligence.technology import TechnologyIntelligenceEngine
+        classifier = ProjectClassifier()
+        profile = classifier.classify_text(text, project_name=project_name)
+        engine = TechnologyIntelligenceEngine()
+        decisions = engine.evaluate(profile, requirements_text=text)
+        return [d.to_dict() for d in decisions]
+
+    def generate_package(self, prompt: str, project_name: str = "project") -> Dict[str, Any]:
+        """One-click idea-to-project package generation."""
+        from src.openclone.intelligence.generator import ProjectPackageGenerator
+        gen = ProjectPackageGenerator()
+        return gen.generate(prompt, project_name=project_name)
+
     def call_tool(self, name: str, arguments: Dict[str, Any]) -> Dict[str, Any]:
         """Dispatch tool invocation with argument validation."""
         if name == "openclone_get_status":
@@ -917,6 +973,14 @@ class OpenCloneMCPServer:
             return self.get_blueprint(arguments["blueprint_id"])
         elif name == "openclone_project_intelligence_status":
             return self.project_intelligence_status()
+        elif name == "openclone_evaluate_technology":
+            if "text" not in arguments:
+                raise ValueError("Missing required argument: 'text'")
+            return {"decisions": self.evaluate_technology(arguments["text"], arguments.get("project_name", "project"))}
+        elif name == "openclone_generate_package":
+            if "prompt" not in arguments:
+                raise ValueError("Missing required argument: 'prompt'")
+            return self.generate_package(arguments["prompt"], arguments.get("project_name", "project"))
         elif self.canonical_registry.get(name):
             return self.gateway.execute(self.default_auth, name, arguments)
         else:

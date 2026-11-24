@@ -1,6 +1,6 @@
 {
-  "version": "1.0.0",
-  "updated_at": "2026-11-23T23:00:00Z",
+  "version": "2.0.0",
+  "updated_at": "2026-11-24T00:00:00Z",
   "complexity_levels": [
     "MINI",
     "SMALL",
@@ -41,33 +41,108 @@
           "id": "mini_website",
           "name": "Mini Website / Landing Page",
           "description": "Focused marketing, documentation, or portfolio websites prioritizing fast loading, responsive layout, and SEO.",
-          "default_domains": ["01-SPECIFICATION", "05-DESIGN-SYSTEMS", "06-UX-RESEARCH", "07-ACCESSIBILITY-AND-INCLUSION", "14-PERFORMANCE-ENGINEERING"],
-          "mandatory_capabilities": ["E-001", "E-007", "E-008", "E-014", "E-056"],
-          "conditional_capabilities": ["E-015", "E-021"],
-          "typical_delivery_targets": ["web_browser"],
-          "recommended_workforce": ["frontend-engineer", "ui-designer", "accessibility-specialist"],
+          "default_domains": [
+            "01-SPECIFICATION",
+            "05-DESIGN-SYSTEMS",
+            "06-UX-RESEARCH",
+            "07-ACCESSIBILITY-AND-INCLUSION",
+            "14-PERFORMANCE-ENGINEERING"
+          ],
+          "mandatory_capabilities": [
+            "E-001",
+            "E-007",
+            "E-008",
+            "E-014",
+            "E-056"
+          ],
+          "conditional_capabilities": [
+            "E-015",
+            "E-021"
+          ],
+          "typical_delivery_targets": [
+            "web_browser"
+          ],
+          "recommended_workforce": [
+            "frontend-engineer",
+            "ui-designer",
+            "accessibility-specialist"
+          ],
           "status": "OPERATIONAL"
         },
         {
           "id": "saas_web_app",
           "name": "SaaS Web Application",
           "description": "Multi-tenant web application with authentication, role-based access control, billing, database persistence, and API integrations.",
-          "default_domains": ["01-SPECIFICATION", "02-ARCHITECTURE", "03-DATA-INTEGRITY", "04-SECURITY-CONTROLS", "05-DESIGN-SYSTEMS", "08-API-CONTRACTS", "10-TESTING-AND-QA"],
-          "mandatory_capabilities": ["E-001", "E-002", "E-003", "E-004", "E-007", "E-008", "E-010"],
-          "conditional_capabilities": ["E-011", "E-014", "E-016"],
-          "typical_delivery_targets": ["web_browser", "containers_cloud"],
-          "recommended_workforce": ["fullstack-engineer", "frontend-engineer", "backend-engineer", "database-architect", "security-engineer"],
+          "default_domains": [
+            "01-SPECIFICATION",
+            "02-ARCHITECTURE",
+            "03-DATA-INTEGRITY",
+            "04-SECURITY-CONTROLS",
+            "05-DESIGN-SYSTEMS",
+            "08-API-CONTRACTS",
+            "10-TESTING-AND-QA"
+          ],
+          "mandatory_capabilities": [
+            "E-001",
+            "E-002",
+            "E-003",
+            "E-004",
+            "E-007",
+            "E-008",
+            "E-010"
+          ],
+          "conditional_capabilities": [
+            "E-011",
+            "E-014",
+            "E-016"
+          ],
+          "typical_delivery_targets": [
+            "web_browser",
+            "containers_cloud"
+          ],
+          "recommended_workforce": [
+            "fullstack-engineer",
+            "frontend-engineer",
+            "backend-engineer",
+            "database-architect",
+            "security-engineer"
+          ],
           "status": "OPERATIONAL"
         },
         {
           "id": "enterprise_platform",
           "name": "Enterprise Web Platform",
           "description": "Large-scale web systems with complex workflows, audit trails, compliance boundaries, and multi-region deployment.",
-          "default_domains": ["00-GOVERNANCE", "01-SPECIFICATION", "02-ARCHITECTURE", "04-SECURITY-CONTROLS", "17-INCIDENT-RESPONSE", "22-SUPPLY-CHAIN-SECURITY"],
-          "mandatory_capabilities": ["E-001", "E-002", "E-004", "E-017", "E-022"],
-          "conditional_capabilities": ["E-012", "E-020"],
-          "typical_delivery_targets": ["web_browser", "containers_cloud", "on_premises"],
-          "recommended_workforce": ["enterprise-architect", "security-engineer", "fullstack-engineer", "devops-engineer"],
+          "default_domains": [
+            "00-GOVERNANCE",
+            "01-SPECIFICATION",
+            "02-ARCHITECTURE",
+            "04-SECURITY-CONTROLS",
+            "17-INCIDENT-RESPONSE",
+            "22-SUPPLY-CHAIN-SECURITY"
+          ],
+          "mandatory_capabilities": [
+            "E-001",
+            "E-002",
+            "E-004",
+            "E-017",
+            "E-022"
+          ],
+          "conditional_capabilities": [
+            "E-012",
+            "E-020"
+          ],
+          "typical_delivery_targets": [
+            "web_browser",
+            "containers_cloud",
+            "on_premises"
+          ],
+          "recommended_workforce": [
+            "enterprise-architect",
+            "security-engineer",
+            "fullstack-engineer",
+            "devops-engineer"
+          ],
           "status": "OPERATIONAL"
         }
       ]
@@ -81,33 +156,94 @@
           "id": "native_android",
           "name": "Native Android Application",
           "description": "Kotlin/Java Android applications leveraging Android SDK, Jetpack Compose, background services, and Play Store release pipelines.",
-          "default_domains": ["01-SPECIFICATION", "02-ARCHITECTURE", "05-DESIGN-SYSTEMS", "07-ACCESSIBILITY-AND-INCLUSION", "10-TESTING-AND-QA"],
-          "mandatory_capabilities": ["E-001", "E-002", "E-007", "E-010"],
-          "conditional_capabilities": ["E-004", "E-014"],
-          "typical_delivery_targets": ["android"],
-          "recommended_workforce": ["mobile-engineer", "android-specialist", "ui-designer"],
+          "default_domains": [
+            "01-SPECIFICATION",
+            "02-ARCHITECTURE",
+            "05-DESIGN-SYSTEMS",
+            "07-ACCESSIBILITY-AND-INCLUSION",
+            "10-TESTING-AND-QA"
+          ],
+          "mandatory_capabilities": [
+            "E-001",
+            "E-002",
+            "E-007",
+            "E-010"
+          ],
+          "conditional_capabilities": [
+            "E-004",
+            "E-014"
+          ],
+          "typical_delivery_targets": [
+            "android"
+          ],
+          "recommended_workforce": [
+            "mobile-engineer",
+            "android-specialist",
+            "ui-designer"
+          ],
           "status": "OPERATIONAL"
         },
         {
           "id": "native_ios",
           "name": "Native iOS Application",
           "description": "Swift/SwiftUI iOS applications utilizing Apple frameworks, CoreData/SwiftData, push notifications, and App Store guidelines.",
-          "default_domains": ["01-SPECIFICATION", "02-ARCHITECTURE", "05-DESIGN-SYSTEMS", "07-ACCESSIBILITY-AND-INCLUSION", "10-TESTING-AND-QA"],
-          "mandatory_capabilities": ["E-001", "E-002", "E-007", "E-010"],
-          "conditional_capabilities": ["E-004", "E-014"],
-          "typical_delivery_targets": ["ios"],
-          "recommended_workforce": ["mobile-engineer", "ios-specialist", "ui-designer"],
+          "default_domains": [
+            "01-SPECIFICATION",
+            "02-ARCHITECTURE",
+            "05-DESIGN-SYSTEMS",
+            "07-ACCESSIBILITY-AND-INCLUSION",
+            "10-TESTING-AND-QA"
+          ],
+          "mandatory_capabilities": [
+            "E-001",
+            "E-002",
+            "E-007",
+            "E-010"
+          ],
+          "conditional_capabilities": [
+            "E-004",
+            "E-014"
+          ],
+          "typical_delivery_targets": [
+            "ios"
+          ],
+          "recommended_workforce": [
+            "mobile-engineer",
+            "ios-specialist",
+            "ui-designer"
+          ],
           "status": "OPERATIONAL"
         },
         {
           "id": "cross_platform_mobile",
           "name": "Cross-Platform Mobile App (Flutter / React Native)",
           "description": "Unified codebase targeting Android and iOS with native bridging, shared state, and responsive touch interfaces.",
-          "default_domains": ["01-SPECIFICATION", "02-ARCHITECTURE", "05-DESIGN-SYSTEMS", "07-ACCESSIBILITY-AND-INCLUSION", "10-TESTING-AND-QA"],
-          "mandatory_capabilities": ["E-001", "E-002", "E-007", "E-010"],
-          "conditional_capabilities": ["E-008", "E-014"],
-          "typical_delivery_targets": ["android", "ios"],
-          "recommended_workforce": ["mobile-engineer", "flutter-specialist", "ui-designer"],
+          "default_domains": [
+            "01-SPECIFICATION",
+            "02-ARCHITECTURE",
+            "05-DESIGN-SYSTEMS",
+            "07-ACCESSIBILITY-AND-INCLUSION",
+            "10-TESTING-AND-QA"
+          ],
+          "mandatory_capabilities": [
+            "E-001",
+            "E-002",
+            "E-007",
+            "E-010"
+          ],
+          "conditional_capabilities": [
+            "E-008",
+            "E-014"
+          ],
+          "typical_delivery_targets": [
+            "android",
+            "ios"
+          ],
+          "recommended_workforce": [
+            "mobile-engineer",
+            "flutter-specialist",
+            "ui-designer"
+          ],
           "status": "OPERATIONAL"
         }
       ]
@@ -121,22 +257,66 @@
           "id": "cross_platform_desktop",
           "name": "Cross-Platform Desktop (Tauri / Electron)",
           "description": "Desktop application with native OS integration, local file access, system tray, window management, and secure auto-updates.",
-          "default_domains": ["01-SPECIFICATION", "02-ARCHITECTURE", "04-SECURITY-CONTROLS", "10-TESTING-AND-QA", "13-DEPENDENCY-MANAGEMENT"],
-          "mandatory_capabilities": ["E-001", "E-002", "E-004", "E-010", "E-013"],
-          "conditional_capabilities": ["E-014", "E-022"],
-          "typical_delivery_targets": ["windows", "macos", "linux"],
-          "recommended_workforce": ["desktop-engineer", "frontend-engineer", "security-engineer"],
+          "default_domains": [
+            "01-SPECIFICATION",
+            "02-ARCHITECTURE",
+            "04-SECURITY-CONTROLS",
+            "10-TESTING-AND-QA",
+            "13-DEPENDENCY-MANAGEMENT"
+          ],
+          "mandatory_capabilities": [
+            "E-001",
+            "E-002",
+            "E-004",
+            "E-010",
+            "E-013"
+          ],
+          "conditional_capabilities": [
+            "E-014",
+            "E-022"
+          ],
+          "typical_delivery_targets": [
+            "windows",
+            "macos",
+            "linux"
+          ],
+          "recommended_workforce": [
+            "desktop-engineer",
+            "frontend-engineer",
+            "security-engineer"
+          ],
           "status": "OPERATIONAL"
         },
         {
           "id": "native_desktop_tool",
           "name": "Native Desktop System Tool",
           "description": "C++, Rust, or C# high-performance desktop application with direct hardware acceleration and OS-level API integration.",
-          "default_domains": ["01-SPECIFICATION", "02-ARCHITECTURE", "04-SECURITY-CONTROLS", "14-PERFORMANCE-ENGINEERING"],
-          "mandatory_capabilities": ["E-001", "E-002", "E-004", "E-014"],
-          "conditional_capabilities": ["E-010", "E-021"],
-          "typical_delivery_targets": ["windows", "macos", "linux"],
-          "recommended_workforce": ["systems-programmer", "desktop-engineer", "qa-engineer"],
+          "default_domains": [
+            "01-SPECIFICATION",
+            "02-ARCHITECTURE",
+            "04-SECURITY-CONTROLS",
+            "14-PERFORMANCE-ENGINEERING"
+          ],
+          "mandatory_capabilities": [
+            "E-001",
+            "E-002",
+            "E-004",
+            "E-014"
+          ],
+          "conditional_capabilities": [
+            "E-010",
+            "E-021"
+          ],
+          "typical_delivery_targets": [
+            "windows",
+            "macos",
+            "linux"
+          ],
+          "recommended_workforce": [
+            "systems-programmer",
+            "desktop-engineer",
+            "qa-engineer"
+          ],
           "status": "SPECIFIED"
         }
       ]
@@ -150,22 +330,64 @@
           "id": "rag_knowledge_system",
           "name": "RAG Knowledge & Retrieval System",
           "description": "Document ingestion, vector embeddings, semantic search, re-ranking, and grounded generation with citation verification.",
-          "default_domains": ["01-SPECIFICATION", "02-ARCHITECTURE", "03-DATA-INTEGRITY", "04-SECURITY-CONTROLS", "29-AI-GOVERNANCE"],
-          "mandatory_capabilities": ["E-001", "E-002", "E-003", "E-004", "E-029"],
-          "conditional_capabilities": ["E-008", "E-010"],
-          "typical_delivery_targets": ["containers_cloud", "web_browser"],
-          "recommended_workforce": ["ai-engineer", "rag-specialist", "security-engineer"],
+          "default_domains": [
+            "01-SPECIFICATION",
+            "02-ARCHITECTURE",
+            "03-DATA-INTEGRITY",
+            "04-SECURITY-CONTROLS",
+            "29-AI-GOVERNANCE"
+          ],
+          "mandatory_capabilities": [
+            "E-001",
+            "E-002",
+            "E-003",
+            "E-004",
+            "E-029"
+          ],
+          "conditional_capabilities": [
+            "E-008",
+            "E-010"
+          ],
+          "typical_delivery_targets": [
+            "containers_cloud",
+            "web_browser"
+          ],
+          "recommended_workforce": [
+            "ai-engineer",
+            "rag-specialist",
+            "security-engineer"
+          ],
           "status": "OPERATIONAL"
         },
         {
           "id": "autonomous_agent_system",
           "name": "Autonomous Agent & Multi-Agent System",
           "description": "Deterministic tool calling, task decomposition, agent collaboration, reflection, and safety guardrails.",
-          "default_domains": ["00-GOVERNANCE", "01-SPECIFICATION", "04-SECURITY-CONTROLS", "29-AI-GOVERNANCE", "30-AGENT-RULES-AND-VERIFICATION"],
-          "mandatory_capabilities": ["E-001", "E-004", "E-029", "E-030"],
-          "conditional_capabilities": ["E-002", "E-008"],
-          "typical_delivery_targets": ["containers_cloud"],
-          "recommended_workforce": ["ai-engineer", "agent-architect", "eval-engineer"],
+          "default_domains": [
+            "00-GOVERNANCE",
+            "01-SPECIFICATION",
+            "04-SECURITY-CONTROLS",
+            "29-AI-GOVERNANCE",
+            "30-AGENT-RULES-AND-VERIFICATION"
+          ],
+          "mandatory_capabilities": [
+            "E-001",
+            "E-004",
+            "E-029",
+            "E-030"
+          ],
+          "conditional_capabilities": [
+            "E-002",
+            "E-008"
+          ],
+          "typical_delivery_targets": [
+            "containers_cloud"
+          ],
+          "recommended_workforce": [
+            "ai-engineer",
+            "agent-architect",
+            "eval-engineer"
+          ],
           "status": "OPERATIONAL"
         }
       ]
@@ -179,22 +401,62 @@
           "id": "classical_ml_pipeline",
           "name": "Classical ML & Tabular Predictive Pipeline",
           "description": "Supervised/unsupervised learning on structured data with feature engineering, cross-validation, and leak prevention.",
-          "default_domains": ["01-SPECIFICATION", "03-DATA-INTEGRITY", "10-TESTING-AND-QA", "14-PERFORMANCE-ENGINEERING"],
-          "mandatory_capabilities": ["E-001", "E-003", "E-010", "E-014"],
-          "conditional_capabilities": ["E-002", "E-029"],
-          "typical_delivery_targets": ["containers_cloud", "edge_devices"],
-          "recommended_workforce": ["ml-engineer", "data-engineer", "eval-engineer"],
+          "default_domains": [
+            "01-SPECIFICATION",
+            "03-DATA-INTEGRITY",
+            "10-TESTING-AND-QA",
+            "14-PERFORMANCE-ENGINEERING"
+          ],
+          "mandatory_capabilities": [
+            "E-001",
+            "E-003",
+            "E-010",
+            "E-014"
+          ],
+          "conditional_capabilities": [
+            "E-002",
+            "E-029"
+          ],
+          "typical_delivery_targets": [
+            "containers_cloud",
+            "edge_devices"
+          ],
+          "recommended_workforce": [
+            "ml-engineer",
+            "data-engineer",
+            "eval-engineer"
+          ],
           "status": "IMPLEMENTED"
         },
         {
           "id": "deep_learning_cv_nlp",
           "name": "Deep Learning / Vision / Audio Model",
           "description": "Neural network architectures, fine-tuning, tensor optimization, GPU acceleration, and latency-budgeted inference serving.",
-          "default_domains": ["01-SPECIFICATION", "02-ARCHITECTURE", "14-PERFORMANCE-ENGINEERING", "29-AI-GOVERNANCE"],
-          "mandatory_capabilities": ["E-001", "E-002", "E-014", "E-029"],
-          "conditional_capabilities": ["E-004", "E-010"],
-          "typical_delivery_targets": ["containers_cloud", "edge_devices"],
-          "recommended_workforce": ["ml-research-engineer", "ml-engineer", "platform-engineer"],
+          "default_domains": [
+            "01-SPECIFICATION",
+            "02-ARCHITECTURE",
+            "14-PERFORMANCE-ENGINEERING",
+            "29-AI-GOVERNANCE"
+          ],
+          "mandatory_capabilities": [
+            "E-001",
+            "E-002",
+            "E-014",
+            "E-029"
+          ],
+          "conditional_capabilities": [
+            "E-004",
+            "E-010"
+          ],
+          "typical_delivery_targets": [
+            "containers_cloud",
+            "edge_devices"
+          ],
+          "recommended_workforce": [
+            "ml-research-engineer",
+            "ml-engineer",
+            "platform-engineer"
+          ],
           "status": "IMPLEMENTED"
         }
       ]
@@ -208,22 +470,60 @@
           "id": "etl_pipeline",
           "name": "Data Ingestion & ETL/ELT Pipeline",
           "description": "Batch and streaming data pipelines with schema validation, idempotent retries, dead-letter queues, and data lineage.",
-          "default_domains": ["01-SPECIFICATION", "02-ARCHITECTURE", "03-DATA-INTEGRITY", "10-TESTING-AND-QA"],
-          "mandatory_capabilities": ["E-001", "E-002", "E-003", "E-010"],
-          "conditional_capabilities": ["E-004", "E-014"],
-          "typical_delivery_targets": ["containers_cloud", "on_premises"],
-          "recommended_workforce": ["data-engineer", "database-architect", "platform-engineer"],
+          "default_domains": [
+            "01-SPECIFICATION",
+            "02-ARCHITECTURE",
+            "03-DATA-INTEGRITY",
+            "10-TESTING-AND-QA"
+          ],
+          "mandatory_capabilities": [
+            "E-001",
+            "E-002",
+            "E-003",
+            "E-010"
+          ],
+          "conditional_capabilities": [
+            "E-004",
+            "E-014"
+          ],
+          "typical_delivery_targets": [
+            "containers_cloud",
+            "on_premises"
+          ],
+          "recommended_workforce": [
+            "data-engineer",
+            "database-architect",
+            "platform-engineer"
+          ],
           "status": "OPERATIONAL"
         },
         {
           "id": "data_science_study",
           "name": "Data Science & Statistical Analysis",
           "description": "Exploratory data analysis, statistical testing, reproducible notebooks, hypothesis evaluation, and visualization reporting.",
-          "default_domains": ["01-SPECIFICATION", "03-DATA-INTEGRITY", "10-TESTING-AND-QA"],
-          "mandatory_capabilities": ["E-001", "E-003", "E-010"],
-          "conditional_capabilities": ["E-007", "E-014"],
-          "typical_delivery_targets": ["web_browser", "containers_cloud"],
-          "recommended_workforce": ["data-scientist", "data-analyst", "statistician"],
+          "default_domains": [
+            "01-SPECIFICATION",
+            "03-DATA-INTEGRITY",
+            "10-TESTING-AND-QA"
+          ],
+          "mandatory_capabilities": [
+            "E-001",
+            "E-003",
+            "E-010"
+          ],
+          "conditional_capabilities": [
+            "E-007",
+            "E-014"
+          ],
+          "typical_delivery_targets": [
+            "web_browser",
+            "containers_cloud"
+          ],
+          "recommended_workforce": [
+            "data-scientist",
+            "data-analyst",
+            "statistician"
+          ],
           "status": "IMPLEMENTED"
         }
       ]
@@ -237,22 +537,65 @@
           "id": "microservices_platform",
           "name": "Distributed Microservices Architecture",
           "description": "Services communicating via gRPC/REST/messaging with circuit breakers, distributed tracing, and service discovery.",
-          "default_domains": ["01-SPECIFICATION", "02-ARCHITECTURE", "04-SECURITY-CONTROLS", "08-API-CONTRACTS", "14-PERFORMANCE-ENGINEERING"],
-          "mandatory_capabilities": ["E-001", "E-002", "E-004", "E-008", "E-014"],
-          "conditional_capabilities": ["E-003", "E-017"],
-          "typical_delivery_targets": ["containers_cloud", "on_premises"],
-          "recommended_workforce": ["backend-engineer", "distributed-systems-engineer", "devops-engineer"],
+          "default_domains": [
+            "01-SPECIFICATION",
+            "02-ARCHITECTURE",
+            "04-SECURITY-CONTROLS",
+            "08-API-CONTRACTS",
+            "14-PERFORMANCE-ENGINEERING"
+          ],
+          "mandatory_capabilities": [
+            "E-001",
+            "E-002",
+            "E-004",
+            "E-008",
+            "E-014"
+          ],
+          "conditional_capabilities": [
+            "E-003",
+            "E-017"
+          ],
+          "typical_delivery_targets": [
+            "containers_cloud",
+            "on_premises"
+          ],
+          "recommended_workforce": [
+            "backend-engineer",
+            "distributed-systems-engineer",
+            "devops-engineer"
+          ],
           "status": "OPERATIONAL"
         },
         {
           "id": "event_driven_stream",
           "name": "Event-Driven & Real-Time System",
           "description": "Kafka/RabbitMQ streaming engines with partition ordering, replayability, schema evolution, and WebSocket broadcast.",
-          "default_domains": ["01-SPECIFICATION", "02-ARCHITECTURE", "03-DATA-INTEGRITY", "08-API-CONTRACTS", "14-PERFORMANCE-ENGINEERING"],
-          "mandatory_capabilities": ["E-001", "E-002", "E-003", "E-008", "E-014"],
-          "conditional_capabilities": ["E-004", "E-010"],
-          "typical_delivery_targets": ["containers_cloud"],
-          "recommended_workforce": ["backend-engineer", "stream-processing-specialist", "database-architect"],
+          "default_domains": [
+            "01-SPECIFICATION",
+            "02-ARCHITECTURE",
+            "03-DATA-INTEGRITY",
+            "08-API-CONTRACTS",
+            "14-PERFORMANCE-ENGINEERING"
+          ],
+          "mandatory_capabilities": [
+            "E-001",
+            "E-002",
+            "E-003",
+            "E-008",
+            "E-014"
+          ],
+          "conditional_capabilities": [
+            "E-004",
+            "E-010"
+          ],
+          "typical_delivery_targets": [
+            "containers_cloud"
+          ],
+          "recommended_workforce": [
+            "backend-engineer",
+            "stream-processing-specialist",
+            "database-architect"
+          ],
           "status": "OPERATIONAL"
         }
       ]
@@ -266,22 +609,66 @@
           "id": "linux_distribution",
           "name": "Custom Linux Distribution / Appliance",
           "description": "Target kernel, initramfs, rootfs assembly, bootloader configuration, package repository, and bootable ISO generation.",
-          "default_domains": ["01-SPECIFICATION", "02-ARCHITECTURE", "04-SECURITY-CONTROLS", "13-DEPENDENCY-MANAGEMENT", "22-SUPPLY-CHAIN-SECURITY"],
-          "mandatory_capabilities": ["E-001", "E-002", "E-004", "E-013", "E-022"],
-          "conditional_capabilities": ["E-014", "E-021"],
-          "typical_delivery_targets": ["bootable_media_iso", "virtual_machines", "embedded_hardware"],
-          "recommended_workforce": ["systems-programmer", "kernel-engineer", "build-engineer", "security-engineer"],
+          "default_domains": [
+            "01-SPECIFICATION",
+            "02-ARCHITECTURE",
+            "04-SECURITY-CONTROLS",
+            "13-DEPENDENCY-MANAGEMENT",
+            "22-SUPPLY-CHAIN-SECURITY"
+          ],
+          "mandatory_capabilities": [
+            "E-001",
+            "E-002",
+            "E-004",
+            "E-013",
+            "E-022"
+          ],
+          "conditional_capabilities": [
+            "E-014",
+            "E-021"
+          ],
+          "typical_delivery_targets": [
+            "bootable_media_iso",
+            "virtual_machines",
+            "embedded_hardware"
+          ],
+          "recommended_workforce": [
+            "systems-programmer",
+            "kernel-engineer",
+            "build-engineer",
+            "security-engineer"
+          ],
           "status": "SPECIFIED"
         },
         {
           "id": "kernel_driver_module",
           "name": "Kernel Module & Device Driver",
           "description": "Low-level kernel space drivers with memory-mapped I/O, interrupt handling, concurrency synchronization, and crash prevention.",
-          "default_domains": ["01-SPECIFICATION", "02-ARCHITECTURE", "04-SECURITY-CONTROLS", "14-PERFORMANCE-ENGINEERING"],
-          "mandatory_capabilities": ["E-001", "E-002", "E-004", "E-014"],
-          "conditional_capabilities": ["E-010", "E-017"],
-          "typical_delivery_targets": ["linux", "virtual_machines"],
-          "recommended_workforce": ["kernel-engineer", "systems-programmer", "verification-engineer"],
+          "default_domains": [
+            "01-SPECIFICATION",
+            "02-ARCHITECTURE",
+            "04-SECURITY-CONTROLS",
+            "14-PERFORMANCE-ENGINEERING"
+          ],
+          "mandatory_capabilities": [
+            "E-001",
+            "E-002",
+            "E-004",
+            "E-014"
+          ],
+          "conditional_capabilities": [
+            "E-010",
+            "E-017"
+          ],
+          "typical_delivery_targets": [
+            "linux",
+            "virtual_machines"
+          ],
+          "recommended_workforce": [
+            "kernel-engineer",
+            "systems-programmer",
+            "verification-engineer"
+          ],
           "status": "SPECIFIED"
         }
       ]
@@ -295,22 +682,61 @@
           "id": "rtos_firmware",
           "name": "RTOS Microcontroller Firmware",
           "description": "Bare-metal or FreeRTOS/Zephyr firmware with strict memory bounds, peripheral drivers (SPI/I2C/UART), and watchdog safety.",
-          "default_domains": ["01-SPECIFICATION", "02-ARCHITECTURE", "04-SECURITY-CONTROLS", "14-PERFORMANCE-ENGINEERING"],
-          "mandatory_capabilities": ["E-001", "E-002", "E-004", "E-014"],
-          "conditional_capabilities": ["E-010", "E-021"],
-          "typical_delivery_targets": ["embedded_hardware", "edge_devices"],
-          "recommended_workforce": ["embedded-engineer", "firmware-engineer", "systems-programmer"],
+          "default_domains": [
+            "01-SPECIFICATION",
+            "02-ARCHITECTURE",
+            "04-SECURITY-CONTROLS",
+            "14-PERFORMANCE-ENGINEERING"
+          ],
+          "mandatory_capabilities": [
+            "E-001",
+            "E-002",
+            "E-004",
+            "E-014"
+          ],
+          "conditional_capabilities": [
+            "E-010",
+            "E-021"
+          ],
+          "typical_delivery_targets": [
+            "embedded_hardware",
+            "edge_devices"
+          ],
+          "recommended_workforce": [
+            "embedded-engineer",
+            "firmware-engineer",
+            "systems-programmer"
+          ],
           "status": "SPECIFIED"
         },
         {
           "id": "robotics_platform",
           "name": "Robotics Control & Edge Platform",
           "description": "ROS 2 nodes, sensor fusion, motor control loops, real-time state machines, and fail-safe safety interlocks.",
-          "default_domains": ["01-SPECIFICATION", "02-ARCHITECTURE", "14-PERFORMANCE-ENGINEERING"],
-          "mandatory_capabilities": ["E-001", "E-002", "E-014"],
-          "conditional_capabilities": ["E-004", "E-010"],
-          "typical_delivery_targets": ["embedded_hardware", "edge_devices", "linux"],
-          "recommended_workforce": ["robotics-engineer", "embedded-engineer", "systems-programmer"],
+          "default_domains": [
+            "01-SPECIFICATION",
+            "02-ARCHITECTURE",
+            "14-PERFORMANCE-ENGINEERING"
+          ],
+          "mandatory_capabilities": [
+            "E-001",
+            "E-002",
+            "E-014"
+          ],
+          "conditional_capabilities": [
+            "E-004",
+            "E-010"
+          ],
+          "typical_delivery_targets": [
+            "embedded_hardware",
+            "edge_devices",
+            "linux"
+          ],
+          "recommended_workforce": [
+            "robotics-engineer",
+            "embedded-engineer",
+            "systems-programmer"
+          ],
           "status": "SPECIFIED"
         }
       ]
@@ -324,11 +750,33 @@
           "id": "game_application",
           "name": "Interactive 2D/3D Game Application",
           "description": "Game loop, entity-component systems, asset pipelines, physics simulation, spatial audio, and input handling.",
-          "default_domains": ["01-SPECIFICATION", "02-ARCHITECTURE", "05-DESIGN-SYSTEMS", "14-PERFORMANCE-ENGINEERING"],
-          "mandatory_capabilities": ["E-001", "E-002", "E-005", "E-014"],
-          "conditional_capabilities": ["E-007", "E-010"],
-          "typical_delivery_targets": ["web_browser", "windows", "macos", "linux"],
-          "recommended_workforce": ["game-engine-engineer", "graphics-engineer", "gameplay-programmer"],
+          "default_domains": [
+            "01-SPECIFICATION",
+            "02-ARCHITECTURE",
+            "05-DESIGN-SYSTEMS",
+            "14-PERFORMANCE-ENGINEERING"
+          ],
+          "mandatory_capabilities": [
+            "E-001",
+            "E-002",
+            "E-005",
+            "E-014"
+          ],
+          "conditional_capabilities": [
+            "E-007",
+            "E-010"
+          ],
+          "typical_delivery_targets": [
+            "web_browser",
+            "windows",
+            "macos",
+            "linux"
+          ],
+          "recommended_workforce": [
+            "game-engine-engineer",
+            "graphics-engineer",
+            "gameplay-programmer"
+          ],
           "status": "SPECIFIED"
         }
       ]
@@ -342,22 +790,66 @@
           "id": "cli_developer_tool",
           "name": "Command-Line Interface (CLI) Tool",
           "description": "Terminal utilities with subcommands, structured stdout/stderr, exit code semantics, and cross-platform binary builds.",
-          "default_domains": ["01-SPECIFICATION", "02-ARCHITECTURE", "10-TESTING-AND-QA", "13-DEPENDENCY-MANAGEMENT", "18-DOCUMENTATION"],
-          "mandatory_capabilities": ["E-001", "E-002", "E-010", "E-013", "E-018"],
-          "conditional_capabilities": ["E-004", "E-014"],
-          "typical_delivery_targets": ["linux", "windows", "macos"],
-          "recommended_workforce": ["systems-programmer", "developer-advocate", "qa-engineer"],
+          "default_domains": [
+            "01-SPECIFICATION",
+            "02-ARCHITECTURE",
+            "10-TESTING-AND-QA",
+            "13-DEPENDENCY-MANAGEMENT",
+            "18-DOCUMENTATION"
+          ],
+          "mandatory_capabilities": [
+            "E-001",
+            "E-002",
+            "E-010",
+            "E-013",
+            "E-018"
+          ],
+          "conditional_capabilities": [
+            "E-004",
+            "E-014"
+          ],
+          "typical_delivery_targets": [
+            "linux",
+            "windows",
+            "macos"
+          ],
+          "recommended_workforce": [
+            "systems-programmer",
+            "developer-advocate",
+            "qa-engineer"
+          ],
           "status": "OPERATIONAL"
         },
         {
           "id": "compiler_toolchain",
           "name": "Compiler, Interpreter & Language Toolchain",
           "description": "Lexer, AST parser, type checker, intermediate representation, code generator, and optimization passes.",
-          "default_domains": ["01-SPECIFICATION", "02-ARCHITECTURE", "10-TESTING-AND-QA", "14-PERFORMANCE-ENGINEERING"],
-          "mandatory_capabilities": ["E-001", "E-002", "E-010", "E-014"],
-          "conditional_capabilities": ["E-013", "E-018"],
-          "typical_delivery_targets": ["linux", "windows", "macos"],
-          "recommended_workforce": ["compiler-engineer", "systems-programmer", "verification-engineer"],
+          "default_domains": [
+            "01-SPECIFICATION",
+            "02-ARCHITECTURE",
+            "10-TESTING-AND-QA",
+            "14-PERFORMANCE-ENGINEERING"
+          ],
+          "mandatory_capabilities": [
+            "E-001",
+            "E-002",
+            "E-010",
+            "E-014"
+          ],
+          "conditional_capabilities": [
+            "E-013",
+            "E-018"
+          ],
+          "typical_delivery_targets": [
+            "linux",
+            "windows",
+            "macos"
+          ],
+          "recommended_workforce": [
+            "compiler-engineer",
+            "systems-programmer",
+            "verification-engineer"
+          ],
           "status": "SPECIFIED"
         }
       ]
@@ -371,14 +863,758 @@
           "id": "computational_model",
           "name": "Scientific Computing & Simulation Model",
           "description": "Numerical integration, differential equations, high-precision floating point validation, and scientific dataset exports.",
-          "default_domains": ["01-SPECIFICATION", "03-DATA-INTEGRITY", "10-TESTING-AND-QA", "14-PERFORMANCE-ENGINEERING"],
-          "mandatory_capabilities": ["E-001", "E-003", "E-010", "E-014"],
-          "conditional_capabilities": ["E-002", "E-029"],
-          "typical_delivery_targets": ["linux", "containers_cloud"],
-          "recommended_workforce": ["research-software-engineer", "scientific-computing-specialist", "statistician"],
+          "default_domains": [
+            "01-SPECIFICATION",
+            "03-DATA-INTEGRITY",
+            "10-TESTING-AND-QA",
+            "14-PERFORMANCE-ENGINEERING"
+          ],
+          "mandatory_capabilities": [
+            "E-001",
+            "E-003",
+            "E-010",
+            "E-014"
+          ],
+          "conditional_capabilities": [
+            "E-002",
+            "E-029"
+          ],
+          "typical_delivery_targets": [
+            "linux",
+            "containers_cloud"
+          ],
+          "recommended_workforce": [
+            "research-software-engineer",
+            "scientific-computing-specialist",
+            "statistician"
+          ],
           "status": "SPECIFIED"
         }
       ]
+    }
+  ],
+  "engineering_categories": [
+    {
+      "id": "ENG-01",
+      "code": "ai_engineering",
+      "name": "Artificial Intelligence",
+      "description": "AI Application Development, AI Agents, Multi-Agent Systems, AI Automation, Generative AI, Conversational AI, Multimodal AI, RAG, Voice AI, AI Search, and AI-native products.",
+      "subdisciplines": [
+        "AI Application Development",
+        "AI Agent Development",
+        "Multi-Agent Systems",
+        "AI Automation",
+        "Generative AI",
+        "Conversational AI",
+        "Multimodal AI",
+        "RAG Development",
+        "AI Workflow Development",
+        "AI Integration",
+        "Voice AI and speech applications",
+        "AI search and retrieval applications",
+        "AI-native products"
+      ],
+      "default_domains": [
+        "01-SPECIFICATION",
+        "02-ARCHITECTURE",
+        "04-SECURITY-CONTROLS",
+        "29-AI-GOVERNANCE",
+        "30-AGENT-RULES-AND-VERIFICATION"
+      ],
+      "mandatory_capabilities": [
+        "E-001",
+        "E-002",
+        "E-004",
+        "E-029",
+        "E-030"
+      ],
+      "recommended_workforce": [
+        "ai-engineer",
+        "agent-architect",
+        "eval-engineer",
+        "security-engineer"
+      ]
+    },
+    {
+      "id": "ENG-02",
+      "code": "machine_learning",
+      "name": "Machine Learning",
+      "description": "Supervised/Unsupervised Learning, Reinforcement Learning, Deep Learning, Neural Networks, Predictive Modeling, Model Training/Fine-Tuning, Computer Vision, NLP, Recommendations, Forecasting, Edge ML.",
+      "subdisciplines": [
+        "Machine Learning Development",
+        "Supervised Learning",
+        "Unsupervised Learning",
+        "Reinforcement Learning",
+        "Deep Learning",
+        "Neural Network Development",
+        "Predictive Modeling",
+        "Model Training",
+        "Model Fine-Tuning",
+        "Model Evaluation",
+        "Computer Vision",
+        "NLP and speech ML",
+        "Recommendation systems",
+        "Forecasting and anomaly detection",
+        "Edge ML"
+      ],
+      "default_domains": [
+        "01-SPECIFICATION",
+        "03-DATA-INTEGRITY",
+        "10-TESTING-AND-QA",
+        "14-PERFORMANCE-ENGINEERING",
+        "29-AI-GOVERNANCE"
+      ],
+      "mandatory_capabilities": [
+        "E-001",
+        "E-003",
+        "E-010",
+        "E-014",
+        "E-029"
+      ],
+      "recommended_workforce": [
+        "ml-engineer",
+        "ml-research-engineer",
+        "data-engineer",
+        "eval-engineer"
+      ]
+    },
+    {
+      "id": "ENG-03",
+      "code": "data_science_and_data_engineering",
+      "name": "Data Science & Data Engineering",
+      "description": "Data Science, Analytics, Data Engineering, Collection, Cleaning, Modeling, Statistical Analysis, Visualization, Big Data, Pipelines, ETL/ELT, Warehouses, Lakehouses, Streaming, Data Governance.",
+      "subdisciplines": [
+        "Data Science",
+        "Data Analytics",
+        "Data Engineering",
+        "Data Collection",
+        "Data Cleaning and Processing",
+        "Data Modeling",
+        "Statistical Analysis",
+        "Data Visualization",
+        "Big Data Processing",
+        "Data Pipeline Development",
+        "ETL/ELT",
+        "Data Warehousing",
+        "Data Lakes and Lakehouses",
+        "Streaming Data",
+        "Data Governance and Quality"
+      ],
+      "default_domains": [
+        "01-SPECIFICATION",
+        "03-DATA-INTEGRITY",
+        "08-API-CONTRACTS",
+        "10-TESTING-AND-QA",
+        "16-AUDIT-AND-COMPLIANCE"
+      ],
+      "mandatory_capabilities": [
+        "E-001",
+        "E-003",
+        "E-008",
+        "E-010",
+        "E-016"
+      ],
+      "recommended_workforce": [
+        "data-scientist",
+        "data-engineer",
+        "database-architect",
+        "data-analyst"
+      ]
+    },
+    {
+      "id": "ENG-04",
+      "code": "ai_model_engineering",
+      "name": "AI Model Engineering",
+      "description": "LLM Development/Integration, Foundation Models, Custom Training, Fine-Tuning, Quantization, Optimization, Deployment, Serving, Model Evaluation, MLOps, Model Registry, Inference Optimization.",
+      "subdisciplines": [
+        "LLM Development and Integration",
+        "Foundation Model Development",
+        "Custom Model Training",
+        "Model Fine-Tuning",
+        "Model Quantization",
+        "Model Optimization",
+        "Model Deployment",
+        "Model Serving",
+        "Model Evaluation",
+        "MLOps",
+        "Model Registry and Lifecycle",
+        "Inference Optimization"
+      ],
+      "default_domains": [
+        "02-ARCHITECTURE",
+        "10-TESTING-AND-QA",
+        "14-PERFORMANCE-ENGINEERING",
+        "22-SUPPLY-CHAIN-SECURITY",
+        "29-AI-GOVERNANCE"
+      ],
+      "mandatory_capabilities": [
+        "E-002",
+        "E-010",
+        "E-014",
+        "E-022",
+        "E-029"
+      ],
+      "recommended_workforce": [
+        "mlops-engineer",
+        "model-engineer",
+        "platform-engineer",
+        "security-engineer"
+      ]
+    },
+    {
+      "id": "ENG-05",
+      "code": "software_application_engineering",
+      "name": "Software Application Engineering",
+      "description": "Websites, Web Apps, Mini Apps, Mobile Apps, Desktop Apps, Cross-Platform, PWAs, Browser Extensions, CLI Apps, Native/Hybrid, Offline-first applications.",
+      "subdisciplines": [
+        "Website Development",
+        "Web Application Development",
+        "Mini App Development",
+        "Mobile Application Development",
+        "Desktop Application Development",
+        "Cross-Platform Development",
+        "Progressive Web Apps",
+        "Browser Extensions",
+        "CLI Applications",
+        "Native and hybrid applications",
+        "Offline-first applications"
+      ],
+      "default_domains": [
+        "01-SPECIFICATION",
+        "05-DESIGN-SYSTEMS",
+        "07-ACCESSIBILITY-AND-INCLUSION",
+        "08-API-CONTRACTS",
+        "10-TESTING-AND-QA"
+      ],
+      "mandatory_capabilities": [
+        "E-001",
+        "E-005",
+        "E-007",
+        "E-008",
+        "E-010"
+      ],
+      "recommended_workforce": [
+        "frontend-engineer",
+        "mobile-engineer",
+        "desktop-engineer",
+        "ui-designer"
+      ]
+    },
+    {
+      "id": "ENG-06",
+      "code": "backend_and_api_engineering",
+      "name": "Backend & API Engineering",
+      "description": "Backend Development, API Development, Database Engineering, Microservices, Real-Time Systems, Serverless, Event-Driven Architecture, Distributed Systems, Messaging, Queues, Integration services.",
+      "subdisciplines": [
+        "Backend Development",
+        "API Development",
+        "Database Engineering",
+        "Microservices",
+        "Real-Time Systems",
+        "Serverless Development",
+        "Event-Driven Architecture",
+        "Distributed Systems",
+        "Messaging and queues",
+        "Integration services"
+      ],
+      "default_domains": [
+        "01-SPECIFICATION",
+        "02-ARCHITECTURE",
+        "03-DATA-INTEGRITY",
+        "04-SECURITY-CONTROLS",
+        "08-API-CONTRACTS",
+        "14-PERFORMANCE-ENGINEERING"
+      ],
+      "mandatory_capabilities": [
+        "E-001",
+        "E-002",
+        "E-003",
+        "E-004",
+        "E-008",
+        "E-014"
+      ],
+      "recommended_workforce": [
+        "backend-engineer",
+        "api-engineer",
+        "database-architect",
+        "distributed-systems-engineer"
+      ]
+    },
+    {
+      "id": "ENG-07",
+      "code": "enterprise_software_engineering",
+      "name": "Enterprise Software Engineering",
+      "description": "ERP, CRM, HRMS, LMS, CMS, Business Management Systems, Workflow Management Systems, Industry-Specific Software, Enterprise Portals, Multi-tenant business platforms.",
+      "subdisciplines": [
+        "ERP",
+        "CRM",
+        "HRMS",
+        "LMS",
+        "CMS",
+        "Business Management Systems",
+        "Workflow Management Systems",
+        "Industry-Specific Software",
+        "Enterprise Portals",
+        "Multi-tenant business platforms"
+      ],
+      "default_domains": [
+        "00-GOVERNANCE",
+        "01-SPECIFICATION",
+        "02-ARCHITECTURE",
+        "03-DATA-INTEGRITY",
+        "04-SECURITY-CONTROLS",
+        "16-AUDIT-AND-COMPLIANCE"
+      ],
+      "mandatory_capabilities": [
+        "E-001",
+        "E-002",
+        "E-003",
+        "E-004",
+        "E-016",
+        "E-020"
+      ],
+      "recommended_workforce": [
+        "enterprise-architect",
+        "fullstack-engineer",
+        "security-engineer",
+        "compliance-specialist"
+      ]
+    },
+    {
+      "id": "ENG-08",
+      "code": "saas_and_cloud_service_engineering",
+      "name": "SaaS & Cloud Service Engineering",
+      "description": "SaaS, PaaS, IaaS, BaaS, FaaS, DBaaS, CaaS, AIaaS, MLaaS, XaaS, Multi-tenant service platforms.",
+      "subdisciplines": [
+        "SaaS",
+        "PaaS",
+        "IaaS",
+        "BaaS",
+        "FaaS",
+        "DBaaS",
+        "CaaS",
+        "AIaaS",
+        "MLaaS",
+        "XaaS",
+        "Multi-tenant service platforms"
+      ],
+      "default_domains": [
+        "01-SPECIFICATION",
+        "02-ARCHITECTURE",
+        "04-SECURITY-CONTROLS",
+        "08-API-CONTRACTS",
+        "10-TESTING-AND-QA",
+        "18-OBSERVABILITY"
+      ],
+      "mandatory_capabilities": [
+        "E-001",
+        "E-002",
+        "E-004",
+        "E-008",
+        "E-010",
+        "E-018"
+      ],
+      "recommended_workforce": [
+        "saas-architect",
+        "backend-engineer",
+        "frontend-engineer",
+        "cloud-engineer",
+        "security-engineer"
+      ]
+    },
+    {
+      "id": "ENG-09",
+      "code": "devops_and_cloud_engineering",
+      "name": "DevOps & Cloud Engineering",
+      "description": "DevOps, Cloud Engineering, Platform Engineering, Infrastructure, CI/CD, Containerization, Kubernetes, IaC, Deployment Automation, SRE, Observability and operations.",
+      "subdisciplines": [
+        "DevOps",
+        "Cloud Engineering",
+        "Platform Engineering",
+        "Infrastructure Engineering",
+        "CI/CD",
+        "Containerization",
+        "Kubernetes",
+        "Infrastructure as Code",
+        "Deployment Automation",
+        "Site Reliability Engineering",
+        "Observability and operations"
+      ],
+      "default_domains": [
+        "04-SECURITY-CONTROLS",
+        "11-DEPLOYMENT-AND-RELEASE",
+        "12-ENVIRONMENT-MANAGEMENT",
+        "18-OBSERVABILITY",
+        "22-SUPPLY-CHAIN-SECURITY"
+      ],
+      "mandatory_capabilities": [
+        "E-004",
+        "E-011",
+        "E-012",
+        "E-018",
+        "E-022"
+      ],
+      "recommended_workforce": [
+        "devops-engineer",
+        "platform-engineer",
+        "sre-engineer",
+        "cloud-architect"
+      ]
+    },
+    {
+      "id": "ENG-10",
+      "code": "automation_and_integration_engineering",
+      "name": "Automation & Integration Engineering",
+      "description": "Workflow Automation, Business Process Automation, RPA, No-Code/Low-Code, Integration Engineering, iPaaS, API Integration, MCP Development, Agent-to-Agent Systems, Event Orchestration.",
+      "subdisciplines": [
+        "Workflow Automation",
+        "Business Process Automation",
+        "RPA",
+        "No-Code and Low-Code",
+        "Integration Engineering",
+        "iPaaS",
+        "API Integration",
+        "MCP Development",
+        "Agent-to-Agent Systems",
+        "Event and workflow orchestration"
+      ],
+      "default_domains": [
+        "01-SPECIFICATION",
+        "08-API-CONTRACTS",
+        "10-TESTING-AND-QA",
+        "28-INTEGRATION-TESTING"
+      ],
+      "mandatory_capabilities": [
+        "E-001",
+        "E-008",
+        "E-010",
+        "E-028"
+      ],
+      "recommended_workforce": [
+        "integration-engineer",
+        "automation-specialist",
+        "mcp-developer"
+      ]
+    },
+    {
+      "id": "ENG-11",
+      "code": "cybersecurity_engineering",
+      "name": "Cybersecurity Engineering",
+      "description": "Application Security, Network Security, Cloud Security, IAM, Security Automation, Vulnerability Assessment, Authorized Penetration Testing, Security Monitoring, Privacy Engineering, Supply-Chain Security, AI and Agent Security.",
+      "subdisciplines": [
+        "Application Security",
+        "Network Security",
+        "Cloud Security",
+        "Identity and Access Management",
+        "Security Automation",
+        "Vulnerability Assessment",
+        "Authorized Penetration Testing",
+        "Security Monitoring",
+        "Privacy Engineering",
+        "Supply-Chain Security",
+        "AI and Agent Security"
+      ],
+      "default_domains": [
+        "00-GOVERNANCE",
+        "04-SECURITY-CONTROLS",
+        "12-ENVIRONMENT-MANAGEMENT",
+        "16-AUDIT-AND-COMPLIANCE",
+        "17-INCIDENT-RESPONSE",
+        "22-SUPPLY-CHAIN-SECURITY"
+      ],
+      "mandatory_capabilities": [
+        "E-000",
+        "E-004",
+        "E-012",
+        "E-016",
+        "E-017",
+        "E-022"
+      ],
+      "recommended_workforce": [
+        "security-engineer",
+        "appsec-specialist",
+        "cloud-security-architect",
+        "penetration-tester"
+      ]
+    },
+    {
+      "id": "ENG-12",
+      "code": "specialized_technology_engineering",
+      "name": "Specialized Technology Engineering",
+      "description": "Blockchain and Web3, Smart Contracts, IoT, Embedded Systems and Firmware, Robotics, AR/VR/XR, Game Development, Edge Computing, Operating Systems, Kernel/Drivers, Compilers, Hardware/FPGA, Digital Twins.",
+      "subdisciplines": [
+        "Blockchain and Web3",
+        "Smart Contracts",
+        "IoT",
+        "Embedded Systems and Firmware",
+        "Robotics",
+        "AR/VR/XR",
+        "Game Development",
+        "Edge Computing",
+        "Operating Systems",
+        "Kernel and Driver Development",
+        "Compiler and Runtime Engineering",
+        "Networking and Telecommunications",
+        "Hardware and FPGA Engineering",
+        "Digital Twins and Simulation"
+      ],
+      "default_domains": [
+        "01-SPECIFICATION",
+        "02-ARCHITECTURE",
+        "04-SECURITY-CONTROLS",
+        "14-PERFORMANCE-ENGINEERING",
+        "20-SYSTEMS-LEVEL-CONTROLS"
+      ],
+      "mandatory_capabilities": [
+        "E-001",
+        "E-002",
+        "E-004",
+        "E-014",
+        "E-020"
+      ],
+      "recommended_workforce": [
+        "systems-engineer",
+        "embedded-engineer",
+        "firmware-developer",
+        "robotics-specialist",
+        "game-developer"
+      ]
+    },
+    {
+      "id": "ENG-13",
+      "code": "software_quality_engineering",
+      "name": "Software Quality Engineering",
+      "description": "Software Testing, Manual Testing, Test Automation, API Testing, Performance Testing, Security Testing, Mobile Testing, Quality Assurance, Reliability Engineering, Accessibility Testing, Compatibility/Conformance.",
+      "subdisciplines": [
+        "Software Testing",
+        "Manual Testing",
+        "Test Automation",
+        "API Testing",
+        "Performance Testing",
+        "Security Testing",
+        "Mobile Testing",
+        "Quality Assurance",
+        "Reliability Engineering",
+        "Accessibility Testing",
+        "Compatibility and conformance testing"
+      ],
+      "default_domains": [
+        "07-ACCESSIBILITY-AND-INCLUSION",
+        "10-TESTING-AND-QA",
+        "14-PERFORMANCE-ENGINEERING",
+        "28-INTEGRATION-TESTING"
+      ],
+      "mandatory_capabilities": [
+        "E-007",
+        "E-010",
+        "E-014",
+        "E-028"
+      ],
+      "recommended_workforce": [
+        "qa-engineer",
+        "sdet-engineer",
+        "test-architect",
+        "accessibility-specialist"
+      ]
+    },
+    {
+      "id": "ENG-14",
+      "code": "ui_ux_and_product_engineering",
+      "name": "UI/UX & Product Engineering",
+      "description": "UI Design, UX Design, Product Design, Design Systems, Prototyping, Interaction Design, Frontend Engineering, Accessibility Engineering, Design Quality and Usability.",
+      "subdisciplines": [
+        "UI Design",
+        "UX Design",
+        "Product Design",
+        "Design Systems",
+        "Prototyping",
+        "Interaction Design",
+        "Frontend Engineering",
+        "Accessibility Engineering",
+        "Design Quality and Usability"
+      ],
+      "default_domains": [
+        "05-DESIGN-SYSTEMS",
+        "06-UX-RESEARCH",
+        "07-ACCESSIBILITY-AND-INCLUSION",
+        "10-TESTING-AND-QA"
+      ],
+      "mandatory_capabilities": [
+        "E-005",
+        "E-006",
+        "E-007",
+        "E-010"
+      ],
+      "recommended_workforce": [
+        "ui-designer",
+        "ux-researcher",
+        "product-designer",
+        "design-systems-lead",
+        "frontend-engineer"
+      ]
+    }
+  ],
+  "deployment_models": [
+    "local",
+    "cloud",
+    "hybrid",
+    "on_premises",
+    "edge"
+  ],
+  "ai_dependencies": [
+    "none",
+    "optional",
+    "required"
+  ],
+  "data_sensitivity_levels": [
+    "public",
+    "internal",
+    "confidential",
+    "restricted"
+  ],
+  "reliability_tiers": [
+    "standard_99_0",
+    "high_99_9",
+    "mission_critical_99_99"
+  ],
+  "archetypes": [
+    {
+      "id": "mini_website",
+      "name": "Mini Website / Landing Page",
+      "category": "ENG-05",
+      "family": "web_engineering"
+    },
+    {
+      "id": "saas_web_app",
+      "name": "SaaS Web Application",
+      "category": "ENG-08",
+      "family": "web_engineering"
+    },
+    {
+      "id": "enterprise_platform",
+      "name": "Enterprise Web Platform",
+      "category": "ENG-07",
+      "family": "web_engineering"
+    },
+    {
+      "id": "native_android",
+      "name": "Native Android Application",
+      "category": "ENG-05",
+      "family": "mobile_engineering"
+    },
+    {
+      "id": "native_ios",
+      "name": "Native iOS Application",
+      "category": "ENG-05",
+      "family": "mobile_engineering"
+    },
+    {
+      "id": "cross_platform_mobile",
+      "name": "Cross-Platform Mobile App (Flutter / React Native)",
+      "category": "ENG-05",
+      "family": "mobile_engineering"
+    },
+    {
+      "id": "cross_platform_desktop",
+      "name": "Cross-Platform Desktop (Tauri / Electron)",
+      "category": "ENG-05",
+      "family": "desktop_engineering"
+    },
+    {
+      "id": "native_desktop_tool",
+      "name": "Native Desktop System Tool",
+      "category": "ENG-05",
+      "family": "desktop_engineering"
+    },
+    {
+      "id": "rag_knowledge_system",
+      "name": "RAG Knowledge & Retrieval System",
+      "category": "ENG-01",
+      "family": "ai_engineering"
+    },
+    {
+      "id": "autonomous_agent_system",
+      "name": "Autonomous Agent & Multi-Agent System",
+      "category": "ENG-01",
+      "family": "ai_engineering"
+    },
+    {
+      "id": "classical_ml_pipeline",
+      "name": "Classical ML & Tabular Predictive Pipeline",
+      "category": "ENG-02",
+      "family": "machine_learning"
+    },
+    {
+      "id": "deep_learning_cv_nlp",
+      "name": "Deep Learning / Vision / Audio Model",
+      "category": "ENG-02",
+      "family": "machine_learning"
+    },
+    {
+      "id": "data_science_analysis",
+      "name": "Exploratory Data Science & Statistics",
+      "category": "ENG-03",
+      "family": "data_engineering_and_data_science"
+    },
+    {
+      "id": "etl_elt_pipeline",
+      "name": "Idempotent ETL / ELT Pipeline",
+      "category": "ENG-03",
+      "family": "data_engineering_and_data_science"
+    },
+    {
+      "id": "rest_api_microservices",
+      "name": "RESTful API & Microservices Platform",
+      "category": "ENG-06",
+      "family": "backend_and_distributed_systems"
+    },
+    {
+      "id": "event_driven_streaming",
+      "name": "Event-Driven Real-Time Streaming System",
+      "category": "ENG-06",
+      "family": "backend_and_distributed_systems"
+    },
+    {
+      "id": "linux_distribution",
+      "name": "Custom Linux Operating System Distribution",
+      "category": "ENG-12",
+      "family": "operating_systems_and_systems"
+    },
+    {
+      "id": "kernel_driver_module",
+      "name": "Kernel Module & Device Driver",
+      "category": "ENG-12",
+      "family": "operating_systems_and_systems"
+    },
+    {
+      "id": "rtos_firmware",
+      "name": "Real-Time Embedded Firmware (RTOS / Bare-Metal)",
+      "category": "ENG-12",
+      "family": "embedded_hardware_and_robotics"
+    },
+    {
+      "id": "robotics_platform",
+      "name": "Autonomous Robotics System (ROS 2)",
+      "category": "ENG-12",
+      "family": "embedded_hardware_and_robotics"
+    },
+    {
+      "id": "game_2d_3d",
+      "name": "2D / 3D Interactive Game & Physics Engine",
+      "category": "ENG-12",
+      "family": "game_and_simulation"
+    },
+    {
+      "id": "cli_tool_sdk",
+      "name": "Developer CLI Tool, SDK, or Language Compiler",
+      "category": "ENG-05",
+      "family": "developer_tools_and_languages"
+    },
+    {
+      "id": "scientific_simulation",
+      "name": "High-Performance Scientific Simulation & Modeling",
+      "category": "ENG-12",
+      "family": "research_and_scientific_computing"
     }
   ]
 }

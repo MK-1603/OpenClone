@@ -48,6 +48,7 @@ OpenClone bridges this gap by embedding **Taste Skill v2.6.0** (`skills/taste-sk
 3. [`ANTI-AI-SLOP-STANDARDS.md`](file:///ANTI-AI-SLOP-STANDARDS.md) — The OpenClone Anti-AI-Slop Manifesto. Detailed comparative breakdown of generic AI tropes vs human-crafted UI engineering.
 4. [`HUMAN-CRAFTED-DESIGN-SYSTEM.md`](HUMAN-CRAFTED-DESIGN-SYSTEM.md) — Canonical design tokens, typography scales, elevation systems, surface hierarchies, and micro-interaction timing curves.
 5. [`LOGO-ENGINEERING-AND-BRAND-IDENTITY.md`](LOGO-ENGINEERING-AND-BRAND-IDENTITY.md) — Complete specification of the Logo Engineering & Brand Identity System (LEBIS), the 10 specialized engines, vector SVG generation, and automated QA gating.
+6. [`MANDATORY-RESPONSIVE-UI-ENGINEERING-STANDARD.md`](MANDATORY-RESPONSIVE-UI-ENGINEERING-STANDARD.md) — Mandatory mobile-first responsive engineering standard, 6-tier breakpoint matrix, touch-target gating (44px), and completion verification.
 
 ---
 

@@ -1,4 +1,10 @@
-"""OpenClone Multi-Label Project Classifier."""
+"""OpenClone Multi-Label Project Classifier.
+
+Implements versioned, machine-readable multi-label classification across 14 primary
+engineering categories (ENG-01 through ENG-14), independent project archetypes,
+and independent dimensions (complexity, delivery targets, deployment model,
+AI dependency, data sensitivity, and reliability tier).
+"""
 from __future__ import annotations
 
 import re
@@ -23,11 +29,17 @@ class ProjectProfile:
     primary_type: str
     secondary_types: List[str] = field(default_factory=list)
     supporting_types: List[str] = field(default_factory=list)
+    supporting_disciplines: List[str] = field(default_factory=list)  # ENG-01 .. ENG-14
     classification_confidence: float = 1.0
     classification_rationale: str = ""
     ambiguity_flags: List[str] = field(default_factory=list)
     complexity: ProjectComplexity = field(default_factory=lambda: ProjectComplexity("MEDIUM", "Standard modular scope"))
     delivery_targets: List[str] = field(default_factory=lambda: ["web_browser"])
+    deployment_model: str = "cloud"  # local, cloud, hybrid, on_premises, edge
+    ai_dependency: str = "none"  # none, optional, required
+    data_sensitivity: str = "internal"  # public, internal, confidential, restricted
+    reliability_tier: str = "standard_99_0"  # standard_99_0, high_99_9, mission_critical_99_99
+    unresolved_questions: List[str] = field(default_factory=list)
     conditional_profiles: Dict[str, Any] = field(default_factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
@@ -38,6 +50,7 @@ class ProjectProfile:
             "primary_type": self.primary_type,
             "secondary_types": self.secondary_types,
             "supporting_types": self.supporting_types,
+            "supporting_disciplines": self.supporting_disciplines,
             "classification_confidence": round(self.classification_confidence, 2),
             "classification_rationale": self.classification_rationale,
             "ambiguity_flags": self.ambiguity_flags,
@@ -46,6 +59,11 @@ class ProjectProfile:
                 "rationale": self.complexity.rationale,
             },
             "delivery_targets": self.delivery_targets,
+            "deployment_model": self.deployment_model,
+            "ai_dependency": self.ai_dependency,
+            "data_sensitivity": self.data_sensitivity,
+            "reliability_tier": self.reliability_tier,
+            "unresolved_questions": self.unresolved_questions,
             "conditional_profiles": self.conditional_profiles,
         }
 
@@ -100,8 +118,36 @@ class ProjectClassifier:
         "web_engineering": {
             "mini_website": ["landing page", "mini website", "portfolio", "documentation site", "marketing site", "static site", "astro", "next.js landing"],
             "saas_web_app": ["saas", "web app", "web application", "dashboard", "billing", "multi-tenant", "full-stack", "next.js", "remix"],
-            "enterprise_platform": ["enterprise platform", "portal", "internal tool", "compliance platform"],
+            "enterprise_platform": ["enterprise platform", "portal", "internal tool", "compliance platform", "erp", "crm", "hrms"],
         },
+    }
+
+    # Mapping of types to primary engineering discipline
+    TYPE_TO_DISCIPLINE: Dict[str, str] = {
+        "rag_knowledge_system": "ENG-01",
+        "autonomous_agent_system": "ENG-01",
+        "classical_ml_pipeline": "ENG-02",
+        "deep_learning_cv_nlp": "ENG-02",
+        "data_science_study": "ENG-03",
+        "etl_pipeline": "ENG-03",
+        "mini_website": "ENG-05",
+        "cross_platform_mobile": "ENG-05",
+        "native_android": "ENG-05",
+        "native_ios": "ENG-05",
+        "cross_platform_desktop": "ENG-05",
+        "native_desktop_tool": "ENG-05",
+        "cli_developer_tool": "ENG-05",
+        "microservices_platform": "ENG-06",
+        "event_driven_stream": "ENG-06",
+        "enterprise_platform": "ENG-07",
+        "saas_web_app": "ENG-08",
+        "linux_distribution": "ENG-12",
+        "kernel_driver_module": "ENG-12",
+        "rtos_firmware": "ENG-12",
+        "robotics_platform": "ENG-12",
+        "game_application": "ENG-12",
+        "compiler_toolchain": "ENG-12",
+        "computational_model": "ENG-12",
     }
 
     def __init__(self, taxonomy: Optional[TaxonomyRegistry] = None):
@@ -122,17 +168,19 @@ class ProjectClassifier:
                             matched_types.append(t_id)
                         family_scores[fam_id] = family_scores.get(fam_id, 0) + 1
 
-        # Fallback if no keywords matched
+        unresolved_questions: List[str] = []
+
+        # If no keywords matched
         if not matched_types:
             primary_family = "web_engineering"
             primary_type = "saas_web_app"
-            confidence = 0.5
-            rationale = "No specialized keywords matched; default SaaS web application inferred."
+            confidence = 0.4
+            rationale = "No specialized domain keywords detected; default modular profile suggested pending domain clarification."
             ambiguity_flags = ["no_explicit_domain_keywords_detected"]
+            unresolved_questions.append("Project domain and platform requirements not detected; please specify target platform (web, mobile, desktop, embedded, or systems).")
         else:
             # First matched type is primary unless high-scoring family indicates otherwise
             best_family = max(family_scores.keys(), key=lambda k: family_scores[k])
-            # Find first matched type belonging to best_family
             best_type = next((t for t in matched_types if self.taxonomy.get_family_for_type(t) == best_family), matched_types[0])
             primary_type = best_type
             primary_family = best_family
@@ -142,6 +190,25 @@ class ProjectClassifier:
 
         secondary = [t for t in matched_types if t != primary_type][:3]
         supporting = [t for t in matched_types if t != primary_type and t not in secondary]
+
+        # Determine supporting engineering disciplines (ENG-01 to ENG-14)
+        supporting_disciplines_set: Set[str] = set()
+        for t in matched_types:
+            disc = self.TYPE_TO_DISCIPLINE.get(t)
+            if disc:
+                supporting_disciplines_set.add(disc)
+
+        # Baseline disciplines: Quality (ENG-13), Security (ENG-11)
+        supporting_disciplines_set.add("ENG-11")  # Cybersecurity Engineering
+        supporting_disciplines_set.add("ENG-13")  # Quality Engineering
+
+        if "web_browser" in lower or "ui" in lower or "frontend" in lower or primary_family in ("web_engineering", "mobile_engineering", "desktop_engineering"):
+            supporting_disciplines_set.add("ENG-14")  # UI/UX & Product Engineering
+
+        if "cloud" in lower or "devops" in lower or "ci/cd" in lower or "docker" in lower:
+            supporting_disciplines_set.add("ENG-09")  # DevOps & Cloud Engineering
+
+        supporting_disciplines = sorted(list(supporting_disciplines_set))
 
         # Determine delivery targets
         delivery_targets: Set[str] = set()
@@ -156,6 +223,44 @@ class ProjectClassifier:
         if not delivery_targets:
             delivery_targets.add("web_browser")
 
+        # Determine AI dependency
+        if any(k in lower for k in ["rag", "agent", "llm", "gpt", "gemini", "claude", "neural", "vision model", "model training", "inference"]):
+            ai_dependency = "required"
+        elif any(k in lower for k in ["smart", "analytics", "predictive", "recommendation", "automation"]):
+            ai_dependency = "optional"
+        else:
+            ai_dependency = "none"
+
+        # Determine Deployment Model
+        if "mobile" in primary_family or "cross_platform_mobile" in matched_types or "native_android" in matched_types or "native_ios" in matched_types:
+            deployment_model = "hybrid"
+        elif any(k in lower for k in ["local only", "embedded", "firmware", "desktop only", "offline only"]):
+            deployment_model = "local"
+        elif any(k in lower for k in ["on-prem", "on-premises", "private cloud", "air-gapped"]):
+            deployment_model = "on_premises"
+        elif any(k in lower for k in ["hybrid", "edge"]):
+            deployment_model = "hybrid"
+        else:
+            deployment_model = "cloud"
+
+        # Determine Data Sensitivity
+        if any(k in lower for k in ["hipaa", "pci", "credit card", "medical", "secret", "financial", "biometric"]):
+            data_sensitivity = "restricted"
+        elif any(k in lower for k in ["auth", "user account", "password", "customer", "billing"]):
+            data_sensitivity = "confidential"
+        elif any(k in lower for k in ["internal", "employee", "intranet"]):
+            data_sensitivity = "internal"
+        else:
+            data_sensitivity = "public" if primary_type == "mini_website" else "internal"
+
+        # Determine Reliability Tier
+        if any(k in lower for k in ["mission critical", "life safety", "high frequency", "99.99"]):
+            reliability_tier = "mission_critical_99_99"
+        elif any(k in lower for k in ["high availability", "enterprise", "sla", "99.9"]):
+            reliability_tier = "high_99_9"
+        else:
+            reliability_tier = "standard_99_0"
+
         # Determine complexity
         complexity = self._derive_complexity(lower, primary_family, len(matched_types))
 
@@ -169,11 +274,17 @@ class ProjectClassifier:
             primary_type=primary_type,
             secondary_types=secondary,
             supporting_types=supporting,
+            supporting_disciplines=supporting_disciplines,
             classification_confidence=confidence,
             classification_rationale=rationale,
             ambiguity_flags=ambiguity_flags,
             complexity=complexity,
             delivery_targets=sorted(list(delivery_targets)),
+            deployment_model=deployment_model,
+            ai_dependency=ai_dependency,
+            data_sensitivity=data_sensitivity,
+            reliability_tier=reliability_tier,
+            unresolved_questions=unresolved_questions,
             conditional_profiles=conditional_profiles,
         )
 
@@ -212,10 +323,10 @@ class ProjectClassifier:
         return self.classify_text(text_corpus, project_name=name)
 
     def _derive_complexity(self, text: str, family: str, matched_types_count: int) -> ProjectComplexity:
-        if "mini" in text or "landing page" in text or "portfolio" in text:
-            return ProjectComplexity("MINI", "Focused landing page or mini-site with minimal state")
         if family in ("operating_systems_and_systems", "embedded_hardware_and_robotics"):
             return ProjectComplexity("LARGE", "Low-level hardware/kernel engineering requires deep verification and isolation")
+        if re.search(r"\bmini\b|\blanding\b|\bportfolio\b", text):
+            return ProjectComplexity("MINI", "Focused landing page or mini-site with minimal state")
         if matched_types_count >= 3:
             return ProjectComplexity("LARGE", "Multi-discipline hybrid project spanning multiple platform types")
         if "enterprise" in text or "distributed" in text or "compliance" in text:

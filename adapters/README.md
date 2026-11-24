@@ -1,15 +1,47 @@
-# AI Tool & Multi-IDE Host Adapters
+# OpenClone AI Tool & Multi-Host Adapters
+## Universal Multi-Host Plugin Distribution
 
-OpenClone core is provider-neutral and IDE-independent. Each adapter connects to the identical shared OpenClone MCP Service (`src/openclone/mcp/server.py`) and loads the canonical project contract (`PROJECT.md`) and operating contract (`AGENTS.md`) using native host discovery and configuration files.
+**Product:** OpenClone Engineering Platform  
+**Target Hosts:** Google Antigravity, Claude Code, OpenAI Codex, Cursor, Gemini CLI, VS Code, Generic MCP  
+**Zero-Clone Policy:** End users install OpenClone directly via native host plugin/marketplace mechanisms without manual source checkouts.
 
-See [`INTEGRATION-MATRIX.md`](INTEGRATION-MATRIX.md) for the complete multi-host capability and conformance matrix.
+See [`../docs/universal-installation.md`](../docs/universal-installation.md) for full step-by-step instructions.
 
-| Environment | Integration Surface | MCP Configuration | Primary Instruction Entry | Additional Adapter Assets |
+---
+
+## 1. Supported Host Adapters
+
+| Directory | Target Host | Primary Packaging Surface | End-User Install Command | Status |
 |---|---|---|---|---|
-| **Google Antigravity** | Native Plugin & Workspace Config | `plugin.json` (`mcpServers`) | `AGENTS.md` / `GEMINI.md` | `.agents/rules/aisdf.md`, `.agents/skills/aisdf/SKILL.md` |
-| **Claude Code** | CLI & Terminal Plugin | `.mcp.json` | `CLAUDE.md` | `.claude/skills/aisdf/SKILL.md`, `CLAUDE.template.md` |
-| **OpenAI Codex** | CLI, Desktop & VSCode Extension | `mcp.json` | `AGENTS.md` | `.agents/skills/aisdf/SKILL.md` |
-| **Cursor** | Editor & Composer Agent | `.cursor/mcp.json` | `AGENTS.md` | `.cursor/rules/aisdf.mdc`, `aisdf-project-rule.template.mdc` |
-| **ChatGPT** | Hosted MCP & Custom GPT | Remote HTTPS / SSE | Custom GPT Instructions | [`chatgpt/README.md`](chatgpt/README.md), [`../global/hosts/chatgpt/custom-gpt-instructions.md`](../global/hosts/chatgpt/custom-gpt-instructions.md) |
+| [`antigravity/`](antigravity/) | Google Antigravity | `plugin.json` (Root & Adapter) | `agy plugin install https://github.com/MK-1603/OpenClone` | `VERIFIED` |
+| [`claude-code/`](claude-code/) | Claude Code | `.claude-plugin/plugin.json` + `marketplace.json` | `/plugin marketplace add MK-1603/OpenClone` | `VERIFIED` |
+| [`codex/`](codex/) | OpenAI Codex | `plugin.json` + `.agents/plugins/marketplace.json` | `codex plugin marketplace add MK-1603/OpenClone` | `VERIFIED` |
+| [`cursor/`](cursor/) | Cursor | `.cursor/rules/openclone.mdc` + `.cursor/mcp.json` | Settings > MCP (`python -m src.openclone.cli mcp`) | `VERIFIED` |
+| [`generic-mcp/`](generic-mcp/) | Any MCP Client | `mcp.json` (stdio JSON-RPC) | Add command: `python -m src.openclone.cli mcp` | `VERIFIED` |
 
-Adapters do not grant permissions or prove host compatibility. Always inspect existing instructions before installing; merge rather than overwrite. See [PROJECT.md and AGENTS.md](../docs/guides/project-lifecycle/PROJECT-AND-AGENT-FILES.md).
+---
+
+## 2. Canonical Capability Core Architecture
+
+```text
+                 OpenClone GitHub Repository
+                            |
+                Canonical OpenClone Core
+                            |
+       +--------------------+--------------------+
+       |                    |                    |
+  Skills/Workflows     MCP Capability API    Knowledge/Rules
+       |                    |                    |
+       +--------------------+--------------------+
+                            |
+                 Security + Policy Gateway
+                            |
+                  Host Adapter Layer
+                            |
+       +----------+---------+---------+----------+
+       |          |         |         |          |
+  Antigravity  Claude     Codex    Cursor     Other Hosts
+   Plugin      Plugin    Plugin   Adapter     Adapters
+```
+
+All adapters connect to the identical canonical OpenClone capability core and MCP service (`src/openclone/mcp/server.py`).
