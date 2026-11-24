@@ -54,6 +54,7 @@ OpenClone bridges this gap by embedding **Taste Skill v2.6.0** (`skills/taste-sk
 9. [`../../skills/responsive-engineering/SKILL.md`](../../skills/responsive-engineering/SKILL.md) — Responsive Engineering Specialist Skill: Mobile-first development, 11-tier viewport matrix, and touch ergonomics.
 10. [`../../skills/accessibility-engineering/SKILL.md`](../../skills/accessibility-engineering/SKILL.md) — Accessibility Engineering Specialist Skill: Semantic HTML, WCAG 2.2 AA, keyboard navigation, focus trapping, and contrast.
 11. [`../../skills/frontend-engineering/SKILL.md`](../../skills/frontend-engineering/SKILL.md) — Frontend Engineering Specialist Skill: Component architecture, state management, API resilience, and zero-leak security.
+12. [`../../../docs/reference/guidance/frontend-engineering-master-catalogue.md`](../../../docs/reference/guidance/frontend-engineering-master-catalogue.md) — Canonical 22-part frontend engineering knowledge foundation and production quality standards.
 
 ---
 

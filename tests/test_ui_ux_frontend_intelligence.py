@@ -24,6 +24,21 @@ from src.openclone.skills.engine import (
     SkillSelector,
     SkillStatus,
 )
+from src.openclone.frontend import (
+    FrontendQualityGate,
+    ComponentState,
+    evaluate_component_states,
+    ResponsiveMatrixAuditor,
+    ViewportCategory,
+    AccessibilityAuditor,
+    WCAGRule,
+    FrontendSecurityAuditor,
+    PerformanceBudgetAuditor,
+    DesignTokenManager,
+    TokenHierarchy,
+    FrontendLifecycleWorkflow,
+    WorkflowPhase,
+)
 
 
 class TestSkillFoundation(unittest.TestCase):
@@ -355,6 +370,141 @@ class TestReportingAndLedger(unittest.TestCase):
         self.assertIn("`LOADING`", report)
         self.assertIn("`EMPTY`", report)
         self.assertIn("`ERROR`", report)
+
+
+class TestFrontendRuntimeIntelligence(unittest.TestCase):
+    """Verifies deterministic Python modules for quality gates, responsive, a11y, security, performance, and tokens."""
+
+    def test_frontend_quality_gates_and_scorecard(self):
+        gate_engine = FrontendQualityGate()
+        # All 15 gates passed
+        criteria = {f"GATE-{i:02d}": True for i in range(1, 16)}
+        scorecard = gate_engine.evaluate_all(criteria)
+        self.assertEqual(scorecard.total_gates, 15)
+        self.assertEqual(scorecard.passed_gates, 15)
+        self.assertEqual(scorecard.failed_gates, 0)
+        self.assertEqual(scorecard.compliance_score, 100.0)
+        self.assertEqual(scorecard.verdict, "PRODUCTION_READY")
+
+    def test_component_states_evaluation(self):
+        # Interactive button with core 5 states
+        button_states = {
+            ComponentState.DEFAULT,
+            ComponentState.HOVER,
+            ComponentState.FOCUS,
+            ComponentState.ACTIVE,
+            ComponentState.DISABLED,
+        }
+        res = evaluate_component_states(button_states)
+        self.assertTrue(res["is_core_complete"])
+        self.assertFalse(res["is_full_lifecycle"])
+        self.assertEqual(len(res["missing_core_states"]), 0)
+
+        # Full lifecycle component (with loading, empty, error, success)
+        data_table_states = button_states.union({
+            ComponentState.LOADING,
+            ComponentState.SUCCESS,
+            ComponentState.ERROR,
+            ComponentState.EMPTY,
+            ComponentState.SELECTED,
+        })
+        res_full = evaluate_component_states(data_table_states)
+        self.assertTrue(res_full["is_core_complete"])
+        self.assertTrue(res_full["is_full_lifecycle"])
+        self.assertEqual(res_full["coverage_ratio"], 1.0)
+
+    def test_responsive_matrix_auditor(self):
+        auditor = ResponsiveMatrixAuditor()
+        # Default all passing
+        audit_res = auditor.evaluate_matrix()
+        self.assertTrue(audit_res.is_fully_responsive)
+        self.assertEqual(audit_res.passed_viewports, len(ViewportCategory))
+
+        # Viewport with horizontal overflow failure
+        obs = {
+            ViewportCategory.SMALL_MOBILE: {"has_overflow": True, "min_touch_px": 32, "usable": False, "nav_ok": True}
+        }
+        failing_res = auditor.evaluate_matrix(obs)
+        self.assertFalse(failing_res.is_fully_responsive)
+        self.assertEqual(failing_res.failed_viewports, 1)
+
+    def test_accessibility_auditor_wcag(self):
+        auditor = AccessibilityAuditor()
+        # Clean audit
+        res = auditor.run_audit()
+        self.assertTrue(res.is_wcag_aa_compliant)
+        self.assertEqual(res.score, 100.0)
+
+        # Audit with contrast and keyboard traps
+        res_flaws = auditor.run_audit({
+            WCAGRule.CONTRAST_MINIMUM: ["Header subtitle contrast is 2.8:1, requires 4.5:1"],
+            WCAGRule.NO_KEYBOARD_TRAP: ["Focus trap in newsletter dialog fails on Escape key"],
+        })
+        self.assertFalse(res_flaws.is_wcag_aa_compliant)
+        self.assertEqual(res_flaws.failed_rules, 2)
+        self.assertLess(res_flaws.score, 100.0)
+
+    def test_frontend_security_auditor(self):
+        auditor = FrontendSecurityAuditor()
+        # Insecure snippet with exposed token
+        insecure_code = """
+        const apiKey = "api_key = 'abcdef1234567890abcdef1234567890'";
+        const db = process.env.DATABASE_URL;
+        """
+        findings = auditor.audit_code_snippet(insecure_code, "insecure_client.tsx")
+        self.assertGreaterEqual(len(findings), 2)
+        audit_res = auditor.evaluate(findings)
+        self.assertFalse(audit_res.is_secure)
+        self.assertGreater(audit_res.critical_count, 0)
+
+        # CSP check
+        csp_findings = auditor.audit_csp_policy("script-src 'self' 'unsafe-eval' 'unsafe-inline'")
+        self.assertEqual(len(csp_findings), 2)
+
+    def test_performance_budget_auditor(self):
+        auditor = PerformanceBudgetAuditor()
+        # Optimal performance
+        res = auditor.audit_vitals(lcp=1.8, inp=90.0, cls=0.04, bundle_kb=150.0)
+        self.assertTrue(res.all_metrics_passed)
+        self.assertEqual(res.score, 100.0)
+
+        # Exceeding budget
+        res_slow = auditor.audit_vitals(lcp=3.6, inp=350.0, cls=0.22, bundle_kb=450.0)
+        self.assertFalse(res_slow.all_metrics_passed)
+        self.assertEqual(res_slow.failed_metrics, 4)
+
+    def test_design_token_manager_hierarchy(self):
+        dtm = DesignTokenManager()
+        dtm.register_primitive("color.slate.900", "#0f172a", "Deep neutral surface")
+        dtm.register_semantic("color.surface.canvas", "color.slate.900", description="App canvas")
+        dtm.register_component_token("card.surface", "color.surface.canvas", description="Card background")
+
+        audit = dtm.validate_architecture()
+        self.assertTrue(audit["is_valid"])
+        self.assertEqual(audit["primitive_count"], 1)
+        self.assertEqual(audit["semantic_count"], 1)
+        self.assertEqual(audit["component_count"], 1)
+
+    def test_frontend_lifecycle_workflow_18_stages(self):
+        workflow = FrontendLifecycleWorkflow("PROJ-SAAS-001")
+        # Full happy path
+        res = workflow.execute_lifecycle(
+            project_type="SaaS Application",
+            requirements=["Multi-tenant workspace", "Responsive data table", "WCAG 2.2 AA"],
+            has_human_approval=True,
+        )
+        self.assertTrue(res.is_success)
+        self.assertEqual(res.completed_phases, 18)
+        self.assertEqual(res.verdict, "VERIFIED_DELIVERY")
+
+        # Stopped at human approval gate
+        res_blocked = workflow.execute_lifecycle(
+            project_type="SaaS Application",
+            requirements=["Admin dashboard"],
+            has_human_approval=False,
+        )
+        self.assertFalse(res_blocked.is_success)
+        self.assertIn("HALTED_AT", res_blocked.verdict)
 
 
 if __name__ == "__main__":
