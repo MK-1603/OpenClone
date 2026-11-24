@@ -222,7 +222,7 @@ class PaperclipHttpHandler(BaseHTTPRequestHandler):
             self._send_json(200, {
                 "status": "healthy",
                 "service": "openclone-paperclip-adapter",
-                "version": "2.0.0",
+                "version": "1.0.0",
                 "active_tasks": len(self.connector._active_tasks),
             })
             return

@@ -21,7 +21,7 @@ from typing import Any, Dict, List, Optional
 
 ROOT = Path(__file__).resolve().parents[3]
 SERVER_NAME = "openclone-mcp-server"
-SERVER_VERSION = "2.0.0"
+SERVER_VERSION = "1.0.0"
 
 REDACTIONS = [
     (re.compile(r"(?i)\b(api[_-]?key|secret[_-]?key|secret|token|passw(?:or)?d)\b(\s*[=:]\s*)([^\s'\"]+)"), r"\1\2[REDACTED]"),

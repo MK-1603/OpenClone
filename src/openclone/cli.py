@@ -15,7 +15,7 @@ def main():
             from src.openclone import __version__
             print(f"openclone {__version__}")
         except Exception:
-            print("openclone 2.0.0")
+            print("openclone 1.0.0")
         return
 
     installer_verbs = {"install", "uninstall", "doctor", "status", "update", "rollback", "installer"}

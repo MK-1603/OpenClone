@@ -5,7 +5,7 @@ def _read_version():
     try:
         return (_P(__file__).resolve().parents[2] / "VERSION").read_text(encoding="utf-8").strip()
     except OSError:
-        return "2.0.0"
+        return "1.0.0"
 
 __version__ = _read_version()
 __product__ = "OpenClone"

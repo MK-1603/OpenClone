@@ -7,7 +7,7 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/MK-1603/OpenClone/releases" title="Version 2.0.0"><img src="https://img.shields.io/badge/version-2.0.0-38bdf8?style=flat&logo=github&logoColor=white" alt="Version 2.0.0" /></a>
+  <a href="https://github.com/MK-1603/OpenClone/releases" title="Version 1.0.0"><img src="https://img.shields.io/badge/version-1.0.0-38bdf8?style=flat&logo=github&logoColor=white" alt="Version 1.0.0" /></a>
   &nbsp;
   <a href="https://python.org"><img src="https://img.shields.io/badge/python-3.10%2B-10b981?style=flat&logo=python&logoColor=white" alt="Python 3.10+" /></a>
   &nbsp;
@@ -580,7 +580,7 @@ Explore authoritative specifications across the repository:
 
 ## 16. Roadmap
 
-### ✅ Completed & Verified (`2.0.0`)
+### ✅ Completed & Verified (`1.0.0`)
 - [x] **Universal Framework Standard:** Unified specification across 31 engineering domains and 56 capability engines.
 - [x] **Official Brand Identity:** Integrated 3D isometric emblem and canonical tagline logo banner.
 - [x] **Shared MCP Server:** JSON-RPC 2.0 stdio/SSE engine with 16 registered inspection and orchestration tools.
