@@ -30,7 +30,7 @@ jobs:
 
       - name: Install Wheel in Isolated Environment
         run: |
-          python -m pip install dist/*.whl
+          python -c "import pathlib, subprocess, sys; whl = list(pathlib.Path('dist').glob('*.whl'))[0]; subprocess.check_call([sys.executable, '-m', 'pip', 'install', str(whl)])"
 
       - name: Verify CLI Entrypoint and Module Execution
         run: |
