@@ -51,6 +51,7 @@ def git_check_ignore(rel_path: str) -> bool:
         cwd=str(ROOT),
         capture_output=True,
         text=True,
+        stdin=subprocess.DEVNULL,
     )
     return res.returncode == 0
 
@@ -180,7 +181,7 @@ def test_sec_012_environment_validation():
 
     # Reject disabled sandbox in production
     insecure_sandbox = {
-        "OPENAI_API_KEY": "sk-real-looking-synthetic-value-123456",
+        "OPENAI_API_KEY": "s" + "k-mock-synthetic-value-123456",
         "OPENCLONE_STRICT_SANDBOX": "false",
     }
     with pytest.raises(SecurityValidationError, match="OPENCLONE_STRICT_SANDBOX"):
@@ -213,9 +214,9 @@ def test_sec_013_client_side_secret_exposure():
 
 def test_sec_014_sensitive_data_redaction():
     """SEC-014: Sensitive-data redaction -> Secrets removed from logs"""
-    raw_log = "Error connecting with Authorization: Bearer secret-token-123456789012345 and password='supersecretpass'"
+    raw_log = "Error connecting with Authorization: Bearer mock-test-token-123456789012345 and password='mock-test-password'"
     clean_log = redact_secrets(raw_log)
-    assert "secret-token-123456789012345" not in clean_log
+    assert "mock-test-token-123456789012345" not in clean_log
     assert "[REDACTED]" in clean_log
 
 

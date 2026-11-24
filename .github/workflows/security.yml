@@ -33,9 +33,9 @@ jobs:
       - name: Run Automated Secret Detection Scanner
         run: |
           python tools/scan_secrets.py --mode tracked
-      - name: Run Security & Engineering Governance Tests (SEC-001 - SEC-020)
+      - name: Run Security & Engineering Governance Tests (SEC-001 - SEC-020 & FW/AG/API/DB)
         run: |
-          pytest tests/test_security_governance.py -v
+          pytest tests/test_advanced_security_firewall.py tests/test_security_governance.py -v
       - name: Run Repository Quality Gate
         run: |
           python tools/validate_repository.py

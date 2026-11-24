@@ -196,6 +196,7 @@ def get_tracked_files(root: Path) -> List[str]:
             capture_output=True,
             text=True,
             check=True,
+            stdin=subprocess.DEVNULL,
         )
         return [line.strip() for line in res.stdout.splitlines() if line.strip()]
     except Exception as e:
@@ -211,6 +212,7 @@ def get_staged_files(root: Path) -> List[str]:
             capture_output=True,
             text=True,
             check=True,
+            stdin=subprocess.DEVNULL,
         )
         return [line.strip() for line in res.stdout.splitlines() if line.strip()]
     except Exception as e:
