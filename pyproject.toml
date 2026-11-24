@@ -36,4 +36,4 @@ aisdf = "src.openclone.cli:main"
 
 [tool.setuptools.packages.find]
 where = ["."]
-include = ["src*", "runtime*"]
+include = ["src*", "runtime*", "openclone*"]
