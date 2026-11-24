@@ -1,22 +1,24 @@
-# 15 — Testing And Quality
+# 15 — Data & Database Engineering
+**OpenClone Canonical Engineering Domain**  
+*Governed by OpenClone Global Standards | Domain Owner: Database Architect / Lead Database Engineer*
 
-## Purpose
-This domain defines the canonical OpenClone guidance for testing and quality. It is a knowledge and policy area, not an executable service.
+---
 
-## Required coverage
-- Scope, terminology and non-goals.
-- Inputs, outputs, owners and dependencies.
-- Decision criteria and applicable mandatory rules.
-- Security, privacy, accessibility and operational considerations where relevant.
-- Evidence sources, freshness status and review cadence.
-- Related engines, workflows, schemas and adjacent domains.
+## 1. Purpose & Scope
+This domain defines the canonical OpenClone guidance for relational and non-relational database design, data modeling, schema evolution, query optimization, indexing strategies, transactions, connection pooling, replication, and disaster recovery.
 
-## Working standard
-Use authoritative, versioned sources for claims that can change. Separate stable principles from product-specific instructions. Record assumptions and unresolved questions. Do not treat this overview as a substitute for project-specific design or verification.
+## 2. Core Database Engineering Standards
+- **Data Modeling & Normalization:** Model conceptual, logical, and physical schemas (3NF for relational OLTP; denormalized read models where query benchmarks justify it). Enforce foreign keys, unique constraints, and check constraints at the database level.
+- **ACID & Concurrency:** Enforce appropriate transaction isolation levels (`READ COMMITTED`, `REPEATABLE READ`, `SERIALIZABLE`). Prevent lost updates, race conditions, and deadlocks using optimistic locking (version columns) or row-level pessimistic locking (`SELECT ... FOR UPDATE`).
+- **Index Engineering:** Design selective B-tree, composite, partial, and covering indexes based on actual query patterns. Monitor index write amplification and bloat.
+- **Zero-Downtime Migrations:** Use expand-and-contract patterns for backward-incompatible schema changes. Version-control all migrations. Destructive DDL (`DROP TABLE`, `ALTER TABLE ... DROP COLUMN`) is prohibited without verified rollback/recovery strategies and explicit authorization.
+- **Tenant Isolation:** Enforce Row-Level Security (RLS) or tenant-scoped isolation. Never trust client-supplied tenant IDs without server-side validation.
+- **Backup Verification:** A backup is not verified until automated restore testing succeeds with verified RPO and RTO metrics.
 
-## Related assets
-See `../engines/` for capability contracts, `../workflows/` for lifecycle procedures, `../schemas/` for data contracts and `../00-GOVERNANCE/` for rules.
+## 3. Related Specialist Skills
+- [`database-engineering`](../../skills/database-engineering/SKILL.md) — Data modeling, SQL optimization, migrations, indexing, and recovery.
+- [`multi-tenant-engineering`](../../skills/multi-tenant-engineering/SKILL.md) — Database RLS, schema isolation, and cross-tenant leakage testing.
 
-## Extended engineering coverage
-
-See `../../MASTER-ENGINEERING-COVERAGE/CATALOGUE.md` for replication, sharding/partitioning, connection pooling, distributed transactions, concurrency control, consistency models, CQRS, event sourcing and schema evolution.
+## 4. References & Catalogues
+- Knowledge Catalogue: [`../../../docs/reference/guidance/backend-system-design-catalogue.md`](../../../docs/reference/guidance/backend-system-design-catalogue.md)
+- Security Guard: `src/openclone/security/database.py` (`DatabaseSecurityGuard`)

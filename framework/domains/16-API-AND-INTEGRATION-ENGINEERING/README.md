@@ -1,22 +1,23 @@
-# 16 — Devops And Cloud
+# 16 — API & Integration Engineering
+**OpenClone Canonical Engineering Domain**  
+*Governed by OpenClone Global Standards | Domain Owner: API Architect / Integration Architect*
 
-## Purpose
-This domain defines the canonical OpenClone guidance for devops and cloud. It is a knowledge and policy area, not an executable service.
+---
 
-## Required coverage
-- Scope, terminology and non-goals.
-- Inputs, outputs, owners and dependencies.
-- Decision criteria and applicable mandatory rules.
-- Security, privacy, accessibility and operational considerations where relevant.
-- Evidence sources, freshness status and review cadence.
-- Related engines, workflows, schemas and adjacent domains.
+## 1. Purpose & Scope
+This domain defines the canonical OpenClone guidance for designing, implementing, securing, documenting, and versioning APIs across REST, GraphQL, gRPC, WebSockets, and Webhooks.
 
-## Working standard
-Use authoritative, versioned sources for claims that can change. Separate stable principles from product-specific instructions. Record assumptions and unresolved questions. Do not treat this overview as a substitute for project-specific design or verification.
+## 2. Core API Engineering Standards
+- **Contract-First Design:** Author clear OpenAPI 3.1 / JSON Schema specifications before writing endpoint logic. Enforce strict request and response schema validation.
+- **REST Conventions:** Consistent HTTP verbs (`GET`, `POST`, `PUT`, `PATCH`, `DELETE`), semantic status codes (`200`, `201`, `204`, `400`, `401`, `403`, `404`, `409`, `422`, `429`, `500`), cursor-based or offset pagination, and structured error payloads (RFC 7807 Problem Details).
+- **Idempotency & Safe Retries:** Mandate `Idempotency-Key` headers on non-idempotent mutation endpoints (`POST /payments`, `POST /orders`) with atomic request deduplication.
+- **OWASP API Security Top 10:** Enforce server-side object-level authorization (BOLA/IDOR prevention), function-level authorization (BFLA), mass-assignment protection, and SSRF prevention on webhook receivers.
+- **Rate Limiting & Throttling:** Tiered rate limits per IP, user, tenant, and route with standard `RateLimit-*` and `Retry-After` response headers.
 
-## Related assets
-See `../engines/` for capability contracts, `../workflows/` for lifecycle procedures, `../schemas/` for data contracts and `../00-GOVERNANCE/` for rules.
+## 3. Related Specialist Skills
+- [`api-engineering`](../../skills/api-engineering/SKILL.md) — REST/gRPC/GraphQL contracts, pagination, idempotency, and versioning.
+- [`rate-limit-engineering`](../../skills/rate-limit-engineering/SKILL.md) — Token bucket, sliding window, and distributed Redis traffic limiters.
 
-## Extended engineering coverage
-
-See `../../MASTER-ENGINEERING-COVERAGE/CATALOGUE.md` for API gateway, reverse proxy, authentication/authorization, API security, versioning, REST/GraphQL, WebSockets, rate limiting and idempotency.
+## 4. References & Catalogues
+- Knowledge Catalogue: [`../../../docs/reference/guidance/backend-system-design-catalogue.md`](../../../docs/reference/guidance/backend-system-design-catalogue.md)
+- WAF Engine: `src/openclone/security/waf.py` (`WafInspector`)

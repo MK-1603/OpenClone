@@ -49,6 +49,11 @@ OpenClone bridges this gap by embedding **Taste Skill v2.6.0** (`skills/taste-sk
 4. [`HUMAN-CRAFTED-DESIGN-SYSTEM.md`](HUMAN-CRAFTED-DESIGN-SYSTEM.md) — Canonical design tokens, typography scales, elevation systems, surface hierarchies, and micro-interaction timing curves.
 5. [`LOGO-ENGINEERING-AND-BRAND-IDENTITY.md`](LOGO-ENGINEERING-AND-BRAND-IDENTITY.md) — Complete specification of the Logo Engineering & Brand Identity System (LEBIS), the 10 specialized engines, vector SVG generation, and automated QA gating.
 6. [`MANDATORY-RESPONSIVE-UI-ENGINEERING-STANDARD.md`](MANDATORY-RESPONSIVE-UI-ENGINEERING-STANDARD.md) — Mandatory mobile-first responsive engineering standard, 6-tier breakpoint matrix, touch-target gating (44px), and completion verification.
+7. [`../../skills/ux-pro/SKILL.md`](../../skills/ux-pro/SKILL.md) — UX Pro Specialist Skill: User research, product UX, information architecture, primary user journeys, and usability inspection.
+8. [`../../skills/design-system-engineering/SKILL.md`](../../skills/design-system-engineering/SKILL.md) — Design System Engineering Specialist Skill: Design tokens, theme architecture, component primitives, and variants.
+9. [`../../skills/responsive-engineering/SKILL.md`](../../skills/responsive-engineering/SKILL.md) — Responsive Engineering Specialist Skill: Mobile-first development, 11-tier viewport matrix, and touch ergonomics.
+10. [`../../skills/accessibility-engineering/SKILL.md`](../../skills/accessibility-engineering/SKILL.md) — Accessibility Engineering Specialist Skill: Semantic HTML, WCAG 2.2 AA, keyboard navigation, focus trapping, and contrast.
+11. [`../../skills/frontend-engineering/SKILL.md`](../../skills/frontend-engineering/SKILL.md) — Frontend Engineering Specialist Skill: Component architecture, state management, API resilience, and zero-leak security.
 
 ---
 

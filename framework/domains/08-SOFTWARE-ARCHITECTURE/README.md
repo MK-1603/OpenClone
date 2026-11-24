@@ -1,18 +1,25 @@
-# 08 — Ai And Model Intelligence
+# 08 — Software Architecture & System Design
+**OpenClone Canonical Engineering Domain**  
+*Governed by OpenClone Global Standards | Domain Owner: System Architect / Principal Architect*
 
-## Purpose
-This domain defines the canonical OpenClone guidance for ai and model intelligence. It is a knowledge and policy area, not an executable service.
+---
 
-## Required coverage
-- Scope, terminology and non-goals.
-- Inputs, outputs, owners and dependencies.
-- Decision criteria and applicable mandatory rules.
-- Security, privacy, accessibility and operational considerations where relevant.
-- Evidence sources, freshness status and review cadence.
-- Related engines, workflows, schemas and adjacent domains.
+## 1. Purpose & Scope
+This domain defines the canonical OpenClone guidance for system-level software architecture, component boundaries, communication protocols, and architectural trade-off evaluations. It establishes when to choose a modular monolith versus microservices, synchronous versus asynchronous communication, and serverless versus long-running services.
 
-## Working standard
-Use authoritative, versioned sources for claims that can change. Separate stable principles from product-specific instructions. Record assumptions and unresolved questions. Do not treat this overview as a substitute for project-specific design or verification.
+## 2. Core Architectural Pillars
+- **Monolith-First Principle:** Start with a well-structured Modular Monolith with strict internal package boundaries and database transactions. Introduce distributed microservices, message brokers, and distributed transactions only when measurable concurrency (>10k writes/sec), data volume (>10TB), or independent organizational scaling demands it.
+- **Architectural Patterns:**
+  - Layered Architecture, Clean Architecture, and Hexagonal (Ports & Adapters).
+  - Domain-Driven Design (DDD) with clear bounded contexts and ubiquitous language.
+  - CQRS (Command Query Responsibility Segregation) and Event Sourcing where auditability or read/write divergence is proven necessary.
+  - Backend-for-Frontend (BFF) and API Gateway patterns for multi-client ecosystems.
+- **Decision Governance:** Every non-trivial architectural choice requires a documented Architecture Decision Record (ADR) detailing context, options considered, trade-offs, and conditions for revisiting.
 
-## Related assets
-See `../engines/` for capability contracts, `../workflows/` for lifecycle procedures, `../schemas/` for data contracts and `../00-GOVERNANCE/` for rules.
+## 3. Related Specialist Skills
+- [`backend-architecture`](../../skills/backend-architecture/SKILL.md) — Modular monoliths, service boundaries, layering, and design patterns.
+- [`distributed-systems-engineering`](../../skills/distributed-systems-engineering/SKILL.md) — CAP theorem, consensus, leader election, and saga patterns.
+
+## 4. References & Catalogues
+- Knowledge Catalogue: [`../../../docs/reference/guidance/backend-system-design-catalogue.md`](../../../docs/reference/guidance/backend-system-design-catalogue.md)
+- Workforce Alignment: `principal-architect`, `solution-architect`, `backend-architect`

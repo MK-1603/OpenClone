@@ -1,22 +1,29 @@
-# 21 — Legal And Compliance
+# 21 — Distributed Systems & Scalability
+**OpenClone Canonical Engineering Domain**  
+*Governed by OpenClone Global Standards | Domain Owner: Distributed Systems Engineer / Cloud Architect*
 
-## Purpose
-This domain defines the canonical OpenClone guidance for legal and compliance. It is a knowledge and policy area, not an executable service.
+---
 
-## Required coverage
-- Scope, terminology and non-goals.
-- Inputs, outputs, owners and dependencies.
-- Decision criteria and applicable mandatory rules.
-- Security, privacy, accessibility and operational considerations where relevant.
-- Evidence sources, freshness status and review cadence.
-- Related engines, workflows, schemas and adjacent domains.
+## 1. Purpose & Scope
+This domain defines the canonical OpenClone guidance for distributed architectures, messaging, asynchronous background jobs, caching strategies, horizontal scalability, and distributed coordination.
 
-## Working standard
-Use authoritative, versioned sources for claims that can change. Separate stable principles from product-specific instructions. Record assumptions and unresolved questions. Do not treat this overview as a substitute for project-specific design or verification.
+## 2. Core Distributed Systems Standards
+- **Consistency & State:**
+  - CAP theorem and PACELC trade-offs. Distinguish strong consistency (RDBMS) from eventual consistency (replicated distributed stores).
+  - Outbox Pattern: Ensure atomic state mutations and message publishing using the transactional outbox pattern to prevent two-phase commit overhead.
+  - Idempotent Message Consumers: Handle duplicate deliveries gracefully via message deduplication tables and unique event IDs.
+- **Asynchronous Processing:**
+  - Dead-Letter Queues (DLQ) for poison messages with alerting and replay capabilities.
+  - Worker pool sizing and backpressure monitoring to prevent queue starvation.
+- **Caching Topologies:**
+  - Cache-Aside pattern with explicit TTLs and cache warming.
+  - Cache stampede prevention using probabilistic early expiration (XFetch) or distributed mutexes.
+  - Multi-tenant cache key namespacing (`{tenant_id}:{entity}:{id}`) to prevent cross-tenant data leakage.
 
-## Related assets
-See `../engines/` for capability contracts, `../workflows/` for lifecycle procedures, `../schemas/` for data contracts and `../00-GOVERNANCE/` for rules.
+## 3. Related Specialist Skills
+- [`distributed-systems-engineering`](../../skills/distributed-systems-engineering/SKILL.md) — Distributed consensus, outbox pattern, and saga orchestration.
+- [`caching-engineering`](../../skills/caching-engineering/SKILL.md) — Cache-aside, TTL invalidation, Redis structures, and stampede prevention.
+- [`async-processing-engineering`](../../skills/async-processing-engineering/SKILL.md) — Message queues, background workers, and dead-letter queues.
 
-## Extended engineering coverage
-
-See `../../MASTER-ENGINEERING-COVERAGE/CATALOGUE.md` for the canonical topic catalogue, including traffic management, caching, messaging, consistency, resilience, replication, service discovery and distributed transactions. Apply only when justified by project requirements.
+## 4. References & Catalogues
+- Knowledge Catalogue: [`../../../docs/reference/guidance/backend-system-design-catalogue.md`](../../../docs/reference/guidance/backend-system-design-catalogue.md)

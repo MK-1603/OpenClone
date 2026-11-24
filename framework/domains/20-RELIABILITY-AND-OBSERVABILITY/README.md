@@ -1,22 +1,33 @@
-# 20 — Cost And Capacity
+# 20 — Reliability & Observability
+**OpenClone Canonical Engineering Domain**  
+*Governed by OpenClone Global Standards | Domain Owner: Site Reliability Engineer (SRE) / Observability Architect*
 
-## Purpose
-This domain defines the canonical OpenClone guidance for cost and capacity. It is a knowledge and policy area, not an executable service.
+---
 
-## Required coverage
-- Scope, terminology and non-goals.
-- Inputs, outputs, owners and dependencies.
-- Decision criteria and applicable mandatory rules.
-- Security, privacy, accessibility and operational considerations where relevant.
-- Evidence sources, freshness status and review cadence.
-- Related engines, workflows, schemas and adjacent domains.
+## 1. Purpose & Scope
+This domain defines the canonical OpenClone guidance for system reliability, fault tolerance, graceful degradation, and full-stack observability (logging, metrics, distributed tracing, and health checks).
 
-## Working standard
-Use authoritative, versioned sources for claims that can change. Separate stable principles from product-specific instructions. Record assumptions and unresolved questions. Do not treat this overview as a substitute for project-specific design or verification.
+## 2. Core Reliability & SRE Standards
+- **Fault-Tolerance Patterns:**
+  - Timeouts on all outbound network calls and database queries.
+  - Bounded retries with exponential backoff and randomized jitter to prevent retry storms.
+  - Tri-state Circuit Breakers (`CLOSED`, `OPEN`, `HALF_OPEN`) to isolate failing downstream dependencies.
+  - Bulkheads and backpressure to prevent cascading resource exhaustion.
+  - Health checks: Distinct `/health/liveness`, `/health/readiness`, and `/health/startup` probes.
+- **Golden Signals Observability:**
+  - **Latency:** Request duration percentiles (p50, p95, p99).
+  - **Traffic:** Request rate and throughput.
+  - **Errors:** Failed request rate and unhandled exception counts.
+  - **Saturation:** CPU, memory, connection pool, and queue depth utilization.
+- **Telemetry Standards:**
+  - Structured JSON logging with trace/span correlation IDs (`trace_id`, `span_id`).
+  - Mandatory credential and PII redaction before log serialization.
+  - OpenTelemetry (OTel) semantic conventions for traces and metrics.
 
-## Related assets
-See `../engines/` for capability contracts, `../workflows/` for lifecycle procedures, `../schemas/` for data contracts and `../00-GOVERNANCE/` for rules.
+## 3. Related Specialist Skills
+- [`reliability-engineering`](../../skills/reliability-engineering/SKILL.md) — Circuit breakers, bounded retries with jitter, and health probes.
+- [`backend-observability-engineering`](../../skills/backend-observability-engineering/SKILL.md) — Structured logging, metrics, and OpenTelemetry distributed tracing.
 
-## Extended engineering coverage
-
-See `../../MASTER-ENGINEERING-COVERAGE/CATALOGUE.md` for circuit breakers, timeouts/retries, bulkheads/backpressure, observability, logging, metrics, tracing, incident management, SLOs and disaster recovery.
+## 4. References & Catalogues
+- Telemetry Engine: `src/openclone/security/monitoring.py` (`SecurityMonitor`)
+- Circuit Breaker Engine: `src/openclone/mie/circuit.py` (`CircuitBreaker`)
