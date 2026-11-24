@@ -10,5 +10,5 @@ if str(ROOT / "src") not in sys.path:
     sys.path.insert(0, str(ROOT / "src"))
 
 if __name__ == "__main__":
-    from runtime.openclone_runtime import workforce
-    workforce.main()
+    from src.openclone.cli import main
+    main()

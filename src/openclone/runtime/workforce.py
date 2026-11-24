@@ -1123,6 +1123,7 @@ def upgrade_project(a):
 # --------------------------------------------------------------------- CLI
 def build_parser():
     ap = argparse.ArgumentParser(prog="openclone", description="OpenClone (AISDF) 1.0 local control-plane runtime")
+    ap.add_argument("-v", "--version", action="version", version="openclone 2.0.0")
     sp = ap.add_subparsers(dest="cmd", required=True)
 
     def add(name, fn, *flags):

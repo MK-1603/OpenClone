@@ -10,6 +10,14 @@ if str(root) not in sys.path:
 
 def main():
     """Main CLI entrypoint for openclone and aisdf commands."""
+    if len(sys.argv) > 1 and sys.argv[1] in ("--version", "-v", "version"):
+        try:
+            from src.openclone import __version__
+            print(f"openclone {__version__}")
+        except Exception:
+            print("openclone 2.0.0")
+        return
+
     installer_verbs = {"install", "uninstall", "doctor", "status", "update", "rollback", "installer"}
     if len(sys.argv) > 1 and sys.argv[1] == "mcp":
         from src.openclone.mcp.server import main as mcp_main
