@@ -30,4 +30,5 @@ jobs:
           PYTHONPATH: .
         run: python -m unittest discover -s tests -v
       - name: End-to-end demo must reproduce the documented behaviour
-        run: bash examples/demo.sh > /tmp/demo.txt && grep -q "GATE: BLOCKED" /tmp/demo.txt && grep -q "LEDGER: FAIL" /tmp/demo.txt
+        run: |
+          bash examples/demo.sh > /tmp/demo.txt && grep -q "GATE: BLOCKED" /tmp/demo.txt && grep -q "LEDGER: FAIL" /tmp/demo.txt
