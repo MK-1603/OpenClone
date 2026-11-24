@@ -23,17 +23,15 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
 
-      - name: Build Wheel
+      - name: Build Wheel Distribution
         run: |
           python -m pip install --upgrade pip build
           python -m build --wheel
 
       - name: Install Wheel in Isolated Environment
         run: |
-          python -c "import pathlib, subprocess, sys; whl = list(pathlib.Path('dist').glob('*.whl'))[0]; subprocess.check_call([sys.executable, '-m', 'pip', 'install', str(whl)])"
+          python -c "import pathlib, subprocess, sys; whls = list(pathlib.Path('dist').glob('*.whl')); assert whls, 'No wheels found'; subprocess.check_call([sys.executable, '-m', 'pip', 'install', str(whls[0])])"
 
-      - name: Verify CLI Entrypoint and Module Execution
+      - name: Verify CLI Entrypoint and Module Execution from Clean Working Directory
         run: |
-          openclone --help
-          aisdf --help
-          python -m src.openclone.cli --help
+          python -c "import pathlib, tempfile, subprocess, sys; d = tempfile.mkdtemp(); print('Running smoke tests in isolated directory:', d); subprocess.check_call(['openclone', '--help'], cwd=d); subprocess.check_call(['openclone', '--version'], cwd=d); subprocess.check_call(['aisdf', '--help'], cwd=d); subprocess.check_call([sys.executable, '-c', 'import openclone; print(\"Imported openclone from:\", openclone.__file__)'], cwd=d)"

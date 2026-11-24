@@ -6,14 +6,18 @@ and binds human approval gates to the authoritative runtime without direct datab
 """
 from __future__ import annotations
 
+import collections
 import json
+import logging
 import os
+from pathlib import Path
 import sqlite3
 from dataclasses import dataclass, field
-from pathlib import Path
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List, Optional, Set, Tuple
 
 from src.openclone.runtime.workforce import Ledger, load_policy
+
+logger = logging.getLogger("openclone.dashboard.service")
 
 
 @dataclass
@@ -46,6 +50,17 @@ class DashboardService:
 
     def __init__(self, project_path: Optional[Path] = None):
         self.project_path = (project_path or Path.cwd()).resolve()
+
+    def resolve_safe_artifact_path(self, relative_path: str) -> Optional[Path]:
+        """Safely resolve an artifact path, strictly enforcing project root containment."""
+        try:
+            target = (self.project_path / relative_path).resolve()
+            if self.project_path not in target.parents and target != self.project_path:
+                logger.warning("Path traversal attempt detected in dashboard: %s", relative_path)
+                return None
+            return target
+        except Exception:
+            return None
 
     def get_overview(self) -> DashboardOverview:
         """Collect aggregated overview metrics from project ledger and plan."""
@@ -113,10 +128,15 @@ class DashboardService:
         )
 
     def get_task_dag(self) -> Dict[str, Any]:
-        """Compute the DAG structure with execution tiers and dependency states."""
+        """Compute the DAG structure with cycle detection, tiers, and dependency states."""
         overview = self.get_overview()
         nodes = []
         edges = []
+        task_map = {t.task_id: t for t in overview.tasks}
+
+        # Build adjacency graph
+        in_degrees: Dict[str, int] = {t.task_id: 0 for t in overview.tasks}
+        adjacency: Dict[str, List[str]] = collections.defaultdict(list)
 
         for t in overview.tasks:
             nodes.append({
@@ -127,14 +147,97 @@ class DashboardService:
             })
             for dep in t.depends_on:
                 edges.append({"from": dep, "to": t.task_id})
+                if dep in in_degrees:
+                    adjacency[dep].append(t.task_id)
+                    in_degrees[t.task_id] += 1
+
+        # Cycle detection & topological leveling (Kahn's algorithm)
+        q = collections.deque([tid for tid, deg in in_degrees.items() if deg == 0])
+        visited_count = 0
+        tiers: Dict[str, int] = {tid: 0 for tid in in_degrees if in_degrees[tid] == 0}
+
+        while q:
+            curr = q.popleft()
+            visited_count += 1
+            curr_tier = tiers.get(curr, 0)
+            for neighbor in adjacency[curr]:
+                in_degrees[neighbor] -= 1
+                tiers[neighbor] = max(tiers.get(neighbor, 0), curr_tier + 1)
+                if in_degrees[neighbor] == 0:
+                    q.append(neighbor)
+
+        has_cycles = (visited_count != len(in_degrees)) and len(in_degrees) > 0
+
+        # Ready vs Blocked categorization
+        ready_tasks = []
+        blocked_tasks = []
+        for t in overview.tasks:
+            if t.status in ("PLANNED", "APPROVED"):
+                all_deps_done = all(
+                    task_map[dep].status == "SUCCEEDED"
+                    for dep in t.depends_on
+                    if dep in task_map
+                )
+                if all_deps_done:
+                    ready_tasks.append(t.task_id)
+                else:
+                    blocked_tasks.append(t.task_id)
 
         return {
             "project": str(self.project_path),
             "node_count": len(nodes),
             "edge_count": len(edges),
+            "has_cycles": has_cycles,
+            "ready_tasks": ready_tasks,
+            "blocked_tasks": blocked_tasks,
+            "tiers": tiers,
             "nodes": nodes,
             "edges": edges,
         }
+
+    def get_task_details(self, task_id: str) -> Optional[Dict[str, Any]]:
+        """Retrieve detailed task record, evidence hashes, and approval events from ledger."""
+        db_path = self.project_path / ".aisdf" / "workforce.sqlite3"
+        if not db_path.exists():
+            return None
+
+        ledger = Ledger(self.project_path)
+        try:
+            row = ledger.conn.execute("SELECT * FROM tasks WHERE task_id = ?", (task_id,)).fetchone()
+            if not row:
+                return None
+
+            events = ledger.conn.execute(
+                "SELECT event_type, actor, payload, created_at FROM events WHERE task_id = ? ORDER BY rowid ASC",
+                (task_id,)
+            ).fetchall()
+
+            ev_list = []
+            for ev in events:
+                try:
+                    payload = json.loads(ev["payload"]) if ev["payload"] else {}
+                except Exception:
+                    payload = {"raw": ev["payload"]}
+                ev_list.append({
+                    "event_type": ev["event_type"],
+                    "actor": ev["actor"],
+                    "payload": payload,
+                    "created_at": ev["created_at"],
+                })
+
+            return {
+                "task_id": row["task_id"],
+                "project_id": row["project_id"],
+                "title": row["title"],
+                "worker_id": row["worker_id"],
+                "status": row["status"],
+                "action": row["action"],
+                "budget_usd": float(row["budget_usd"] or 0.0),
+                "approval_digest": row["approval_digest"],
+                "events": ev_list,
+            }
+        finally:
+            ledger.close()
 
     def render_html_dashboard(self) -> str:
         """Generate a clean, standalone, dark/light responsive HTML developer dashboard."""
@@ -150,6 +253,12 @@ class DashboardService:
             "<span class='badge badge-success'>CRYPTOGRAPHICALLY VERIFIED</span>"
             if overview.ledger_integrity_ok
             else "<span class='badge badge-danger'>INTEGRITY VIOLATION DETECTED</span>"
+        )
+
+        cycle_warning = (
+            "<div style='color:var(--danger);margin-top:8px;'>WARNING: Cycle detected in task dependency graph!</div>"
+            if dag["has_cycles"]
+            else ""
         )
 
         return f"""<!DOCTYPE html>
@@ -199,6 +308,7 @@ class DashboardService:
 
   <div class="card">
     <h3 style="margin-bottom:12px;">Active Task DAG & Execution Status</h3>
+    {cycle_warning}
     <table>
       <thead>
         <tr><th>Task ID</th><th>Title</th><th>Status</th><th>Assigned Worker</th><th>Budget</th></tr>

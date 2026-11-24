@@ -10,9 +10,11 @@ import dataclasses
 from dataclasses import dataclass, field
 from enum import Enum
 import hashlib
+import hmac
 import json
 import logging
 from pathlib import Path
+import time
 from typing import Any, Dict, List, Optional, Tuple
 
 logger = logging.getLogger("openclone.integrations.paperclip")
@@ -84,6 +86,89 @@ class PaperclipTaskResponse:
     tokens_consumed: int = 0
 
 
+@dataclass
+class AuthoritativeApprovalRecord:
+    """Immutable Human Approval Record bound to a specific operation and context."""
+    approval_id: str
+    approver_id: str
+    task_digest: str  # 64-char hex SHA-256 bound to canonical task parameters
+    workspace_root: str
+    action: str
+    created_at: float
+    expires_at: float
+    consumed: bool = False
+
+
+class AuthoritativeApprovalStore:
+    """Authoritative Human Approval Registry for Sensitive Operations.
+    
+    Guarantees:
+    - Approvals are cryptographically bound to task contents (task_digest).
+    - Bound to approver identity from an authorized registry.
+    - Bound to specific workspace and action.
+    - Bound to a strict validity window (expiration).
+    - Bound to single-use consumption state (prevents replay/reuse).
+    """
+
+    def __init__(self, allowed_approvers: Optional[List[str]] = None):
+        self.allowed_approvers = allowed_approvers or [
+            "admin", "security-lead", "owner", "human-supervisor", "alice-admin"
+        ]
+        self._records: Dict[str, AuthoritativeApprovalRecord] = {}
+
+    def register_approval(self, record: AuthoritativeApprovalRecord) -> None:
+        """Register an authoritative approval issued by a validated human owner."""
+        self._records[record.approval_id] = record
+
+    def get_approval(self, approval_id: str) -> Optional[AuthoritativeApprovalRecord]:
+        return self._records.get(approval_id)
+
+    def verify_and_consume(
+        self,
+        approval_id: str,
+        expected_digest: str,
+        expected_workspace: str,
+        expected_action: str,
+        current_time: Optional[float] = None,
+    ) -> Tuple[bool, str]:
+        """Verify all binding dimensions and atomically consume approval."""
+        if approval_id not in self._records:
+            return False, f"Approval record '{approval_id}' not found in authoritative registry"
+
+        rec = self._records[approval_id]
+        now = current_time if current_time is not None else time.time()
+
+        if rec.consumed:
+            return False, "Approval has already been consumed (replay prevention)"
+
+        if now > rec.expires_at:
+            return False, f"Approval has expired (expired at {rec.expires_at}, current {now})"
+
+        if rec.approver_id not in self.allowed_approvers:
+            return False, f"Approver '{rec.approver_id}' is not in authorized human approver policy"
+
+        # Workspace containment and match
+        try:
+            rec_ws = Path(rec.workspace_root).resolve()
+            exp_ws = Path(expected_workspace).resolve()
+            if rec_ws != exp_ws:
+                return False, f"Approval workspace '{rec_ws}' does not match target workspace '{exp_ws}'"
+        except Exception as e:
+            return False, f"Invalid workspace path in approval check: {e}"
+
+        # Action match
+        if rec.action != expected_action:
+            return False, f"Approval action '{rec.action}' does not match requested action '{expected_action}'"
+
+        # Cryptographic task digest check (constant-time comparison)
+        if not hmac.compare_digest(rec.task_digest.lower(), expected_digest.lower()):
+            return False, "Cryptographic task digest mismatch: task contents have been modified or do not match approval"
+
+        # Atomically consume
+        rec.consumed = True
+        return True, "Approval verified and consumed"
+
+
 class PaperclipConnector:
     """Connector bridge between Paperclip and OpenClone.
     
@@ -92,10 +177,36 @@ class PaperclipConnector:
     OpenClone enforces project boundaries, approval gates, and quality verification.
     """
 
-    def __init__(self, workspace_root: Optional[Path] = None, allow_remote: bool = False):
-        self.workspace_root = workspace_root or Path.cwd()
+    def __init__(
+        self,
+        workspace_root: Optional[Path] = None,
+        allow_remote: bool = False,
+        approval_store: Optional[AuthoritativeApprovalStore] = None,
+    ):
+        self.workspace_root = (workspace_root or Path.cwd()).resolve()
         self.allow_remote = allow_remote
         self._active_tasks: Dict[str, PaperclipTaskRequest] = {}
+        self.approval_store = approval_store or AuthoritativeApprovalStore()
+
+    @staticmethod
+    def compute_task_digest(
+        organization_id: str,
+        external_task_id: str,
+        workspace_root: str,
+        action: str,
+        title: str,
+        description: str,
+    ) -> str:
+        """Deterministically compute canonical SHA-256 digest of task parameters."""
+        canonical_str = (
+            f"{organization_id.strip()}:"
+            f"{external_task_id.strip()}:"
+            f"{Path(workspace_root).resolve()}:"
+            f"{action.strip()}:"
+            f"{title.strip()}:"
+            f"{description.strip()}"
+        )
+        return hashlib.sha256(canonical_str.encode("utf-8")).hexdigest()
 
     def intake_task(self, request: PaperclipTaskRequest) -> PaperclipTaskResponse:
         """Intake and validate an external task request from Paperclip.
@@ -103,7 +214,7 @@ class PaperclipConnector:
         Strictly enforces:
         1. Budget bounds (reject if already exhausted)
         2. Workspace safety (reject directory traversal or unanchored paths)
-        3. Human approval boundary for sensitive operations
+        3. Authoritative human approval verification for sensitive operations
         """
         # 1. Budget validation
         if request.budget and request.budget.is_exceeded():
@@ -116,6 +227,7 @@ class PaperclipConnector:
             )
 
         # 2. Workspace boundary check
+        target_path = self.workspace_root
         if request.target_project_root:
             target_path = Path(request.target_project_root).resolve()
             if self.workspace_root not in target_path.parents and target_path != self.workspace_root:
@@ -134,28 +246,71 @@ class PaperclipConnector:
         internal_task_id = f"OC-{task_hash}"
 
         # 4. Enforce Non-Bypassable Engineering Gate on Sensitive Operations
-        is_sensitive = any(kw in request.title.lower() or kw in request.description.lower() for kw in [
-            "production deploy", "deploy to prod", "delete database", "drop table", "rotate keys", "security override"
-        ])
-        
-        # Security Correction: External metadata 'human_approved' can communicate intent,
-        # but authoritative approval strictly requires a valid cryptographic approval digest
-        # and registered human approver identity verified against the project workforce policy.
-        if is_sensitive:
-            approval_digest = request.metadata.get("approval_digest")
-            human_approver = request.metadata.get("human_approver")
+        sensitive_keywords = [
+            "production deploy", "deploy to prod", "delete database",
+            "drop table", "rotate keys", "security override"
+        ]
+        sensitive_action = None
+        for kw in sensitive_keywords:
+            if kw in request.title.lower() or kw in request.description.lower():
+                sensitive_action = kw
+                break
+
+        if sensitive_action:
+            # External metadata 'human_approved: True' alone is strictly rejected
+            approval_id = request.metadata.get("approval_id")
             
-            # Authoritative check: must have registered human approver and valid non-empty digest
-            if not approval_digest or not human_approver or len(approval_digest) != 64:
+            # Authoritative check requires a registered approval_id
+            if not approval_id:
                 logger.warning(
-                    "Paperclip task %s blocked: sensitive action lacks authoritative cryptographic human approval",
+                    "Paperclip task %s blocked: sensitive action lacks authoritative approval record",
                     request.external_task_id,
                 )
                 return PaperclipTaskResponse(
                     external_task_id=request.external_task_id,
                     accepted=False,
                     status=PaperclipTaskStatus.NEEDS_APPROVAL,
-                    reason="Protected engineering action requires authoritative cryptographic human owner approval. External agents cannot self-authorize production modifications via unverified metadata.",
+                    reason="Protected engineering action requires an authoritative human approval record. External metadata cannot self-authorize production modifications.",
+                    openclone_task_id=internal_task_id,
+                )
+
+            # Compute canonical task digest
+            expected_digest = self.compute_task_digest(
+                organization_id=request.organization_id,
+                external_task_id=request.external_task_id,
+                workspace_root=str(target_path),
+                action=sensitive_action,
+                title=request.title,
+                description=request.description,
+            )
+
+            # If client provides an approval_digest in metadata, verify its format
+            provided_digest = request.metadata.get("approval_digest")
+            if provided_digest:
+                if len(provided_digest) != 64 or not all(c in "0123456789abcdefABCDEF" for c in provided_digest):
+                    return PaperclipTaskResponse(
+                        external_task_id=request.external_task_id,
+                        accepted=False,
+                        status=PaperclipTaskStatus.NEEDS_APPROVAL,
+                        reason="Invalid SHA-256 approval digest format in metadata (must be 64-char hex).",
+                        openclone_task_id=internal_task_id,
+                    )
+
+            # Verify against authoritative store
+            ok, reason = self.approval_store.verify_and_consume(
+                approval_id=approval_id,
+                expected_digest=expected_digest,
+                expected_workspace=str(target_path),
+                expected_action=sensitive_action,
+            )
+
+            if not ok:
+                logger.warning("Paperclip task %s blocked: %s", request.external_task_id, reason)
+                return PaperclipTaskResponse(
+                    external_task_id=request.external_task_id,
+                    accepted=False,
+                    status=PaperclipTaskStatus.NEEDS_APPROVAL,
+                    reason=f"Authoritative human approval rejected: {reason}",
                     openclone_task_id=internal_task_id,
                 )
 
@@ -178,21 +333,26 @@ class PaperclipConnector:
     ) -> PaperclipTaskResponse:
         """Report completion of a task with verifiable cryptographic evidence."""
         if external_task_id not in self._active_tasks:
-            raise KeyError(f"Task {external_task_id} not registered in connector.")
+            return PaperclipTaskResponse(
+                external_task_id=external_task_id,
+                accepted=False,
+                status=PaperclipTaskStatus.FAILED,
+                reason=f"Task {external_task_id} not tracked in active connector pool.",
+            )
 
-        req = self._active_tasks[external_task_id]
         evidence_hashes = []
-        for ef in evidence_files:
-            if ef.exists() and ef.is_file():
-                h = hashlib.sha256(ef.read_bytes()).hexdigest()
-                evidence_hashes.append(f"{ef.name}:{h}")
+        for p in evidence_files:
+            if p.exists() and p.is_file():
+                h = hashlib.sha256(p.read_bytes()).hexdigest()
+                evidence_hashes.append(f"{p.name}:{h}")
+
+        del self._active_tasks[external_task_id]
 
         return PaperclipTaskResponse(
             external_task_id=external_task_id,
             accepted=True,
             status=PaperclipTaskStatus.COMPLETED,
-            reason="Task verified with evidence-backed artifacts.",
-            openclone_task_id=f"OC-{external_task_id}",
+            reason="Task successfully verified and completed with evidence.",
             evidence_hashes=evidence_hashes,
             spend_usd=spend_usd,
             tokens_consumed=tokens_consumed,
