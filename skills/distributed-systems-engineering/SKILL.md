@@ -6,7 +6,7 @@ category: distributed
 description: CAP theorem, PACELC, distributed consensus, saga patterns, leader election, partitions, and distributed locks.
 maturity: L5_VERIFIED
 status: VERIFIED_IMPLEMENTED
-path: skills/distributed-systems-engineering/SKILL.md
+path: framework/skills/distributed-systems-engineering/SKILL.md
 triggers:
   - distributed systems
   - distributed
@@ -50,4 +50,21 @@ verification:
 **Governing Standard:** OpenClone Backend & Distributed Intelligence  
 **Workforce Alignment:** `distributed-systems-engineer`, `principal-architect`
 
-See canonical specification at [`../../framework/skills/distributed-systems-engineering/SKILL.md`](../../framework/skills/distributed-systems-engineering/SKILL.md).
+---
+
+## 1. PURPOSE & BOUNDARIES
+
+### Purpose
+Guide the engineering of multi-node distributed systems, managing partial failures, consensus, distributed data consistency, and distributed workflow orchestration without introducing unwarranted operational fragility.
+
+### Boundaries
+- **In Scope:** CAP and PACELC trade-offs, consensus (Raft/Paxos), distributed locking with lease expiration, Saga pattern (orchestrated and choreographed), eventual consistency, and split-brain mitigation.
+- **Out of Scope:** Single-server local process synchronization.
+
+---
+
+## 2. CANONICAL DISTRIBUTED RULES
+
+1. **Avoid Distributed Transactions (2PC):** Two-Phase Commit is blocking, fragile to coordinator crashes, and performs poorly. Use the **Saga Pattern** with compensating actions for multi-service transactions.
+2. **Distributed Locks Require Leases:** Any distributed lock (e.g. Redis Redlock, ZooKeeper znode) must include an explicit time-to-live (TTL) lease and a fencing token (monotonically increasing counter) to prevent split-brain execution when a worker stalls due to GC pauses.
+3. **Expect Network Partitions:** Networks are unreliable. Systems must explicitly define behavior during network partitions: either reject writes to preserve consistency (CP) or accept writes and reconcile conflicts later (AP).

@@ -11,7 +11,7 @@ Tests cover:
 - Cryptographic Delivery Ledger & Tamper-Evident SHA-256 Hash Chaining
 - WebSocket Handshake Authentication, Presence Tracking, and Connection Reaping
 - SMS GSM-7 vs UCS-2 Encoding & Segmentation
-- Skill Engine discovery & loading for all 28 skills
+- Skill Engine discovery & loading for all registered skills (29 specialist skills)
 """
 from __future__ import annotations
 
@@ -425,16 +425,16 @@ class TestSmsSegmentation(unittest.TestCase):
 # 3. SKILL ENGINE DISCOVERY & VALIDATION TESTS
 # ============================================================================
 
-class TestSkillEngineAll28Skills(unittest.TestCase):
-    """Verifies that all 28 registered specialist skills resolve on disk with valid manifests."""
+class TestSkillEngineAllRegisteredSkills(unittest.TestCase):
+    """Verifies that all registered specialist skills (29 total) resolve on disk with valid manifests."""
 
     def setUp(self):
         self.registry = SkillRegistry(root=ROOT)
         self.selector = SkillSelector(registry=self.registry)
 
-    def test_all_28_skills_registered_and_resolvable(self):
+    def test_all_skills_registered_and_resolvable(self):
         skills = self.registry.list_all()
-        self.assertEqual(len(skills), 28)
+        self.assertEqual(len(skills), 29)
         errors = self.registry.validate_all()
         self.assertEqual(errors, [], f"Expected 0 path resolution errors, found: {errors}")
 

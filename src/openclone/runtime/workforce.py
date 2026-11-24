@@ -259,6 +259,25 @@ class Ledger:
             prev, hashed = r["event_hash"], hashed + 1
         return (not problems, problems, hashed, legacy)
 
+    def export_archive(self, destination: Path) -> Path:
+        """Export a non-destructive, tamper-verified snapshot of the SQLite ledger."""
+        dest_path = Path(destination).resolve()
+        dest_path.parent.mkdir(parents=True, exist_ok=True)
+        ok, problems, hashed, _ = self.verify_chain()
+        if not ok:
+            raise OpenCloneError(f"Cannot archive tampered ledger: {problems}")
+        
+        # Use SQLite backup API to create clean snapshot without locking issues
+        backup_conn = sqlite3.connect(dest_path)
+        with backup_conn:
+            self.conn.backup(backup_conn)
+        backup_conn.close()
+        return dest_path
+
+    def vacuum(self):
+        """Perform non-destructive SQLite VACUUM optimization."""
+        self.conn.execute("VACUUM")
+
     def close(self):
         self.conn.close()
 

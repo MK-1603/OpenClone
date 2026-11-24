@@ -903,6 +903,34 @@ class SkillRegistry:
             maturity=SkillMaturity.L5_VERIFIED,
         ))
 
+        # 21. Universal Project Intelligence Skill (Priority 7)
+        self.register(Skill(
+            id="universal-project-intelligence",
+            name="Universal Project Intelligence Skill",
+            version="2.0.0",
+            category="architecture",
+            description="Analyzes project ideas, PRDs, or codebases; performs multi-label classification across 14 engineering disciplines (ENG-01 to ENG-14); evaluates technology alternatives; and generates complete governed project packages.",
+            triggers=["project intelligence", "classify project", "evaluate technology", "generate package", "project package", "architecture intake", "discipline classification", "tech eval"],
+            negative_triggers=["unit-test-only"],
+            precedence=7,
+            required_actions=[
+                "Extract structured requirements from natural-language descriptions",
+                "Perform multi-label classification across ENG-01 to ENG-14",
+                "Evaluate technology options with deterministic scoring",
+                "Assemble minimum effective workforce team",
+                "Generate 8-layer governed project specification",
+            ],
+            dependencies=[],
+            conflicts=[],
+            supported_environments=["antigravity", "claude-code", "cursor", "codex", "cli"],
+            pre_build_gates=["Requirement extraction and classification validated", "Human owner review"],
+            finish_gates=["Project specification validated against schema", "Zero unresolved conflicts"],
+            verification=["Multi-label classification accuracy test", "Package schema validation"],
+            path="framework/skills/universal-project-intelligence/SKILL.md",
+            fallback_paths=["skills/universal-project-intelligence/SKILL.md"],
+            maturity=SkillMaturity.L5_VERIFIED,
+        ))
+
     def register(self, skill: Skill):
         """Register or update a skill."""
         self.skills[skill.id] = skill

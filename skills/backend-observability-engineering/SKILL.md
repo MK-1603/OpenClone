@@ -6,7 +6,7 @@ category: backend
 description: Structured JSON logging, trace correlation IDs, OpenTelemetry, Golden Signals, Prometheus metrics, and alerting.
 maturity: L5_VERIFIED
 status: VERIFIED_IMPLEMENTED
-path: skills/backend-observability-engineering/SKILL.md
+path: framework/skills/backend-observability-engineering/SKILL.md
 triggers:
   - observability
   - logging
@@ -50,4 +50,24 @@ verification:
 **Governing Standard:** OpenClone Observability & SRE Intelligence  
 **Workforce Alignment:** `observability-engineer`, `site-reliability-engineer`
 
-See canonical specification at [`../../framework/skills/backend-observability-engineering/SKILL.md`](../../framework/skills/backend-observability-engineering/SKILL.md).
+---
+
+## 1. PURPOSE & BOUNDARIES
+
+### Purpose
+Provide actionable, real-time insight into backend system health, performance anomalies, distributed execution flows, and unexpected failures using structured telemetry.
+
+### Boundaries
+- **In Scope:** Structured JSON logs, trace/span correlation IDs (`trace_id`, `span_id`), OpenTelemetry SDK integration, Golden Signals (Latency, Traffic, Errors, Saturation), and secret redaction.
+- **Out of Scope:** Third-party vendor dashboard styling.
+
+---
+
+## 2. CANONICAL OBSERVABILITY PRINCIPLES
+
+1. **Structured JSON Logging:** Every log line must be valid single-line JSON with standard fields:
+   `{"timestamp": "2026-11-24T10:00:00Z", "level": "INFO", "service": "api", "trace_id": "...", "span_id": "...", "message": "User authenticated", "user_id": "u_123"}`
+2. **Strict Secret Redaction:**
+   Logs and traces must NEVER contain plaintext passwords, API keys, JWT access tokens, credit card numbers, or authorization headers. All sensitive keys must be automatically redacted to `[REDACTED]`.
+3. **Trace Context Propagation:**
+   HTTP headers (`traceparent`) must be propagated across service boundaries, database queries (SQL comment tagging), and asynchronous worker jobs to enable end-to-end request tracing.

@@ -6,7 +6,7 @@ category: security
 description: Shared database vs database-per-tenant, Row-Level Security, tenant context propagation, and cross-tenant leakage testing.
 maturity: L5_VERIFIED
 status: VERIFIED_IMPLEMENTED
-path: skills/multi-tenant-engineering/SKILL.md
+path: framework/skills/multi-tenant-engineering/SKILL.md
 triggers:
   - multi-tenant
   - multi-tenancy
@@ -48,4 +48,27 @@ verification:
 **Governing Standard:** OpenClone Multi-Tenant SaaS Intelligence  
 **Workforce Alignment:** `security-lead`, `database-architect`, `backend-architect`
 
-See canonical specification at [`../../framework/skills/multi-tenant-engineering/SKILL.md`](../../framework/skills/multi-tenant-engineering/SKILL.md).
+---
+
+## 1. PURPOSE & BOUNDARIES
+
+### Purpose
+Guarantee strict data isolation, resource fairness, and security boundaries between independent organizations, accounts, or tenants sharing a common backend infrastructure.
+
+### Boundaries
+- **In Scope:** Tenancy architectures (Shared DB + RLS, Schema-per-tenant, DB-per-tenant), tenant context propagation in async workers and request headers, tenant-scoped caching, and automated cross-tenant leakage tests.
+- **Out of Scope:** Multi-tenant billing checkout screens.
+
+---
+
+## 2. CANONICAL MULTI-TENANCY RULES
+
+1. **Never Trust Client-Supplied Tenant IDs:**
+   A client-supplied header (`X-Tenant-ID`) or URL parameter (`/tenant-42/projects`) must NEVER be used to query data without server-side validation against the authenticated user's verified organization memberships.
+2. **Defense-in-Depth Isolation:**
+   - **Application Layer:** ORM queries filtered by `where: { tenant_id: ctx.tenant_id }`.
+   - **Database Layer (RLS):** Database Row-Level Security policies active on all multi-tenant tables (`USING (tenant_id = current_setting('app.current_tenant_id'))`).
+3. **Tenant-Aware Caching & Queues:**
+   Every cache key and background job payload must include the `tenant_id` prefix (e.g. `tenant:123:user:456`) to prevent cache contamination and cross-tenant job execution.
+4. **Automated Cross-Tenant Penetration Tests:**
+   Release pipelines must run automated tests verifying that Tenant A credentials cannot read, update, or delete Tenant B records under any endpoint.

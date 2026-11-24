@@ -6,7 +6,7 @@ category: backend
 description: Message brokers, queues, background workers, at-least-once delivery, transactional outbox pattern, dead-letter queues, and idempotent consumers.
 maturity: L5_VERIFIED
 status: VERIFIED_IMPLEMENTED
-path: skills/async-processing-engineering/SKILL.md
+path: framework/skills/async-processing-engineering/SKILL.md
 triggers:
   - async
   - queue
@@ -51,4 +51,28 @@ verification:
 **Governing Standard:** OpenClone Backend & Distributed Intelligence  
 **Workforce Alignment:** `backend-engineer`, `distributed-systems-engineer`
 
-See canonical specification at [`../../framework/skills/async-processing-engineering/SKILL.md`](../../framework/skills/async-processing-engineering/SKILL.md).
+---
+
+## 1. PURPOSE & BOUNDARIES
+
+### Purpose
+Decouple time-consuming operations from synchronous HTTP request/response lifecycles, guarantee reliable event delivery, handle spikes gracefully, and prevent message loss during worker crashes.
+
+### Boundaries
+- **In Scope:** Message queues (RabbitMQ, SQS, Redis Streams, Kafka), background job schedulers, worker pool concurrency, at-least-once delivery semantics, Transactional Outbox pattern, idempotent consumers, and Dead-Letter Queues (DLQ).
+- **Out of Scope:** Client-side background sync.
+
+---
+
+## 2. CANONICAL ASYNC & MESSAGING RULES
+
+1. **Transactional Outbox Pattern:**
+   Never write to a database and publish to a message broker in two separate uncoordinated steps (dual-write problem). Instead:
+   - Insert business entity and outbox event record in a single local database transaction.
+   - An asynchronous relay worker reads outbox table records and publishes to the broker with at-least-once delivery.
+2. **Idempotent Consumers:**
+   Because networks and brokers retry, assume messages will be delivered more than once. Every message consumer must be idempotent by:
+   - Storing processed `message_id`s in a deduplication table with a unique constraint.
+   - Using conditional database updates (`UPDATE accounts SET balance = balance + 10 WHERE id = 1 AND version = 2`).
+3. **Dead-Letter Queues (DLQ):**
+   Unprocessable or poison messages must not block consumer processing loops. After a bounded retry count (e.g. 3 attempts with exponential backoff), route the message to a DLQ with an alert for manual operator triage.

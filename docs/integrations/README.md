@@ -47,6 +47,7 @@ OpenClone provides **one governed capability platform exposed through multiple c
 |---|---|
 | [Universal Architecture](UNIVERSAL_INTEGRATION_ARCHITECTURE.md) | Single canonical core, multi-adapter design, gateway layers. |
 | [Canonical Capability Registry](CAPABILITY_REGISTRY.md) | The 15 canonical capabilities, schemas, risk classes, and scopes. |
+| [External Security Subprocesses](EXTERNAL_SECURITY_SUBPROCESSES.md) | Subprocess boundaries, zero-linkage isolation for TruffleHog & BLA. |
 | [MCP Server Specification](MCP_SERVER.md) | Model Context Protocol implementation (Tools, Resources, Prompts). |
 | [HTTP & OpenAPI Specification](HTTP_OPENAPI.md) | REST API endpoints, OpenAPI 3.1 schema, and webhook contracts. |
 | [Authorization & Scopes](AUTHORIZATION_AND_SCOPES.md) | OAuth 2.1/OIDC token claims, scoped permissions, and tenant boundaries. |
