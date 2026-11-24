@@ -133,6 +133,20 @@ class PaperclipConnector:
         ).hexdigest()[:12]
         internal_task_id = f"OC-{task_hash}"
 
+        # 4. Enforce Non-Bypassable Engineering Gate on Sensitive Operations
+        is_sensitive = any(kw in request.title.lower() or kw in request.description.lower() for kw in [
+            "production deploy", "deploy to prod", "delete database", "drop table", "rotate keys", "security override"
+        ])
+        if is_sensitive and not request.metadata.get("human_approved", False):
+            logger.warning("Paperclip task %s blocked: requires explicit human authorization", request.external_task_id)
+            return PaperclipTaskResponse(
+                external_task_id=request.external_task_id,
+                accepted=False,
+                status=PaperclipTaskStatus.NEEDS_APPROVAL,
+                reason="Protected engineering action requires explicit human owner approval. External agents cannot self-authorize production modifications.",
+                openclone_task_id=internal_task_id,
+            )
+
         self._active_tasks[request.external_task_id] = request
 
         return PaperclipTaskResponse(

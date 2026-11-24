@@ -82,6 +82,25 @@ def test_paperclip_task_completion_evidence():
         assert "evidence.txt:" in res.evidence_hashes[0]
 
 
+def test_paperclip_sensitive_action_requires_human_approval():
+    """Verify Paperclip cannot bypass human approval for production deployment."""
+    with tempfile.TemporaryDirectory() as tmpdir:
+        connector = PaperclipConnector(workspace_root=Path(tmpdir))
+        req = PaperclipTaskRequest(
+            external_task_id="ext-prod-deploy",
+            organization_id="org-acme",
+            title="Production Deploy of Billing Service",
+            description="Deploying to prod cluster",
+            requester_agent_id="agent-coordinator",
+            target_project_root=tmpdir,
+            metadata={"human_approved": False},
+        )
+        res = connector.intake_task(req)
+        assert res.accepted is False
+        assert res.status == PaperclipTaskStatus.NEEDS_APPROVAL
+        assert "requires explicit human owner approval" in res.reason
+
+
 def test_mobile_compliance_scanner_clean():
     """Verify scanner flags missing PrivacyInfo.xcprivacy with a warning."""
     with tempfile.TemporaryDirectory() as tmpdir:

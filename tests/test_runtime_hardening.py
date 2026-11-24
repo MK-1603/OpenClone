@@ -174,6 +174,29 @@ class ReadinessTests(Base):
         c.close()
         self.assertEqual(cli("verify-ledger", "--project", self.P)[0], 2)
 
+    def test_ledger_export_archive_and_vacuum(self):
+        self.plan([T("A")])
+        self.approve("A")
+        ledger = wf.Ledger(self.P)
+        ledger.vacuum()
+        archive_path = Path(self.P) / ".aisdf" / "archive_backup.sqlite3"
+        ledger.export_archive(archive_path)
+        self.assertTrue(archive_path.exists())
+        self.assertGreater(archive_path.stat().st_size, 0)
+        
+        # Verify exported backup retains hash chain integrity
+        backup_ledger = wf.Ledger(Path(self.P) / "backup_tmp")
+        backup_ledger.close()
+        backup_ledger.db.write_bytes(archive_path.read_bytes())
+        backup_ledger.conn = sqlite3.connect(backup_ledger.db)
+        backup_ledger.conn.row_factory = sqlite3.Row
+        ok, problems, hashed, _ = backup_ledger.verify_chain()
+        self.assertTrue(ok)
+        self.assertEqual(problems, [])
+        self.assertGreaterEqual(hashed, 2)
+        backup_ledger.close()
+        ledger.close()
+
 
 class ExecutionTests(Base):
     def exec_task(self, tid="X", command=None, **kw):

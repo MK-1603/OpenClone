@@ -27,6 +27,17 @@ class SkillsEngineTests(unittest.TestCase):
         self.assertIn("strix-pentest-adapter", skill_ids)
         self.assertIn("backend-architecture", skill_ids)
         self.assertIn("ai-context-engineering", skill_ids)
+        self.assertIn("universal-project-intelligence", skill_ids)
+
+    def test_universal_project_intelligence_loading_and_manifest(self):
+        skill = self.registry.get("universal-project-intelligence")
+        self.assertIsNotNone(skill)
+        self.assertEqual(skill.version, "2.0.0")
+        self.assertEqual(skill.category, "architecture")
+        resolved = self.registry.resolve_path(skill.id)
+        self.assertIsNotNone(resolved)
+        self.assertTrue(resolved.exists())
+        self.assertIn("Universal Project Intelligence", resolved.read_text(encoding="utf-8"))
 
     def test_saas_dashboard_task_selection(self):
         task = "Build a responsive SaaS dashboard with Tailwind CSS and user profile settings"

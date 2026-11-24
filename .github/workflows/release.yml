@@ -6,15 +6,44 @@ on:
       - "v*"
 
 jobs:
-  build-and-publish:
+  validate-and-build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip build twine
+          pip install -e .[dev]
+
+      - name: Validate Release Version Match
+        run: |
+          python -c "
+          import pathlib, tomllib, sys
+          tag = '${{ github.ref_name }}'.lstrip('v')
+          pyproj = tomllib.loads(pathlib.Path('pyproject.toml').read_text(encoding='utf-8'))
+          version = pyproj['project']['version']
+          assert tag == version, f'Git tag {tag} does not match pyproject.toml version {version}'
+          print(f'Release version verified: {version}')
+          "
+
+      - name: Run Quality Gate
+        run: |
+          python tools/validate_repository.py
+          python tools/check_links.py
+          pytest tests/ -v
+
       - name: Build Distribution Packages
         run: |
-          python -m pip install --upgrade pip build
           python -m build
+
+      - name: Verify Package Integrity and Checksums
+        run: |
+          twine check dist/*
+          sha256sum dist/* > dist/SHA256SUMS.txt
+          cat dist/SHA256SUMS.txt
