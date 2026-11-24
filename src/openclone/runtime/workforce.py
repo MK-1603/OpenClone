@@ -41,7 +41,20 @@ def _find_repo_root(p: Path) -> Path:
     return p.parents[3]
 
 ROOT = _find_repo_root(Path(__file__).resolve())
-REGISTRY = (ROOT / "framework" / "workforce" / "registry" / "workers") if (ROOT / "framework" / "workforce" / "registry" / "workers").exists() else (ROOT / "workforce" / "registry" / "workers")
+PACKAGE_ROOT = Path(__file__).resolve().parent.parent
+
+def _resolve_workers_registry() -> Path:
+    candidates = [
+        ROOT / "framework" / "workforce" / "registry" / "workers",
+        PACKAGE_ROOT / "workforce" / "registry" / "workers",
+        ROOT / "workforce" / "registry" / "workers",
+    ]
+    for c in candidates:
+        if c.exists():
+            return c
+    return candidates[0]
+
+REGISTRY = _resolve_workers_registry()
 FINDING_SCHEMA = (ROOT / "framework" / "methodology" / "egm" / "schemas" / "design-review-finding.schema.json") if (ROOT / "framework" / "methodology" / "egm" / "schemas" / "design-review-finding.schema.json").exists() else (ROOT / "EGM-WORKFLOWS" / "schemas" / "design-review-finding.schema.json")
 MEMORY_SCHEMA = (ROOT / "framework" / "schemas" / "memory-record.schema.json") if (ROOT / "framework" / "schemas" / "memory-record.schema.json").exists() else (ROOT / "schemas" / "memory-record.schema.json")
 DEFAULT_GATE = ROOT / "security" / "policies" / "release-gate.json"
@@ -337,17 +350,33 @@ def resolve_approver(policy: dict, who: str) -> dict:
 
 
 # ------------------------------------------------------------------- init
+def _get_template_content(tmpl_dir: Path, filename: str, project_name: str) -> str:
+    candidates = [
+        tmpl_dir / filename,
+        PACKAGE_ROOT / "templates" / filename,
+        ROOT / "framework" / "templates" / filename,
+        ROOT / "templates" / filename,
+    ]
+    for c in candidates:
+        if c.exists():
+            return c.read_text(encoding="utf-8").replace("{{PROJECT_NAME}}", project_name)
+    if "PROJECT" in filename:
+        return f"# {project_name} — Canonical AISDF Specification\n## Version 1.0.0\n\n### 1. Project Overview\n- **Project Name:** {project_name}\n- **Status:** Initialized\n- **Governance:** AISDF Governed\n"
+    return f"# AGENTS.md — Operating Contract\n## Version 1.0.0\nFollow platform safety and human approvals. Never execute unauthorized destructive changes.\n"
+
+
 def init_project(a):
     p = Path(a.project).resolve()
     p.mkdir(parents=True, exist_ok=True)
     (p / ".aisdf").mkdir(exist_ok=True)
     tmpl_dir = (ROOT / "framework" / "templates") if (ROOT / "framework" / "templates").exists() else (ROOT / "templates")
-    for name, src in [("PROJECT.md", tmpl_dir / "PROJECT.template.md"), ("AGENTS.md", tmpl_dir / "AGENTS.template.md")]:
+    for name, tmpl_filename in [("PROJECT.md", "PROJECT.template.md"), ("AGENTS.md", "AGENTS.template.md")]:
         target = p / name
         if target.exists():
             print(f"PRESERVED: {target}")
         else:
-            target.write_text(src.read_text(encoding="utf-8").replace("{{PROJECT_NAME}}", a.name), encoding="utf-8")
+            content = _get_template_content(tmpl_dir, tmpl_filename, a.name)
+            target.write_text(content, encoding="utf-8")
             print(f"CREATED: {target}")
     if not policy_path(p).exists():
         save_policy(p, default_policy())
