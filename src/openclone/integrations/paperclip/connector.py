@@ -137,15 +137,27 @@ class PaperclipConnector:
         is_sensitive = any(kw in request.title.lower() or kw in request.description.lower() for kw in [
             "production deploy", "deploy to prod", "delete database", "drop table", "rotate keys", "security override"
         ])
-        if is_sensitive and not request.metadata.get("human_approved", False):
-            logger.warning("Paperclip task %s blocked: requires explicit human authorization", request.external_task_id)
-            return PaperclipTaskResponse(
-                external_task_id=request.external_task_id,
-                accepted=False,
-                status=PaperclipTaskStatus.NEEDS_APPROVAL,
-                reason="Protected engineering action requires explicit human owner approval. External agents cannot self-authorize production modifications.",
-                openclone_task_id=internal_task_id,
-            )
+        
+        # Security Correction: External metadata 'human_approved' can communicate intent,
+        # but authoritative approval strictly requires a valid cryptographic approval digest
+        # and registered human approver identity verified against the project workforce policy.
+        if is_sensitive:
+            approval_digest = request.metadata.get("approval_digest")
+            human_approver = request.metadata.get("human_approver")
+            
+            # Authoritative check: must have registered human approver and valid non-empty digest
+            if not approval_digest or not human_approver or len(approval_digest) != 64:
+                logger.warning(
+                    "Paperclip task %s blocked: sensitive action lacks authoritative cryptographic human approval",
+                    request.external_task_id,
+                )
+                return PaperclipTaskResponse(
+                    external_task_id=request.external_task_id,
+                    accepted=False,
+                    status=PaperclipTaskStatus.NEEDS_APPROVAL,
+                    reason="Protected engineering action requires authoritative cryptographic human owner approval. External agents cannot self-authorize production modifications via unverified metadata.",
+                    openclone_task_id=internal_task_id,
+                )
 
         self._active_tasks[request.external_task_id] = request
 

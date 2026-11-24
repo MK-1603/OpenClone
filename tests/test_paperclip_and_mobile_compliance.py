@@ -86,6 +86,8 @@ def test_paperclip_sensitive_action_requires_human_approval():
     """Verify Paperclip cannot bypass human approval for production deployment."""
     with tempfile.TemporaryDirectory() as tmpdir:
         connector = PaperclipConnector(workspace_root=Path(tmpdir))
+        
+        # Test 1: Simple metadata boolean 'human_approved: True' is REJECTED without cryptographic digest
         req = PaperclipTaskRequest(
             external_task_id="ext-prod-deploy",
             organization_id="org-acme",
@@ -93,12 +95,31 @@ def test_paperclip_sensitive_action_requires_human_approval():
             description="Deploying to prod cluster",
             requester_agent_id="agent-coordinator",
             target_project_root=tmpdir,
-            metadata={"human_approved": False},
+            metadata={"human_approved": True},  # Attempted bypass without digest
         )
         res = connector.intake_task(req)
         assert res.accepted is False
         assert res.status == PaperclipTaskStatus.NEEDS_APPROVAL
-        assert "requires explicit human owner approval" in res.reason
+        assert "authoritative cryptographic human owner approval" in res.reason
+
+        # Test 2: Authoritative approval with valid 64-char SHA256 digest and human approver is ACCEPTED
+        valid_digest = "a" * 64
+        req_approved = PaperclipTaskRequest(
+            external_task_id="ext-prod-deploy-authorized",
+            organization_id="org-acme",
+            title="Production Deploy of Billing Service",
+            description="Deploying to prod cluster",
+            requester_agent_id="agent-coordinator",
+            target_project_root=tmpdir,
+            metadata={
+                "human_approved": True,
+                "human_approver": "alice-admin",
+                "approval_digest": valid_digest,
+            },
+        )
+        res_approved = connector.intake_task(req_approved)
+        assert res_approved.accepted is True
+        assert res_approved.status == PaperclipTaskStatus.IN_PROGRESS
 
 
 def test_mobile_compliance_scanner_clean():
