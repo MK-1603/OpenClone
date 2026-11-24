@@ -1,25 +1,90 @@
-﻿.DS_Store
+﻿# System artifacts
+.DS_Store
 Thumbs.db
+desktop.ini
+
+# Environment files & secret configs
 .env
 .env.*
+.env.local
+.env.development
+.env.production
+.env.test
+.env.staging
 !.env.example
+!.env.template
+
+# Private keys, certificates & keystores
+*.pem
+*.key
+*.p12
+*.pfx
+*.jks
+*.keystore
+id_rsa
+id_rsa.*
+id_ed25519
+id_ed25519.*
+id_ecdsa
+id_ecdsa.*
+id_dsa
+id_dsa.*
+privkey.pem
+server.key
+cert.key
+*.pkcs12
+
+# Cloud service account credentials & secrets
+*service-account*.json
+*service_account*.json
+*credentials*.json
+client_secret*.json
+*.credentials
+credentials.ini
+credentials.yaml
+credentials.yml
+
+# Secret stores & authentication tokens
+secrets.json
+secrets.yaml
+secrets.yml
+.secrets/
+.secrets.*
+*.token
+*.token.json
+auth.json
+token.json
+.ssh/
+
+# Database credentials & backup files
+*.db.key
+database.credentials.*
+*.bak
+*.backup
+*~
+
+# Python environment & cache
 .venv/
 venv/
 __pycache__/
 *.py[cod]
 *.pyc
 .pytest_cache/
-node_modules/
-dist/
-build/
-coverage/
 .ruff_cache/
 .mypy_cache/
 .coverage
+coverage/
 *.egg-info/
-.work/
+dist/
+build/
 
-# Runtime state
+# Node & package artifacts
+node_modules/
+.pnp
+.pnp.js
+
+# Runtime state & local development caches
+.work/
 .openclone/
 .openclone-dev/
 .taste-skill/
