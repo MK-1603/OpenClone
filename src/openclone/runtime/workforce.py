@@ -32,6 +32,9 @@ from datetime import date, datetime, timezone
 from pathlib import Path
 
 def _find_repo_root(p: Path) -> Path:
+    for candidate in [Path.cwd()] + list(Path.cwd().parents):
+        if (candidate / "pyproject.toml").exists() or (candidate / ".git").exists():
+            return candidate
     for parent in [p] + list(p.parents):
         if (parent / "pyproject.toml").exists() or (parent / ".git").exists():
             return parent
