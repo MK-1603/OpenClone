@@ -1,0 +1,76 @@
+{
+  "$schema": "https://antigravity.google/schemas/v1/plugin.json",
+  "name": "openclone",
+  "displayName": "OpenClone Engineering",
+  "version": "2.0.0",
+  "description": "Universal AI software engineering framework with specialist agents, 22-phase lifecycle checklists, anti-AI-slop governance, 19-point SaaS security baseline, and independent verification.",
+  "repository": "https://github.com/MK-1603/OpenClone",
+  "license": "MIT",
+  "keywords": [
+    "software-engineering",
+    "multi-agent",
+    "anti-ai-slop",
+    "requirements",
+    "architecture",
+    "security",
+    "testing",
+    "verification",
+    "auto-remediation"
+  ],
+  "skills": [
+    "skills/taste-skill",
+    "skills/universal-project-intelligence",
+    "skills/frontend-engineering",
+    "skills/design-system-engineering",
+    "skills/responsive-engineering",
+    "skills/accessibility-engineering",
+    "skills/backend-architecture",
+    "skills/database-engineering",
+    "skills/api-engineering",
+    "skills/system-design-engineering",
+    "skills/product-discovery",
+    "skills/requirements-engineering",
+    "skills/architecture-design",
+    "skills/ui-ux-engineering",
+    "skills/secure-engineering",
+    "skills/testing-verification",
+    "skills/typography-standards",
+    "skills/ux-pro"
+  ],
+  "agents": [
+    "agents/orchestrator.md",
+    "agents/product-requirements-agent.md",
+    "agents/product-architect-agent.md",
+    "agents/frontend-agent.md",
+    "agents/backend-agent.md",
+    "agents/database-agent.md",
+    "agents/security-agent.md",
+    "agents/test-qa-agent.md",
+    "agents/independent-verifier-agent.md",
+    "agents/ai-engineering-agent.md",
+    "agents/devops-release-agent.md",
+    "agents/documentation-agent.md",
+    "agents/integration-agent.md",
+    "agents/performance-reliability-agent.md",
+    "agents/ui-design-agent.md",
+    "agents/ux-research-agent.md"
+  ],
+  "rules": [
+    "rules/AGENTS.md",
+    "rules/anti-slop.md",
+    "rules/evidence.md",
+    "rules/security.md"
+  ],
+  "suggestedPrompts": [
+    "Inspect this project and create a requirement-driven engineering plan.",
+    "Audit this interface for visual AI slop and enforce Taste Skill design tokens.",
+    "Run the 22-phase engineering checklist and report evidence-backed status.",
+    "Coordinate specialist agents to implement, test, and independently verify this task."
+  ],
+  "mcpServers": {
+    "openclone": {
+      "command": "python",
+      "args": ["-m", "src.openclone.mcp.server"]
+    }
+  }
+}

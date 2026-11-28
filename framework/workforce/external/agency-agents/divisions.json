@@ -1,0 +1,87 @@
+{
+  "_note": "Source of truth for the Agency Agents division set. Upstream repository: https://github.com/msitarzewski/agency-agents. Consumed by OpenClone External Specialist Workforce Engine.",
+  "engineering": {
+    "label": "Engineering",
+    "icon": "Code",
+    "color": "#3B82F6",
+    "description": "Technical architecture, system design, frontend/backend engineering, security, and DevOps."
+  },
+  "design": {
+    "label": "Design",
+    "icon": "Palette",
+    "color": "#EC4899",
+    "description": "User experience, visual interfaces, design systems, accessibility, and brand consistency."
+  },
+  "product": {
+    "label": "Product",
+    "icon": "Compass",
+    "color": "#F59E0B",
+    "description": "Product discovery, roadmapping, feature specifications, and market trend research."
+  },
+  "project-management": {
+    "label": "Project Management",
+    "icon": "Kanban",
+    "color": "#8B5CF6",
+    "description": "Cross-functional orchestration, timeline tracking, agile ceremonies, and delivery stewardship."
+  },
+  "testing": {
+    "label": "Testing",
+    "icon": "CheckSquare",
+    "color": "#14B8A6",
+    "description": "Quality assurance, reality checking, automated testing, and deterministic evidence collection."
+  },
+  "marketing": {
+    "label": "Marketing",
+    "icon": "Megaphone",
+    "color": "#10B981",
+    "description": "Growth strategy, multi-channel reach, content generation, and audience engagement."
+  },
+  "sales": {
+    "label": "Sales",
+    "icon": "TrendingUp",
+    "color": "#EF4444",
+    "description": "Pipeline acceleration, discovery calls, deal structuring, and solution demonstration."
+  },
+  "paid-media": {
+    "label": "Paid Media",
+    "icon": "Target",
+    "color": "#F97316",
+    "description": "Performance marketing, conversion tracking, PPC campaigns, and ad creative optimization."
+  },
+  "support": {
+    "label": "Support",
+    "icon": "Headphones",
+    "color": "#06B6D4",
+    "description": "Customer success, analytics reporting, user assistance, and operational tracking."
+  },
+  "finance": {
+    "label": "Finance",
+    "icon": "DollarSign",
+    "color": "#22C55E",
+    "description": "Financial planning and analysis (FP&A), budget management, and unit economics."
+  },
+  "spatial-computing": {
+    "label": "Spatial Computing",
+    "icon": "Glasses",
+    "color": "#6366F1",
+    "description": "XR interface architecture, immersive environments, and 3D spatial interaction design."
+  },
+  "game-development": {
+    "label": "Game Development",
+    "icon": "Gamepad2",
+    "color": "#A855F7",
+    "description": "Game mechanics, multi-engine pipelines (Unity, Unreal, Godot), and narrative pacing."
+  },
+  "academic": {
+    "label": "Academic & Research",
+    "icon": "GraduationCap",
+    "color": "#D97706",
+    "description": "Academic literature synthesis, cognitive psychology, historical analysis, and domain research."
+  },
+  "specialized": {
+    "label": "Specialized Roles",
+    "icon": "Sparkles",
+    "color": "#64748B",
+    "description": "Cross-functional protocols, Model Context Protocol (MCP) tooling, and multi-agent coordination."
+  }
+}

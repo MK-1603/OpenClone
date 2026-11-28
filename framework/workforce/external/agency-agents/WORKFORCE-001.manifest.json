@@ -1,0 +1,40 @@
+{
+  "id": "WORKFORCE-001",
+  "name": "agency-agents",
+  "category": "workforce-orchestration",
+  "source": {
+    "type": "git",
+    "url": "https://github.com/msitarzewski/agency-agents",
+    "parent_url": "https://github.com/msitarzewski/agency-agents",
+    "subpath": "",
+    "default_branch": "main",
+    "license_author": "Michael Sitarzewski",
+    "commit": "HEAD"
+  },
+  "classification": [
+    "EXTERNAL_SPECIALIST_WORKFORCE",
+    "AGENT_CATALOG"
+  ],
+  "license": {
+    "spdx_id": "MIT",
+    "file": "LICENSE",
+    "review_status": "REVIEWED",
+    "copyright_notice": "Copyright (c) Michael Sitarzewski"
+  },
+  "integration": {
+    "status": "INTEGRATED",
+    "decision": "ADAPTED",
+    "adapter": "src/openclone/workforce/agency/adapter.py",
+    "orchestrator": "src/openclone/workforce/agency/team_orchestrator.py",
+    "catalog": "src/openclone/workforce/agency/catalog.py",
+    "operational_role": "External specialist agent personas, workflows, and multi-agent team assembly.",
+    "verified": true
+  },
+  "capabilities": [
+    "cap-specialist-discovery",
+    "cap-division-taxonomy",
+    "cap-team-assembly",
+    "cap-ux-pro-team-workflow",
+    "cap-governed-execution"
+  ]
+}

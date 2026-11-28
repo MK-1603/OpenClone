@@ -1,0 +1,10 @@
+OriginalPath,NewCanonicalPath,Status,BackwardCompatibilityMechanism
+AISDF-CORE-PRINCIPLES.md,OPENCLONE-CORE-PRINCIPLES.md,MIGRATED,Forwarding stub at original path
+AISDF-FUNCTIONAL-MAP.md,OPENCLONE-FUNCTIONAL-MAP.md,MIGRATED,Forwarding stub at original path
+AISDF-LIFECYCLE-OVERVIEW.md,OPENCLONE-LIFECYCLE-OVERVIEW.md,MIGRATED,Forwarding stub at original path
+AISDF-MISSION-AND-SCOPE.md,OPENCLONE-MISSION-AND-SCOPE.md,MIGRATED,Forwarding stub at original path
+domains/00-GOVERNANCE/AISDF-RULEBOOK.md,domains/00-GOVERNANCE/OPENCLONE-RULEBOOK.md,MIGRATED,Forwarding stub at original path
+docs/v4/*,docs/archive/v4/*,ARCHIVED,Historical record preserved in archive
+ASSESSMENT/*,assessments/historical/*,CONSOLIDATED,Unified under lowercase assessments/ directory
+runtime/aisdf_runtime/*,runtime/openclone_runtime/*,MIGRATED,Python forwarding wrapper in runtime/aisdf_runtime
+tools/aisdf_runtime/*,tools/openclone_runtime/*,MIGRATED,Python forwarding wrapper in tools/aisdf_runtime
