@@ -1,0 +1,47 @@
+name: Feature Request
+description: Propose a new capability, workflow, or adapter for OpenClone
+title: "[FEAT]: "
+labels: ["enhancement", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        We evaluate new features against the Anti-AI-Slop and least-privilege standards.
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem Statement
+      description: What concrete problem does this feature solve? Why are current capabilities insufficient?
+    validations:
+      required: true
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed Solution
+      description: Describe the design, affected domain/engine, and interfaces.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives Considered
+      description: What other approaches did you evaluate and why were they rejected?
+    validations:
+      false
+  - type: dropdown
+    id: domain
+    attributes:
+      label: Primary Target Domain
+      options:
+        - "00-GOVERNANCE"
+        - "01-METHODOLOGY"
+        - "02-REQUIREMENTS"
+        - "03-SYSTEM-DESIGN"
+        - "05-UX-UI-ENGINEERING"
+        - "08-SOFTWARE-ARCHITECTURE"
+        - "12-TESTING-AND-QUALITY"
+        - "14-SECURITY"
+        - "19-DEPLOYMENT-AND-OPERATIONS"
+        - "Other"
+    validations:
+      required: true

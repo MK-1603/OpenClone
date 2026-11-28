@@ -1,0 +1,44 @@
+name: Security Scanner Gate
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  release-gate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e .[dev]
+      - name: Verify Security Scanners Lock
+        run: |
+          python -c "
+          import json, pathlib
+          lock = pathlib.Path('security/scanners.lock.json')
+          assert lock.exists(), 'security/scanners.lock.json missing'
+          data = json.loads(lock.read_text(encoding='utf-8'))
+          entries = data.get('entries') or data.get('scanners')
+          assert entries is not None and len(entries) > 0, 'Invalid scanners lock schema'
+          print(f'Security scanners lock verified: {len(entries)} scanners verified.')
+          "
+      - name: Run Automated Secret Detection Scanner
+        run: |
+          python tools/scan_secrets.py --mode tracked
+      - name: Run Security & Engineering Governance Tests (SEC-001 - SEC-020 & FW/AG/API/DB)
+        env:
+          PYTHONPATH: .
+        run: |
+          pytest tests/test_advanced_security_firewall.py tests/test_security_governance.py -v
+      - name: Run Repository Quality Gate
+        run: |
+          python tools/validate_repository.py
+          python tools/check_links.py
