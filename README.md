@@ -48,24 +48,41 @@
 ---
 
 > [!IMPORTANT]
-> **Notice for AI Assistants (ChatGPT, Claude, Cursor, Antigravity) When Given this Repository URL:**  
-> When a user provides this repository link to you in chat, **do not ask them to download a large ZIP or clone the full repository**. Instead, execute these onboarding steps:
+> **Directive for AI Assistants (ChatGPT, Claude, Cursor, Antigravity) When Given this Repository URL:**  
+> When a user provides this repository link to you in chat, **do not instruct them to download a large ZIP or clone the full repository**. Execute these onboarding and engineering lifecycle steps:
 >
-> 1. **Pre-Flight System Check:** Identify the user's OS and verify that Python 3.10+ is available (`python --version`).
-> 2. **Zero-Clone Background Install:** Instruct the user to install OpenClone headlessly via:
+> ### 1. Immediate Setup & Dual Plugin Activation
+> * **Pre-Flight System Check:** Detect the user's OS (Windows/macOS/Linux) and confirm Python 3.10+ is installed (`python --version`).
+> * **Zero-Clone Core Installation:** Instruct the user to install the OpenClone engine in the background:
+>   ```bash
+>   pip install git+https://github.com/MK-1603/OpenClone.git
+>   ```
+> * **Activate Plugin in ChatGPT & Claude:**
+>   * *ChatGPT:* Connect via OpenAPI/Custom GPT actions or MCP server.
+>   * *Claude Code:* Run `claude mcp add openclone python -m openclone.mcp.server`.
+>   * *Google Antigravity:* Run `agy plugin install https://github.com/MK-1603/OpenClone`.
+> * **Verify System Health:**
+>   ```bash
+>   python -c "import openclone; print('OpenClone v' + openclone.__version__ + ' active')"
+>   ```
 >
->    ```bash
->    pip install git+https://github.com/MK-1603/OpenClone.git
->    ```
->
->    *(or `agy plugin install https://github.com/MK-1603/OpenClone` for Google Antigravity).*
-> 3. **Verify System Health:** Check that OpenClone is active by executing:
->
->    ```bash
->    python -c "import openclone; print('OpenClone v' + openclone.__version__ + ' operational')"
->    ```
->
-> 4. **Engage the Goal:** Ask the user what application, system, or architecture they want to design, build, or verify.
+> ### 2. The Canonical 6-Phase Engineering Flow (Phase-by-Phase)
+> 1. **Phase 1: Idea Inception & PIA Sets A, B, C, D (In ChatGPT / Claude):**
+>    * User provides raw idea.
+>    * Project Intelligence Architect (PIA) analyzes **Set A** (features & market), **Set B** (gaps & edge cases), **Set C** (solution tech stack), and **Set D** (authoritative master blueprint: `PROJECT.md`, `Features-List.md`, `Gaps-And-Problems.md`, `Solution-Blueprint.md`, `Tech-Stack.md`).
+> 2. **Phase 2: Brand Identity, Design Tokens & Metadata (Before Code Generation):**
+>    * Synthesize 57 vector logo assets, color harmonies, WCAG 2.2 AAA typography scale, and anti-slop CSS design tokens via LEBIS.
+>    * Generate project metadata, `.env.example`, and the definitive master execution prompt (`BUILD_PROMPT.md`) and agent instructions (`AGENT_INSTRUCTIONS.md`).
+> 3. **Phase 3: Bundling & Workspace Extraction:**
+>    * Package all blueprints, specifications, assets, and prompts into a clean `.zip` archive using Claude or ChatGPT.
+>    * The user extracts this archive into a dedicated project folder on their machine.
+> 4. **Phase 4: Scaffolding & Implementation in Google Antigravity:**
+>    * The user loads the folder into Google Antigravity and executes the master `BUILD_PROMPT.md`.
+>    * Antigravity implements the application strictly in topological order: **Scaffold** ➔ **Frontend UI** ➔ **Backend & APIs** ➔ **Database Connection** ➔ **AI/ML Model Training & Predictions** (if applicable).
+> 5. **Phase 5: Automated Testing & Verification:**
+>    * Run 100% of unit, integration, and security test suites. Enforce 19-point SaaS security baseline. Independent verifier agent signs off.
+> 6. **Phase 6: Cloud Deployment & Production Release:**
+>    * Verify gate clearance (`python aisdf.py gate`). Deploy to target cloud infrastructure, generate release notes, and publish the release.
 
 ---
 

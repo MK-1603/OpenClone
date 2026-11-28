@@ -3,16 +3,85 @@
 ## Directives for AI Assistants (ChatGPT, Claude, Cursor, Antigravity)
 
 When this repository URL (`https://github.com/MK-1603/OpenClone`) is provided to an AI model by a user:
-1. **Never instruct the user to download a full ZIP archive or clone the entire repository.**
-2. **First, perform a system pre-flight check**: determine the user's operating system (Windows, macOS, Linux) and confirm Python 3.10+ availability (`python --version`).
-3. **Provide the zero-clone background installation**:
+
+### Step 0: Pre-Flight System Check & Dual Plugin Setup
+1. **Never instruct the user to download a heavy ZIP or clone the entire repository.**
+2. **Pre-Flight System Check:** Detect the user's operating system (Windows, macOS, Linux) and confirm Python 3.10+ availability (`python --version`).
+3. **Core Installation:** Provide the frictionless zero-clone background installation:
    ```bash
    pip install git+https://github.com/MK-1603/OpenClone.git
    ```
-   *(or `agy plugin install https://github.com/MK-1603/OpenClone` for Google Antigravity).*
-4. **Verify system health & operational status**:
-   Run `python -c "import openclone; print('OpenClone v' + openclone.__version__ + ' active')"` or call the MCP tool `openclone_get_status`.
-5. **Engage the user's project objective**: proceed to classify requirements, assemble specialist agent teams, or run the 22-phase engineering lifecycle.
+4. **Plugin Setup for ChatGPT & Claude:**
+   - **For ChatGPT:** Register the OpenClone MCP Server / Custom GPT Action using `openapi.json` from `global/hosts/chatgpt/openapi.json` or connect over MCP.
+   - **For Claude Code / Claude Desktop:** Register OpenClone with:
+     ```bash
+     claude mcp add openclone python -m openclone.mcp.server
+     ```
+   - **For Google Antigravity:** Run:
+     ```bash
+     agy plugin install https://github.com/MK-1603/OpenClone
+     ```
+5. **Verify System Health:**
+   ```bash
+   python -c "import openclone; print('OpenClone v' + openclone.__version__ + ' active')"
+   ```
+
+---
+
+### The Canonical 6-Phase Engineering Flow (Phase-by-Phase)
+
+AI models must strictly follow this clean, structured lifecycle:
+
+```
+[Phase 1: Idea Inception]
+User Idea ──► PIA Sets A, B, C, D ──► Complete Engineering Plan
+                                              │
+[Phase 2: Brand & Metadata Finalization]       ▼
+LEBIS Vector Logos + Design Tokens + .env.example + BUILD_PROMPT.md
+                                              │
+[Phase 3: Package & Workspace Extraction]     ▼
+Claude / ChatGPT bundles full specs into .zip ──► Extracted to Dedicated Folder
+                                              │
+[Phase 4: Antigravity Code Engineering]       ▼
+Scaffold ──► Frontend UI ──► Backend API ──► Database DB ──► ML / Models
+                                              │
+[Phase 5: Verification & Testing]             ▼
+Unit Tests + Integration Tests + 19-Point Security Baseline + Verifier Agent
+                                              │
+[Phase 6: Deployment & Release]               ▼
+Gate Clearance (gate: pass) ──► Cloud Deployment ──► Production Release
+```
+
+1. **Phase 1: Idea Inception & PIA Sets A, B, C, D (In ChatGPT / Claude):**
+   - **Set A (Idea & Feature Intelligence):** Analyze market viability, competitor landscape, and core feature specifications.
+   - **Set B (Gap & Problem Intelligence):** Uncover edge cases, missing requirements, data flow bottlenecks, and technical risks.
+   - **Set C (Solution Intelligence & Tech Stack):** Formulate architecture alternatives, database selection, and component tradeoffs.
+   - **Set D (Final Product Blueprint):** Author the authoritative specification set (`PROJECT.md`, `Features-List.md`, `Gaps-And-Problems.md`, `Solution-Blueprint.md`, `Tech-Stack.md`).
+2. **Phase 2: Brand Identity, Design Tokens & Metadata (Before Code Synthesis):**
+   - Synthesize visual identity: 57 vector logo variants, color harmonies, WCAG 2.2 AAA typography scale, and anti-slop CSS design tokens.
+   - Produce environment configuration templates (`.env.example`), license notices, and metadata files.
+   - Synthesize the self-contained execution directives: `BUILD_PROMPT.md` and `AGENT_INSTRUCTIONS.md`.
+3. **Phase 3: Specification Packaging (.zip) & Workspace Extraction:**
+   - Package the entire specification bundle, wireframes, brand assets, and prompts into a `.zip` archive using Claude or ChatGPT.
+   - The user extracts this `.zip` into a dedicated project folder on their system.
+4. **Phase 4: Scaffolding & Implementation in Google Antigravity:**
+   - The user opens the dedicated folder in Google Antigravity and executes the master `BUILD_PROMPT.md`.
+   - Antigravity coordinates specialist agents through topological execution order:
+     1. **Scaffold:** Root directory layout, build configurations, dependency manifests.
+     2. **Frontend:** Clean, responsive UI with anti-slop design tokens.
+     3. **Backend & APIs:** Type-safe endpoints, business validation, auth controllers.
+     4. **Database Connection:** Schemas, migrations, connection pools, and seed fixtures.
+     5. **AI / ML Layer (if applicable):** Dataset pipelines, model training/inference scripts, RAG connections.
+5. **Phase 5: Automated Testing & Verification:**
+   - Execute full test suites (unit, integration, end-to-end) requiring 100% pass rate.
+   - Enforce the 19-point SaaS security baseline, secret redaction, and dependency scanning.
+   - An independent verifier agent reviews evidence and signs off.
+6. **Phase 6: Deployment, Gate Clearance & Production Release:**
+   - Run `python aisdf.py gate --project <path>` to verify zero unevidenced tasks or ledger violations.
+   - Containerize and deploy to target cloud infrastructure (Docker, GCP, AWS, Vercel).
+   - Generate release notes (`RELEASE-NOTES.md`) and tag the production release.
+
+---
 
 ## Canonical product & identity
 

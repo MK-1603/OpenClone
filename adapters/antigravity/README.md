@@ -1,6 +1,30 @@
 # Google Antigravity Adapter
 
-Two supported packaging forms are included:
+# Google Antigravity Adapter
+
+This adapter provides native Google Antigravity integration for OpenClone.
+
+## Quick Install (Antigravity Plugin)
+Install OpenClone directly into Antigravity with a single CLI command:
+
+```bash
+agy plugin install https://github.com/MK-1603/OpenClone
+```
+
+## Role in the 6-Phase Engineering Pipeline
+In the OpenClone multi-AI workflow, Google Antigravity serves as the **Master Engineering Execution Engine**:
+1. **Ingest Workspace:** The user opens the dedicated project folder extracted from the `.zip` specification package generated in Claude / ChatGPT.
+2. **Execute Master Prompt:** The user pastes `BUILD_PROMPT.md` into Antigravity.
+3. **Phased Engineering Execution:** Antigravity coordinates specialist agents through topological order:
+   - **Scaffold:** Clean repository structure, configuration files, build scripts.
+   - **Frontend UI:** Responsive components built with anti-slop tokens.
+   - **Backend & APIs:** Type-safe endpoints, business validation, auth controllers.
+   - **Database Connection:** Schemas, migrations, connection pools, and seed fixtures.
+   - **AI / ML Layer (if applicable):** Dataset pipelines, model training/inference scripts, RAG connections.
+4. **Testing & Security:** Executes 100% of test suites and enforces the 19-point SaaS security baseline.
+5. **Deployment & Release:** Clears the release gate (`python aisdf.py gate`), containerizes the app, and publishes the production release.
+
+## Packaging Options
 
 - `workspace/`: copy `.agents/` into the root of the project opened in Antigravity. It provides an always-on AISDF rule and an on-demand `aisdf` skill.
 - `plugin/`: versioned distributable plugin with `.antigravity-plugin/plugin.json`, skills, rules, and custom reviewer agent definitions.
