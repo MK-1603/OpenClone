@@ -1,0 +1,28 @@
+{
+  "archetype": "financial_dashboard",
+  "density": "compact",
+  "font_family": "Inter, Roboto Mono, system-ui, sans-serif",
+  "color_palette": {
+    "surface_primary": "#0B0E14",
+    "surface_secondary": "#151922",
+    "border": "#232834",
+    "brand_accent": "#00D47E",
+    "text_primary": "#FFFFFF",
+    "text_secondary": "#8A93A6",
+    "bullish": "#00D47E",
+    "bearish": "#FF4D4D"
+  },
+  "spacing": {
+    "unit": 4,
+    "sm": "4px",
+    "md": "8px",
+    "lg": "12px",
+    "xl": "16px"
+  },
+  "radius": {
+    "sm": "2px",
+    "md": "4px",
+    "lg": "6px"
+  },
+  "layout_strategy": "High-density multi-pane dock with resizable real-time data panels"
+}

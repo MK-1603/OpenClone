@@ -1,0 +1,50 @@
+{
+  "id": "RES-001",
+  "name": "build-your-own-x",
+  "category": "knowledge",
+  "source": {
+    "type": "git",
+    "url": "https://github.com/codecrafters-io/build-your-own-x",
+    "parent_url": "https://github.com/codecrafters-io/build-your-own-x",
+    "subpath": "",
+    "default_branch": "master",
+    "commit": "94e4be4102452119008fe47199f3cb915abe0c50",
+    "commit_date": "2026-11-20"
+  },
+  "classification": [
+    "EDUCATIONAL_RESOURCE",
+    "KNOWLEDGE_INDEX"
+  ],
+  "license": {
+    "spdx_id": "CC0-1.0",
+    "file": "README.md",
+    "review_status": "REVIEWED"
+  },
+  "dependencies": [],
+  "capabilities": [
+    "cap-curated-system-design-tutorials",
+    "cap-step-by-step-engineering-index"
+  ],
+  "integration": {
+    "status": "INTEGRATED",
+    "decision": "CURATED_INDEX_REFERENCE",
+    "adapter": "REFERENCE_ONLY",
+    "operational_role": "Curated educational resource index for software engineering from-scratch tutorials and architectural patterns.",
+    "rationale": "Public domain CC0-1.0 index of tutorials; serves as conceptual reference without bundling external tutorial code.",
+    "verified": true
+  },
+  "distribution": {
+    "included_by_default": false,
+    "optional": true
+  },
+  "tech_stack": {
+    "languages": [
+      "Markdown"
+    ],
+    "package_managers": [],
+    "entry_points": [],
+    "has_skills": false,
+    "has_cursorrules": false,
+    "has_prompts": false
+  }
+}

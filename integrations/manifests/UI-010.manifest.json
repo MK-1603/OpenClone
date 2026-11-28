@@ -1,0 +1,63 @@
+{
+  "id": "UI-010",
+  "name": "impeccable",
+  "category": "ui-ux",
+  "source": {
+    "type": "git",
+    "url": "https://github.com/pbakaus/impeccable",
+    "parent_url": "https://github.com/pbakaus/impeccable",
+    "subpath": "",
+    "default_branch": "main",
+    "commit": "b49177d32788f2dc585c42831d845dacf1ebed2c",
+    "commit_date": "2026-11-18"
+  },
+  "classification": [
+    "SKILL_SOURCE",
+    "KNOWLEDGE_REFERENCE"
+  ],
+  "license": {
+    "spdx_id": "Apache-2.0",
+    "file": "LICENSE",
+    "review_status": "REVIEWED"
+  },
+  "dependencies": [
+    "npm/pnpm/yarn",
+    "cargo"
+  ],
+  "capabilities": [
+    "cap-visual-qa-vocabulary",
+    "cap-defect-classification"
+  ],
+  "integration": {
+    "status": "INTEGRATED",
+    "decision": "ADAPTED",
+    "adapter": "docs/knowledge/ui-ux-quality-audit.md",
+    "operational_role": "Structured design critique vocabulary and UI defect taxonomy.",
+    "rationale": "Adapted into live MCP guidance topic 'ui_ux_quality'.",
+    "verified": true
+  },
+  "distribution": {
+    "included_by_default": false,
+    "optional": true
+  },
+  "tech_stack": {
+    "languages": [
+      "JavaScript/TypeScript",
+      "Rust"
+    ],
+    "package_managers": [
+      "npm/pnpm/yarn",
+      "cargo"
+    ],
+    "entry_points": [
+      "build:skills",
+      "build:skills:release",
+      "build",
+      "build:release",
+      "build:extension"
+    ],
+    "has_skills": true,
+    "has_cursorrules": false,
+    "has_prompts": false
+  }
+}

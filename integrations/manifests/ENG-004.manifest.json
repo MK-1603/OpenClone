@@ -1,0 +1,57 @@
+{
+  "id": "ENG-004",
+  "name": "TokenEconomizer",
+  "category": "software-engineering",
+  "source": {
+    "type": "git",
+    "url": "https://github.com/microsoft/TokenEconomizer",
+    "parent_url": "https://github.com/microsoft/TokenEconomizer",
+    "subpath": "",
+    "default_branch": "main",
+    "commit": "1bfeccdcecf48333b22762ad1dd9e36c6dc065df",
+    "commit_date": "2026-11-19"
+  },
+  "classification": [
+    "LIBRARY",
+    "KNOWLEDGE_REFERENCE"
+  ],
+  "license": {
+    "spdx_id": "MIT",
+    "file": "LICENSE",
+    "review_status": "REVIEWED"
+  },
+  "dependencies": [
+    "npm/pnpm/yarn",
+    "pip/poetry/uv"
+  ],
+  "capabilities": [
+    "cap-token-budget-optimization",
+    "cap-prompt-deduplication"
+  ],
+  "integration": {
+    "status": "INTEGRATED",
+    "decision": "ADAPTED",
+    "adapter": "src/openclone/mcp/server.py",
+    "operational_role": "Progressive context disclosure, prompt deduplication, and context budget management.",
+    "rationale": "Implemented directly in OpenClone's dual-tier knowledge retrieval and MCP guidance server.",
+    "verified": true
+  },
+  "distribution": {
+    "included_by_default": false,
+    "optional": true
+  },
+  "tech_stack": {
+    "languages": [
+      "JavaScript/TypeScript",
+      "Python"
+    ],
+    "package_managers": [
+      "npm/pnpm/yarn",
+      "pip/poetry/uv"
+    ],
+    "entry_points": [],
+    "has_skills": true,
+    "has_cursorrules": false,
+    "has_prompts": false
+  }
+}

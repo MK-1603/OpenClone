@@ -1,0 +1,59 @@
+{
+  "id": "SEC-011",
+  "name": "bla",
+  "category": "security",
+  "source": {
+    "type": "git",
+    "url": "https://github.com/qybaihe/bla",
+    "parent_url": "https://github.com/qybaihe/bla",
+    "subpath": "",
+    "default_branch": "main",
+    "commit": "2b7a7c4f2ac69623542c3ba98e22695855e26449",
+    "commit_date": "2026-11-22"
+  },
+  "classification": [
+    "SECURITY_SCANNER",
+    "KNOWLEDGE_REFERENCE"
+  ],
+  "license": {
+    "spdx_id": "MIT",
+    "file": "LICENSE",
+    "review_status": "REVIEWED"
+  },
+  "dependencies": [
+    "npm/pnpm/yarn"
+  ],
+  "capabilities": [
+    "cap-llm-agent-behavioral-analysis"
+  ],
+  "integration": {
+    "status": "AVAILABLE",
+    "decision": "REFERENCED",
+    "adapter": null,
+    "operational_role": "LLM security research and behavioral evaluation patterns.",
+    "rationale": "Synthesized into domain 11 agent engineering security rules.",
+    "verified": true
+  },
+  "distribution": {
+    "included_by_default": false,
+    "optional": true
+  },
+  "tech_stack": {
+    "languages": [
+      "JavaScript/TypeScript"
+    ],
+    "package_managers": [
+      "npm/pnpm/yarn"
+    ],
+    "entry_points": [
+      "build",
+      "dev",
+      "pretest",
+      "test",
+      "test:watch"
+    ],
+    "has_skills": true,
+    "has_cursorrules": false,
+    "has_prompts": false
+  }
+}

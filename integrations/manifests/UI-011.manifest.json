@@ -1,0 +1,55 @@
+{
+  "id": "UI-011",
+  "name": "typography-skills",
+  "category": "ui-ux",
+  "source": {
+    "type": "git",
+    "url": "https://github.com/jpoindexter/typography-skills",
+    "parent_url": "https://github.com/jpoindexter/typography-skills",
+    "subpath": "",
+    "default_branch": "main",
+    "commit": "615006a142464d1a5abfa16304fbafa5e2ffef20",
+    "commit_date": "2026-07-29"
+  },
+  "classification": [
+    "SKILL_SOURCE",
+    "DESIGN_SYSTEM"
+  ],
+  "license": {
+    "spdx_id": "MIT",
+    "file": "LICENSE",
+    "review_status": "REVIEWED"
+  },
+  "dependencies": [
+    "None"
+  ],
+  "capabilities": [
+    "cap-major-third-type-scale",
+    "cap-fluid-typography",
+    "cap-optical-line-length"
+  ],
+  "integration": {
+    "status": "INTEGRATED",
+    "decision": "ADOPTED",
+    "adapter": "domains/05-UX-UI-ENGINEERING/TYPOGRAPHY-STANDARDS.md",
+    "operational_role": "Rigorous typography rules: Major Third scale, fluid clamp(), line length limits.",
+    "rationale": "Adopted into domain 05 typography governance.",
+    "verified": true
+  },
+  "distribution": {
+    "included_by_default": false,
+    "optional": true
+  },
+  "tech_stack": {
+    "languages": [
+      "Markdown/Other"
+    ],
+    "package_managers": [
+      "None"
+    ],
+    "entry_points": [],
+    "has_skills": true,
+    "has_cursorrules": false,
+    "has_prompts": false
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "servers": [
+    {
+      "name": "OpenClone",
+      "command": "oc.exe",
+      "args": ["mcp"]
+    }
+  ]
+}

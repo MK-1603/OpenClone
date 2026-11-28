@@ -1,0 +1,53 @@
+{
+  "id": "SEC-005",
+  "name": "semgrep",
+  "category": "security",
+  "source": {
+    "type": "git",
+    "url": "https://github.com/semgrep/semgrep",
+    "parent_url": "https://github.com/semgrep/semgrep",
+    "subpath": "",
+    "default_branch": "develop",
+    "commit": "c4dbe9ee2fc6d0022ba02ef6b97c5954ed9549e3",
+    "commit_date": "2026-11-20"
+  },
+  "classification": [
+    "SECURITY_SCANNER",
+    "CLI_TOOL"
+  ],
+  "license": {
+    "spdx_id": "GPL-2.0",
+    "file": "LICENSE",
+    "review_status": "REVIEWED"
+  },
+  "dependencies": [
+    "pip/poetry/uv"
+  ],
+  "capabilities": [
+    "cap-static-code-analysis-sast"
+  ],
+  "integration": {
+    "status": "AVAILABLE",
+    "decision": "OPTIONAL_ADAPTER",
+    "adapter": "integrations/adapters/scanner_gateway.py",
+    "operational_role": "Multi-language static code analysis for injection flaws and insecure configs.",
+    "rationale": "Pinned in security/scanners.lock.json and integrated through scanner gateway.",
+    "verified": true
+  },
+  "distribution": {
+    "included_by_default": false,
+    "optional": true
+  },
+  "tech_stack": {
+    "languages": [
+      "Python"
+    ],
+    "package_managers": [
+      "pip/poetry/uv"
+    ],
+    "entry_points": [],
+    "has_skills": false,
+    "has_cursorrules": false,
+    "has_prompts": false
+  }
+}

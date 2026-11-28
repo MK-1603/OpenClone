@@ -1,0 +1,53 @@
+{
+  "id": "SEC-003",
+  "name": "codex-security",
+  "category": "security",
+  "source": {
+    "type": "git",
+    "url": "https://github.com/openai/codex-security",
+    "parent_url": "https://github.com/openai/codex-security",
+    "subpath": "",
+    "default_branch": "main",
+    "commit": "35373239d9319e5f5ada1f135f13a7da5c01c909",
+    "commit_date": "2026-11-22"
+  },
+  "classification": [
+    "SECURITY_SCANNER",
+    "KNOWLEDGE_REFERENCE"
+  ],
+  "license": {
+    "spdx_id": "Apache-2.0",
+    "file": "LICENSE",
+    "review_status": "REVIEWED"
+  },
+  "dependencies": [
+    "npm/pnpm/yarn"
+  ],
+  "capabilities": [
+    "cap-ai-vulnerability-triage"
+  ],
+  "integration": {
+    "status": "AVAILABLE",
+    "decision": "REFERENCED",
+    "adapter": null,
+    "operational_role": "AI automated vulnerability triage patterns and remediation guidance.",
+    "rationale": "Synthesized into domain 14 security rules and threat models.",
+    "verified": true
+  },
+  "distribution": {
+    "included_by_default": false,
+    "optional": true
+  },
+  "tech_stack": {
+    "languages": [
+      "JavaScript/TypeScript"
+    ],
+    "package_managers": [
+      "npm/pnpm/yarn"
+    ],
+    "entry_points": [],
+    "has_skills": true,
+    "has_cursorrules": false,
+    "has_prompts": false
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "id": "UI-004",
+  "name": "Unstop-UI",
+  "category": "ui-ux",
+  "source": {
+    "type": "git",
+    "url": "https://github.com/Mohit-Raj-Singh/Unstop-UI",
+    "parent_url": "https://github.com/Mohit-Raj-Singh/Unstop-UI",
+    "subpath": "",
+    "default_branch": "master",
+    "commit": "09da6d2088099e0d419c334d40fbaf25b4d48840",
+    "commit_date": "2023-07-26"
+  },
+  "classification": [
+    "DESIGN_SYSTEM",
+    "KNOWLEDGE_REFERENCE"
+  ],
+  "license": {
+    "spdx_id": "UNKNOWN",
+    "file": "NONE",
+    "review_status": "BLOCKED_LICENSE_REVIEW"
+  },
+  "dependencies": [
+    "npm/pnpm/yarn"
+  ],
+  "capabilities": [
+    "cap-unstop-component-reference"
+  ],
+  "integration": {
+    "status": "CLONED",
+    "decision": "BLOCKED_LICENSE_REVIEW",
+    "adapter": null,
+    "operational_role": "Component reference implementation.",
+    "rationale": "No declared license in root repository. Blocked from redistribution or core integration pending license clarification.",
+    "verified": false
+  },
+  "distribution": {
+    "included_by_default": false,
+    "optional": true
+  },
+  "tech_stack": {
+    "languages": [
+      "JavaScript/TypeScript"
+    ],
+    "package_managers": [
+      "npm/pnpm/yarn"
+    ],
+    "entry_points": [
+      "start",
+      "build",
+      "test",
+      "eject"
+    ],
+    "has_skills": false,
+    "has_cursorrules": false,
+    "has_prompts": false
+  }
+}

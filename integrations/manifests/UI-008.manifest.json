@@ -1,0 +1,54 @@
+{
+  "id": "UI-008",
+  "name": "ui-ux-pro-max-skill",
+  "category": "ui-ux",
+  "source": {
+    "type": "git",
+    "url": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill",
+    "parent_url": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill",
+    "subpath": "",
+    "default_branch": "main",
+    "commit": "6ec2bb58334ca3014573c4cbd4834ee3a40afd9d",
+    "commit_date": "2026-11-22"
+  },
+  "classification": [
+    "SKILL_SOURCE",
+    "KNOWLEDGE_REFERENCE"
+  ],
+  "license": {
+    "spdx_id": "MIT",
+    "file": "LICENSE",
+    "review_status": "REVIEWED"
+  },
+  "dependencies": [
+    "None"
+  ],
+  "capabilities": [
+    "cap-multi-domain-design-systems",
+    "cap-dashboard-architecture"
+  ],
+  "integration": {
+    "status": "INTEGRATED",
+    "decision": "ADAPTED",
+    "adapter": "docs/knowledge/ui-ux-design-catalogue.md",
+    "operational_role": "67-domain design system rules for SaaS and dashboards.",
+    "rationale": "Catalogued into fast live MCP guidance and master design encyclopedia.",
+    "verified": true
+  },
+  "distribution": {
+    "included_by_default": false,
+    "optional": true
+  },
+  "tech_stack": {
+    "languages": [
+      "Markdown/Other"
+    ],
+    "package_managers": [
+      "None"
+    ],
+    "entry_points": [],
+    "has_skills": true,
+    "has_cursorrules": false,
+    "has_prompts": false
+  }
+}

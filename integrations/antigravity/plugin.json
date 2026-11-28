@@ -1,0 +1,19 @@
+{
+  "id": "openclone-engineering-suite",
+  "name": "OpenClone Universal Engineering Platform",
+  "version": "2.0.0",
+  "description": "Autonomous engineering execution engine, workforce coordination, and governance suite for Google Antigravity.",
+  "author": "OpenClone Contributors",
+  "engines": {
+    "antigravity": ">=1.0.0"
+  },
+  "mcpServers": {
+    "openclone": {
+      "command": "oc.exe",
+      "args": ["mcp"],
+      "description": "OpenClone Model Context Protocol Engine"
+    }
+  },
+  "skills": ["skills/openclone-engineering"],
+  "rules": ["rules/governance.md"]
+}

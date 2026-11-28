@@ -1,0 +1,79 @@
+{
+  "id": "openclone-stitch-integration",
+  "name": "Google Stitch Skills Integration",
+  "version": "1.0.0",
+  "description": "First-class integration of Google Labs Stitch Skills ecosystem into the OpenClone autonomous engineering platform.",
+  "author": "OpenClone Contributors & Google Labs",
+  "license": "Apache-2.0",
+  "upstream": {
+    "repository": "https://github.com/google-labs-code/stitch-skills",
+    "branch": "main",
+    "commit": "75f4696f162000fb69fca6a31489b5b21d47a506",
+    "date": "2026-11-24T13:51:03-08:00",
+    "import_date": "2026-11-25T22:40:00+05:30"
+  },
+  "plugins": [
+    {
+      "id": "stitch-design",
+      "name": "Stitch Design",
+      "description": "Core design workflows for creating, managing, and optimizing designs within Google Stitch.",
+      "path": "design/skills",
+      "skills": [
+        "code-to-design",
+        "extract-design-md",
+        "extract-static-html",
+        "generate-design",
+        "manage-design-system",
+        "upload-to-stitch"
+      ]
+    },
+    {
+      "id": "stitch-build",
+      "name": "Stitch Build",
+      "description": "Code generation, framework integration, and asset compilation from Stitch designs.",
+      "path": "build/skills",
+      "skills": [
+        "react-components",
+        "react-native",
+        "react-vite-dashboard",
+        "remotion",
+        "shadcn-ui"
+      ]
+    },
+    {
+      "id": "stitch-utilities",
+      "name": "Stitch Utilities",
+      "description": "Supporting tools for enhancing prompts, generating design specs, and enforcing design standards.",
+      "path": "utilities/skills",
+      "skills": [
+        "design-md",
+        "enhance-prompt",
+        "site-md",
+        "stitch-loop",
+        "taste-design"
+      ]
+    }
+  ],
+  "mcp": {
+    "default_endpoint": "https://stitch.googleapis.com",
+    "service_name": "stitch",
+    "env_api_key_vars": [
+      "STITCH_API_KEY",
+      "GEMINI_API_KEY"
+    ],
+    "setup_docs": "https://stitch.withgoogle.com/docs/mcp/setup/",
+    "required_tools": [
+      "list_projects",
+      "create_project",
+      "list_screens",
+      "get_screen",
+      "generate_screen_from_text",
+      "generate_screen_from_image",
+      "edit_screens",
+      "create_design_system_from_design_md",
+      "apply_design_system",
+      "list_design_systems",
+      "read_url_content"
+    ]
+  }
+}

@@ -1,0 +1,165 @@
+{
+  "name": "openclone-vscode",
+  "displayName": "OpenClone Universal Engineering",
+  "description": "Governed AI software engineering intelligence, planning, and execution for Visual Studio Code",
+  "version": "2.0.0",
+  "publisher": "openclone",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "AI",
+    "Chat",
+    "Programming Languages",
+    "Machine Learning",
+    "Testing"
+  ],
+  "main": "./src/extension.js",
+  "icon": "resources/icon.png",
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "openclone-explorer",
+          "title": "OpenClone",
+          "icon": "resources/icon.png"
+        }
+      ]
+    },
+    "views": {
+      "openclone-explorer": [
+        {
+          "type": "webview",
+          "id": "openclone.chatView",
+          "name": "OpenClone AI Chat"
+        },
+        {
+          "id": "openclone.statusView",
+          "name": "Runtime Context"
+        },
+        {
+          "id": "openclone.planView",
+          "name": "Execution Plans"
+        },
+        {
+          "id": "openclone.workersView",
+          "name": "Agent Workforce"
+        },
+        {
+          "id": "openclone.ledgerView",
+          "name": "Audit Ledger"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "openclone.openChat",
+        "title": "OpenClone: Open AI Chat Panel"
+      },
+      {
+        "command": "openclone.newConversation",
+        "title": "OpenClone: New Conversation Session"
+      },
+      {
+        "command": "openclone.explainSelection",
+        "title": "OpenClone: Explain Selected Code"
+      },
+      {
+        "command": "openclone.debugSelection",
+        "title": "OpenClone: Debug Selected Code"
+      },
+      {
+        "command": "openclone.refactorSelection",
+        "title": "OpenClone: Refactor Selected Code"
+      },
+      {
+        "command": "openclone.generateTests",
+        "title": "OpenClone: Generate Unit Tests"
+      },
+      {
+        "command": "openclone.reviewFile",
+        "title": "OpenClone: Review Active File (EGM)"
+      },
+      {
+        "command": "openclone.inspect",
+        "title": "OpenClone: Inspect Workspace Context"
+      },
+      {
+        "command": "openclone.plan",
+        "title": "OpenClone: Generate Implementation Plan"
+      },
+      {
+        "command": "openclone.run",
+        "title": "OpenClone: Execute Governed Task"
+      },
+      {
+        "command": "openclone.verify",
+        "title": "OpenClone: Run Quality Gates & Verification"
+      },
+      {
+        "command": "openclone.connect",
+        "title": "OpenClone: Manage Runtime Connection"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "openclone.explainSelection",
+          "when": "editorHasSelection",
+          "group": "0_openclone@1"
+        },
+        {
+          "command": "openclone.debugSelection",
+          "when": "editorHasSelection",
+          "group": "0_openclone@2"
+        },
+        {
+          "command": "openclone.refactorSelection",
+          "when": "editorHasSelection",
+          "group": "0_openclone@3"
+        },
+        {
+          "command": "openclone.generateTests",
+          "when": "editorHasSelection",
+          "group": "0_openclone@4"
+        },
+        {
+          "command": "openclone.reviewFile",
+          "when": "editorTextFocus",
+          "group": "0_openclone@5"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "OpenClone",
+      "properties": {
+        "openclone.runtimeMode": {
+          "type": "string",
+          "default": "local",
+          "enum": [
+            "local",
+            "remote"
+          ],
+          "description": "Execution runtime connection target"
+        },
+        "openclone.gatewayUrl": {
+          "type": "string",
+          "default": "http://127.0.0.1:8000",
+          "description": "URL for OpenClone REST Gateway"
+        },
+        "openclone.autoAttachContext": {
+          "type": "boolean",
+          "default": true,
+          "description": "Automatically attach active editor file context to chat prompts"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "package": "vsce package",
+    "test": "node ./test/runTest.js"
+  }
+}

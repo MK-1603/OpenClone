@@ -1,0 +1,54 @@
+{
+  "id": "SEC-007",
+  "name": "trivy",
+  "category": "security",
+  "source": {
+    "type": "git",
+    "url": "https://github.com/aquasecurity/trivy",
+    "parent_url": "https://github.com/aquasecurity/trivy",
+    "subpath": "",
+    "default_branch": "main",
+    "commit": "edf9f5c13d27ba1f6b1bc747f2f41a383dc56dc9",
+    "commit_date": "2026-11-20"
+  },
+  "classification": [
+    "SECURITY_SCANNER",
+    "CLI_TOOL"
+  ],
+  "license": {
+    "spdx_id": "Apache-2.0",
+    "file": "LICENSE",
+    "review_status": "REVIEWED"
+  },
+  "dependencies": [
+    "go modules"
+  ],
+  "capabilities": [
+    "cap-container-cve-scanning",
+    "cap-dependency-audit"
+  ],
+  "integration": {
+    "status": "AVAILABLE",
+    "decision": "OPTIONAL_ADAPTER",
+    "adapter": "integrations/adapters/scanner_gateway.py",
+    "operational_role": "Container image, dependency lockfile, and misconfiguration vulnerability scanner.",
+    "rationale": "Pinned in security/scanners.lock.json for supply-chain assurance.",
+    "verified": true
+  },
+  "distribution": {
+    "included_by_default": false,
+    "optional": true
+  },
+  "tech_stack": {
+    "languages": [
+      "Go"
+    ],
+    "package_managers": [
+      "go modules"
+    ],
+    "entry_points": [],
+    "has_skills": false,
+    "has_cursorrules": false,
+    "has_prompts": false
+  }
+}

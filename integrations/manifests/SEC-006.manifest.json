@@ -1,0 +1,53 @@
+{
+  "id": "SEC-006",
+  "name": "claude-code-security-review",
+  "category": "security",
+  "source": {
+    "type": "git",
+    "url": "https://github.com/anthropics/claude-code-security-review",
+    "parent_url": "https://github.com/anthropics/claude-code-security-review",
+    "subpath": "",
+    "default_branch": "main",
+    "commit": "0c6a49f1fa56a1d472575da86a94dbc1edb78eda",
+    "commit_date": "2026-02-11"
+  },
+  "classification": [
+    "SKILL_SOURCE",
+    "SECURITY_SCANNER"
+  ],
+  "license": {
+    "spdx_id": "MIT",
+    "file": "LICENSE",
+    "review_status": "REVIEWED"
+  },
+  "dependencies": [
+    "None"
+  ],
+  "capabilities": [
+    "cap-pr-security-review-workflow"
+  ],
+  "integration": {
+    "status": "INTEGRATED",
+    "decision": "ADAPTED",
+    "adapter": "domains/14-SECURITY-AND-PRIVACY/PR-SECURITY-REVIEW.md",
+    "operational_role": "Structured security review checklists for pull requests and verification gates.",
+    "rationale": "Adapted into phase 18 verification quality gates.",
+    "verified": true
+  },
+  "distribution": {
+    "included_by_default": false,
+    "optional": true
+  },
+  "tech_stack": {
+    "languages": [
+      "Markdown/Other"
+    ],
+    "package_managers": [
+      "None"
+    ],
+    "entry_points": [],
+    "has_skills": false,
+    "has_cursorrules": false,
+    "has_prompts": false
+  }
+}

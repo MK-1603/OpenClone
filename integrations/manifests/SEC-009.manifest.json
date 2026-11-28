@@ -1,0 +1,57 @@
+{
+  "id": "SEC-009",
+  "name": "skillspector",
+  "category": "security",
+  "source": {
+    "type": "git",
+    "url": "https://github.com/NVIDIA/skillspector",
+    "parent_url": "https://github.com/NVIDIA/skillspector",
+    "subpath": "",
+    "default_branch": "main",
+    "commit": "f9bb13dd1667eb4e7ac97b8ebace3160041ed571",
+    "commit_date": "2026-11-22"
+  },
+  "classification": [
+    "SECURITY_SCANNER",
+    "CLI_TOOL"
+  ],
+  "license": {
+    "spdx_id": "Apache-2.0",
+    "file": "LICENSE",
+    "review_status": "REVIEWED"
+  },
+  "dependencies": [
+    "npm/pnpm/yarn",
+    "pip/poetry/uv"
+  ],
+  "capabilities": [
+    "cap-agent-skill-inspection",
+    "cap-prompt-injection-audit"
+  ],
+  "integration": {
+    "status": "INTEGRATED",
+    "decision": "ADAPTED",
+    "adapter": "domains/30-AGENT-RULES-AND-VERIFICATION/AGENT-SKILL-INSPECTOR.md",
+    "operational_role": "Audits AI skill manifests and tools for malicious prompt injection or unauthorized escalation.",
+    "rationale": "Integrated into skill validation tooling in tools/skill_engine.py.",
+    "verified": true
+  },
+  "distribution": {
+    "included_by_default": false,
+    "optional": true
+  },
+  "tech_stack": {
+    "languages": [
+      "JavaScript/TypeScript",
+      "Python"
+    ],
+    "package_managers": [
+      "npm/pnpm/yarn",
+      "pip/poetry/uv"
+    ],
+    "entry_points": [],
+    "has_skills": true,
+    "has_cursorrules": false,
+    "has_prompts": false
+  }
+}

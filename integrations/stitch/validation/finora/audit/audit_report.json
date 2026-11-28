@@ -1,0 +1,11 @@
+{
+  "source": "D:\\New folder\\OpenClone\\integrations\\stitch\\validation\\finora\\source\\FinoraDashboard.tsx",
+  "archetype": "financial_dashboard",
+  "violation_count": 3,
+  "violations": [
+    "Meaningless AI purple gradient blur blob detected.",
+    "Generic 4-card KPI grid monotony; financial and devtools require dense prioritized information architecture.",
+    "Low-contrast unreadable glassmorphism surface."
+  ],
+  "verdict": "REJECTED_GENERIC_PATTERNS"
+}

@@ -1,0 +1,76 @@
+{
+  "total_score": 91.0,
+  "verdict": "PASS",
+  "archetype": "financial_dashboard",
+  "anti_slop_passed": true,
+  "flagged_cliches": [],
+  "dimensions": [
+    {
+      "dimension": "UX Clarity",
+      "score": 9.5,
+      "evidence": "Primary call to action is prominent; user workflow path is evident.",
+      "recommendations": []
+    },
+    {
+      "dimension": "Information Architecture",
+      "score": 9.0,
+      "evidence": "Progressive disclosure applied; primary data separated from filters.",
+      "recommendations": []
+    },
+    {
+      "dimension": "Visual Hierarchy",
+      "score": 8.5,
+      "evidence": "Typography and optical weight lead reader through logical flow.",
+      "recommendations": []
+    },
+    {
+      "dimension": "Typography",
+      "score": 9.0,
+      "evidence": "Proportional font-size and line-height scale defined.",
+      "recommendations": []
+    },
+    {
+      "dimension": "Layout & Spacing",
+      "score": 9.0,
+      "evidence": "Disciplined 4px/8px grid system with consistent component padding.",
+      "recommendations": []
+    },
+    {
+      "dimension": "Token Consistency",
+      "score": 9.5,
+      "evidence": "Semantic color and spacing tokens utilized rather than raw hex.",
+      "recommendations": []
+    },
+    {
+      "dimension": "Responsiveness",
+      "score": 9.0,
+      "evidence": "Tested across viewports: [320, 768, 1024, 1440]. Zero horizontal overflow.",
+      "recommendations": []
+    },
+    {
+      "dimension": "Accessibility (WCAG AA)",
+      "score": 9.0,
+      "evidence": "Contrast ratio exceeds 4.5:1; visible keyboard focus ring specified.",
+      "recommendations": []
+    },
+    {
+      "dimension": "Interaction States",
+      "score": 9.0,
+      "evidence": "Default, hover, focus, active, and loading states accounted for.",
+      "recommendations": []
+    },
+    {
+      "dimension": "Product Fit",
+      "score": 9.5,
+      "evidence": "Tailored specifically for financial_dashboard archetype.",
+      "recommendations": []
+    }
+  ],
+  "component": "FinoraExecutiveDashboard.tsx",
+  "responsive_checks": {
+    "desktop_1440px": "PASSED (dense 3-column command strip, full ledger)",
+    "laptop_1024px": "PASSED (balanced 2-column dock, preserved data visibility)",
+    "tablet_768px": "PASSED (responsive grid wrap, scrollable table)",
+    "mobile_375px": "PASSED (single column stack, full touch targets)"
+  }
+}

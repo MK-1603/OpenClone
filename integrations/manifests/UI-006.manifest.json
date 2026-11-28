@@ -1,0 +1,55 @@
+{
+  "id": "UI-006",
+  "name": "taste-skill",
+  "category": "ui-ux",
+  "source": {
+    "type": "git",
+    "url": "https://github.com/Leonxlnx/taste-skill",
+    "parent_url": "https://github.com/Leonxlnx/taste-skill",
+    "subpath": "",
+    "default_branch": "main",
+    "commit": "f6b76575f949707b4e3c37cd86cb44b0b98643e8",
+    "commit_date": "2026-11-07"
+  },
+  "classification": [
+    "SKILL_SOURCE",
+    "DESIGN_SYSTEM"
+  ],
+  "license": {
+    "spdx_id": "MIT",
+    "file": "LICENSE",
+    "review_status": "REVIEWED"
+  },
+  "dependencies": [
+    "None"
+  ],
+  "capabilities": [
+    "cap-anti-ai-slop-governance",
+    "cap-design-tokens",
+    "cap-contrast-verification"
+  ],
+  "integration": {
+    "status": "INTEGRATED",
+    "decision": "ADOPTED",
+    "adapter": "skills/taste-skill/scripts/gate.mjs",
+    "operational_role": "Core anti-AI-slop design governance, token library, and pre-build plan gates.",
+    "rationale": "Directly integrated into OpenClone taste-skill governance suite with 13 automated tests.",
+    "verified": true
+  },
+  "distribution": {
+    "included_by_default": false,
+    "optional": true
+  },
+  "tech_stack": {
+    "languages": [
+      "Markdown/Other"
+    ],
+    "package_managers": [
+      "None"
+    ],
+    "entry_points": [],
+    "has_skills": true,
+    "has_cursorrules": false,
+    "has_prompts": false
+  }
+}

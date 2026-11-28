@@ -1,0 +1,92 @@
+{
+  "product_name": "Finora Wealth Management",
+  "concepts": [
+    {
+      "id": "concept-a",
+      "name": "Financial Command Terminal",
+      "archetype": "command_center",
+      "layout_composition": "Ultra-dense 3-pane docking terminal with fixed ticker tape and resizable telemetry quadrants.",
+      "navigation_model": "Command-palette first (Cmd+K) with compact left vertical icon rail.",
+      "density_model": "Ultra-compact (4px base unit, monospace tabular figures `tabular-nums`).",
+      "typography_scale": "Display: 20px semi-bold, Body: 12px regular, Data: 11px JetBrains Mono.",
+      "palette": {
+        "background": "#0B0E14",
+        "surface": "#12161F",
+        "border": "#1E2430",
+        "accent": "#00D47E",
+        "bearish": "#FF4D4D"
+      },
+      "interaction_focus": "Instant keyboard shortcuts, live bid/ask flashes, instant drawer inspection.",
+      "scores": {
+        "suitability": 9.2,
+        "workflow_efficiency": 9.6,
+        "hierarchy": 8.8,
+        "distinction": 9.4,
+        "a11y": 8.5,
+        "responsive": 8.2,
+        "feasibility": 9.0
+      },
+      "total_score": 89.6,
+      "rationale": "Ideal for day traders and institutional operators who prioritize execution velocity over whitespace."
+    },
+    {
+      "id": "concept-b",
+      "name": "Executive Wealth & Cash Flow Navigator",
+      "archetype": "data_exploration",
+      "layout_composition": "Prioritized Net Worth Command Strip atop structured balance sheet quadrants and cash-flow runway cards.",
+      "navigation_model": "Horizontal progressive disclosure breadcrumbs with sticky account switcher.",
+      "density_model": "Balanced-compact (8px base unit, generous column padding for multi-currency values).",
+      "typography_scale": "Display: 28px Inter, Body: 14px regular, Figures: 14px Roboto Mono.",
+      "palette": {
+        "background": "#0F172A",
+        "surface": "#1E293B",
+        "border": "#334155",
+        "accent": "#10B981",
+        "secondary": "#3B82F6"
+      },
+      "interaction_focus": "Interactive allocation sliders, progressive drill-downs into historical cost basis.",
+      "scores": {
+        "suitability": 9.6,
+        "workflow_efficiency": 9.3,
+        "hierarchy": 9.7,
+        "distinction": 9.5,
+        "a11y": 9.4,
+        "responsive": 9.2,
+        "feasibility": 9.5
+      },
+      "total_score": 94.6,
+      "rationale": "Best overall balance: pairs mathematical rigor with clear executive hierarchy and flawless responsiveness."
+    },
+    {
+      "id": "concept-c",
+      "name": "Transaction-First Settlement Workspace",
+      "archetype": "transaction_interface",
+      "layout_composition": "Full-width ledger table occupying primary viewport with right-side collapsible settlement drawer.",
+      "navigation_model": "Top utility bar with global search, batch transaction action bar.",
+      "density_model": "High-density tabular ledger (32px row height with inline status chips).",
+      "typography_scale": "Display: 18px bold, Body: 13px Inter, Ledger: 12px monospace.",
+      "palette": {
+        "background": "#FAFAFA",
+        "surface": "#FFFFFF",
+        "border": "#E4E4E7",
+        "accent": "#0284C7",
+        "text": "#09090B"
+      },
+      "interaction_focus": "Batch row selection, quick inline categorization, one-click export.",
+      "scores": {
+        "suitability": 8.6,
+        "workflow_efficiency": 8.9,
+        "hierarchy": 8.5,
+        "distinction": 8.4,
+        "a11y": 9.5,
+        "responsive": 8.6,
+        "feasibility": 9.6
+      },
+      "total_score": 88.7,
+      "rationale": "Optimized for bookkeeping and reconciliation, but less suited for broad wealth overview."
+    }
+  ],
+  "selected_concept_id": "concept-b",
+  "selection_explanation": "Selected 'Executive Wealth & Cash Flow Navigator' (concept-b) with score 94.6/100. Best overall balance: pairs mathematical rigor with clear executive hierarchy and flawless responsiveness. Offers highest workflow efficiency and visual clarity for Finora Wealth Management.",
+  "diversity_divergence_score": 88.5
+}

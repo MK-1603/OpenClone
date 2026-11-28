@@ -1,0 +1,52 @@
+{
+  "name": "openclone-vscode",
+  "displayName": "OpenClone Universal Engineering",
+  "description": "Governed AI software engineering intelligence for Visual Studio Code",
+  "version": "2.0.0",
+  "publisher": "openclone",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": ["Programming Languages", "Machine Learning", "Testing"],
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "openclone-explorer",
+          "title": "OpenClone",
+          "icon": "resources/icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "openclone-explorer": [
+        {
+          "id": "openclone.planView",
+          "name": "Execution Plan"
+        },
+        {
+          "id": "openclone.workersView",
+          "name": "Workforce & Agents"
+        },
+        {
+          "id": "openclone.ledgerView",
+          "name": "Audit Ledger"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "openclone.inspect",
+        "title": "OpenClone: Inspect Workspace"
+      },
+      {
+        "command": "openclone.plan",
+        "title": "OpenClone: Generate Implementation Plan"
+      },
+      {
+        "command": "openclone.run",
+        "title": "OpenClone: Execute Governed Engineering Task"
+      }
+    ]
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "context_servers": {
+    "openclone": {
+      "command": "oc.exe",
+      "args": ["mcp"],
+      "enabled": true
+    }
+  }
+}
