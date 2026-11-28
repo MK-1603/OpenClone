@@ -42,6 +42,8 @@ from src.openclone.intelligence.clarification import (
 )
 from src.openclone.intelligence.project_intelligence import ProjectIntelligenceArchitect
 from src.openclone.memory.manager import MemoryManager
+from src.openclone.orchestration.master import UniversalMasterOrchestrator
+from src.openclone.orchestration.models import DelegatedTask, OrchestrationMode
 from src.openclone.planning.builder import PlanBuilder
 from src.openclone.runtime.workforce import (
     Ledger,
@@ -73,6 +75,7 @@ class OpenClonePlannerAgent:
         self.autonomous_engine = AutonomousExecutionEngine(self.workspace_root)
         self.clarification_engine = SocraticClarificationEngine()
         self.registered_workers = load_workers()
+        self.master_orchestrator = UniversalMasterOrchestrator(self.workspace_root)
         self._identity_orchestrator = None
         self._devops_orchestrator = None
 
@@ -571,3 +574,41 @@ class OpenClonePlannerAgent:
             frameworks=frameworks,
             category=category,
         )
+
+    # -------------------------------------------------------------------------
+    # 8. Universal Master Engineering Orchestration (Directive OC-UMEO-007)
+    # -------------------------------------------------------------------------
+
+    def discover_ecosystem(self) -> Dict[str, Any]:
+        """Discover and inventory all agents across the 3-level hierarchy."""
+        return self.master_orchestrator.get_agent_inventory()
+
+    def get_capability_map(self) -> Dict[str, Any]:
+        """Return the single-source-of-truth Global Capability Map."""
+        return self.master_orchestrator.get_capability_map()
+
+    def execute_lifecycle_mode(
+        self,
+        mode: str,
+        prompt: str,
+        parameters: Optional[Dict[str, Any]] = None,
+    ) -> Dict[str, Any]:
+        """Execute one of the 11 authorized engineering lifecycle modes."""
+        return self.master_orchestrator.execute_mode(mode, prompt, parameters)
+
+    def delegate_specialist_task(
+        self,
+        task: DelegatedTask,
+        verifier_agent_id: Optional[str] = None,
+    ) -> Dict[str, Any]:
+        """Delegate task to a specialist with cross-agent peer verification."""
+        return self.master_orchestrator.delegate_task(task, verifier_agent_id)
+
+    def run_full_engineering_lifecycle(
+        self,
+        prompt: str,
+        project_name: str = "OpenCloneProject",
+    ) -> Dict[str, Any]:
+        """Coordinate full 10-stage engineering lifecycle."""
+        return self.master_orchestrator.run_full_lifecycle(prompt, project_name)
+
