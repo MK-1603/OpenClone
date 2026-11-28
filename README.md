@@ -455,96 +455,114 @@ OpenClone/
 
 ## 10. Getting Started
 
-### Method 1: Direct Pip Installation (Global CLI)
+### Method 1: Zero-Clone `pip` Package Installation
 
-Install OpenClone globally using `pip`:
+Install OpenClone into any Python environment directly from the canonical GitHub repository:
 
 ```bash
-# Install directly from the canonical GitHub repository
+# Core platform installation (zero-clone)
 pip install git+https://github.com/MK-1603/OpenClone.git
+
+# Or install with optional document parsing dependencies
+pip install "openclone[dev,documents] @ git+https://github.com/MK-1603/OpenClone.git"
 ```
 
-Or install from a pre-compiled wheel downloaded from the official [v1.0.0 GitHub Release](https://github.com/MK-1603/OpenClone/releases/tag/v1.0.0):
+Verify the OpenClone installation:
 
 ```bash
-pip install openclone-1.0.0-py3-none-any.whl
-```
-
-#### Python Package Verification
-
-Verify the OpenClone Core package installation:
-
-```bash
-python -c "import openclone; print(openclone.__version__)"
+python -c "import openclone; print('OpenClone v' + openclone.__version__ + ' active')"
 ```
 
 ---
 
-### Method 2: Global Plugin Installation for AI IDEs
+### Method 2: Universal Redistributable Plugin Package (`.zip`)
 
-Install OpenClone into your preferred AI coding environment:
+For users who want a self-contained plugin bundle with official brand assets, icons, manifests, and adapter configs:
+
+- **Download Plugin ZIP:** [`openclone-plugin-v2.0.0.zip`](https://github.com/MK-1603/OpenClone/raw/main/openclone-plugin-v2.0.0.zip)
+- **Archive Contents:** Contains `plugin.json` manifest, official high-res `logo.png` & `icon.png`, 18 specialized engineering skills, 16 workforce agents, 4 governance rules, master prompt templates, and adapter configurations for Claude, ChatGPT, Cursor, and VS Code.
+
+To rebuild this package locally at any time:
+```bash
+python tools/package_plugin_zip.py
+```
+
+---
+
+### Method 3: Complete Plugin Installation for All AI Tools
+
+OpenClone integrates as a native background plugin across all major AI development tools:
 
 #### 1. Google Antigravity
-
+Install with a single command via the Antigravity CLI:
 ```bash
 agy plugin install https://github.com/MK-1603/OpenClone
 ```
+*Or via Antigravity UI:* Go to **Settings** ➔ **Plugins** ➔ **Install from Archive**, and select `openclone-plugin-v2.0.0.zip`. All 18 skills, 16 agents, and MCP tools are immediately activated.
 
-#### 2. Claude Code
-
-```text
-/plugin marketplace add MK-1603/OpenClone
-/plugin install openclone@openclone-marketplace
-```
-
-#### 3. OpenAI Codex
-
-```bash
-codex plugin marketplace add MK-1603/OpenClone
-```
-
-#### 4. Cursor
-
-Add OpenClone to `.cursor/mcp.json`:
-
-```json
-{
-  "mcpServers": {
-    "openclone": {
-      "command": "python",
-      "args": ["-m", "src.openclone.cli", "mcp"]
+#### 2. Claude Desktop & Claude Code
+* **Claude Code (CLI):** Run:
+  ```bash
+  pip install git+https://github.com/MK-1603/OpenClone.git
+  claude mcp add openclone python -m openclone.mcp.server
+  ```
+* **Claude Desktop (GUI):** Add OpenClone to your `claude_desktop_config.json`:
+  ```json
+  {
+    "mcpServers": {
+      "openclone": {
+        "command": "python",
+        "args": ["-m", "openclone.mcp.server"]
+      }
     }
   }
-}
-```
+  ```
+
+#### 3. ChatGPT (Custom GPT & Actions)
+Connect OpenClone tools to any Custom GPT in ChatGPT:
+1. Open ChatGPT ➔ **Explore GPTs** ➔ **Create a GPT** ➔ **Configure**.
+2. **Name:** `OpenClone Software Architect`
+3. **Instructions:** Copy from [`global/hosts/chatgpt/custom-gpt-instructions.md`](global/hosts/chatgpt/custom-gpt-instructions.md).
+4. **Actions:** Click **Create new action** and import the OpenAPI schema:
+   `https://raw.githubusercontent.com/MK-1603/OpenClone/main/global/hosts/chatgpt/openapi.json`
+5. Save and publish. ChatGPT can now invoke all 22 OpenClone tools over HTTPS/SSE.
+
+#### 4. Cursor & Windsurf
+1. Install OpenClone globally: `pip install git+https://github.com/MK-1603/OpenClone.git`.
+2. In Cursor, open **Settings** ➔ **Features** ➔ **MCP Servers** (or edit `~/.cursor/mcp.json`):
+   ```json
+   {
+     "mcpServers": {
+       "openclone": {
+         "command": "python",
+         "args": ["-m", "openclone.mcp.server"]
+       }
+     }
+   }
+   ```
+3. Copy `adapters/cursor/.cursor/rules/openclone-project-rule.template.mdc` into your target project's `.cursor/rules/` directory.
+
+#### 5. VS Code
+1. Install OpenClone: `pip install git+https://github.com/MK-1603/OpenClone.git`.
+2. Connect OpenClone MCP in your workspace `.vscode/settings.json` or install the OpenClone extension package from [`extensions/vscode/`](extensions/vscode/).
 
 ---
 
-### Method 3: Application Developers (Portable Zero-Install Workflow)
-
-If you are developing an application using ChatGPT, Claude, or Gemini in your browser, **no local installation is required**:
-
-1. **Copy Specification:** Copy [`project/PROJECT.md.template`](project/PROJECT.md.template) into your project root as `PROJECT.md`.
-2. **Execute Master Prompt:** Provide [`framework/prompts/PORTABLE-PROJECT-INTELLIGENCE-MASTER-PROMPT.md`](framework/prompts/PORTABLE-PROJECT-INTELLIGENCE-MASTER-PROMPT.md) and your `PROJECT.md` to ChatGPT or Claude.
-3. **Execute in IDE:** Hand off the generated instruction package (`BUILD_PROMPT.md`, `ACCEPTANCE_MATRIX.md`, `PROGRESS.md`, `HANDOFF.md`) to your AI coding environment.
-
----
-
-### Method 4: Framework Maintainers & Contributors (Local Setup)
+### Method 4: Framework Maintainers & Full Test Suite Execution
 
 ```bash
 # 1. Clone repository
-git clone https://github.com/MK-1603/OpenClone.git
+git clone --depth 1 https://github.com/MK-1603/OpenClone.git
 cd OpenClone
 
 # 2. Install editable package with dev dependencies
 pip install -e ".[dev]"
 
-# 3. Verify repository integrity (56 engines, 31 domains, 100% case-accurate links)
+# 3. Verify repository integrity (56 engines, 31 domains, 0 broken links)
 python tools/validate_repository.py
 
-# 4. Run automated test suite (351 tests)
-pytest tests/
+# 4. Run automated test suite (747 verified tests)
+pytest tests/ -q
 ```
 
 ---
