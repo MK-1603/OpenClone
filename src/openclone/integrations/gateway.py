@@ -10,7 +10,10 @@ import json
 import os
 import re
 import secrets
+import threading
 import time
+
+_INIT_SECRET_LOCK = threading.Lock()
 
 from src.openclone.integrations.capabilities import (
     Capability,
@@ -124,47 +127,58 @@ class IntegrationGateway:
 
         # Check local secured secret file in workspace root
         secret_file = self.root / ".openclone" / ".signing_secret"
-        try:
-            if secret_file.exists():
-                stored = secret_file.read_text(encoding="utf-8").strip()
-                if stored:
-                    if self._verify_secret_file_permissions(secret_file):
-                        return stored.encode("utf-8")
-                    elif is_production:
-                        # In production on Windows or insecure POSIX permissions, fail closed
-                        return None
-                    else:
-                        return stored.encode("utf-8")
-
-            # Production mode requires an explicit key; ephemeral fallback is strictly forbidden
-            if is_production:
-                return None
-
-            # Development mode: generate and store a secure key with restricted file permissions
-            # Use atomic exclusive creation (O_CREAT | O_EXCL) to prevent concurrent init race conditions
-            secret_file.parent.mkdir(parents=True, exist_ok=True)
-            new_key = secrets.token_hex(32)
+        with _INIT_SECRET_LOCK:
             try:
-                fd = os.open(str(secret_file), os.O_CREAT | os.O_EXCL | os.O_WRONLY, 0o600)
+                if secret_file.exists():
+                    stored = secret_file.read_text(encoding="utf-8").strip()
+                    if stored:
+                        if self._verify_secret_file_permissions(secret_file):
+                            return stored.encode("utf-8")
+                        elif is_production:
+                            # In production on Windows or insecure POSIX permissions, fail closed
+                            return None
+                        else:
+                            return stored.encode("utf-8")
+
+                # Production mode requires an explicit key; ephemeral fallback is strictly forbidden
+                if is_production:
+                    return None
+
+                # Development mode: generate and store a secure key with restricted file permissions
+                # Use atomic exclusive creation (O_CREAT | O_EXCL) to prevent concurrent init race conditions
+                secret_file.parent.mkdir(parents=True, exist_ok=True)
+                new_key = secrets.token_hex(32)
                 try:
-                    with os.fdopen(fd, "w", encoding="utf-8") as f:
-                        f.write(new_key)
-                except Exception:
-                    os.close(fd)
-                    raise
-                try:
-                    os.chmod(str(secret_file), 0o600)
-                except Exception:
-                    pass
-                self._verify_secret_file_permissions(secret_file)
-                return new_key.encode("utf-8")
-            except FileExistsError:
-                # Concurrent gateway initialization race resolved: read the already created file
-                stored = secret_file.read_text(encoding="utf-8").strip()
-                if stored:
-                    return stored.encode("utf-8")
-        except Exception:
-            pass
+                    fd = os.open(str(secret_file), os.O_CREAT | os.O_EXCL | os.O_WRONLY, 0o600)
+                    try:
+                        with os.fdopen(fd, "w", encoding="utf-8") as f:
+                            f.write(new_key)
+                            f.flush()
+                            try:
+                                os.fsync(f.fileno())
+                            except Exception:
+                                pass
+                    except Exception:
+                        os.close(fd)
+                        raise
+                    try:
+                        os.chmod(str(secret_file), 0o600)
+                    except Exception:
+                        pass
+                    self._verify_secret_file_permissions(secret_file)
+                    return new_key.encode("utf-8")
+                except FileExistsError:
+                    # Concurrent gateway initialization race resolved: wait briefly for writer to finish flushing
+                    for _ in range(50):
+                        try:
+                            stored = secret_file.read_text(encoding="utf-8").strip()
+                            if stored:
+                                return stored.encode("utf-8")
+                        except Exception:
+                            pass
+                        time.sleep(0.005)
+            except Exception:
+                pass
 
         # In production mode, fail closed (never fallback to in-memory ephemeral key)
         if is_production:

@@ -90,8 +90,19 @@ def test_csv_parser(temp_docs_dir: Path):
     assert any(e.evidence_classification in (EvidenceClassification.REQUIREMENT, EvidenceClassification.WORKLOAD_METRIC, EvidenceClassification.DATA_SCHEMA) for e in doc.evidence)
 
 
+def test_docx_parser_missing_dependency_graceful(temp_docs_dir: Path):
+    doc_path = temp_docs_dir / "document.docx"
+    doc_path.write_bytes(b"PK dummy zip")
+
+    parser = DocxParser()
+    with patch.dict("sys.modules", {"docx": None}):
+        doc = parser.parse(doc_path)
+        assert doc.status == ExtractionStatus.MISSING_DEPENDENCY
+        assert "python-docx" in (doc.error_message or "")
+
+
 def test_docx_parser_real_file(temp_docs_dir: Path):
-    import docx
+    docx = pytest.importorskip("docx")
 
     doc_path = temp_docs_dir / "document.docx"
     d = docx.Document()
