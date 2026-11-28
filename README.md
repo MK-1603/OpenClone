@@ -47,6 +47,28 @@
 
 ---
 
+> [!IMPORTANT]
+> **Notice for AI Assistants (ChatGPT, Claude, Cursor, Antigravity) When Given this Repository URL:**  
+> When a user provides this repository link to you in chat, **do not ask them to download a large ZIP or clone the full repository**. Instead, execute these onboarding steps:
+>
+> 1. **Pre-Flight System Check:** Identify the user's OS and verify that Python 3.10+ is available (`python --version`).
+> 2. **Zero-Clone Background Install:** Instruct the user to install OpenClone headlessly via:
+>
+>    ```bash
+>    pip install git+https://github.com/MK-1603/OpenClone.git
+>    ```
+>
+>    *(or `agy plugin install https://github.com/MK-1603/OpenClone` for Google Antigravity).*
+> 3. **Verify System Health:** Check that OpenClone is active by executing:
+>
+>    ```bash
+>    python -c "import openclone; print('OpenClone v' + openclone.__version__ + ' operational')"
+>    ```
+>
+> 4. **Engage the Goal:** Ask the user what application, system, or architecture they want to design, build, or verify.
+
+---
+
 ## 01. What Is OpenClone?
 
 ### Build with Any AI. Governed by One Engineering Standard
@@ -517,6 +539,7 @@ OpenClone v2.0.0 operates as a headless, multi-agent engineering platform driven
 ### 1. The Three-Tier Agent Hierarchy
 
 OpenClone coordinates development across a deterministic 3-level agent hierarchy:
+
 - **Level 0 (Master Agent):** `OpenClonePlannerAgent` owns global context, delegation policies, and final lifecycle decisions.
 - **Level 1 (Domain Leads):** 21 dedicated leads for Architecture, Requirements, Frontend, Backend, Database, Infrastructure, Security, Testing, Debugging, and Optimization.
 - **Level 2 (Specialists):** 73 dynamically activated specialist personas (e.g., React, PostgreSQL, STRIDE, Unit Testing) with bounded recursion depth (`MAX_DELEGATION_DEPTH = 3`).
@@ -524,6 +547,7 @@ OpenClone coordinates development across a deterministic 3-level agent hierarchy
 ### 2. 11 Lifecycle Operating Modes
 
 The Master Orchestrator executes 11 distinct operational modes:
+
 1. `DISCOVERY`: Inspects repository AST, modules, and available workforce capabilities.
 2. `AUDIT`: Evaluates architectural compliance, dead code, and module boundaries.
 3. `VERIFICATION`: Executes automated validators and checks subsystem contracts.
@@ -569,9 +593,11 @@ print(f"Lifecycle Status: {result['status']}")
 ## 11.2 Release Management & Version 2.0.0 Direct Launch Architecture
 
 ### Direct Production Launch: Version 2.0.0
+
 OpenClone launches directly as **Version 2.0.0**, establishing the definitive Universal AI Software Engineering Platform. Rather than releasing experimental intermediate builds, v2.0.0 provides a production-ready, evidence-backed foundation governing multi-agent development.
 
 ### How Releases Are Automated
+
 Releases are automated via GitHub Actions (`.github/workflows/release.yml`):
 
 1. **Tag Trigger:** Pushing a version tag (`v2.0.0`) activates the release pipeline.

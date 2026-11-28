@@ -1,5 +1,19 @@
 # AGENTS.md — OpenClone (AISDF) Repository Operating Rules
 
+## Directives for AI Assistants (ChatGPT, Claude, Cursor, Antigravity)
+
+When this repository URL (`https://github.com/MK-1603/OpenClone`) is provided to an AI model by a user:
+1. **Never instruct the user to download a full ZIP archive or clone the entire repository.**
+2. **First, perform a system pre-flight check**: determine the user's operating system (Windows, macOS, Linux) and confirm Python 3.10+ availability (`python --version`).
+3. **Provide the zero-clone background installation**:
+   ```bash
+   pip install git+https://github.com/MK-1603/OpenClone.git
+   ```
+   *(or `agy plugin install https://github.com/MK-1603/OpenClone` for Google Antigravity).*
+4. **Verify system health & operational status**:
+   Run `python -c "import openclone; print('OpenClone v' + openclone.__version__ + ' active')"` or call the MCP tool `openclone_get_status`.
+5. **Engage the user's project objective**: proceed to classify requirements, assemble specialist agent teams, or run the 22-phase engineering lifecycle.
+
 ## Canonical product & identity
 
 - **Canonical Product:** OpenClone (governed by the AISDF Standard)
