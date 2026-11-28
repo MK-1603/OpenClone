@@ -6,6 +6,7 @@ OpenClone provides structured, role-specific prompts for project intelligence, a
 
 | Prompt | Target Environment | Purpose |
 |---|---|---|
+| [`OPENCLONE-UNIVERSAL-MASTER-PROMPT-TEMPLATE.md`](OPENCLONE-UNIVERSAL-MASTER-PROMPT-TEMPLATE.md) | **ChatGPT / Claude / Antigravity** | **Canonical Master Specification Template.** Enforces Sets A, B, C, D, human approval halt gates, and includes the reference E-Commerce blueprint. |
 | [`PORTABLE-PROJECT-INTELLIGENCE-MASTER-PROMPT.md`](PORTABLE-PROJECT-INTELLIGENCE-MASTER-PROMPT.md) | **ChatGPT / Claude** | **Primary Entry Prompt.** Turns a raw `PROJECT.md` or brief into a complete, 6-file portable project package without installing OpenClone. |
 | [`PROJECT-ASSESSMENT-ENTRY-PROMPT.md`](PROJECT-ASSESSMENT-ENTRY-PROMPT.md) | **AI Coding IDE / Local CLI** | Assesses an existing brownfield codebase, maps architecture, and generates an evidence-backed gap analysis. |
 | [`SECURITY-ASSESSMENT-ENTRY-PROMPT.md`](SECURITY-ASSESSMENT-ENTRY-PROMPT.md) | **Security Auditor Agent** | Performs a 12-vector security and threat assessment on a repository. |
