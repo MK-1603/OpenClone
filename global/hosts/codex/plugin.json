@@ -1,0 +1,13 @@
+{
+  "name": "openclone-engineering",
+  "displayName": "OpenClone Engineering",
+  "version": "1.0.0",
+  "description": "Universal AI software engineering framework with specialist agents, 22-phase lifecycle checklists, anti-AI-slop governance, 19-point SaaS security baseline, and independent verification.",
+  "author": "OpenClone Contributors",
+  "license": "MIT",
+  "skills": ["skills/taste-skill"],
+  "mcp": {
+    "command": "python",
+    "args": ["-m", "src.openclone.cli", "mcp"]
+  }
+}

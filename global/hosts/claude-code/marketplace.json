@@ -1,0 +1,13 @@
+{
+  "name": "openclone-marketplace",
+  "displayName": "OpenClone Marketplace",
+  "description": "Official marketplace source for OpenClone engineering plugins.",
+  "plugins": [
+    {
+      "name": "openclone",
+      "version": "1.0.0",
+      "description": "OpenClone Universal AI Software Engineering Framework",
+      "path": "./adapters/claude-code"
+    }
+  ]
+}

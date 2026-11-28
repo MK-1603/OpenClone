@@ -1,0 +1,24 @@
+{
+  "$schema": "https://antigravity.google/schemas/v1/plugin.json",
+  "name": "openclone-spec-driven-engineering",
+  "displayName": "OpenClone Spec-Driven Engineering",
+  "version": "1.0.0",
+  "description": "OpenClone universal spec-driven engineering and governance plugin",
+  "suggestedPrompts": [
+    "Classify and route project requirements using Universal Project Intelligence.",
+    "Run OpenClone WF-001 to initialize a new governed project.",
+    "Draft an OpenClone design specification and stop for approval.",
+    "Run an independent design review using isolated reviewers (Goldfish protocol).",
+    "Audit this interface for visual AI-slop using Taste Skill.",
+    "Prepare this user application for deployment using WF-014."
+  ],
+  "mcpServers": {
+    "openclone": {
+      "command": "python",
+      "args": [
+        "-m",
+        "src.openclone.mcp.server"
+      ]
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "openclone": {
+      "command": "python",
+      "args": ["-m", "src.openclone.mcp.server"],
+      "description": "OpenClone Universal AI Software Engineering Framework MCP Server"
+    }
+  }
+}
