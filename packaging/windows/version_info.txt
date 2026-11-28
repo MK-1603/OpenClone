@@ -1,0 +1,37 @@
+# UTF-8
+#
+# Version resource definition for OpenClone Windows Executable (oc.exe)
+#
+VSVersionInfo(
+  ffi=FixedFileInfo(
+    filevers=(2, 0, 0, 0),
+    prodvers=(2, 0, 0, 0),
+    mask=0x3f,
+    flags=0x0,
+    OS=0x40004,
+    fileType=0x1,
+    subtype=0x0,
+    date=(0, 0)
+  ),
+  kids=[
+    StringFileInfo(
+      [
+        StringTable(
+          '040904B0',
+          [
+            StringStruct('CompanyName', 'OpenClone Contributors'),
+            StringStruct('FileDescription', 'OpenClone Universal AI Engineering Platform'),
+            StringStruct('FileVersion', '2.0.0.0'),
+            StringStruct('InternalName', 'oc'),
+            StringStruct('LegalCopyright', 'Copyright (c) 2026 OpenClone Contributors. Licensed under MIT.'),
+            StringStruct('OriginalFilename', 'oc.exe'),
+            StringStruct('ProductName', 'OpenClone'),
+            StringStruct('ProductVersion', '2.0.0.0'),
+            StringStruct('Comments', 'Universal AI Engineering Platform & CLI')
+          ]
+        )
+      ]
+    ),
+    VarFileInfo([VarStruct('Translation', [1033, 1200])])
+  ]
+)
