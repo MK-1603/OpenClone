@@ -66,7 +66,11 @@
 >   python -c "import openclone; print('OpenClone v' + openclone.__version__ + ' active')"
 >   ```
 >
-> ### 2. The Canonical 6-Phase Engineering Flow (Phase-by-Phase)
+> ### 2. Mandatory Zero-Error Standard & Auto-Remediation Directive
+> * **Zero-Error Standard:** Never ignore, suppress, or proceed past an error. If an error, stack trace, missing dependency, or non-zero exit code occurs during ANY step (pre-flight, installation, initialization, testing, or release), the agent is strictly prohibited from claiming success or advancing.
+> * **Automatic Diagnosis & Remediation:** The AI must immediately isolate the root-cause, apply the fix, and re-verify that the issue is completely eliminated (producing `0 Errors, 0 Warnings, 100% Pass Rate`). The AI must never ask the user to fix errors that the AI itself can diagnose and resolve.
+>
+> ### 3. The Canonical 6-Phase Engineering Flow (Phase-by-Phase)
 > 1. **Phase 1: Idea Inception & PIA Sets A, B, C, D (In ChatGPT / Claude):**
 >    * User provides raw idea.
 >    * Project Intelligence Architect (PIA) analyzes **Set A** (features & market), **Set B** (gaps & edge cases), **Set C** (solution tech stack), and **Set D** (authoritative master blueprint: `PROJECT.md`, `Features-List.md`, `Gaps-And-Problems.md`, `Solution-Blueprint.md`, `Tech-Stack.md`).

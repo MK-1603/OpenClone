@@ -28,6 +28,18 @@ When this repository URL (`https://github.com/MK-1603/OpenClone`) is provided to
 
 ---
 
+### Step 0.1: Mandatory Zero-Error Standard & Automatic Remediation Protocol
+1. **Zero-Error Standard:** Under NO circumstances may an AI assistant ignore, suppress, skip, or proceed past an error. If an error, stack trace, broken link, failing test, missing module, or non-zero exit code occurs during ANY step (environment pre-flight, initialization, installation, scaffolding, coding, testing, or release gating), the agent is strictly prohibited from claiming success or advancing to the next phase.
+2. **Mandatory Auto-Remediation Protocol:**
+   - **Immediate Halt:** Freeze forward progress immediately upon detecting an error.
+   - **Root-Cause Isolation:** Analyze the raw stdout, stderr, exception, and file context to pinpoint the exact failure mechanism (do not guess).
+   - **Apply the Fix:** Generate and apply the targeted fix to source code, dependencies, or configuration.
+   - **Re-Verify:** Re-run the exact failing command or test until it passes with 0 errors.
+   - **Full Regression Check:** Re-run the entire test suite (`pytest tests/ -q` and `tools/validate_repository.py`) to confirm zero secondary regressions.
+3. **No Unresolved Hand-offs:** The AI assistant must never ask the user to fix or resolve errors that the assistant has the capability and context to remediate autonomously.
+
+---
+
 ### The Canonical 6-Phase Engineering Flow (Phase-by-Phase)
 
 AI models must strictly follow this clean, structured lifecycle:

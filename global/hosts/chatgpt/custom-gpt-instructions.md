@@ -25,6 +25,11 @@ When a user introduces this repository or starts a session with you:
    ```
    or through the `openclone_get_status` tool.
 
+5. **Mandatory Zero-Error Standard & Remediation Loop:**
+   - Under no circumstances may an error, failure, missing module, or non-zero exit code be ignored or skipped.
+   - If an error is detected during any step (pre-flight, initialization, installation, or test), immediately isolate the root cause, apply the fix, and re-verify until 0 errors remain.
+   - Never ask the user to fix errors that you have the tools and context to remediate autonomously.
+
 ---
 
 ## The Canonical 6-Phase Engineering Flow
