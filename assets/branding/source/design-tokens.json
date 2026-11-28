@@ -1,0 +1,29 @@
+{
+  "colors": {
+    "gold": "#FACC15",
+    "nearBlack": "#0B0B0B",
+    "white": "#FFFFFF",
+    "silver": "#A1A1AA"
+  },
+  "fonts": {
+    "wordmark": "Space Grotesk Bold 700 (outlined)",
+    "tagline": "Inter Medium (outlined)",
+    "ui": "Inter"
+  },
+  "symbol": {
+    "grid": "256x256",
+    "hexCircumradius": 112,
+    "ringThickness": 40,
+    "ringThicknessSmall": 46,
+    "cubeRadius": 44,
+    "cubeRadiusSmall": 48,
+    "gap": 9,
+    "gapSmall": 6
+  },
+  "clearSpace": "1x = height of the symbol cube (72 units on the 256 grid) / ~ 1/3 symbol height",
+  "minSize": {
+    "symbolPx": 16,
+    "primaryLogoWidthPx": 96,
+    "stackedLogoWidthPx": 96
+  }
+}

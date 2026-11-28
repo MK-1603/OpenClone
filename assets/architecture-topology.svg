@@ -1,0 +1,159 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 480" width="100%" height="100%">
+  <defs>
+    <linearGradient id="canvasGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#090d16"/>
+      <stop offset="100%" stop-color="#0b1120"/>
+    </linearGradient>
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="blueAccent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="100%" stop-color="#6366f1"/>
+    </linearGradient>
+    <linearGradient id="greenAccent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#10b981"/>
+      <stop offset="100%" stop-color="#059669"/>
+    </linearGradient>
+    <linearGradient id="purpleAccent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#c084fc"/>
+      <stop offset="100%" stop-color="#8b5cf6"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="960" height="480" rx="16" fill="url(#canvasGrad)"/>
+  <rect x="0.5" y="0.5" width="959" height="479" rx="15.5" fill="none" stroke="#1e293b" stroke-width="1"/>
+
+  <!-- Title Header -->
+  <text x="480" y="38" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, sans-serif" font-size="18" font-weight="700" letter-spacing="1" fill="#f8fafc">
+    OPENCLONE ARCHITECTURAL TOPOLOGY &amp; CONTROL PLANE
+  </text>
+  <text x="480" y="58" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, sans-serif" font-size="12" fill="#64748b">
+    Decoupled Deterministic Governance · Shared Model Context Protocol · 31 Engineering Domains
+  </text>
+
+  <!-- LAYER 1: HOSTS -->
+  <g transform="translate(40, 80)">
+    <rect width="880" height="70" rx="10" fill="url(#cardGrad)" stroke="#334155" stroke-width="1"/>
+    <text x="20" y="24" font-family="-apple-system, sans-serif" font-size="11" font-weight="700" fill="#38bdf8" letter-spacing="1">LAYER 1 · MULTI-IDE &amp; CHATBOT HOST INTEGRATIONS</text>
+    
+    <!-- Badges for 5 hosts -->
+    <g transform="translate(20, 32)">
+      <rect width="155" height="28" rx="6" fill="#0f172a" stroke="#475569" stroke-width="1"/>
+      <text x="77" y="18" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="600" fill="#f8fafc">Google Antigravity</text>
+    </g>
+    <g transform="translate(190, 32)">
+      <rect width="155" height="28" rx="6" fill="#0f172a" stroke="#475569" stroke-width="1"/>
+      <text x="77" y="18" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="600" fill="#f8fafc">Claude Code CLI</text>
+    </g>
+    <g transform="translate(360, 32)">
+      <rect width="155" height="28" rx="6" fill="#0f172a" stroke="#475569" stroke-width="1"/>
+      <text x="77" y="18" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="600" fill="#f8fafc">Cursor Composer</text>
+    </g>
+    <g transform="translate(530, 32)">
+      <rect width="155" height="28" rx="6" fill="#0f172a" stroke="#475569" stroke-width="1"/>
+      <text x="77" y="18" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="600" fill="#f8fafc">OpenAI Codex</text>
+    </g>
+    <g transform="translate(700, 32)">
+      <rect width="155" height="28" rx="6" fill="#0f172a" stroke="#475569" stroke-width="1"/>
+      <text x="77" y="18" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="600" fill="#f8fafc">ChatGPT Remote MCP</text>
+    </g>
+  </g>
+
+  <!-- Connectors -->
+  <line x1="480" y1="150" x2="480" y2="175" stroke="#38bdf8" stroke-width="2" stroke-dasharray="4,4"/>
+
+  <!-- LAYER 2: SHARED MCP SERVICE -->
+  <g transform="translate(40, 175)">
+    <rect width="880" height="75" rx="10" fill="url(#cardGrad)" stroke="#38bdf8" stroke-width="1.5"/>
+    <text x="20" y="24" font-family="-apple-system, sans-serif" font-size="11" font-weight="700" fill="#818cf8" letter-spacing="1">LAYER 2 · SHARED OPENCLONE MCP SERVICE (JSON-RPC 2.0 stdio &amp; SSE)</text>
+    
+    <!-- 7 MCP Tools -->
+    <g transform="translate(20, 34)">
+      <rect width="112" height="26" rx="5" fill="#1e1b4b" stroke="#6366f1" stroke-width="1"/>
+      <text x="56" y="17" text-anchor="middle" font-family="monospace" font-size="9" font-weight="600" fill="#c7d2fe">get_status</text>
+    </g>
+    <g transform="translate(142, 34)">
+      <rect width="112" height="26" rx="5" fill="#1e1b4b" stroke="#6366f1" stroke-width="1"/>
+      <text x="56" y="17" text-anchor="middle" font-family="monospace" font-size="9" font-weight="600" fill="#c7d2fe">search_knowledge</text>
+    </g>
+    <g transform="translate(264, 34)">
+      <rect width="112" height="26" rx="5" fill="#1e1b4b" stroke="#6366f1" stroke-width="1"/>
+      <text x="56" y="17" text-anchor="middle" font-family="monospace" font-size="9" font-weight="600" fill="#c7d2fe">explain_concept</text>
+    </g>
+    <g transform="translate(386, 34)">
+      <rect width="112" height="26" rx="5" fill="#1e1b4b" stroke="#6366f1" stroke-width="1"/>
+      <text x="56" y="17" text-anchor="middle" font-family="monospace" font-size="9" font-weight="600" fill="#c7d2fe">run_workflow</text>
+    </g>
+    <g transform="translate(508, 34)">
+      <rect width="112" height="26" rx="5" fill="#1e1b4b" stroke="#6366f1" stroke-width="1"/>
+      <text x="56" y="17" text-anchor="middle" font-family="monospace" font-size="9" font-weight="600" fill="#c7d2fe">validate_project</text>
+    </g>
+    <g transform="translate(630, 34)">
+      <rect width="112" height="26" rx="5" fill="#1e1b4b" stroke="#6366f1" stroke-width="1"/>
+      <text x="56" y="17" text-anchor="middle" font-family="monospace" font-size="9" font-weight="600" fill="#c7d2fe">get_guidance</text>
+    </g>
+    <g transform="translate(752, 34)">
+      <rect width="112" height="26" rx="5" fill="#1e1b4b" stroke="#6366f1" stroke-width="1"/>
+      <text x="56" y="17" text-anchor="middle" font-family="monospace" font-size="9" font-weight="600" fill="#c7d2fe">list_capabilities</text>
+    </g>
+  </g>
+
+  <!-- Connectors -->
+  <line x1="480" y1="250" x2="480" y2="275" stroke="#818cf8" stroke-width="2" stroke-dasharray="4,4"/>
+
+  <!-- LAYER 3: DETERMINISTIC CONTROL PLANE -->
+  <g transform="translate(40, 275)">
+    <rect width="880" height="75" rx="10" fill="url(#cardGrad)" stroke="#334155" stroke-width="1"/>
+    <text x="20" y="24" font-family="-apple-system, sans-serif" font-size="11" font-weight="700" fill="#10b981" letter-spacing="1">LAYER 3 · DETERMINISTIC LOCAL CONTROL PLANE (openclone.py / aisdf.py)</text>
+    
+    <g transform="translate(20, 34)">
+      <rect width="195" height="28" rx="6" fill="#064e3b" stroke="#059669" stroke-width="1"/>
+      <text x="97" y="18" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="600" fill="#d1fae5">Task Lifecycle State Machine</text>
+    </g>
+    <g transform="translate(235, 34)">
+      <rect width="195" height="28" rx="6" fill="#064e3b" stroke="#059669" stroke-width="1"/>
+      <text x="97" y="18" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="600" fill="#d1fae5">Cycle-Free Dependency DAG</text>
+    </g>
+    <g transform="translate(450, 34)">
+      <rect width="195" height="28" rx="6" fill="#064e3b" stroke="#059669" stroke-width="1"/>
+      <text x="97" y="18" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="600" fill="#d1fae5">SHA-256 Approval Binding</text>
+    </g>
+    <g transform="translate(665, 34)">
+      <rect width="195" height="28" rx="6" fill="#064e3b" stroke="#059669" stroke-width="1"/>
+      <text x="97" y="18" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="600" fill="#d1fae5">Hash-Chained SQLite Ledger</text>
+    </g>
+  </g>
+
+  <!-- Connectors -->
+  <line x1="480" y1="350" x2="480" y2="375" stroke="#10b981" stroke-width="2" stroke-dasharray="4,4"/>
+
+  <!-- LAYER 4: KNOWLEDGE & WORKFORCE -->
+  <g transform="translate(40, 375)">
+    <rect width="880" height="75" rx="10" fill="url(#cardGrad)" stroke="#334155" stroke-width="1"/>
+    <text x="20" y="24" font-family="-apple-system, sans-serif" font-size="11" font-weight="700" fill="#c084fc" letter-spacing="1">LAYER 4 · KNOWLEDGE REPOSITORY &amp; SPECIALIST WORKFORCE</text>
+    
+    <g transform="translate(20, 34)">
+      <rect width="155" height="28" rx="6" fill="#3b0764" stroke="#9333ea" stroke-width="1"/>
+      <text x="77" y="18" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="600" fill="#f3e8ff">31 Engineering Domains</text>
+    </g>
+    <g transform="translate(190, 34)">
+      <rect width="155" height="28" rx="6" fill="#3b0764" stroke="#9333ea" stroke-width="1"/>
+      <text x="77" y="18" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="600" fill="#f3e8ff">56 Capability Engines</text>
+    </g>
+    <g transform="translate(360, 34)">
+      <rect width="155" height="28" rx="6" fill="#3b0764" stroke="#9333ea" stroke-width="1"/>
+      <text x="77" y="18" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="600" fill="#f3e8ff">14 Executable Workflows</text>
+    </g>
+    <g transform="translate(530, 34)">
+      <rect width="155" height="28" rx="6" fill="#3b0764" stroke="#9333ea" stroke-width="1"/>
+      <text x="77" y="18" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="600" fill="#f3e8ff">72 Specialist Roles</text>
+    </g>
+    <g transform="translate(700, 34)">
+      <rect width="155" height="28" rx="6" fill="#3b0764" stroke="#9333ea" stroke-width="1"/>
+      <text x="77" y="18" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="600" fill="#f3e8ff">Taste Skill v2.6.0</text>
+    </g>
+  </g>
+</svg>
