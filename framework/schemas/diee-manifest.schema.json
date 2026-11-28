@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://openclone.dev/schemas/diee-manifest.schema.json",
+  "title": "OpenClone DIEE Release Governance Manifest Schema",
+  "description": "Cryptographically verifiable manifest linking requirements, WFE floorplans, token contracts, component inventory, and visual QA test evidence.",
+  "type": "object",
+  "required": [
+    "manifest_id",
+    "project_name",
+    "version",
+    "timestamp",
+    "floorplan",
+    "design_tokens",
+    "components_used",
+    "verification_gates"
+  ],
+  "properties": {
+    "manifest_id": {
+      "type": "string",
+      "pattern": "^DIEE-[A-Z0-9_-]+$"
+    },
+    "project_name": { "type": "string" },
+    "version": { "type": "string" },
+    "timestamp": { "type": "string", "format": "date-time" },
+    "floorplan": {
+      "type": "object",
+      "required": ["floorplan_id", "status"],
+      "properties": {
+        "floorplan_id": { "type": "string" },
+        "status": { "type": "string", "enum": ["READY", "DRAFT", "REJECTED"] }
+      }
+    },
+    "design_tokens": {
+      "type": "object",
+      "required": ["theme_mode", "contrast_scrim_verified"],
+      "properties": {
+        "theme_mode": { "type": "string", "enum": ["dark_luxury", "glassmorphic", "light_minimal"] },
+        "contrast_scrim_verified": { "type": "boolean" }
+      }
+    },
+    "components_used": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["component_id", "family", "name"],
+        "properties": {
+          "component_id": { "type": "string", "pattern": "^C-\\d{4}$" },
+          "family": { "type": "string" },
+          "name": { "type": "string" },
+          "skeleton_implemented": { "type": "boolean" }
+        }
+      }
+    },
+    "verification_gates": {
+      "type": "object",
+      "required": ["wcag_aaa_pass", "playwright_snapshots_pass", "zero_overflow_pass"],
+      "properties": {
+        "wcag_aaa_pass": { "type": "boolean" },
+        "playwright_snapshots_pass": { "type": "boolean" },
+        "zero_overflow_pass": { "type": "boolean" },
+        "axe_core_violations_count": { "type": "integer", "default": 0 }
+      }
+    }
+  }
+}

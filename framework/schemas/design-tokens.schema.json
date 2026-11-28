@@ -1,0 +1,92 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://openclone.dev/schemas/design-tokens.schema.json",
+  "title": "OpenClone Universal Design Tokens Schema (W3C DTCG Format)",
+  "description": "Validates semantic design tokens across colors, typography, spacing, elevations, and motion curves in alignment with W3C DTCG standards.",
+  "type": "object",
+  "required": ["color", "typography", "spacing", "elevation", "motion"],
+  "properties": {
+    "color": {
+      "type": "object",
+      "required": ["surface", "text", "border", "brand", "status"],
+      "properties": {
+        "surface": {
+          "type": "object",
+          "properties": {
+            "base": { "type": "string" },
+            "layer_1": { "type": "string" },
+            "layer_2": { "type": "string" },
+            "overlay": { "type": "string" }
+          }
+        },
+        "text": {
+          "type": "object",
+          "properties": {
+            "primary": { "type": "string" },
+            "secondary": { "type": "string" },
+            "muted": { "type": "string" },
+            "contrast_ratio_min": { "type": "number", "minimum": 4.5 }
+          }
+        },
+        "border": {
+          "type": "object",
+          "properties": {
+            "subtle": { "type": "string" },
+            "specular": { "type": "string" },
+            "focus": { "type": "string" }
+          }
+        },
+        "brand": { "type": "object" },
+        "status": {
+          "type": "object",
+          "properties": {
+            "success": { "type": "string" },
+            "warning": { "type": "string" },
+            "destructive": { "type": "string" },
+            "info": { "type": "string" }
+          }
+        }
+      }
+    },
+    "typography": {
+      "type": "object",
+      "required": ["font_family", "scale", "line_height"],
+      "properties": {
+        "font_family": {
+          "type": "object",
+          "properties": {
+            "sans": { "type": "string" },
+            "mono": { "type": "string" },
+            "display": { "type": "string" }
+          }
+        },
+        "scale": { "type": "object" },
+        "line_height": { "type": "object" }
+      }
+    },
+    "spacing": {
+      "type": "object",
+      "required": ["baseline_grid_px", "scale"],
+      "properties": {
+        "baseline_grid_px": { "type": "integer", "enum": [4, 8] },
+        "scale": { "type": "object" }
+      }
+    },
+    "elevation": {
+      "type": "object",
+      "required": ["levels"],
+      "properties": {
+        "levels": { "type": "object" }
+      }
+    },
+    "motion": {
+      "type": "object",
+      "required": ["duration", "easing", "spring"],
+      "properties": {
+        "duration": { "type": "object" },
+        "easing": { "type": "object" },
+        "spring": { "type": "object" }
+      }
+    }
+  }
+}

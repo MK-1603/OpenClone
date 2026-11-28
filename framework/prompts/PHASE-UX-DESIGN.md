@@ -44,6 +44,8 @@ You must strictly enforce **Modern 2026 UI Craftsmanship**:
   - Form Fields with inline validation and ARIA live regions
 
 ## 4. Governance & Verification
-- Produce SVG wireframes or structured layout blueprints.
-- Verify every color hex code against contrast formulas before outputting.
-- Log design tokens in `Solution-Blueprint.md` and notify the Frontend Engineer.
+- **Website Floorplan Engine (WFE):** Compile all routes through `framework/domains/05-UX-UI-ENGINEERING/WEBSITE-FLOORPLAN-ENGINE.md` to produce a validated `floorplan.json` conforming to `website-floorplan.schema.json`.
+- **Component Intelligence Selection:** Select all primitives from `framework/registries/COMPONENT-REGISTRY.md` and implement conforming to `framework/blueprints/component-families/`.
+- **Resilient State Guarantee:** Enforce `framework/domains/05-UX-UI-ENGINEERING/SKELETONS-AND-RESILIENT-STATES.md` with layout-matched shimmer loaders for all 20 component families.
+- **Visual & Accessibility Verification:** Verify WCAG 2.2 AAA (7:1 contrast, 44px targets) and export Playwright visual snapshot fixtures conforming to `VISUAL-QA-TESTING-PROTOCOL.md`.
+- **Cryptographic Gate:** Emit `DIEE-MANIFEST.json` and obtain human approval before handoff to code scaffold.
