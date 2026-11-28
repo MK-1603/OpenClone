@@ -10,7 +10,7 @@ AI-generated interfaces often look unmistakably generic. When asked to create a 
 | Design Dimension | Generic AI Slop (What We Reject) | Human-Crafted Excellence (What We Enforce) |
 |---|---|---|
 | **Color Palettes** | Default indigo/purple gradients (`#6366f1` to `#a855f7`) on dark backgrounds everywhere. | Palettes tailored to the specific industry and trade (coffee shop gets warm umber and raw cream; dev tool gets obsidian with terminal amber). |
-| **Surfaces & Cards** | Identical `backdrop-filter: blur(12px)` translucent cards with rounded-2xl borders across every section. | Structured 5-tier elevation hierarchy (Base, S1, S2, Elevated, Modal) with clear visual purpose. |
+| **Surfaces & Cards** | Generic, illegible 2024 translucent cards with unmanaged text contrast and rounded-2xl cartoon borders. | **Precision 2026 Glassmorphism & Dark Luxury:** Obsidian neutral ground (`#09090b`), multi-stop backdrop blur (`blur-20px saturate-180%`), 1px top-edge specular highlights, and 7:1 WCAG contrast scrims. |
 | **Backgrounds** | Random, floating amorphous gradient blobs (`blur(100px)`) drifting aimlessly behind content. | Solid, intentional background tones or subtle architectural grids and quiet SVG ground patterns. |
 | **Typography** | Generic sans-serif with massive, low-contrast headings and two-word buzzword titles ("Unleash Potential"). | Scaled modular typography (Major Third) with plain, concrete, truthful copywriting ("Track API latency in real time"). |
 | **Icons & Imagery** | Decorative 3D cartoon icons, floating glowing orbs, and fake generated product mockups. | Genuine vector brand marks, authentic interface fragments (real code diffs, real pipeline boards), and credited archive photographs. |
