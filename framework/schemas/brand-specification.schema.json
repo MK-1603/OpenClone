@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://openclone.org/schemas/brand-specification.schema.json",
+  "title": "OpenClone Brand Specification Schema",
+  "description": "Schema governing brand brief discovery inputs, strategic positioning, and visual identity attributes.",
+  "type": "object",
+  "required": [
+    "brand_name",
+    "category",
+    "purpose",
+    "target_audience",
+    "positioning",
+    "personality_traits",
+    "brand_values"
+  ],
+  "properties": {
+    "brand_name": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Canonical name of the brand or software product."
+    },
+    "category": {
+      "type": "string",
+      "description": "Business or product domain classification."
+    },
+    "purpose": {
+      "type": "string",
+      "description": "Core mission and purpose statement."
+    },
+    "target_audience": {
+      "type": "string",
+      "description": "Primary intended user persona and market segment."
+    },
+    "positioning": {
+      "type": "string",
+      "description": "Value proposition and market positioning statement."
+    },
+    "personality_traits": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1,
+      "description": "Distinctive brand personality attributes."
+    },
+    "brand_values": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1,
+      "description": "Guiding principles and non-negotiable standards."
+    },
+    "competitors_and_references": {
+      "type": "array",
+      "items": { "type": "string" },
+      "default": []
+    },
+    "visual_preferences": {
+      "type": "array",
+      "items": { "type": "string" },
+      "default": []
+    },
+    "design_restrictions": {
+      "type": "array",
+      "items": { "type": "string" },
+      "default": []
+    },
+    "primary_environments": {
+      "type": "array",
+      "items": { "type": "string" },
+      "default": ["web", "mobile", "print"]
+    }
+  },
+  "additionalProperties": false
+}

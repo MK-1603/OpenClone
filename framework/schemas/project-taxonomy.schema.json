@@ -1,0 +1,162 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://openclone.dev/schemas/project-taxonomy.schema.json",
+  "title": "OpenClone Universal Project Taxonomy",
+  "type": "object",
+  "required": [
+    "version",
+    "updated_at",
+    "complexity_levels",
+    "delivery_targets",
+    "maturity_levels",
+    "families"
+  ],
+  "properties": {
+    "version": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+    },
+    "updated_at": {
+      "type": "string"
+    },
+    "complexity_levels": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "MINI",
+          "SMALL",
+          "MEDIUM",
+          "LARGE",
+          "ENTERPRISE",
+          "RESEARCH_EXPERIMENTAL"
+        ]
+      }
+    },
+    "delivery_targets": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "web_browser",
+          "android",
+          "ios",
+          "windows",
+          "macos",
+          "linux",
+          "containers_cloud",
+          "on_premises",
+          "embedded_hardware",
+          "edge_devices",
+          "virtual_machines",
+          "bootable_media_iso"
+        ]
+      }
+    },
+    "maturity_levels": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "PROPOSED",
+          "SPECIFIED",
+          "IMPLEMENTED",
+          "TESTED",
+          "VERIFIED",
+          "OPERATIONAL"
+        ]
+      }
+    },
+    "families": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "description",
+          "types"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z_]+$"
+          },
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "types": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id",
+                "name",
+                "description",
+                "default_domains",
+                "mandatory_capabilities",
+                "status"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "pattern": "^[a-z0-9_-]+$"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "default_domains": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "mandatory_capabilities": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "conditional_capabilities": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "typical_delivery_targets": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "recommended_workforce": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "status": {
+                  "type": "string",
+                  "enum": [
+                    "PROPOSED",
+                    "SPECIFIED",
+                    "IMPLEMENTED",
+                    "TESTED",
+                    "VERIFIED",
+                    "OPERATIONAL"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
