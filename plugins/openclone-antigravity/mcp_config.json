@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "openclone": {
+      "command": "oc.exe",
+      "args": ["mcp"],
+      "description": "OpenClone Universal Engineering MCP Server"
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "name": "openclone",
+  "version": "2.0.0",
+  "description": "OpenClone Universal AI Engineering Platform: Autonomous execution engine, 31 domains, 56 capability engines, and workforce governance.",
+  "author": "OpenClone Contributors",
+  "homepage": "https://github.com/MK-1603/OpenClone",
+  "logo": "assets/logo.svg",
+  "suggestedPrompts": [
+    "Inspect project architecture and git status with OpenClone",
+    "Generate a governed task execution plan for this feature",
+    "Run governed task execution with tamper-evident audit ledger",
+    "Review quality gates and verification scorecard"
+  ]
+}

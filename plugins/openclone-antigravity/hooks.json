@@ -1,0 +1,10 @@
+{
+  "hooks": [
+    {
+      "name": "openclone-session-audit",
+      "event": "SessionStart",
+      "command": "oc.exe inspect --json",
+      "description": "Perform non-destructive repository and git context audit on session start."
+    }
+  ]
+}
